@@ -13,21 +13,15 @@ class Player(object):
         self.inventory = []
 
     def inventory_check(self):
-        print "You're holding:"
-        for thing in self.inventory:
-            print "\n%s" % (thing.name)
+        if self.inventory == []: print "You're not holding anything!"
+        else:
+            print "You're holding:"
+            for thing in self.inventory:
+                print "\n%s" % (thing)
 
     def move(self, direction):
         self.location = self.location.directions[direction] #not sure if this is going to work
         self.location.describe()
-
-    def take(self, item):
-        print "You take the %s." % (item.name)
-        self.inventory += item.name
-
-    def drop(self, item):
-        print "You drop the %s." % (item.name)
-        self.inventory -= item.name
 
 
 class Item(object):
@@ -37,6 +31,16 @@ class Item(object):
 
     def examine(self):
         print self.description
+
+    def take(self):
+        player.inventory.append(self.name)
+        player.location.inventory.remove(self.name)
+        print "You take the %s." % (self.name)
+
+    def drop(self):
+        player.inventory.remove(self.name)
+        player.location.inventory.append(self.name)
+        print "You drop the %s." % (self.name)
 
 
 class Room(object):
@@ -54,11 +58,6 @@ class Room(object):
         print
         print self.description
 
-    def take(self, item):
-        self.inventory -= item.name
-
-    def drop(self, item):
-        self.inventory += item.name
 
 class GameEngine(object):
     def input_format(self):
@@ -101,7 +100,7 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
                 elif "n" in user_input or "no" in user_input: self.play()
                 else: self.invalid_input()
             elif 'look' in user_input: player.location.describe()
-            elif 'inventory' in user_input or 'i' in user_input: player.inventory()
+            elif 'inventory' in user_input or 'i' in user_input: player.inventory_check()
             elif user_input[0] in moves:
                 #is there a better way to do this/standardize it with the rest of the commands?
                 if user_input[0] in player.location.directions:
@@ -110,19 +109,19 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
                     print "You can't go that way!"
             else: self.invalid_input()
         else:
-            if user_input[0] == 'examine':
-                if user_input[1] in player.inventory or user_input[1] in player.location.inventory:
-                    items[user_input[1]].examine()
+            verb = user_input[0]
+            noun = user_input[1]
+            if verb == 'examine':
+                if noun in player.inventory or noun in player.location.inventory:
+                    items[noun].examine()
                 else: print "I'm sorry, I don't see that item."
-            elif user_input[0] == 'take':
-                if user_input[1] in player.location.inventory:
-                    player.take(user_input[1])
-                    player.location.take(user_input[1])
+            elif verb == 'take':
+                if noun in player.location.inventory:
+                    items[noun].take()
                 else: print "I don't see that item."
-            elif user_input[0] == 'drop':
-                if user_input[1] in player.inventory:
-                    player.drop(items[user_input[1]])
-                    player.location.drop(items[user_input[1]])
+            elif verb == 'drop':
+                if noun in player.inventory:
+                    items[noun].drop()
                 else: print "You're not carrying that!"
             else: self.invalid_input()
 
