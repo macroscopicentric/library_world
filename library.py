@@ -1,9 +1,14 @@
 import sys
 import pickle
+import rooms
+import items
 
-moves = ["up", "down", "n", "e", "w", "s"]
+moves = ["u", "d", "n", "e", "w", "s"]
+#need direction synonyms and "pick up."
 one_liners = ['hello', 'hi', 'quit', 'exit', 'help', 'restart']
-dictionary = moves + one_liners
+spells = ['otter', 'bear', 'owl', 'dog', 'cat', 'mouse']
+#not used for anything yet. need to be able to respond to commands and use different forms for different things.
+dictionary = moves + one_liners + spells
 #I really like that the HP text adventure has a thesaurus. Also, the above lists don't do anything, other than give a list of legit commands
 #in order to check the validity of user input.
 
@@ -11,6 +16,7 @@ class Player(object):
     def __init__(self):
         self.alive = True
         self.location = None
+        self.known_spells = []
         self.inventory = []
 
     def inventory_check(self):
@@ -21,50 +27,8 @@ class Player(object):
                 print "\n%s" % (thing)
 
     def move(self, direction):
-        self.location = self.location.directions[direction] #not sure if this is going to work
+        self.location = rooms.self.location.directions[direction]
         self.location.describe()
-
-
-class Item(object):
-    def __init__(self, name, description, location):
-        self.name = name
-        self.description = description
-        self.location = location
-
-    def examine(self):
-        print self.description
-
-    def take(self):
-        player.inventory.append(self.name)
-        self.location = 'player'
-        player.location.inventory.remove(self.name)
-        print "You take the %s." % (self.name)
-
-    def drop(self):
-        player.inventory.remove(self.name)
-        self.location = player.location
-        player.location.inventory.append(self.name)
-        print "You drop the %s." % (self.name)
-
-
-class Room(object):
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
-        self.directions = {}
-        self.inventory = []
-
-    def add_directions(self, directions):
-        self.directions = directions
-
-    def describe(self):
-        print self.name
-        print
-        print self.description
-        if len(self.inventory) == 1:
-            print "\nThere's a %s here." % (self.inventory[0])
-        elif len(self.inventory) > 1:
-            print "\nThere are a %s and %s here." % (self.inventory[0], self.inventory[1]) #how to make this flexible for more than two items in the room?
 
 
 class GameEngine(object):
@@ -75,9 +39,9 @@ class GameEngine(object):
             detail = user_input.pop().split(".").pop(0)
             user_input.append(detail)
 
-        if len(user_input) > 2:
-            print 'I do better with just one or two words. Type "help" for some commands you can use.'
-            self.play()
+        # if len(user_input) > 2:
+        #     print 'I do better with just one or two words. Type "help" for some commands you can use.'
+        #     self.play()
 
         return user_input
 
@@ -87,12 +51,12 @@ class GameEngine(object):
 
     def start(self):
         if player.location == None:
-            player.location = entrance
-        for item in items:
-            if items[item].location == 'player':
+            player.location = rooms.reading_room
+        for item in items.item_list:
+            if items.item_list[item].location == 'player':
                 player.inventory.append(item)
-            elif items[item].location in rooms: #not sure if this will work, for the same reason that player wouldn't work above (had to switch it to string)
-                items[item].location.inventory.append(item)
+            elif items.item_list[item].location in rooms.directory:
+                items.item_list[item].location.inventory.append(item)
 
         player.location.describe()
         self.play()
@@ -105,7 +69,7 @@ class GameEngine(object):
         #can i ask about overwriting a previous save file?
         with open(save_name, 'wb') as save_file:
             pickle.dump(player.location, save_file)
-            pickle.dump(items, save_file)
+            pickle.dump(items.item_list, save_file)
         #recommended by Dive Into Python 3 (excellent explanation of serialization and how to use pickle).
         #with open() ensures that the file is closed. Pickle only reads/writes binary, so 'wb' is needed.
         #how to ensure items are where they're supposed to be? what if someone picks up an item in one room and drops it in another?
@@ -117,7 +81,7 @@ class GameEngine(object):
         #how to search for file, so it doesn't try to open a non-existant file.
         with open(save_name, 'rb') as save_file:
             player.location = pickle.load(save_file)
-            items = pickle.load(save_file)
+            items.item_list = pickle.load(save_file)
         self.start()
 
     def command(self, user_input):
@@ -137,9 +101,7 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
                     global game, player
                     game = GameEngine()
                     player = Player()
-                    player.location = entrance
-                    player.location.describe()
-                    game.play()
+                    self.start()
                 elif "n" in user_input or "no" in user_input: self.play()
                 else: self.invalid_input()
             elif 'look' in user_input: player.location.describe()
@@ -155,13 +117,13 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
             verb = user_input[0]
             noun = user_input[1]
             if verb == 'examine':
-                try: items[noun].examine()
+                try: items.item_list[noun].examine()
                 except: print "I'm sorry, I don't see that item."
             elif verb == 'take':
-                try: items[noun].take()
+                try: items.item_list[noun].take()
                 except: print "I don't see that item."
             elif verb == 'drop':
-                try: items[noun].drop()
+                try: items.item_list[noun].drop()
                 except: print "You're not carrying that!"
             else: self.invalid_input()
 
@@ -171,54 +133,31 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
 
 game = GameEngine()
 
-#Rooms Inits
-entrance = Room("Library Entrance", '''You're standing in the library entrance. The doors are to the west, but they're locked.
-There is a tall arched doorway to the east, and a small, plain wooden door to the south.''')
-librarian_alcove = Room("Librarian Alcove", '''This is the librarian alcove, the main hub of their behind-the-scenes
-library management. The only exit is to the north. There is a small roller-top desk in the corner.''')
-#possibly open the desk?
-next_room = Room("Test Room", "This is the last room in the test library.")
-
-#Room Directions
-entrance.add_directions({'e': next_room, 's': librarian_alcove})
-librarian_alcove.add_directions({'n': entrance})
-next_room.add_directions({'w': entrance})
-
-#Items
-ledger = Item('ledger', '''It's a small, hand-bound leather ledger. You flip through it. Inside are all books borrowed
-from the library in the past five years.''', librarian_alcove)
-#Changed so items now have a location instead of being in a room's inventory. This should make saving easier, but makes
-#complications in noting that an object is in a room.
-
-pan_pipes = Item('pipes', '''It's a set of pan pipes. There are seven total. They're plain wood,
-bound together with leather, and inscribed with Charter marks.''', None)
-bells = Item('bells', '''A set of seven bells hang on a bandolier, meant to be worn across the chest. Their leather pouches are
-etched with Charter marks and the bells' mahogany handles stick out of the top of the pouches.''', None)
-
 #Player init
 player = Player()
-items = {'ledger': ledger, 'pipes': pan_pipes, 'bells': bells} #is there a way I can 'predefine' these items so I can put them up with the other lists?
-rooms = [entrance, librarian_alcove, next_room]
 
 game.start()
 
 #To do:
 #Standardize the command list somehow? The giant if statement seems sloppy.
-#Taking an item puts it in your inventory and removes it from the room, but doesn't change the room description.
 #Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,
 #often in the middle of a word. Would also need to delete extra spaces if I can do automatic line breaks.)
 #Sloppy code, incl. initializations at the bottom and the multiple lists and items dict.
-#Needs save/load functions.
 #Bells (item) need to be a recursive so you can call each bell by name.
 #Automate descriptions based on paths (ie, like the items are only described in the rooms they're in, if there's a path
 #in a specific direction, automatically describe that path).
+#Make room states that can change over time (locked doors, etc). Also need to prevent going through the hole at the bottom of the tunnel.
+#NPCs.
+#"Alignment" changes due to choices made in dialogue, etc.
+#Learn more spells by reading specific books.
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.
 #Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?
-#       HP solved this by NOT initializing with the paths, but adding them second.
-#SOLVED Bug: save isn't working. Having the same issue that I was earlier with the item dictionary, where it records an object's
+#       HP solved this by NOT initializing with the paths, but adding them second. (Current workaround.)
+#SOLVED: save isn't working. Having the same issue that I was earlier with the item dictionary, where it records an object's
 #       location but not its data. (Calling by name gives location, not data.)
-#New Bug: save isn't working. Remembers player's location but not their inventory, and doesn't do anything about items that have been taken/
+#SOLVED: save isn't working. Remembers player's location but not their inventory, and doesn't do anything about items that have been taken/
 #moved from their original location.
+#SOLVED: #Taking an item puts it in your inventory and removes it from the room, but doesn't change the room description.
