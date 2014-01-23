@@ -1,13 +1,13 @@
 import sys
 import pickle
 import rooms
-import items
+# import items
 
 moves = ["u", "d", "n", "e", "w", "s"]
 #need direction synonyms and "pick up."
 one_liners = ['hello', 'hi', 'quit', 'exit', 'help', 'restart']
 spells = ['otter', 'bear', 'owl', 'dog', 'cat', 'mouse']
-#not used for anything yet. need to be able to respond to commands and use different forms for different things.
+#not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
 dictionary = moves + one_liners + spells
 #I really like that the HP text adventure has a thesaurus. Also, the above lists don't do anything, other than give a list of legit commands
 #in order to check the validity of user input.
@@ -27,8 +27,39 @@ class Player(object):
                 print "\n%s" % (thing)
 
     def move(self, direction):
-        self.location = rooms.self.location.directions[direction]
-        self.location.describe()
+        if direction not in self.location.directions:
+            print "There's a wall there, dummy."
+        elif direction in self.location.directions and self.location.directions[direction].locked == True:
+            print "That door's locked. And it'll stay locked no matter how many times you tug on the handle, so stop trying."
+        # elif direction in rooms.self.location.directions and...:
+        #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
+        #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above), since a door goes both ways and a key is one-time.
+        elif direction in self.location.directions:
+            self.location = self.location.directions[direction]
+            self.location.describe()
+        else:
+            print "I didn't understand that direction, sorry."
+
+class Item(object):
+    def __init__(self, name, description, location=None):
+        self.name = name
+        self.description = description
+        self.location = location
+
+    def examine(self):
+        print self.description
+
+    def take(self):
+        player.inventory.append(self.name)
+        self.location = 'player'
+        player.location.inventory.remove(self.name)
+        print "You take the %s." % (self.name)
+
+    def drop(self):
+        player.inventory.remove(self.name)
+        self.location = player.location
+        player.location.inventory.append(self.name)
+        print "You drop the %s." % (self.name)
 
 
 class GameEngine(object):
@@ -39,10 +70,6 @@ class GameEngine(object):
             detail = user_input.pop().split(".").pop(0)
             user_input.append(detail)
 
-        # if len(user_input) > 2:
-        #     print 'I do better with just one or two words. Type "help" for some commands you can use.'
-        #     self.play()
-
         return user_input
 
     def invalid_input(self):
@@ -52,11 +79,11 @@ class GameEngine(object):
     def start(self):
         if player.location == None:
             player.location = rooms.reading_room
-        for item in items.item_list:
-            if items.item_list[item].location == 'player':
+        for item in item_list:
+            if item_list[item].location == 'player':
                 player.inventory.append(item)
-            elif items.item_list[item].location in rooms.directory:
-                items.item_list[item].location.inventory.append(item)
+            elif item_list[item].location in rooms.directory:
+                item_list[item].location.inventory.append(item)
 
         player.location.describe()
         self.play()
@@ -69,19 +96,18 @@ class GameEngine(object):
         #can i ask about overwriting a previous save file?
         with open(save_name, 'wb') as save_file:
             pickle.dump(player.location, save_file)
-            pickle.dump(items.item_list, save_file)
+            pickle.dump(item_list, save_file)
         #recommended by Dive Into Python 3 (excellent explanation of serialization and how to use pickle).
         #with open() ensures that the file is closed. Pickle only reads/writes binary, so 'wb' is needed.
-        #how to ensure items are where they're supposed to be? what if someone picks up an item in one room and drops it in another?
         print "File saved."
 
     def load(self):
         print "What's the file name?"
         save_name = self.input_format()[0] + '.txt'
-        #how to search for file, so it doesn't try to open a non-existant file.
+        #how to search for file, so it doesn't try to open a non-existant file?
         with open(save_name, 'rb') as save_file:
             player.location = pickle.load(save_file)
-            items.item_list = pickle.load(save_file)
+            item_list = pickle.load(save_file)
         self.start()
 
     def command(self, user_input):
@@ -108,22 +134,20 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
             elif 'inventory' in user_input or 'i' in user_input: player.inventory_check()
             elif 'save' in user_input: self.save()
             elif 'load' in user_input: self.load()
-            elif user_input[0] in moves:
-                #is there a better way to do this/standardize it with the rest of the commands?
-                try: player.move(user_input[0])
-                except: raise KeyError("You can't go that way!")
+            elif user_input[0] in moves: player.move(user_input[0])
             else: self.invalid_input()
         else:
             verb = user_input[0]
             noun = user_input[1]
             if verb == 'examine':
-                try: items.item_list[noun].examine()
+                try: item_list[noun].examine()
                 except: print "I'm sorry, I don't see that item."
             elif verb == 'take':
-                try: items.item_list[noun].take()
+                try:
+                    item_list[noun].take()
                 except: print "I don't see that item."
             elif verb == 'drop':
-                try: items.item_list[noun].drop()
+                try: item_list[noun].drop()
                 except: print "You're not carrying that!"
             else: self.invalid_input()
 
@@ -135,6 +159,18 @@ game = GameEngine()
 
 #Player init
 player = Player()
+
+#Items
+ledger = Item('ledger', '''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
+contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
+to carry it around.''', rooms.librarian_alcove)
+
+pan_pipes = Item('pipes', '''It's a set of pan pipes. There are seven total. They're plain wood,
+bound together with leather, and inscribed with Charter marks.''')
+bells = Item('bells', '''A set of seven bells hang on a bandolier, meant to be worn across the chest. Their leather pouches are
+etched with Charter marks and the bells' mahogany handles stick out of the top of the pouches.''')
+
+item_list = {'ledger': ledger, 'pipes': pan_pipes, 'bells': bells} #is there a way I can 'predefine' these items so I can put them up with the other lists?
 
 game.start()
 
@@ -161,3 +197,4 @@ game.start()
 #SOLVED: save isn't working. Remembers player's location but not their inventory, and doesn't do anything about items that have been taken/
 #moved from their original location.
 #SOLVED: #Taking an item puts it in your inventory and removes it from the room, but doesn't change the room description.
+#Bug: moving not working since dividing into multiple files. The "self" part of the location is confusing it.

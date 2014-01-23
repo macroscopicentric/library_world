@@ -1,9 +1,10 @@
 class Room(object):
-    def __init__(self, name, description):
+    def __init__(self, name, description, locked=False):
         self.name = name
         self.description = description
         self.directions = {}
         self.inventory = []
+        self.locked = locked
 
     def add_directions(self, directions):
         self.directions = directions

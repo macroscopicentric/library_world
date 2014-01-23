@@ -10,6 +10,7 @@ class Item(object):
         print self.description
 
     def take(self):
+        from library import player
         player.inventory.append(self.name)
         self.location = 'player'
         player.location.inventory.remove(self.name)
