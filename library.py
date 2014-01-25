@@ -6,17 +6,22 @@ import rooms
 moves = ["u", "d", "n", "e", "w", "s"]
 #need direction synonyms and "pick up."
 one_liners = ['hello', 'hi', 'quit', 'exit', 'help', 'restart']
-spells = ['otter', 'bear', 'owl', 'dog', 'cat', 'mouse']
+# spells = ['otter', 'bear', 'owl', 'cat', 'mouse']
+spells = {}
 #not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
-dictionary = moves + one_liners + spells
+# dictionary = moves + one_liners + spells >> doesn't work b/c spells is now a dictionary.
 #I really like that the HP text adventure has a thesaurus. Also, the above lists don't do anything, other than give a list of legit commands
 #in order to check the validity of user input.
+item_list = {}
 
 class Player(object):
     def __init__(self):
         self.alive = True
         self.location = None
-        self.known_spells = []
+        self.shape = 'human'
+        self.size = 'medium'
+        self.flying = False
+        self.known_spells = ['human']
         self.inventory = []
 
     def inventory_check(self):
@@ -26,8 +31,18 @@ class Player(object):
             for thing in self.inventory:
                 print "\n%s" % (thing)
 
+    def spell_check(self):
+        if self.inventory == ['human']: print "You don't know any spells."
+        else:
+            print "You know these spells:"
+            for spell in self.known_spells:
+                if spell != 'human':
+                    print "\n%s" % (spell)
+
     def move(self, direction):
-        if direction not in self.location.directions:
+        if direction == 'e' and self.location == rooms.reading_room:
+            print "No, I really don't think you want to go that way. Why don't you stick to the library?"
+        elif direction not in self.location.directions:
             print "There's a wall there, dummy."
         elif direction in self.location.directions and self.location.directions[direction].locked == True:
             print "That door's locked. And it'll stay locked no matter how many times you tug on the handle, so stop trying."
@@ -40,11 +55,13 @@ class Player(object):
         else:
             print "I didn't understand that direction, sorry."
 
+
 class Item(object):
     def __init__(self, name, description, location=None):
         self.name = name
         self.description = description
         self.location = location
+        item_list[name] = self
 
     def examine(self):
         print self.description
@@ -60,6 +77,51 @@ class Item(object):
         self.location = player.location
         player.location.inventory.append(self.name)
         print "You drop the %s." % (self.name)
+
+
+class Book(Item):
+    def __init__(self, inside, spell=None, *args):
+        self.inside = inside
+        self.spell = spell
+        super(Book, self).__init__(*args)
+
+    def open(self):
+        if self.location == 'player':
+            print self.inside
+            if self.spell != None: player.known_spells.append(self.spell)
+        else: print "You have to pick it up first!"
+
+
+class Spell(object):
+    def __init__(self, name, size='medium', flying=False):
+        self.name = name
+        self.size = size
+        self.flying = flying
+        spells[name] = self
+
+    def use_spell(self):
+        if self.name in player.known_spells:
+            if player.shape != self.name:
+                player.shape = self.name
+                player.size = self.size
+                player.flying = self.flying
+                #For spells that start with a vowel:
+                if self.name == 'otter' or self.name == 'owl':
+                    print "You're an %s!" % self.name
+                elif self.name == 'human':
+                    print "You're human again."
+                else:
+                    print "You're a %s!" % self.name
+
+                if player.size == 'small':
+                    print "You've shrunk substantially. Now you can climb through small spaces."
+                elif player.size == 'large':
+                    print "You're huge! Nothing's going to mess with you."
+                if player.flying == True:
+                    print "You can fly!"
+
+            else: print "You're already in that shape."
+        else: print "You don't know that spell, sorry."
 
 
 class GameEngine(object):
@@ -132,8 +194,10 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
                 else: self.invalid_input()
             elif 'look' in user_input: player.location.describe()
             elif 'inventory' in user_input or 'i' in user_input: player.inventory_check()
+            elif user_input[0] in spells: spells[user_input[0]].use_spell()
             elif 'save' in user_input: self.save()
             elif 'load' in user_input: self.load()
+            elif 'spells' in user_input: player.spell_check()
             elif user_input[0] in moves: player.move(user_input[0])
             else: self.invalid_input()
         else:
@@ -149,6 +213,9 @@ or "up" and "down". Other commands you can use: "look" (describes the room to yo
             elif verb == 'drop':
                 try: item_list[noun].drop()
                 except: print "You're not carrying that!"
+            elif verb == 'read' or 'open':
+                try: item_list[noun].open()
+                except: print "You can't read that. Try reading a book."
             else: self.invalid_input()
 
     def play(self):
@@ -161,16 +228,24 @@ game = GameEngine()
 player = Player()
 
 #Items
-ledger = Item('ledger', '''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
-contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
-to carry it around.''', rooms.librarian_alcove)
-
 pan_pipes = Item('pipes', '''It's a set of pan pipes. There are seven total. They're plain wood,
 bound together with leather, and inscribed with Charter marks.''')
 bells = Item('bells', '''A set of seven bells hang on a bandolier, meant to be worn across the chest. Their leather pouches are
 etched with Charter marks and the bells' mahogany handles stick out of the top of the pouches.''')
 
-item_list = {'ledger': ledger, 'pipes': pan_pipes, 'bells': bells} #is there a way I can 'predefine' these items so I can put them up with the other lists?
+#Books (Subclass of Items)
+ledger = Book('''As you expected, the book is full of lists of equipment checked out to past librarians. And there's
+your name, at the very bottom! There's a list of equipment for you, including a dagger, a clockwork mouse, a key, and a yellow
+waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''', None, 'ledger', '''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
+contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
+to carry it around.''', rooms.librarian_alcove)
+spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
+immersed in the Charter. ''', 'otter', 'book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')
+#Have to define ledger's spell as none in order for it to not get confused re where the super variables start.
+
+#Spells
+otter = Spell('otter', 'small')
+human = Spell('human')
 
 game.start()
 
@@ -183,9 +258,10 @@ game.start()
 #Automate descriptions based on paths (ie, like the items are only described in the rooms they're in, if there's a path
 #in a specific direction, automatically describe that path).
 #Make room states that can change over time (locked doors, etc). Also need to prevent going through the hole at the bottom of the tunnel.
+#   Could also use this to create different room descriptions if you get promoted and get a new study, etc.
 #NPCs.
 #"Alignment" changes due to choices made in dialogue, etc.
-#Learn more spells by reading specific books.
+#Spells needs a verb, and needs to note somewhere that you can use 'human' to change back.
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.
 #Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).

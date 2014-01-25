@@ -32,21 +32,19 @@ and weapons line the walls. The only exit is to the west.''')
 upper_librarian_hallway = Room("Hallway", '''You're standing in a hallway, in the private librarians' wing of the library. Painted blue doors
 line the hallway, but they're all closed and locked. There's another door at the south end of the hallway. There's an exit to the north, and
 steps leading down.''')
-#need to lock doors
 chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office.
 Chief Librarian Vancelle is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
-enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''')
+enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''', True)
 middle_librarian_hallway = Room("Hallway", '''You're standing in a hallway. All of the doors are painted red. They're all closed and locked,
 except one. The far door on the east side is open. There are stairs leading up and down.''')
 second_assistant_study = Room("Second Assistant Study", '''This is your new study, the room of a Second Assistant Librarian. There's enough
 room for a desk and not one but two chairs (what luxury!), and there's a door ajar that leads to a tiny bathroom, all your own. The only exit
-is to the west. ''')
+is to the west. ''', True)
 #need items in her studies. dog statuette?
 lower_librarian_hallway = Room("Hallway", '''You're standing in a hallway. There are many doors adjacent to this hallway, more than the two
 upper floors. The doors are all painted yellow. They're all closed, except for the one in the far eastern corner.''')
-third_assistant_study = Room("Third Assistant Study", '''This is your old study, the one you used for four years. It's much more cramped than
-your new study upstairs; there's barely room for the desk and single chair that are here. You can't imagine how you managed to fit all of your
-illicit "borrowed" books in this tiny room. The only exit is to the west.''')
+third_assistant_study = Room("Third Assistant Study", '''This is your study. It's very cramped; there's barely room for the desk and
+single chair that are here. The only exit is to the west.''')
 
 #Room Directions
 reading_room.add_directions({'s': librarian_alcove})
