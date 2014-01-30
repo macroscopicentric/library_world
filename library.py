@@ -3,16 +3,13 @@ import pickle
 import rooms
 # import items
 
-moves = ["u", "d", "n", "e", "w", "s"]
+moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n', 'e': 'e', 'east': 'e', 'w': 'w', 'west': 'w', 's': 's', 'south': 's'}
 #need direction synonyms and "pick up."
-one_liners = ['hello', 'hi', 'quit', 'exit', 'help', 'restart']
-# spells = ['otter', 'bear', 'owl', 'cat', 'mouse']
 spells = {}
 #not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
-# dictionary = moves + one_liners + spells >> doesn't work b/c spells is now a dictionary.
-#I really like that the HP text adventure has a thesaurus. Also, the above lists don't do anything, other than give a list of legit commands
-#in order to check the validity of user input.
+#I really like that the HP text adventure has a thesaurus. How do I make one?
 item_list = {}
+# book_list = {}
 
 class Player(object):
     def __init__(self):
@@ -21,7 +18,7 @@ class Player(object):
         self.shape = 'human'
         self.size = 'medium'
         self.flying = False
-        self.known_spells = ['human']
+        self.known_spells = ['human', 'otter']
         self.inventory = []
 
     def inventory_check(self):
@@ -64,25 +61,32 @@ class Item(object):
         item_list[name] = self
 
     def examine(self):
-        print self.description
+        if self.location == player.location:
+            print self.description
+        else: print "I'm sorry, I don't see that item."
 
     def take(self):
-        player.inventory.append(self.name)
-        self.location = 'player'
-        player.location.inventory.remove(self.name)
-        print "You take the %s." % (self.name)
+        try:
+            player.inventory.append(self.name)
+            self.location = 'player'
+            player.location.inventory.remove(self.name)
+            print "You take the %s." % (self.name)
+        except: print "I don't see that item."
 
     def drop(self):
-        player.inventory.remove(self.name)
-        self.location = player.location
-        player.location.inventory.append(self.name)
-        print "You drop the %s." % (self.name)
+        try:
+            player.inventory.remove(self.name)
+            self.location = player.location
+            player.location.inventory.append(self.name)
+            print "You drop the %s." % (self.name)
+        except: print "You're not carrying that!"
 
 
 class Book(Item):
     def __init__(self, inside, spell=None, *args):
         self.inside = inside
         self.spell = spell
+        # book_list[name] = self
         super(Book, self).__init__(*args)
 
     def open(self):
@@ -134,10 +138,6 @@ class GameEngine(object):
 
         return user_input
 
-    def invalid_input(self):
-        print "I'm sorry, I don't understand that command."
-        self.play()
-
     def start(self):
         if player.location == None:
             player.location = rooms.reading_room
@@ -172,51 +172,50 @@ class GameEngine(object):
             item_list = pickle.load(save_file)
         self.start()
 
+    def help_command(self):
+        print '''My commands are like a traditional text adventure\'s. To move, use the cardinal directions ("n", "s", "e", or "w")
+or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
+or "i" (lists your inventory), "take [object]", "drop [object]", "cast [Charter spell]", "spells" (lists the
+spells you know), "exit" or "quit" (exits the game), or "restart" (restarts the game).'''
+
+    def restart(self):
+        print "Are you sure you want to restart? Y/N"
+        user_input = self.input_format()
+        if "y" or "yes":
+            global game, player
+            game = GameEngine()
+            player = Player()
+            self.start()
+        elif "n" or "no": self.play()
+        else: self.invalid_input()
+
     def command(self, user_input):
-        if len(user_input) == 1:
-            #Easter Eggs
-            if 'hello' in user_input or 'hi' in user_input: print "Hullo!"
-            #Commands
-            elif 'help' in user_input:
-                print '''My commands are like a traditional text adventure\'s. To move, use the cardinal directions ("n", "s", "e", or "w")
-or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "take [object]",
-"drop [object]", "exit" or "quit" (exits the game), or "restart" (restarts the game).'''
-            elif 'exit' in user_input or 'quit' in user_input: sys.exit()
-            elif 'restart' in user_input:
-                print "Are you sure you want to restart? Y/N"
-                user_input = self.input_format()
-                if "y" in user_input or "yes" in user_input:
-                    global game, player
-                    game = GameEngine()
-                    player = Player()
-                    self.start()
-                elif "n" in user_input or "no" in user_input: self.play()
-                else: self.invalid_input()
-            elif 'look' in user_input: player.location.describe()
-            elif 'inventory' in user_input or 'i' in user_input: player.inventory_check()
-            elif user_input[0] in spells: spells[user_input[0]].use_spell()
-            elif 'save' in user_input: self.save()
-            elif 'load' in user_input: self.load()
-            elif 'spells' in user_input: player.spell_check()
-            elif user_input[0] in moves: player.move(user_input[0])
-            else: self.invalid_input()
+        verb = user_input[0]
+        if len(user_input) == 2: noun = user_input[1]
+        elif len(user_input) > 2: print "Whoops! That's too challenging for me. Please try again."
+
+        verbs = {'help': self.help_command, 'exit': sys.exit, 'quit': sys.exit, 'restart': self.restart,
+        'look': player.location.describe, 'inventory': player.inventory_check, 'i': player.inventory_check,
+        'save': self.save, 'load': self.load, 'spells': player.spell_check}
+
+        #the following verbs entries are within a try because they require noun to be defined.
+        try:
+            verbs['examine'] = item_list[noun].examine
+            verbs['take'] = item_list[noun].take
+            verbs['drop'] = item_list[noun].drop
+        except: pass
+
+        if verb in verbs:
+            verbs[verb]()
+        #can't *try* here because sys.exit() doesn't work within a try.
         else:
-            verb = user_input[0]
-            noun = user_input[1]
-            if verb == 'examine':
-                try: item_list[noun].examine()
-                except: print "I'm sorry, I don't see that item."
-            elif verb == 'take':
-                try:
-                    item_list[noun].take()
-                except: print "I don't see that item."
-            elif verb == 'drop':
-                try: item_list[noun].drop()
-                except: print "You're not carrying that!"
-            elif verb == 'read' or 'open':
+            if verb == 'hello' or verb == 'hi': print "Hullo!"
+            elif verb in moves: player.move(moves[verb])
+            elif verb == 'read' or verb == 'open':
                 try: item_list[noun].open()
                 except: print "You can't read that. Try reading a book."
-            else: self.invalid_input()
+            elif verb == 'cast': spells[noun].use_spell()
+            else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
     def play(self):
         while True:
@@ -236,7 +235,8 @@ etched with Charter marks and the bells' mahogany handles stick out of the top o
 #Books (Subclass of Items)
 ledger = Book('''As you expected, the book is full of lists of equipment checked out to past librarians. And there's
 your name, at the very bottom! There's a list of equipment for you, including a dagger, a clockwork mouse, a key, and a yellow
-waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''', None, 'ledger', '''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
+waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''', None, 'ledger',
+'''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
 contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
 to carry it around.''', rooms.librarian_alcove)
 spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
@@ -250,7 +250,7 @@ human = Spell('human')
 game.start()
 
 #To do:
-#Standardize the command list somehow? The giant if statement seems sloppy.
+#Standardize the command list somehow? The giant if statement seems sloppy. >> verb/noun dictionaries.
 #Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,
 #often in the middle of a word. Would also need to delete extra spaces if I can do automatic line breaks.)
 #Sloppy code, incl. initializations at the bottom and the multiple lists and items dict.
@@ -261,7 +261,8 @@ game.start()
 #   Could also use this to create different room descriptions if you get promoted and get a new study, etc.
 #NPCs.
 #"Alignment" changes due to choices made in dialogue, etc.
-#Spells needs a verb, and needs to note somewhere that you can use 'human' to change back.
+#Need to note somewhere that you can use 'human' to change back.
+#Add remaining commands to verbs dict.
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.
 #Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).
