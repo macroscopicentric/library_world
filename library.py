@@ -218,14 +218,20 @@ spells you know), "exit" or "quit" (exits the game), or "restart" (restarts the 
                 item_list[noun].examine()
             elif verb == 'take':
                 if noun == 'all':
-                    for item in player.location.inventory:
-                        item_list[item].take()
+                    if player.location.inventory:
+                        temp = player.location.inventory[:]
+                        for item in temp:
+                            item_list[item].take()
+                    else: print "There's nothing here to take."
                 else:
                     item_list[noun].take()
             elif verb == 'drop':
                 if noun == 'all':
-                    for item in player.location.inventory:
-                        item_list[item].drop()
+                    if player.inventory:
+                        temp = player.inventory[:]
+                        for item in temp:
+                            item_list[item].drop()
+                    else: player.inventory_check()
                 else:
                     item_list[noun].drop()
             elif verb in moves: player.move(moves[verb])
@@ -300,4 +306,6 @@ game.start()
 #moved from their original location.
 #SOLVED: #Taking an item puts it in your inventory and removes it from the room, but doesn't change the room description.
 #Bug: moving not working since dividing into multiple files. The "self" part of the location is confusing it.
-#Bug: 'take all' only takes the first two items. Trying 'take all' again then only takes the next one item (in a room with four items).
+#SOLVED: 'take all' only takes the first two items. Trying 'take all' again then only takes the next one item (in a room with four items).
+#(Due to iteration over a changing list. Created a temp list to solve this.)
+#Bug: two-word commands throw a fatal error if used without a "noun">
