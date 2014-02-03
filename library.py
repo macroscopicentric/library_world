@@ -3,7 +3,9 @@ import pickle
 import rooms
 # import items
 
-moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n', 'e': 'e', 'east': 'e', 'w': 'w', 'west': 'w', 's': 's', 'south': 's'}
+moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n', 'e': 'e', 'east': 'e',
+'w': 'w', 'west': 'w', 's': 's', 'south': 's', 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw',
+'sw': 'sw', 'southeast': 'se', 'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
 #need direction synonyms and "pick up."
 spells = {}
 #not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
@@ -294,6 +296,7 @@ game.start()
 #"Alignment" changes due to choices made in dialogue, etc.
 #Need to note somewhere that you can use 'human' to change back.
 #Add remaining commands to verbs dict.
+#Fix labyrinth (secondary cardinal directions and label towers.)
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.
 #Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).

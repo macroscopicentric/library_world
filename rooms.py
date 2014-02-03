@@ -103,7 +103,7 @@ hall20 = Room("Hallway", '''You're in a hallway with gently sloping floors. The 
 There are archways to the west and south.''')
 
 hall21 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
-There are archways to the east and south. There's a closed door to the west.''')
+There are archways to the east and south. There's a door to the west.''')
 
 hall22 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
 There are archways to the north and east.''')
@@ -116,131 +116,132 @@ On the west wall, there's a hole, far too small for a human to pass through.''')
 
 #Name of the Rose Labyrinth
 #Eastern Tower
-labyrinth1 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, east, and south, and stairs leading down.''')
-labyrinth2 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular. There's an
-altar below the window. There are doors to the north and west.''')
-labyrinth3 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Obscuratus est sol et aer." There are doors to the west and south.''')
-labyrinth4 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Facta est grandi et ignis." There are doors to the east, west, and south.''')
-labyrinth5 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "U*." There are doors to the east and west.''') #unfinished inscription (U)
-labyrinth6 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "D*." There are doors to the east, west, and south.''') #unfinished inscription (D)
-labyrinth7 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Super thronos viginti quatuor." There are doors to the east and west.''')
-labyrinth8 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth1 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is heptagonal, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the northwest, east, and south, and stairs leading down.''')
+labyrinth2 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular. There's an
+altar below the window. There are doors to the northwest and west.''')
+labyrinth3 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Obscuratus est sol et aer." There are doors to the west and southeast.''')
+labyrinth4 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Facta est grandi et ignis." There are doors to the east, southeast, and southwest.''')
+labyrinth5 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "U*." There are doors to the northeast and west.''') #unfinished inscription (U)
+labyrinth6 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "D*." There are doors to the west, southeast, and south.''') #unfinished inscription (D)
+labyrinth7 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Super thronos viginti quatuor." There are doors to the east and northwest.''')
+labyrinth8 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "V*." There are doors to the north and west.''') #unfinished inscription (V)
-labyrinth12 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth12 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and east.''')
-labyrinth13 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth13 = Room("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Equus albus." There are doors to the north, east, and south.''')
 
 #Between East and South
-labyrinth9 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Gratia vobis et pax." There are doors to the north, west, and south.''')
-labyrinth10 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Y*." There is a door to the north.''') #unfinished inscription (Y)
-labyrinth11 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the east and south.''')
-labyrinth14 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Primogenitus mortuorum." There are doors to the north and south.''')
+labyrinth9 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Gratia vobis et pax." There are doors to the north, northwest, and southwest.''')
+labyrinth10 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Y*." There is a door to the northeast.''') #unfinished inscription (Y)
+labyrinth11 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Equus albus." There are doors to the southeast and southwest.''')
+labyrinth14 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Primogenitus mortuorum." There are doors to the northeast and south.''')
 
 #Southern Tower
-labyrinth15 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth15 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Tertia pars terrae combusta est." There are doors to the east and south.''')
-labyrinth16 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "U*." There are doors to the north, west, and south.''') #unfinished inscription (U)
-labyrinth17 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There are doors to the north and south.''') #unfinished inscription (L)
-labyrinth18 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the north and west.''')
-labyrinth19 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Obscuratus est sol et aer." There are doors to the east and west.''')
-labyrinth20 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Nomen illi mors." There are doors to the north and east.''')
-labyrinth21 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the north and south.''')
-labyrinth22 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "Super thronos viginti quatuor." There are doors to the north, east, west, and south.''')
-labyrinth23 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth16 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "U*." There are doors to the north, west, and southeast.''') #unfinished inscription (U)
+labyrinth17 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "L*." There are doors to the northwest and south.''') #unfinished inscription (L)
+labyrinth18 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Equus albus." There are doors to the north and southwest.''')
+labyrinth19 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Obscuratus est sol et aer." There are doors to the northeast and northwest.''')
+labyrinth20 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Nomen illi mors." There are doors to the north and southeast.''')
+labyrinth21 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Equus albus." There are doors to the northeast and south.''')
+labyrinth22 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "Super thronos viginti quatuor." There are doors to the north, east, west, and southwest,
+and a mirror on the southeast wall with the same inscription written over it.''')
+labyrinth23 = Room("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Y*." There is a door to the south.''') #unfinished inscription (Y)
-finis_africae = Room("Hidden Room", '''You're in a room in the labyrinth. This one is heptagonal. There's a door to the north.''')
+finis_africae = Room("Hidden Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is heptagonal. There's a door to the northwest.''', True)
 
 #Between South and West
-labyrinth24 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Primogenitus mortuorum." There are doors to the north and east.''')
-labyrinth25 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Requiescant a laboribus suis." There are doors to the west and south.''')
-labyrinth26 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Obscuratus est sol et aer." There are doors to the east and south.''')
-labyrinth27 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and west.''')
+labyrinth24 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Primogenitus mortuorum." There are doors to the northeast and east.''')
+labyrinth25 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Requiescant a laboribus suis." There are doors to the northwest and southwest.''')
+labyrinth26 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Obscuratus est sol et aer." There are doors to the southeast and southwest.''')
+labyrinth27 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and northeast.''')
 
 #West Tower
-labyrinth28 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "Nomen illi mors." There are doors to the north, east, west, and south.''')
-labyrinth29 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Requiescant a laboribus suis." There are doors to the east and west.''')
-labyrinth30 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the north and east.''')
-labyrinth31 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There is a door to the south.''')
-labyrinth32 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the west and south.''')
-labyrinth33 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "H*." There are doors to the east and west.''') #unfinished inscription (H)
-labyrinth34 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the east and south.''')
-labyrinth35 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "B*." There is a door to the north.''') #unfinished inscription (B)
-labyrinth36 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth28 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "Nomen illi mors." There are doors to the north, east, west, and southwest.''')
+labyrinth29 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Requiescant a laboribus suis." There are doors to the northeast and west.''')
+labyrinth30 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "Equus albus." There are doors to the northeast and east.''')
+labyrinth31 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is heptagonal, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There is a door to the southwest.''')
+labyrinth32 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "In diebu illis." There are doors to the northwest and south.''')
+labyrinth33 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "H*." There are doors to the southeast and west.''') #unfinished inscription (H)
+labyrinth34 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "In diebu illis." There are doors to the east and southwest.''')
+labyrinth35 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "B*." There is a door to the northeast.''') #unfinished inscription (B)
+labyrinth36 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "M*." There are doors to the north and west.''') #unfinished inscription (M)
-labyrinth37 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth37 = Room("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and south.''')
 
 #Between West and North
-labyrinth38 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the north, west, and south.''')
-labyrinth39 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There is a door to the east.''') #unfinished inscription (L)
-labyrinth40 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, west, and south.''')
-labyrinth41 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There is a door to the east.''') #unfinished inscription (L)
+labyrinth38 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "In diebu illis." There are doors to the northeast, northwest, and south.''')
+labyrinth39 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "L*." There is a door to the southeast.''') #unfinished inscription (L)
+labyrinth40 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, northwest, and southwest.''')
+labyrinth41 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "L*." There is a door to the southeast.''') #unfinished inscription (L)
 
 #North Tower
-labyrinth42 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth42 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Gratia vobis et pax." There are doors to the north and west.''')
-labyrinth43 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "M*." There are doors to the north, east, west, and south.''') #unfinished inscription (M)
-labyrinth44 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the north and south.''')
-labyrinth45 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth43 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is pentagonal, and the inscription above
+one of the archways reads "M*." There are doors to the northeast, northwest, east, and south.''') #unfinished inscription (M)
+labyrinth44 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
+one of the archways reads "In diebu illis." There are doors to the north and southeast.''')
+labyrinth45 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "L*." There is a door to the south.''') #unfinished inscription (L)
-labyrinth46 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, east, and south.''')
-labyrinth47 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth46 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is heptagonal, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, east, and southwest.''')
+labyrinth47 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Gratia vobis et pax." There is a door to the south.''')
-labyrinth48 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth48 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "In diebu illis." There are doors to the north and west.''')
-labyrinth49 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth49 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Nomen illi mors." There is a door to the south.''')
-labyrinth50 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is pentagonal, and the inscription above
+labyrinth50 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is pentagonal, and the inscription above
 one of the archways reads "Requiescant a laboribus suis." There are doors to the east and west.''')
-labyrinth51 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
+labyrinth51 = Room("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
 one of the archways reads "Equus albus." There is a door to the east.''')
 
 #Between North and East
-labyrinth52 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the east, west, and south.''')
-labyrinth53 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Cecidit de cielo stella magna." There are doors to the north and west.''')
-labyrinth54 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the west and south.''')
-labyrinth55 = Room("Labyrinth Room", '''You're in a room in the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and east.''')
+labyrinth52 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the west, southeast, and southwest.''')
+labyrinth53 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Cecidit de cielo stella magna." There are doors to the northeast and west.''')
+labyrinth54 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "In diebu illis." There are doors to the northwest and southwest.''')
+labyrinth55 = Room("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the northeast and south.''')
 
 
 #Room Directions
@@ -280,59 +281,59 @@ hall22.add_directions({'e': hall23, 'n': hall21})
 hall23.add_directions({'w': hall22, 'n': hall24})
 hall24.add_directions({'s': hall23})
 
-labyrinth1.add_directions({'e': labyrinth2, 'n': labyrinth4, 's': labyrinth8, 'd': hall21})
-labyrinth2.add_directions({'w': labyrinth1, 'n': labyrinth3})
-labyrinth3.add_directions({'s': labyrinth3, 'w': labyrinth4})
-labyrinth4.add_directions({'e': labyrinth3, 's': labyrinth1, 'w': labyrinth5})
-labyrinth5.add_directions({'e': labyrinth4, 'w': labyrinth13})
-labyrinth6.add_directions({'e': labyrinth7, 'w': labyrinth12, 's': labyrinth9})
-labyrinth7.add_directions({'w': labyrinth6, 'e': labyrinth8})
+labyrinth1.add_directions({'e': labyrinth2, 'nw': labyrinth4, 's': labyrinth8, 'd': hall21})
+labyrinth2.add_directions({'w': labyrinth1, 'nw': labyrinth3})
+labyrinth3.add_directions({'se': labyrinth2, 'w': labyrinth4})
+labyrinth4.add_directions({'e': labyrinth3, 'se': labyrinth1, 'sw': labyrinth5})
+labyrinth5.add_directions({'ne': labyrinth4, 'w': labyrinth13})
+labyrinth6.add_directions({'se': labyrinth7, 'w': labyrinth12, 's': labyrinth9})
+labyrinth7.add_directions({'nw': labyrinth6, 'e': labyrinth8})
 labyrinth8.add_directions({'w': labyrinth7, 'n': labyrinth1})
-labyrinth9.add_directions({'n': labyrinth6, 'w': labyrinth11, 's': labyrinth10})
-labyrinth10.add_directions({'n': labyrinth9})
-labyrinth11.add_directions({'e': labyrinth9, 's': labyrinth14})
+labyrinth9.add_directions({'n': labyrinth6, 'nw': labyrinth11, 'sw': labyrinth10})
+labyrinth10.add_directions({'ne': labyrinth9})
+labyrinth11.add_directions({'se': labyrinth9, 'sw': labyrinth14})
 labyrinth12.add_directions({'e': labyrinth6, 'n': labyrinth13})
 labyrinth13.add_directions({'n': labyrinth55, 's': labyrinth12, 'e': labyrinth5})
-labyrinth14.add_directions({'n': labyrinth11, 's': labyrinth15})
+labyrinth14.add_directions({'ne': labyrinth11, 's': labyrinth15})
 labyrinth15.add_directions({'e': labyrinth14, 's': labyrinth16})
-labyrinth16.add_directions({'n': labyrinth15, 'w': labyrinth22, 's': labyrinth17})
-labyrinth17.add_directions({'n': labyrinth16, 's': labyrinth18})
-labyrinth18.add_directions({'n': labyrinth17, 'w': labyrinth19})
-labyrinth19.add_directions({'e': labyrinth18, 'w': labyrinth20})
-labyrinth20.add_directions({'e': labyrinth19, 'n': labyrinth21})
-labyrinth21.add_directions({'s': labyrinth20, 'n': labyrinth22})
-labyrinth22.add_directions({'n': labyrinth23, 'e': labyrinth16, 's': labyrinth21, 'w': labyrinth24})
+labyrinth16.add_directions({'n': labyrinth15, 'w': labyrinth22, 'se': labyrinth17})
+labyrinth17.add_directions({'nw': labyrinth16, 's': labyrinth18})
+labyrinth18.add_directions({'n': labyrinth17, 'sw': labyrinth19})
+labyrinth19.add_directions({'ne': labyrinth18, 'nw': labyrinth20})
+labyrinth20.add_directions({'se': labyrinth19, 'n': labyrinth21})
+labyrinth21.add_directions({'s': labyrinth20, 'ne': labyrinth22})
+labyrinth22.add_directions({'n': labyrinth23, 'e': labyrinth16, 'sw': labyrinth21, 'w': labyrinth24, 'se': finis_africae})
 labyrinth23.add_directions({'s': labyrinth22})
-labyrinth24.add_directions({'e': labyrinth22, 'n': labyrinth25})
-labyrinth25.add_directions({'s': labyrinth24, 'w': labyrinth26})
-labyrinth26.add_directions({'e': labyrinth25, 's': labyrinth27})
-labyrinth27.add_directions({'n': labyrinth26, 'w': labyrinth28})
-labyrinth28.add_directions({'e': labyrinth36, 's': labyrinth27, 'n': labyrinth32, 'w': labyrinth29})
-labyrinth29.add_directions({'e': labyrinth28, 'w': labyrinth30})
-labyrinth30.add_directions({'e': labyrinth29, 'n': labyrinth31})
-labyrinth31.add_directions({'s': labyrinth30})
-finis_africae.add_directions({'n': labyrinth22})
-labyrinth32.add_directions({'s': labyrinth28, 'w': labyrinth33})
-labyrinth33.add_directions({'e': labyrinth32, 'w': labyrinth34})
-labyrinth34.add_directions({'e': labyrinth33, 's': labyrinth35})
-labyrinth35.add_directions({'n': labyrinth34})
+labyrinth24.add_directions({'e': labyrinth22, 'ne': labyrinth25})
+labyrinth25.add_directions({'sw': labyrinth24, 'nw': labyrinth26})
+labyrinth26.add_directions({'se': labyrinth25, 'sw': labyrinth27})
+labyrinth27.add_directions({'ne': labyrinth26, 'n': labyrinth28})
+labyrinth28.add_directions({'e': labyrinth36, 's': labyrinth27, 'n': labyrinth32, 'sw': labyrinth29})
+labyrinth29.add_directions({'ne': labyrinth28, 'w': labyrinth30})
+labyrinth30.add_directions({'e': labyrinth29, 'ne': labyrinth31})
+labyrinth31.add_directions({'sw': labyrinth30})
+finis_africae.add_directions({'nw': labyrinth22})
+labyrinth32.add_directions({'s': labyrinth28, 'nw': labyrinth33})
+labyrinth33.add_directions({'se': labyrinth32, 'w': labyrinth34})
+labyrinth34.add_directions({'e': labyrinth33, 'sw': labyrinth35})
+labyrinth35.add_directions({'ne': labyrinth34})
 labyrinth36.add_directions({'w': labyrinth28, 'n': labyrinth37})
 labyrinth37.add_directions({'s': labyrinth36, 'n': labyrinth38})
-labyrinth38.add_directions({'s': labyrinth37, 'n': labyrinth40, 'w': labyrinth39})
-labyrinth39.add_directions({'e': labyrinth38})
-labyrinth40.add_directions({'s': labyrinth38, 'w': labyrinth41, 'n': labyrinth42})
-labyrinth41.add_directions({'e': labyrinth40})
+labyrinth38.add_directions({'s': labyrinth37, 'ne': labyrinth40, 'nw': labyrinth39})
+labyrinth39.add_directions({'se': labyrinth38})
+labyrinth40.add_directions({'sw': labyrinth38, 'nw': labyrinth41, 'n': labyrinth42})
+labyrinth41.add_directions({'se': labyrinth40})
 labyrinth42.add_directions({'w': labyrinth40, 'n': labyrinth43})
-labyrinth43.add_directions({'s': labyrinth42, 'e': labyrinth50, 'n': labyrinth46, 'e': labyrinth44})
-labyrinth44.add_directions({'s': labyrinth43, 'n': labyrinth45})
+labyrinth43.add_directions({'s': labyrinth42, 'e': labyrinth50, 'ne': labyrinth46, 'nw': labyrinth44})
+labyrinth44.add_directions({'se': labyrinth43, 'n': labyrinth45})
 labyrinth45.add_directions({'s': labyrinth44})
-labyrinth46.add_directions({'s': labyrinth43, 'n': labyrinth47, 'e': labyrinth48})
+labyrinth46.add_directions({'sw': labyrinth43, 'n': labyrinth47, 'e': labyrinth48})
 labyrinth47.add_directions({'s': labyrinth46})
 labyrinth48.add_directions({'w': labyrinth46, 'n': labyrinth49})
 labyrinth49.add_directions({'s': labyrinth48})
 labyrinth50.add_directions({'w': labyrinth43, 'e': labyrinth52})
 labyrinth51.add_directions({'e': labyrinth53})
-labyrinth52.add_directions({'w': labyrinth50, 'e': labyrinth54, 's': labyrinth53})
-labyrinth53.add_directions({'n': labyrinth52, 'w': labyrinth51})
-labyrinth54.add_directions({'w': labyrinth52, 's': labyrinth55})
-labyrinth55.add_directions({'n': labyrinth54, 'e': labyrinth13})
+labyrinth52.add_directions({'w': labyrinth50, 'se': labyrinth54, 'sw': labyrinth53})
+labyrinth53.add_directions({'ne': labyrinth52, 'w': labyrinth51})
+labyrinth54.add_directions({'nw': labyrinth52, 'sw': labyrinth55})
+labyrinth55.add_directions({'ne': labyrinth54, 's': labyrinth13})
