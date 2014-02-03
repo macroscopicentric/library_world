@@ -208,6 +208,9 @@ spells you know), "teleport" (sends you back to the Reading Room, or the labyrin
         elif len(user_input) > 2: print "Whoops! That's too challenging for me. Please try again."
 
         #Helper functions so I can add all methods to the verbs dictionary:
+        def say_hi():
+            print "Hullo!"
+
         def examine():
             item_list[noun].examine()
 
@@ -219,7 +222,8 @@ spells you know), "teleport" (sends you back to the Reading Room, or the labyrin
                         item_list[item].take()
                 else: print "There's nothing here to take."
             else:
-                item_list[noun].take()
+                try: item_list[noun].take()
+                except: print "I don't see that item."
 
         def drop():
             if noun == 'all':
@@ -229,34 +233,29 @@ spells you know), "teleport" (sends you back to the Reading Room, or the labyrin
                         item_list[item].drop()
                 else: player.inventory_check()
             else:
-                item_list[noun].drop()
+                try: item_list[noun].drop()
+                except: print "I don't see that item."
 
-        def open():
+        def read():
             try: item_list[noun].open()
             except: print "You can't read that. Try reading a book."
 
         def cast():
             spells[noun].use_spell()
 
-        verbs = {'help': self.help_command, 'exit': sys.exit, 'quit': sys.exit, 'restart': self.restart,
+        # def move():
+        #     if verb in moves: player.move(moves[verb])
+
+        verbs = {'hello': say_hi, 'hi': say_hi, 'help': self.help_command, 'exit': sys.exit, 'quit': sys.exit, 'restart': self.restart,
         'look': player.location.describe, 'inventory': player.inventory_check, 'i': player.inventory_check,
         'save': self.save, 'load': self.load, 'spells': player.spell_check, 'teleport': player.teleport,
-        'examine': self.examine, 'take': self.take, 'drop': self.drop, 'cast': self.cast}
-
-        #the following verbs entries are within a try because they require noun to be defined.
-        # try:
-        #     verbs['examine'] = item_list[noun].examine
-        #     verbs['take'] = item_list[noun].take
-        #     verbs['drop'] = item_list[noun].drop
-        # except: pass
+        'examine': examine, 'take': take, 'drop': drop, 'open': read, 'read': read, 'cast': cast}
 
         #can't *try* here because sys.exit() doesn't work within a try.
-        if verb in verbs:
-            verbs[verb]()
-        else:
-            if verb == 'hello' or verb == 'hi': print "Hullo!"
-            elif verb in moves: player.move(moves[verb])
-            else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
+        if verb in verbs: verbs[verb]()
+        #is there a way to put the part below in the dictionary as well? would have to nest dictionaries, which gave me an unhashable type error.
+        elif verb in moves: player.move(moves[verb])
+        else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
     def play(self):
         while True:
