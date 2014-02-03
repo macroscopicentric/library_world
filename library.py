@@ -188,7 +188,8 @@ class GameEngine(object):
         print '''My commands are like a traditional text adventure\'s. To move, use the cardinal directions ("n", "s", "e", or "w")
 or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
 or "i" (lists your inventory), "take [object]", "drop [object]", "cast [Charter spell]", "spells" (lists the
-spells you know), "exit" or "quit" (exits the game), or "restart" (restarts the game).'''
+spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth stairs if you're in the labyrinth),
+"exit" or "quit" (exits the game), or "restart" (restarts the game).'''
 
     def restart(self):
         print "Are you sure you want to restart? Y/N"
@@ -203,14 +204,44 @@ spells you know), "exit" or "quit" (exits the game), or "restart" (restarts the 
 
     def command(self, user_input):
         verb = user_input[0]
-        noun = ''
         if len(user_input) == 2: noun = user_input[1]
         elif len(user_input) > 2: print "Whoops! That's too challenging for me. Please try again."
 
+        #Helper functions so I can add all methods to the verbs dictionary:
+        def examine():
+            item_list[noun].examine()
+
+        def take():
+            if noun == 'all':
+                if player.location.inventory:
+                    temp = player.location.inventory[:]
+                    for item in temp:
+                        item_list[item].take()
+                else: print "There's nothing here to take."
+            else:
+                item_list[noun].take()
+
+        def drop():
+            if noun == 'all':
+                if player.inventory:
+                    temp = player.inventory[:]
+                    for item in temp:
+                        item_list[item].drop()
+                else: player.inventory_check()
+            else:
+                item_list[noun].drop()
+
+        def open():
+            try: item_list[noun].open()
+            except: print "You can't read that. Try reading a book."
+
+        def cast():
+            spells[noun].use_spell()
+
         verbs = {'help': self.help_command, 'exit': sys.exit, 'quit': sys.exit, 'restart': self.restart,
         'look': player.location.describe, 'inventory': player.inventory_check, 'i': player.inventory_check,
-        'save': self.save, 'load': self.load, 'spells': player.spell_check}
-        # 'examine': item_list[noun].examine, 'take': item_list[noun].take, 'drop': item_list[noun].drop}
+        'save': self.save, 'load': self.load, 'spells': player.spell_check, 'teleport': player.teleport,
+        'examine': self.examine, 'take': self.take, 'drop': self.drop, 'cast': self.cast}
 
         #the following verbs entries are within a try because they require noun to be defined.
         # try:
@@ -224,32 +255,7 @@ spells you know), "exit" or "quit" (exits the game), or "restart" (restarts the 
             verbs[verb]()
         else:
             if verb == 'hello' or verb == 'hi': print "Hullo!"
-            if verb == 'teleport': player.teleport()
-            elif verb == 'examine':
-                item_list[noun].examine()
-            elif verb == 'take':
-                if noun == 'all':
-                    if player.location.inventory:
-                        temp = player.location.inventory[:]
-                        for item in temp:
-                            item_list[item].take()
-                    else: print "There's nothing here to take."
-                else:
-                    item_list[noun].take()
-            elif verb == 'drop':
-                if noun == 'all':
-                    if player.inventory:
-                        temp = player.inventory[:]
-                        for item in temp:
-                            item_list[item].drop()
-                    else: player.inventory_check()
-                else:
-                    item_list[noun].drop()
             elif verb in moves: player.move(moves[verb])
-            elif verb == 'read' or verb == 'open':
-                try: item_list[noun].open()
-                except: print "You can't read that. Try reading a book."
-            elif verb == 'cast': spells[noun].use_spell()
             else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
     def play(self):
