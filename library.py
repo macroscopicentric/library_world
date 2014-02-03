@@ -56,6 +56,14 @@ class Player(object):
         else:
             print "I didn't understand that direction, sorry."
 
+    def teleport(self):
+        if self.location in rooms.labyrinths:
+            self.location = rooms.labyrinth1
+            self.location.describe()
+        else:
+            self.location = rooms.reading_room
+            self.location.describe()
+
 
 class Item(object):
     def __init__(self, name, description, location=None):
@@ -216,6 +224,7 @@ spells you know), "exit" or "quit" (exits the game), or "restart" (restarts the 
             verbs[verb]()
         else:
             if verb == 'hello' or verb == 'hi': print "Hullo!"
+            if verb == 'teleport': player.teleport()
             elif verb == 'examine':
                 item_list[noun].examine()
             elif verb == 'take':
