@@ -8,6 +8,7 @@ class Room(object):
         self.directions = {}
         self.inventory = []
         self.locked = locked
+        self.npc = ''
         directory.append(self)
 
     def add_directions(self, directions):
@@ -17,6 +18,9 @@ class Room(object):
         print self.name
         print
         print self.description
+
+        if self.npc: print "%s is here." % (self.npc.capitalize())
+
         if len(self.inventory) == 1:
             print "\nThere's a %s here." % (self.inventory[0])
         elif len(self.inventory) == 2:
@@ -30,11 +34,12 @@ class Room(object):
 class Labyrinth(Room):
     def __init__(self, *args):
         super(Labyrinth, self).__init__(*args)
-        labyrinths.append(self)
+        self.labyrinth = True
 
 #Rooms Inits
-reading_room = Room("Reading Room", '''You're in the Main Reading Room. Large wooden tables fill the room. Clayr sit
-at some of the tables, reading. There are exits to the south and west. The main doors are open to the east.''')
+#Main Clayr Library
+reading_room = Room("Reading Room", '''You're in the Main Reading Room. Large wooden tables fill the room. Clayr sit at some of the tables,
+reading. There are exits to the south and west. The main doors are open to the east.''')
 librarian_alcove = Room("Librarian Alcove", '''This is the librarian alcove, the main hub of their behind-the-scenes library management.
 There are exits to the north, south, east, and west. There is a small roller-top desk in the corner.''')
 #possibly open the desk?
@@ -43,7 +48,7 @@ every flat surface, and a giant press in the back corner. The only exit is to th
 robing_room = Room("Robing Room", '''You're in a room full of miscellaneous useful things. Boat hooks, climbing ropes,
 and weapons line the walls. The only exit is to the west.''')
 upper_librarian_hallway = Room("Hallway", '''You're standing in a hallway, in the employees-only librarians' wing of the library. Painted blue doors
-line the hallway, but they're all closed and locked. There's another door at the south end of the hallway.
+line the hallway, but they're all closed and locked. There's another locked door at the south end of the hallway.
 There's an exit to the north, and steps leading down.''')
 chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office.
 Chief Librarian Vancelle is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
@@ -53,9 +58,8 @@ There are stairs leading up and down.''')
 second_assistant_study = Room("Second Assistant Study", '''This is your new study, the room of a Second Assistant Librarian. There's enough
 room for a desk and not one but two chairs (what luxury!), and there's a door ajar that leads to a tiny bathroom, all your own. The only exit
 is to the west. ''', True)
-#need items in her studies. dog statuette?
 lower_librarian_hallway = Room("Hallway", '''You're standing in a hallway. There are many doors adjacent to this hallway, more than the two
-upper floors. The doors are all painted yellow. They're all closed, except for the one in the far eastern corner.''')
+upper floors. The doors are all painted yellow. They're all closed, except for the one in the southeastern corner.''')
 third_assistant_study = Room("Third Assistant Study", '''This is your study. It's very cramped; there's barely room for the desk and
 single chair that are here. The only exit is to the west.''')
 
@@ -65,7 +69,7 @@ Reading Room. The walls here are blue. There are archways to the east and west.'
 hall2 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the east and west.''')
 hall3 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
-There are archways to the east and south.''')
+There are archways to the east and south, and a door to the west.''')
 
 hall4 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and south.''')
@@ -77,7 +81,7 @@ There are archways to the north and east.''')
 hall7 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the east and west.''')
 hall8 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
-There are archways to the east and west.''')
+There are archways to the east and west, and a door to the south.''')
 hall9 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and west.''')
 
@@ -89,7 +93,7 @@ hall12 = Room("Hallway", '''You're in a hallway with gently sloping floors. The 
 There are archways to the west and south.''')
 
 hall13 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the east and west.''')
+There are archways to the east and west, and a door to the north.''')
 hall14 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the east and south.''')
 
@@ -115,10 +119,64 @@ hall22 = Room("Hallway", '''You're in a hallway with gently sloping floors. The 
 There are archways to the north and east.''')
 
 hall23 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
-There are archways to the north and west.''')
+There are archways to the north and west. There's a locked door to the east.''')
 
 hall24 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow. There's an archway to the south.
 On the west wall, there's a hole, far too small for a human to pass through.''')
+
+
+#Beast's Library
+beast_library1 = Room("Beast's Library", '''You're in a huge room filled floor to 50-foot ceiling with books, with tall windows in the southwest
+and northwest corners. The room extends to the north and south, and there's a door to the east.''')
+beast_library2 = Room("Beast's Library", '''You're in the southern end of a massive library. It extends to the north, and there's
+a staircase in the corner.''')
+beast_library3 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the southern wall of a massive library.
+There are stairs leading down.''')
+beast_library4 = Room("Beast's Library", '''You're in the northern end of a massive library. It extends to the south, and there's
+a staircase in the corner.''')
+beast_library5 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the northern wall of a massive library.
+There are stairs leading down.''')
+
+
+#Unseen University Library
+uu_library1 = Room('Unseen University Library', '''You're in the prestigiously distinguished and esteemed Unseen University Library.
+It is just as officious-looking as you'd expect of such a prestigiously distinguished and esteemed library;
+the walls are covered with cherry panelling, in the rare instances that they aren't covered in books.
+The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although,
+strangely, they seem to be walking upside down. You're in the reading hall, which extends to the
+north before ending in a massive window that takes up the entire northen wall. There are also stairs
+leading up and down, and a door to the south.''')
+uu_library2 = Room('Unseen University Library', '''You're in the Unseen University Library.
+The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although,
+strangely, they seem to be walking upside down. You're in the reading hall, which extends to the
+south. There are also stairs leading up and down.''')
+uu_library3 = Room('Unseen University Library - Walkway', '''You're on the upper walkway of the Unseen University Library.
+The walkway extends all the way around the walls of the southern end where you're standing, and into the
+northern end of the hall beyond. There are stairs leading down.''')
+uu_library4 = Room('Unseen University Library - Walkway', '''You're on the upper walkway of the Unseen University Library.
+The walkway extends all the way around the walls of the northern end where you're standing, and into the
+southern end of the hall beyond. There are stairs leading down.''')
+
+
+#WTNV Library
+wtnv_library1 = Room("Night Vale Public Library", '''You're in a long, narrow, dimly-lit room with immensely high bookshelves. You seem to be in the
+biography section, as on the nearest shelf you can see three shelves full of copies of the official biography
+of Helen Hunt. Tragically, this section of the library seems to lack both librarian repellant dispensers
+and trees. I would get out of here as soon as possible if I were you, as you probably don't want to meet the
+librarians in this particular library. There is a door to the north.''')
+wtnv_library2 = Room("Night Vale Public Library", '''Phew! You've cleverly avoided the librarians by climbing the stacks. They'll *never* look for you
+up here, I'm sure. This is quite a comfy perch, really. You could theoretically see quite far over the
+stacks, if the lighting weren't so terrible. Unfortunately, you'll have to go down at some point, as there
+is nowhere else to go.''')
+
+
+#Stilken Room
+stilken_room1 = Room("Oak Room", '''This is an immensely peaceful room, without a book in sight. The floor is tiled, except for the center,
+which is home to a pleasant (if small) meadow and a large oak tree, as well as a small silver pool. A narrow
+gate is open to the east (too small for a human), and a door to the west.''', True)
+stilken_room2 = Room("Glass Floor Room", '''There is a glass floor in this room, and a low stone table in the middle. The only exit is a
+narrow gate to the west, too small for a human.''')
+
 
 #Name of the Rose Labyrinth
 #Eastern Tower
@@ -252,29 +310,28 @@ one of the archways reads "Apocalypsis Iesu Christi." There are doors to the nor
 
 #Room Directions
 reading_room.add_directions({'s': librarian_alcove, 'w': hall1})
-#I need a "You don't really want to go that way" for when people try to go east.
 librarian_alcove.add_directions({'n': reading_room, 'w': binding_room, 'e': robing_room, 's': upper_librarian_hallway})
 binding_room.add_directions({'e': librarian_alcove})
 robing_room.add_directions({'w': librarian_alcove})
 upper_librarian_hallway.add_directions({'s': chiefs_office, 'n': librarian_alcove, 'd': middle_librarian_hallway})
 middle_librarian_hallway.add_directions({'u': upper_librarian_hallway, 'd': lower_librarian_hallway, 'e': second_assistant_study})
 second_assistant_study.add_directions({'w': middle_librarian_hallway})
-lower_librarian_hallway.add_directions({'u': middle_librarian_hallway, 'e': third_assistant_study})
+lower_librarian_hallway.add_directions({'u': middle_librarian_hallway, 'se': third_assistant_study})
 third_assistant_study.add_directions({'w': lower_librarian_hallway})
 
 hall1.add_directions({'e': reading_room, 'w': hall2})
 hall2.add_directions({'e': hall1, 'w': hall3})
-hall3.add_directions({'e': hall2, 's': hall4})
+hall3.add_directions({'e': hall2, 's': hall4, 'w':beast_library1})
 hall4.add_directions({'n': hall3, 's': hall5})
 hall5.add_directions({'n': hall4, 's': hall6})
 hall6.add_directions({'e': hall7, 'n': hall5})
 hall7.add_directions({'e': hall8, 'w': hall6})
-hall8.add_directions({'e': hall9, 'w': hall7})
+hall8.add_directions({'e': hall9, 'w': hall7, 's': wtnv_library1})
 hall9.add_directions({'n': hall10, 'w': hall8})
 hall10.add_directions({'n': hall11, 's': hall9})
 hall11.add_directions({'n': hall12, 's': hall10})
 hall12.add_directions({'w': hall13, 's': hall11})
-hall13.add_directions({'e': hall12, 'w': hall14})
+hall13.add_directions({'e': hall12, 'w': hall14, 'n': uu_library1})
 hall14.add_directions({'e': hall13, 's': hall15})
 hall15.add_directions({'n': hall14, 's': hall16})
 hall16.add_directions({'n': hall15, 'e': hall17})
@@ -284,8 +341,25 @@ hall19.add_directions({'n': hall20, 's': hall18})
 hall20.add_directions({'w': hall21, 's': hall19})
 hall21.add_directions({'e': hall20, 's': hall22, 'w': labyrinth1})
 hall22.add_directions({'e': hall23, 'n': hall21})
-hall23.add_directions({'w': hall22, 'n': hall24})
+hall23.add_directions({'w': hall22, 'n': hall24, 'e': stilken_room1})
 hall24.add_directions({'s': hall23})
+
+beast_library1.add_directions({'e': hall3, 's': beast_library2, 'n': beast_library4})
+beast_library2.add_directions({'n': beast_library1, 'u': beast_library3})
+beast_library3.add_directions({'d': beast_library2})
+beast_library4.add_directions({'s': beast_library1, 'u': beast_library5})
+beast_library5.add_directions({'d': beast_library4})
+
+uu_library1.add_directions({'s': hall13, 'n': uu_library2, 'u': uu_library3, 'd': uu_library1})
+uu_library2.add_directions({'s': uu_library1, 'u': uu_library4, 'd': uu_library2})
+uu_library3.add_directions({'d': uu_library1, 'n': uu_library4})
+uu_library4.add_directions({'d': uu_library2, 's': uu_library3})
+
+wtnv_library1.add_directions({'n': hall8, 'u': wtnv_library2})
+wtnv_library2.add_directions({'d': wtnv_library1})
+
+stilken_room1.add_directions({'w': hall23, 'e': stilken_room2})
+stilken_room2.add_directions({'w': stilken_room1})
 
 labyrinth1.add_directions({'e': labyrinth2, 'nw': labyrinth4, 's': labyrinth8, 'd': hall21})
 labyrinth2.add_directions({'w': labyrinth1, 'nw': labyrinth3})
