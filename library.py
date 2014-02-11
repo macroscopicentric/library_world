@@ -1,7 +1,6 @@
 import sys
 import pickle
 import rooms
-# import items
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n', 'e': 'e', 'east': 'e',
 'w': 'w', 'west': 'w', 's': 's', 'south': 's', 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw',
@@ -11,7 +10,6 @@ spells = {}
 #not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 item_list = {}
-# book_list = {}
 
 class Player(object):
     def __init__(self):
@@ -98,7 +96,6 @@ class Book(Item):
     def __init__(self, inside, spell=None, *args):
         self.inside = inside
         self.spell = spell
-        # book_list[name] = self
         super(Book, self).__init__(*args)
 
     def open(self):
