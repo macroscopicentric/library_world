@@ -1,6 +1,6 @@
 import unittest
 
-from list_items import list_items
+from list_items import list_items, article
 from nose.tools import eq_
 
 class TestListItems(unittest.TestCase):
@@ -19,3 +19,15 @@ class TestListItems(unittest.TestCase):
 
     def test_list_no_items(self):
         eq_(list_items([]), '')
+
+    def test_list_a_vowel_noun(self):
+        items = ['apple', 'orange']
+        eq_(list_items(items), 'an apple and an orange')
+
+
+class TestArticle(unittest.TestCase):
+    def test_normal_nouns_should_get_an_a(self):
+        eq_(article('frog'), 'a frog')
+
+    def test_nouns_that_start_with_vowels_should_get_an_an(self):
+        eq_(article('apple'), 'an apple')
