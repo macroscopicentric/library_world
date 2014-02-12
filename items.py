@@ -1,5 +1,4 @@
 import rooms
-import library
 
 item_list = {}
 
@@ -10,24 +9,24 @@ class Item(object):
         self.location = location
         item_list[name] = self
 
-    def examine(self):
-        if self.location == libary.player.location or self.location == 'player':
+    def examine(self, player_location):
+        if self.location == player_location or self.location == 'player':
             print self.description
         else: print "I'm sorry, I don't see that item."
 
-    def take(self):
+    def take(self, player_inventory, location_inventory):
         try:
-            library.player.inventory.append(self.name)
+            player_inventory.append(self.name)
             self.location = 'player'
-            library.player.location.inventory.remove(self.name)
+            location_inventory.remove(self.name)
             print "You take the %s." % (self.name)
         except: print "I don't see that item."
 
-    def drop(self):
+    def drop(self, player_inventory, location_inventory):
         try:
-            library.player.inventory.remove(self.name)
+            player_inventory.remove(self.name)
             self.location = player.location
-            library.player.location.inventory.append(self.name)
+            location_inventory.append(self.name)
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
@@ -38,10 +37,10 @@ class Book(Item):
         self.spell = spell
         super(Book, self).__init__(*args)
 
-    def open(self):
+    def open(self, player_spells):
         if self.location == 'player':
             print self.inside
-            if self.spell != None: library.player.known_spells.append(self.spell)
+            if self.spell: player_spells.append(self.spell)
         else: print "You have to pick it up first!"
 
 #Items

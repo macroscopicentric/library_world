@@ -5,7 +5,8 @@ import rooms
 from items import item_list
 
 spells = {}
-#not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
+#not used for anything yet. need to be able to respond to commands and use
+#different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 npc_list = {}
 home = rooms.third_assistant_study
@@ -108,14 +109,37 @@ class NPC(object):
         except: print "%s doesn't say anything." % (self.name.capitalize())
 
 class GameEngine(object):
-    def input_format(self):
-        user_input = raw_input(">").lower().split(" ")
+    def save():
+        #Currently saves/loads player's location and sets correct item locations.
+        #Doesn't save other player/room status info (alive/dead, opened doors, etc).
+        print "Save file name:"
+        save_name = verbs_list.input_format()[0] + '.txt'
+        #can i ask about overwriting a previous save file?
+        with open(save_name, 'wb') as save_file:
+            pickle.dump(player.location, save_file)
+            pickle.dump(items.item_list, save_file)
+        #recommended by Dive Into Python 3 (excellent explanation of
+        #serialization and how to use pickle).
+        #with open() ensures that the file is closed. Pickle only reads/writes
+        #binary, so 'wb' is needed.
+        print "File saved."
 
-        if "." in user_input[-1]:
-            detail = user_input.pop().split(".").pop(0)
-            user_input.append(detail)
+    def load():
+        print "What's the file name?"
+        save_name = verbs_list.input_format()[0] + '.txt'
+        #how to search for file, so it doesn't try to open a non-existent file?
+        with open(save_name, 'rb') as save_file:
+            player.location = pickle.load(save_file)
+            items.item_list = pickle.load(save_file)
+        self.start()
 
-        return user_input
+    def restart():
+        print "Are you sure you want to restart? Y/N"
+        user_input = verbs_list.input_format()
+        if user_input == "y" or user_input == "yes":
+            self.start()
+        elif user_input == "n" or user_input == "no": self.play()
+        else: print 'I\'m sorry, I don\'t understand that command.'
 
     def start(self):
         player = Player()
@@ -132,9 +156,9 @@ class GameEngine(object):
         self.play()
 
     def play(self):
+        import verbs_list
         while True:
-            from verbs_list import command
-            command(self.input_format())
+            verbs_list.command(verbs_list.input_format())
 
 game = GameEngine()
 
