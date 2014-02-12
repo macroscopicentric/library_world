@@ -7,6 +7,7 @@ class Room(object):
         self.description = description
         self.directions = {}
         self.inventory = []
+        self.npc = None
         self.locked = locked
         directory.append(self)
 
@@ -17,6 +18,7 @@ class Room(object):
         print self.name
         print
         print self.description
+
         if len(self.inventory) == 1:
             print "\nThere's a %s here." % (self.inventory[0])
         elif len(self.inventory) == 2:
@@ -26,6 +28,11 @@ class Room(object):
             print '\nThere are a %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2])
         elif len(self.inventory) == 4:
             print '\nThere are a %s, %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2], self.inventory[3])
+
+        if self.npc != None:
+            if self.npc == 'orangutan':
+                print "An %s is here." % (self.npc)
+            else: print "%s is here." % (self.npc.capitalize())
 
 class Labyrinth(Room):
     def __init__(self, *args):

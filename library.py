@@ -1,6 +1,9 @@
 import sys
 import pickle
+import random
 import rooms
+
+home = rooms.reading_room
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n', 'e': 'e', 'east': 'e',
 'w': 'w', 'west': 'w', 's': 's', 'south': 's', 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw',
@@ -10,11 +13,12 @@ spells = {}
 #not used for anything yet. need to be able to respond to commands and use different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 item_list = {}
+npc_list = {}
 
 class Player(object):
     def __init__(self):
         self.alive = True
-        self.location = None
+        self.location = home
         self.shape = 'human'
         self.size = 'medium'
         self.flying = False
@@ -137,6 +141,23 @@ class Spell(object):
         else: print "You don't know that spell, sorry."
 
 
+class NPC(object):
+    def __init__(self, name, location, dialogue=[]):
+        self.name = name
+        self.location = location
+        self.dialogue = dialogue
+        npc_list[name] = self
+
+    def new_dialogue(self, new_dialogue):
+        self.dialogue = new_dialogue
+
+    def talk(self):
+        if self.location == player.location:
+            try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
+            except: print "%s doesn't say anything." % (self.name.capitalize())
+        else: print "You don't see that person here."
+
+
 class GameEngine(object):
     def input_format(self):
         user_input = raw_input(">").lower().split(" ")
@@ -148,12 +169,13 @@ class GameEngine(object):
         return user_input
 
     def start(self):
-        if player.location == None:
-            player.location = rooms.reading_room
+        for npc in npc_list:
+            if npc_list[npc].location:
+                npc_list[npc].location.npc = npc
         for item in item_list:
             if item_list[item].location == 'player':
                 player.inventory.append(item)
-            elif item_list[item].location in rooms.directory:
+            elif item_list[item].location:
                 item_list[item].location.inventory.append(item)
 
         player.location.describe()
@@ -186,7 +208,7 @@ class GameEngine(object):
 or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
 or "i" (lists your inventory), "take [object]", "drop [object]", "cast [Charter spell]", "spells" (lists the
 spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth stairs if you're in the labyrinth),
-"exit" or "quit" (exits the game), or "restart" (restarts the game).'''
+"talk" [person], "exit" or "quit" (exits the game), or "restart" (restarts the game).'''
 
     def restart(self):
         print "Are you sure you want to restart? Y/N"
@@ -240,11 +262,15 @@ spells you know), "teleport" (sends you back to the Reading Room, or the labyrin
         def cast():
             spells[noun].use_spell()
 
+        def talk():
+            try: npc_list[noun].talk()
+            except: print "You can't talk to that. Try talking to a person."
+
         # def move():
         #     if verb in moves: player.move(moves[verb])
 
         verbs = {'hello': say_hi, 'hi': say_hi, 'help': self.help_command, 'exit': sys.exit, 'quit': sys.exit, 'restart': self.restart,
-        'look': player.location.describe, 'inventory': player.inventory_check, 'i': player.inventory_check,
+        'look': player.location.describe, 'inventory': player.inventory_check, 'i': player.inventory_check, 'talk': talk,
         'save': self.save, 'load': self.load, 'spells': player.spell_check, 'teleport': player.teleport,
         'examine': examine, 'take': take, 'drop': drop, 'open': read, 'read': read, 'cast': cast}
 
@@ -291,6 +317,11 @@ immersed in the Charter. ''', 'otter', 'book', 'It\'s a plain brown book, small 
 otter = Spell('otter', 'small')
 human = Spell('human')
 
+#NPCs
+uu_librarian = NPC('orangutan', rooms.reading_room, ['Ooook ook.', 'Eeek eek!', 'Ook eek. >:('])
+vancelle = NPC('vancelle', rooms.chiefs_office)
+imshi = NPC('imshi', rooms.middle_librarian_hallway)
+
 game.start()
 
 #To do:
@@ -322,4 +353,4 @@ game.start()
 #Bug: moving not working since dividing into multiple files. The "self" part of the location is confusing it.
 #SOLVED: 'take all' only takes the first two items. Trying 'take all' again then only takes the next one item (in a room with four items).
 #(Due to iteration over a changing list. Created a temp list to solve this.)
-#Bug: two-word commands throw a fatal error if used without a "noun">
+#Bug: two-word commands throw a fatal error if used without a "noun."
