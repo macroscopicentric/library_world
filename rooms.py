@@ -1,3 +1,5 @@
+from list_items import list_items
+
 directory = []
 labyrinths = []
 
@@ -21,15 +23,8 @@ class Room(object):
 
         if self.npc: print "%s is here." % (self.npc.capitalize())
 
-        if len(self.inventory) == 1:
-            print "\nThere's a %s here." % (self.inventory[0])
-        elif len(self.inventory) == 2:
-            print "\nThere are a %s and %s here." % (self.inventory[0], self.inventory[1])
-        #how to make this flexible, no matter how many items in the room?
-        elif len(self.inventory) == 3:
-            print '\nThere are a %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2])
-        elif len(self.inventory) == 4:
-            print '\nThere are a %s, %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2], self.inventory[3])
+        print list_items(self.inventory)
+
 
 class Labyrinth(Room):
     def __init__(self, *args):
