@@ -2,7 +2,6 @@ import sys
 import pickle
 import random
 import rooms
-from items import item_list
 
 spells = {}
 #not used for anything yet. need to be able to respond to commands and use
@@ -96,10 +95,25 @@ class Spell(object):
 
 
 class NPC(object):
-    def __init__(self, name, location):
+    def __init__(self, name, location, dialogue=[]):
         self.name = name
         self.location = location
-        self.dialogue = []
+        self.dialogue = dialogue
+        npc_list[name] = self
+
+    def new_dialogue(self, new_dialogue):
+        self.dialogue = new_dialogue
+
+    def talk(self):
+        if self.location == player.location:
+            try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
+            except: print "%s doesn't say anything." % (self.name.capitalize())
+        else: print "You don't see that person here."
+
+
+class GameEngine(object):
+    def input_format(self):
+        user_input = raw_input(">").lower().split(" ")
 
     def add_dialogue(self, dialogue):
         self.dialogue = dialogue
@@ -165,6 +179,11 @@ game = GameEngine()
 #Spells
 otter = Spell('otter', 'small')
 human = Spell('human')
+
+#NPCs
+uu_librarian = NPC('orangutan', rooms.reading_room, ['Ooook ook.', 'Eeek eek!', 'Ook eek. >:('])
+vancelle = NPC('vancelle', rooms.chiefs_office)
+imshi = NPC('imshi', rooms.middle_librarian_hallway)
 
 game.start()
 
