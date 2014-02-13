@@ -10,7 +10,7 @@ moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 nouns = library.spells.keys() + items.items_list.keys()
 
 def input_format(self):
-    user_input = raw_input(">").lower().split(" ")
+    user_input = raw_input(">").lower().split(" ", 1)
 
     if "." in user_input[-1]:
         detail = user_input.pop().split(".").pop(0)
@@ -21,8 +21,7 @@ def input_format(self):
 def command(user_input):
     verb = user_input[0]
     noun = ''
-    if len(user_input) == 2: noun = user_input[1]
-    elif len(user_input) > 2: print "Whoops! That's too challenging for me. Please try again."
+    if len(user_input) < 1: noun = user_input[1]
 
     #Helper functions so I can add all methods to the verbs dictionary:
     def help_command():

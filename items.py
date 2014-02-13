@@ -66,5 +66,5 @@ a yellow waistcoat. Now, I wonder where those things could be. (You didn't lose 
 contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
 to carry it around.''', rooms.librarian_alcove)
 spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
-immersed in the Charter. ''', 'otter', 'book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')
+immersed in the Charter. ''', 'otter', 'charter book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')
 #Have to define ledger's spell as none in order for it to not get confused re where the super variables start.

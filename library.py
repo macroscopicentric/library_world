@@ -99,6 +99,7 @@ class NPC(object):
         self.name = name
         self.location = location
         self.dialogue = dialogue
+        self.counter = 0
         npc_list[name] = self
 
     def new_dialogue(self, new_dialogue):
@@ -110,17 +111,13 @@ class NPC(object):
             except: print "%s doesn't say anything." % (self.name.capitalize())
         else: print "You don't see that person here."
 
+class Librarian(NPC):
+    def __init__(self, *args):
+        super(Librarian, self)__init__(*args)
 
-class GameEngine(object):
-    def input_format(self):
-        user_input = raw_input(">").lower().split(" ")
+    def level_up(self):
+        self.counter += 1
 
-    def add_dialogue(self, dialogue):
-        self.dialogue = dialogue
-
-    def talk(self):
-        try: print self.dialogue[random.randint(0, len(self.dialogue))]
-        except: print "%s doesn't say anything." % (self.name.capitalize())
 
 class GameEngine(object):
     def save():
@@ -182,8 +179,8 @@ human = Spell('human')
 
 #NPCs
 uu_librarian = NPC('orangutan', rooms.reading_room, ['Ooook ook.', 'Eeek eek!', 'Ook eek. >:('])
-vancelle = NPC('vancelle', rooms.chiefs_office)
-imshi = NPC('imshi', rooms.middle_librarian_hallway)
+vancelle = Librarian('vancelle', rooms.chiefs_office)
+imshi = NPC('imshi', rooms.middle_librarian_hallway, ['Hi!'])
 
 game.start()
 

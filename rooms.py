@@ -1,3 +1,5 @@
+from list_items import list_items
+
 directory = []
 labyrinths = []
 
@@ -23,6 +25,7 @@ class Room(object):
 <<<<<<< HEAD
         if self.npc: print "%s is here." % (self.npc.capitalize())
 
+<<<<<<< HEAD
 =======
 >>>>>>> master
         if len(self.inventory) == 1:
@@ -34,6 +37,10 @@ class Room(object):
             print '\nThere are a %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2])
         elif len(self.inventory) == 4:
             print '\nThere are a %s, %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2], self.inventory[3])
+=======
+        print list_items(self.inventory)
+
+>>>>>>> ea28494c14aa4939203f4c43e6378a2b6cea2c87
 
         if self.npc != None:
             if self.npc == 'orangutan':
