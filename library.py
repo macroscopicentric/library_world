@@ -134,7 +134,7 @@ game.start()
 #Shelve command.
 #Only describe the room the first time through? This would also cause issues with the way the save function is currently written.
 #   (Would also have to divide the directions from the description.)
-#Via Ella: Further distinguish Clayr hallways. Paintings/sculptures, bold the directions, add directions to room name.
+#Via Ella: Further distinguish Clayr hallways. Add in more descriptions as I add other libraries.
 #UU library needs a hint about the Escher stairs/floor. State, second time you do it, "You suspect this is the same room."
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.

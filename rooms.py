@@ -61,62 +61,67 @@ third_assistant_study = Room("Third Assistant Study", '''This is your study. It'
 single chair that are here. The only exit is to the west.''')
 
 #Main Ramp Rooms (Clayr Library Spiral)
-hall1 = Room("Hallway", '''You're in a hallway with gently sloping floors. Through the eastern archway, you can see the Main
+hall1 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. Through the eastern archway, you can see the Main
 Reading Room. The walls here are blue. There are archways to the east and west.''')
-hall2 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall2 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the east and west.''')
-hall3 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
-There are archways to the east and south, and a door to the west.''')
+hall3 = Room("East-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+There is a table in the corner with a rose lying on it. There are archways to the east
+and south, and a stained-glass door to the west.''')
 
-hall4 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall4 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and south.''')
-hall5 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall5 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and south.''')
-hall6 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall6 = Room("North-East Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and east.''')
 
-hall7 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall7 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the east and west.''')
-hall8 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
-There are archways to the east and west, and a door to the south.''')
-hall9 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall8 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+There is an empty soap dispenser on the wall labeled "Librarian Repellent." There are archways
+to the east and west, and a door to the south.''')
+hall9 = Room("North-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and west.''')
 
-hall10 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall10 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and south.''')
-hall11 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
+hall11 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and south.''')
-hall12 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are purple.
-There are archways to the west and south.''')
+hall12 = Room("West-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are purple.
+There is a large statue of a turtle in the corner. There are archways to the west and south.''')
 
-hall13 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the east and west, and a door to the north.''')
-hall14 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the east and south.''')
+hall13 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+There is a strange painting on the wall of faceless people going up and down impossible
+stairways. There are archways to the east and west, and a door to the north.''')
+hall14 = Room("East-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+There is a large statue of an elephant in the corner. There are archways to the east and south.''')
 
-hall15 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+hall15 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and south.''')
-hall16 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+hall16 = Room("North-East Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and east.''')
 
-hall17 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+hall17 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the east and west.''')
-hall18 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+hall18 = Room("North-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and west.''')
 
-hall19 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
+hall19 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and south.''')
-hall20 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are orange.
+hall20 = Room("West-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are orange.
 There are archways to the west and south.''')
 
-hall21 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
-There are archways to the east and south. There's an open door, with stairs beyond, to the west.''')
+hall21 = Room("East-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
+On the wall, there's a very old and very inaccurate world map. (Who ever heard of a place called
+Leones?!) There are archways to the east and south. There's an open door, with stairs beyond, to the west.''')
 
-hall22 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
+hall22 = Room("North-East Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
 There are archways to the north and east.''')
 
-hall23 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
-There are archways to the north and west. There's a locked door to the east.''')
+hall23 = Room("North-West Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
+There are archways to the north and west. There's a locked door with a sunburst
+painted on it to the east.''')
 
 hall24 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow. There's an archway to the south.
 On the west wall, there's a hole, far too small for a human to pass through.''')
