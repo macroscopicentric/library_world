@@ -110,7 +110,7 @@ hall20 = Room("Hallway", '''You're in a hallway with gently sloping floors. The 
 There are archways to the west and south.''')
 
 hall21 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
-There are archways to the east and south. There's a door to the west.''')
+There are archways to the east and south. There's an open door, with stairs beyond, to the west.''')
 
 hall22 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
 There are archways to the north and east.''')

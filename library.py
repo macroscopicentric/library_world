@@ -1,4 +1,3 @@
-import pickle
 import rooms
 import items
 import commands
@@ -132,9 +131,11 @@ game.start()
 #   Could also use this to create different room descriptions if you get promoted and get a new study, etc.
 #NPCs.
 #Need to note somewhere that you can use 'human' to change back.
-#Shelve command, how to distinguish books? "Which book would you like to x?" > Numbered list?
+#Shelve command.
 #Only describe the room the first time through? This would also cause issues with the way the save function is currently written.
 #   (Would also have to divide the directions from the description.)
+#Via Ella: Further distinguish Clayr hallways. Paintings/sculptures, bold the directions, add directions to room name.
+#UU library needs a hint about the Escher stairs/floor. State, second time you do it, "You suspect this is the same room."
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.
 #Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).
@@ -146,7 +147,8 @@ game.start()
 #SOLVED: save isn't working. Remembers player's location but not their inventory, and doesn't do anything about items that have been taken/
 #moved from their original location.
 #SOLVED: #Taking an item puts it in your inventory and removes it from the room, but doesn't change the room description.
-#Bug: moving not working since dividing into multiple files. The "self" part of the location is confusing it.
+#SOLVED: moving not working since dividing into multiple files. The "self" part of the location is confusing it.
 #SOLVED: 'take all' only takes the first two items. Trying 'take all' again then only takes the next one item (in a room with four items).
 #(Due to iteration over a changing list. Created a temp list to solve this.)
-#Bug: two-word commands throw a fatal error if used without a "noun."
+#Solved?: two-word commands throw a fatal error if used without a "noun."
+#Bug: glitches (can be delayed) after saving/loading and then trying to exit. ("I'm sorry, I don't understand that command...")

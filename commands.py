@@ -1,4 +1,6 @@
 import sys
+import pickle
+
 import items
 import people
 
@@ -26,7 +28,7 @@ def command(user_input, player, game):
         #Currently saves/loads player's location and sets correct item locations.
         #Doesn't save other player/room status info (alive/dead, opened doors, etc).
         print "Save file name:"
-        save_name = verbs_list.input_format()[0] + '.txt'
+        save_name = input_format()[0] + '.txt'
         #can i ask about overwriting a previous save file?
         with open(save_name, 'wb') as save_file:
             pickle.dump(player.location, save_file)
@@ -39,7 +41,7 @@ def command(user_input, player, game):
 
     def load():
         print "What's the file name?"
-        save_name = verbs_list.input_format()[0] + '.txt'
+        save_name = input_format()[0] + '.txt'
         #how to search for file, so it doesn't try to open a non-existent file?
         with open(save_name, 'rb') as save_file:
             player.location = pickle.load(save_file)
@@ -57,9 +59,10 @@ def command(user_input, player, game):
     def help_command():
         print '''My commands are like a traditional text adventure\'s. To move, use the cardinal directions ("n", "s", "e", or "w")
 or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
-or "i" (lists your inventory), "take [object]", "drop [object]", "cast [Charter spell]", "spells" (lists the
-spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth stairs if you're in the labyrinth),
-"talk [character]", "exit" or "quit" (exits the game), or "restart" (restarts the game).'''
+or "i" (lists your inventory), "take [object]" or "take all", "drop [object]" or "drop all", "cast [Charter spell]",
+"spells" (lists the spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth
+stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [book]",
+"exit" or "quit" (exits the game), or "restart" (restarts the game).'''
 
     def say_hi():
         print "Hullo!"
@@ -76,7 +79,8 @@ spells you know), "teleport" (sends you back to the Reading Room, or the labyrin
                         player.location.inventory)
             else: print "There's nothing here to take."
         else:
-            try: items.item_list[noun].take()
+            try: items.item_list[noun].take(player.inventory,
+                player.location.inventory)
             except: print "I don't see that item."
 
     def drop():
@@ -88,7 +92,8 @@ spells you know), "teleport" (sends you back to the Reading Room, or the labyrin
                         player.location.inventory)
             else: player.inventory_check()
         else:
-            try: items.item_list[noun].drop()
+            try: items.item_list[noun].drop(player.inventory,
+                player.location.inventory)
             except: print "You're not carrying that item."
 
     def read():
