@@ -1,14 +1,15 @@
-import sys
 import pickle
-import random
 import rooms
+import items
+import commands
+import people
 
 spells = {}
 #not used for anything yet. need to be able to respond to commands and use
 #different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
-npc_list = {}
-home = rooms.third_assistant_study
+
+home = rooms.reading_room
 
 class Player(object):
     def __init__(self, location=home):
@@ -94,93 +95,31 @@ class Spell(object):
         else: print "You don't know that spell, sorry."
 
 
-class NPC(object):
-    def __init__(self, name, location, dialogue=[]):
-        self.name = name
-        self.location = location
-        self.dialogue = dialogue
-        self.counter = 0
-        npc_list[name] = self
-
-    def new_dialogue(self, new_dialogue):
-        self.dialogue = new_dialogue
-
-    def talk(self):
-        if self.location == player.location:
-            try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
-            except: print "%s doesn't say anything." % (self.name.capitalize())
-        else: print "You don't see that person here."
-
-class Librarian(NPC):
-    def __init__(self, *args):
-        super(Librarian, self)__init__(*args)
-
-    def level_up(self):
-        self.counter += 1
-
-
 class GameEngine(object):
-    def save():
-        #Currently saves/loads player's location and sets correct item locations.
-        #Doesn't save other player/room status info (alive/dead, opened doors, etc).
-        print "Save file name:"
-        save_name = verbs_list.input_format()[0] + '.txt'
-        #can i ask about overwriting a previous save file?
-        with open(save_name, 'wb') as save_file:
-            pickle.dump(player.location, save_file)
-            pickle.dump(items.item_list, save_file)
-        #recommended by Dive Into Python 3 (excellent explanation of
-        #serialization and how to use pickle).
-        #with open() ensures that the file is closed. Pickle only reads/writes
-        #binary, so 'wb' is needed.
-        print "File saved."
-
-    def load():
-        print "What's the file name?"
-        save_name = verbs_list.input_format()[0] + '.txt'
-        #how to search for file, so it doesn't try to open a non-existent file?
-        with open(save_name, 'rb') as save_file:
-            player.location = pickle.load(save_file)
-            items.item_list = pickle.load(save_file)
-        self.start()
-
-    def restart():
-        print "Are you sure you want to restart? Y/N"
-        user_input = verbs_list.input_format()
-        if user_input == "y" or user_input == "yes":
-            self.start()
-        elif user_input == "n" or user_input == "no": self.play()
-        else: print 'I\'m sorry, I don\'t understand that command.'
-
     def start(self):
-        player = Player()
+        # player = Player()
 
-        for npc in npc_list:
-            npc.location.npc = npc.name
-        for item in item_list:
-            if item_list[item].location == 'player':
+        for npc in people.npc_list:
+            people.npc_list[npc].location.npc = npc
+        for item in items.item_list:
+            if items.item_list[item].location == 'player':
                 player.inventory.append(item)
-            elif item_list[item].location in rooms.directory:
-                item_list[item].location.inventory.append(item)
+            elif items.item_list[item].location in rooms.directory:
+                items.item_list[item].location.inventory.append(item)
 
         player.location.describe()
         self.play()
 
     def play(self):
-        import verbs_list
         while True:
-            verbs_list.command(verbs_list.input_format())
+            commands.command(commands.input_format(), player, game)
 
 game = GameEngine()
+player = Player()
 
 #Spells
 otter = Spell('otter', 'small')
 human = Spell('human')
-
-#NPCs
-uu_librarian = NPC('orangutan', rooms.reading_room, ['Ooook ook.', 'Eeek eek!', 'Ook eek. >:('])
-vancelle = Librarian('vancelle', rooms.chiefs_office)
-imshi = NPC('imshi', rooms.middle_librarian_hallway, ['Hi!'])
 
 game.start()
 

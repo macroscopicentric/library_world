@@ -1,12 +1,8 @@
-
-
 def list_items(items):
     singular = "\nThere is "
     plural = '\nThere are '
 
-    if len(items) == 0:
-        return ''
-    elif len(items) == 1:
+    if len(items) == 1:
         return singular + article(items[0]) + ' here.'
     elif len(items) == 2:
         return plural + article(items[0]) + ' and ' + article(items[1]) + ' here.'

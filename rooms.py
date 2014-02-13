@@ -11,7 +11,6 @@ class Room(object):
         self.inventory = []
         self.npc = None
         self.locked = locked
-        self.npc = ''
         directory.append(self)
 
     def add_directions(self, directions):
@@ -21,28 +20,10 @@ class Room(object):
         print self.name
         print
         print self.description
-
-<<<<<<< HEAD
-        if self.npc: print "%s is here." % (self.npc.capitalize())
-
-<<<<<<< HEAD
-=======
->>>>>>> master
-        if len(self.inventory) == 1:
-            print "\nThere's a %s here." % (self.inventory[0])
-        elif len(self.inventory) == 2:
-            print "\nThere are a %s and %s here." % (self.inventory[0], self.inventory[1])
-        #how to make this flexible, no matter how many items in the room?
-        elif len(self.inventory) == 3:
-            print '\nThere are a %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2])
-        elif len(self.inventory) == 4:
-            print '\nThere are a %s, %s, %s, and %s here.' % (self.inventory[0], self.inventory[1], self.inventory[2], self.inventory[3])
-=======
-        print list_items(self.inventory)
-
->>>>>>> ea28494c14aa4939203f4c43e6378a2b6cea2c87
+        if self.inventory: print list_items(self.inventory)
 
         if self.npc != None:
+            if not self.inventory: print
             if self.npc == 'orangutan':
                 print "An %s is here." % (self.npc)
             else: print "%s is here." % (self.npc.capitalize())
