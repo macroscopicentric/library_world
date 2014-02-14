@@ -147,6 +147,7 @@ beast_library4 = Room("Beast's Library", '''You're in the northern end of a mass
 a staircase in the corner.''')
 beast_library5 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the northern wall of a massive library.
 There are stairs leading down.''')
+beast_library = [beast_library1, beast_library2, beast_library3, beast_library4, beast_library5]
 
 
 #Unseen University Library

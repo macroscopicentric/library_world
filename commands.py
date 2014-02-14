@@ -57,12 +57,15 @@ def command(user_input, player, game):
         else: print 'I\'m sorry, I don\'t understand that command.'
 
     def help_command():
-        print '''My commands are like a traditional text adventure\'s. To move, use the cardinal directions ("n", "s", "e", or "w")
+        print '''My commands are like a traditional text adventure\'s. To move, use cardinal or ordinal directions
 or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
 or "i" (lists your inventory), "take [object]" or "take all", "drop [object]" or "drop all", "cast [Charter spell]",
 "spells" (lists the spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth
 stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [book]",
-"exit" or "quit" (exits the game), or "restart" (restarts the game).'''
+"exit" or "quit" (exits the game), or "restart" (restarts the game).
+
+Please keep in mind that commands can only be one word, but nouns can be more than one. Don't bother with
+articles (the, a, an, etc).'''
 
     def say_hi():
         print "Hullo!"
@@ -100,6 +103,11 @@ stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [
         try: items.item_list[noun].open(player.known_spells)
         except: print "You can't read that. Try reading a book."
 
+    def shelve():
+        try: items.item_list[noun].shelve(player.location, player.inventory)
+        except: print "You can't shelve that."
+
+    #currently not working because spells (list) isn't being passed in.
     # def cast():
     #     spells[noun].use_spell()
 
@@ -113,7 +121,7 @@ stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'examine': examine, 'take': take,
     'drop': drop, 'open': read, 'read': read, 'restart': restart,
-    'save': save, 'load': load, 'talk': talk}
+    'save': save, 'load': load, 'talk': talk, 'shelve': shelve}
     # 'cast': cast}
 
     try:

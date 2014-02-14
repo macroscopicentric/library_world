@@ -10,7 +10,7 @@ spells = {}
 #different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 
-home = rooms.uu_library1
+home = rooms.reading_room
 
 class Player(object):
     def __init__(self, location=home):

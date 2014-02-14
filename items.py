@@ -32,8 +32,9 @@ class Item(object):
 
 
 class Book(Item):
-    def __init__(self, inside, *args):
+    def __init__(self, inside, home, *args):
         self.inside = inside
+        self.home = home
         # self.spell = spell
         super(Book, self).__init__(*args)
 
@@ -42,6 +43,12 @@ class Book(Item):
             print self.inside
             if self.spell: player_spells.append(self.spell)
         else: print "You have to pick it up first!"
+
+    def shelve(self, player_location, player_inventory):
+        if player_location in self.home:
+            player_inventory.remove(self.name)
+            print "You shelve the %s." % (self.name)
+        else: print "You can only shelve books where they belong!"
 
 #Items
 pan_pipes = Item('pipes', '''It's a set of pan pipes. There are seven total. They're plain wood,
@@ -61,12 +68,14 @@ phial = Item('phial', '''A small crystal phial. It's sealed with powerful Charte
 #Books (Subclass of Items)
 ledger = Book('''As you expected, the book is full of lists of equipment checked out to past librarians. And there's your name,
 at the very bottom! There's a list of equipment for you, including a dagger, a clockwork mouse, a key, and
-a yellow waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''', 'ledger',
+a yellow waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''',
+rooms.librarian_alcove, 'ledger',
 '''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
 contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
 to carry it around.''', rooms.librarian_alcove)
 
 belle_et_bete = Book('''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Beauty and the beast.''',
-    'fairy tale book', '''The book has a plain brown cloth cover that says, "La Belle et la Bete."''', rooms.hall3)
+    rooms.beast_library, 'fairy tale book',
+    '''The book has a plain brown cloth cover that says, "La Belle et la Bete."''', rooms.hall3)
 # spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
 # immersed in the Charter. ''', 'otter', 'charter book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')
