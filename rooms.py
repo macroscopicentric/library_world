@@ -4,13 +4,15 @@ directory = []
 labyrinths = []
 
 class Room(object):
-    def __init__(self, name, description, locked=False):
+    def __init__(self, name, description, locked=False, secondary_description=None):
         self.name = name
         self.description = description
         self.directions = {}
         self.inventory = []
         self.npc = None
         self.locked = locked
+        self.counter = 0
+        self.secondary_description = secondary_description
         directory.append(self)
 
     def add_directions(self, directions):
@@ -20,6 +22,10 @@ class Room(object):
         print self.name
         print
         print self.description
+
+        if self.counter == 1 and self.secondary_description:
+            print self.secondary_description
+
         if self.inventory: print list_items(self.inventory)
 
         if self.npc != None:
@@ -27,6 +33,9 @@ class Room(object):
             if self.npc == 'orangutan':
                 print "An %s is here." % (self.npc)
             else: print "%s is here." % (self.npc.capitalize())
+
+    def change_counter(self, counter):
+        self.counter = counter
 
 class Labyrinth(Room):
     def __init__(self, *args):

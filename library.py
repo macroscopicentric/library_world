@@ -1,3 +1,5 @@
+import time
+
 import rooms
 import items
 import commands
@@ -8,7 +10,7 @@ spells = {}
 #different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 
-home = rooms.reading_room
+home = rooms.uu_library1
 
 class Player(object):
     def __init__(self, location=home):
@@ -36,9 +38,22 @@ class Player(object):
                 if spell != 'human':
                     print "\n%s" % (spell)
 
+    #For tidying code and seperating the player data from the rooms data so
+    #they don't see each other (in prep for moving "move" to the rooms).
+    def location_check(self):
+        return self.location
+
     def move(self, direction):
         if direction == 'e' and self.location == rooms.reading_room:
             print "No, I really don't think you want to go that way. Why don't you stick to the library?"
+        elif direction == 'd' and (self.location == rooms.uu_library1 or
+            self.location == rooms.uu_library2):
+            print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
+and down is up. But now it's gone, so you don't trouble yourself over it.'''
+            print
+            self.location = self.location.directions[direction]
+            time.sleep(2)
+            self.location.describe()
         elif direction not in self.location.directions:
             print "You can't go that way, stupid."
         elif direction in self.location.directions and self.location.directions[direction].locked == True:
@@ -134,8 +149,9 @@ game.start()
 #Shelve command.
 #Only describe the room the first time through? This would also cause issues with the way the save function is currently written.
 #   (Would also have to divide the directions from the description.)
-#Via Ella: Further distinguish Clayr hallways. Add in more descriptions as I add other libraries.
-#UU library needs a hint about the Escher stairs/floor. State, second time you do it, "You suspect this is the same room."
+#Add in more Clayr hallway landmarks as I add other libraries.
+#Sequester code. Stop calling class attributes directly; create new methods instead.
+#Add Alexandria, expand WTNV, Dream's library, Restricted Section, Pagemaster, DW?, Powell's.
 
 #Bug: couldn't do class Player(object, location) to automatically init the location correctly.
 #Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).
