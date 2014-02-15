@@ -10,7 +10,7 @@ spells = {}
 #different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 
-home = rooms.reading_room
+home = rooms.chiefs_office
 
 class Player(object):
     def __init__(self, location=home):
@@ -21,6 +21,8 @@ class Player(object):
         self.flying = False
         self.known_spells = ['human']
         self.inventory = []
+        self.shelved_books = set(('fairy tale book',))
+        self.level = 1
 
     def inventory_check(self):
         if self.inventory == []: print "You're not holding anything!"
@@ -37,11 +39,6 @@ class Player(object):
             for spell in self.known_spells:
                 if spell != 'human':
                     print "\n%s" % (spell)
-
-    #For tidying code and seperating the player data from the rooms data so
-    #they don't see each other (in prep for moving "move" to the rooms).
-    def location_check(self):
-        return self.location
 
     def move(self, direction):
         if direction == 'e' and self.location == rooms.reading_room:
@@ -144,7 +141,7 @@ game.start()
 #Bells (item) need to be a recursive so you can call each bell by name.
 #Make room states that can change over time (locked doors, etc). Also need to prevent going through the hole at the bottom of the tunnel.
 #   Could also use this to create different room descriptions if you get promoted and get a new study, etc.
-#NPCs.
+#   Need a player state that will change as you re-shelve books. But won't actually change unless you go back and talk to Vancelle.
 #Need to note somewhere that you can use 'human' to change back.
 #Shelve command.
 #Only describe the room the first time through? This would also cause issues with the way the save function is currently written.

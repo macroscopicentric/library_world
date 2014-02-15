@@ -104,7 +104,8 @@ articles (the, a, an, etc).'''
         except: print "You can't read that. Try reading a book."
 
     def shelve():
-        try: items.item_list[noun].shelve(player.location, player.inventory)
+        try: items.item_list[noun].shelve(player.location, player.inventory,
+            player.shelved_books)
         except: print "You can't shelve that."
 
     #currently not working because spells (list) isn't being passed in.
@@ -113,7 +114,9 @@ articles (the, a, an, etc).'''
 
     def talk():
         if player.location.npc == noun:
-            people.npc_list[noun].talk(player.location)
+            if noun == 'vancelle':
+                people.vancelle.talk(player.level, player.shelved_books)
+            else: people.npc_list[noun].talk()
         else: print "I don't see that person here."
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
@@ -121,7 +124,7 @@ articles (the, a, an, etc).'''
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'examine': examine, 'take': take,
     'drop': drop, 'open': read, 'read': read, 'restart': restart,
-    'save': save, 'load': load, 'talk': talk, 'shelve': shelve}
+    'save': save, 'load': load, 'shelve': shelve}
     # 'cast': cast}
 
     try:
@@ -129,6 +132,7 @@ articles (the, a, an, etc).'''
     except:
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit': sys.exit()
+        elif verb == 'talk': talk()
         #is there a way to put the part below in the dictionary as well? would
         #have to nest dictionaries, which gave me an unhashable type error.
         elif verb in moves: player.move(moves[verb])
