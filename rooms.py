@@ -46,8 +46,8 @@ class Labyrinth(Room):
 #Main Clayr Library
 reading_room = Room("Reading Room", '''You're in the Main Reading Room. Large wooden tables fill the room. Clayr sit at some of the tables,
 reading. There are exits to the south and west. The main doors are open to the east.''')
-librarian_alcove = Room("Librarian Alcove", '''This is the librarian alcove, the main hub of their behind-the-scenes library management.
-There are exits to the north, south, east, and west. There is a small roller-top desk in the corner.''')
+librarian_alcove = Room("Librarian Alcove", '''This is the librarian alcove, the main hub of their behind-the-scenes library management. There is a small
+roller-top desk in the corner. There are exits to the north, south, east, and west.''')
 #possibly open the desk?
 binding_room = Room("Binding Room", '''This is the room where the librarians repair damaged books. There are books covering
 every flat surface, and a giant press in the back corner. The only exit is to the east.''')
@@ -58,14 +58,15 @@ line the hallway, but they're all closed and locked. There's another locked door
 There's an exit to the north, and steps leading down.''')
 chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office.
 Chief Librarian Vancelle is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
-enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''', True)
+enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''')
 middle_librarian_hallway = Room("Hallway", '''You're standing in a hallway. All of the doors are painted red. They're all closed and locked.
 There are stairs leading up and down.''')
 second_assistant_study = Room("Second Assistant Study", '''This is your new study, the room of a Second Assistant Librarian. There's enough
 room for a desk and not one but two chairs (what luxury!), and there's a door ajar that leads to a tiny bathroom, all your own. The only exit
 is to the west. ''', True)
 lower_librarian_hallway = Room("Hallway", '''You're standing in a hallway. There are many doors adjacent to this hallway, more than the two
-upper floors. The doors are all painted yellow. They're all closed, except for the one in the southeastern corner.''')
+upper floors. The doors are all painted yellow. They're all closed, except for the one in the southeastern corner.
+There are also stairs leading up.''')
 third_assistant_study = Room("Third Assistant Study", '''This is your study. It's very cramped; there's barely room for the desk and
 single chair that are here. The only exit is to the west.''')
 
@@ -140,11 +141,11 @@ On the west wall, there's a hole, far too small for a human to pass through.''')
 beast_library1 = Room("Beast's Library", '''You're in a huge room filled floor to 50-foot ceiling with books, with tall windows in the southwest
 and northwest corners. The room extends to the north and south, and there's a door to the east.''')
 beast_library2 = Room("Beast's Library", '''You're in the southern end of a massive library. It extends to the north, and there's
-a staircase in the corner.''')
+a staircase going up in the corner.''')
 beast_library3 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the southern wall of a massive library.
 There are stairs leading down.''')
 beast_library4 = Room("Beast's Library", '''You're in the northern end of a massive library. It extends to the south, and there's
-a staircase in the corner.''')
+a staircase going up in the corner.''')
 beast_library5 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the northern wall of a massive library.
 There are stairs leading down.''')
 beast_library = [beast_library1, beast_library2, beast_library3, beast_library4, beast_library5]

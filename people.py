@@ -44,7 +44,7 @@ vancelle = Librarian('vancelle', rooms.chiefs_office, ['Vancelle ignores you.'])
 vancelle.add_levels(level1=set(('fairy tale book',)))
 
 uu_librarian = NPC('orangutan', rooms.uu_library1, ['"Ooook ook."', '"Eeek eek!"',
-    '"Ook eek. >:("'])
+    '"Ook eek." >:('])
 imshi = NPC('imshi', rooms.middle_librarian_hallway, ['"Go shelve a book, then come back and talk to Vancelle."'])
 clippy = NPC('clippy', rooms.binding_room,
     ['''"It looks like you're trying to become a first-assistant librarian!... I'm sorry, I can't help with that."''',

@@ -75,7 +75,8 @@ rooms.librarian_alcove, 'ledger',
 contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
 to carry it around.''', rooms.librarian_alcove)
 
-belle_et_bete = Book('''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Beauty and the beast.''',
+belle_et_bete = Book('''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Belle and the beast.
+It looks like this book belongs in the Beast's library.''',
     rooms.beast_library, 'fairy tale book',
     '''The book has a plain brown cloth cover that says, "La Belle et la Bete."''', rooms.hall3)
 # spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally

@@ -165,3 +165,4 @@ game.start()
 #(Due to iteration over a changing list. Created a temp list to solve this.)
 #Solved?: two-word commands throw a fatal error if used without a "noun."
 #Bug: glitches (can be delayed) after saving/loading and then trying to exit. ("I'm sorry, I don't understand that command...")
+#Bug: list spells doesn't work. Open ledger works, but then prints that you can't open that.

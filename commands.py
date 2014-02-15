@@ -31,7 +31,7 @@ def command(user_input, player, game):
         save_name = input_format()[0] + '.txt'
         #can i ask about overwriting a previous save file?
         with open(save_name, 'wb') as save_file:
-            pickle.dump(player.location, save_file)
+            pickle.dump(player, save_file)
             pickle.dump(items.item_list, save_file)
         #recommended by Dive Into Python 3 (excellent explanation of
         #serialization and how to use pickle).
@@ -44,7 +44,7 @@ def command(user_input, player, game):
         save_name = input_format()[0] + '.txt'
         #how to search for file, so it doesn't try to open a non-existent file?
         with open(save_name, 'rb') as save_file:
-            player.location = pickle.load(save_file)
+            player = pickle.load(save_file)
             items.item_list = pickle.load(save_file)
         game.start()
 
@@ -61,7 +61,7 @@ def command(user_input, player, game):
 or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
 or "i" (lists your inventory), "take [object]" or "take all", "drop [object]" or "drop all", "cast [Charter spell]",
 "spells" (lists the spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth
-stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [book]",
+stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [book]", "shelve [book]",
 "exit" or "quit" (exits the game), or "restart" (restarts the game).
 
 Please keep in mind that commands can only be one word, but nouns can be more than one. Don't bother with
