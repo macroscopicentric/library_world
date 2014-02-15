@@ -58,7 +58,7 @@ line the hallway, but they're all closed and locked. There's another locked door
 There's an exit to the north, and steps leading down.''')
 chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office.
 Chief Librarian Vancelle is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
-enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''')
+enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''', True)
 middle_librarian_hallway = Room("Hallway", '''You're standing in a hallway. All of the doors are painted red. They're all closed and locked.
 There are stairs leading up and down.''')
 second_assistant_study = Room("Second Assistant Study", '''This is your new study, the room of a Second Assistant Librarian. There's enough

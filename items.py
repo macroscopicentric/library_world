@@ -47,7 +47,7 @@ class Book(Item):
     def shelve(self, player_location, player_inventory, shelved_books):
         if player_location in self.home:
             player_inventory.remove(self.name)
-            shelved_books.append(self.name)
+            shelved_books.add(self.name,)
             print "You shelve the %s." % (self.name)
         else: print "You can only shelve books where they belong!"
 
@@ -77,6 +77,6 @@ to carry it around.''', rooms.librarian_alcove)
 
 belle_et_bete = Book('''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Beauty and the beast.''',
     rooms.beast_library, 'fairy tale book',
-    '''The book has a plain brown cloth cover that says, "La Belle et la Bete."''', 'player')
+    '''The book has a plain brown cloth cover that says, "La Belle et la Bete."''', rooms.hall3)
 # spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
 # immersed in the Charter. ''', 'otter', 'charter book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')
