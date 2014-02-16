@@ -26,22 +26,29 @@ class Librarian(NPC):
         for level, book_list in kwargs.items():
             setattr(self, level, book_list)
             
-    def level_up(self, player_level, shelved_books):
-        if self.level1 <= shelved_books:
-            player_level += 1
-            print '''Level up! You're now level 2.'''
-            self.new_dialogue(['''"Congratulations, you've shelved your first book."'''])
+    def level_up(self, player_level, player_inventory, shelved_books):
+        for level in [self.level1, self.level2]:
+            if level <= shelved_books and 'key' in player_inventory:
+                player_level += 1
+                print '''Level up! You're now level %s.''' % (player_level)
+                if player_level == 2:
+                    print '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
+                    self.new_dialogue(['"Go talk to Imshi if you need something."'])
+                elif player_level == 3:
+                    self.new_dialogue(['Vancelle ignores you.'])
+                return True
 
-
-    def talk(self, player_level, shelved_books):
-        self.level_up(player_level, shelved_books)
-        try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
-        except: print "%s doesn't say anything." % (self.name.capitalize())
+    def talk(self, player_level, player_inventory, shelved_books):
+        if not self.level_up(player_level, player_inventory, shelved_books):
+            try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
+            except: print "%s doesn't say anything." % (self.name.capitalize())
         
 
 
-vancelle = Librarian('vancelle', rooms.chiefs_office, ['Vancelle ignores you.'])
-vancelle.add_levels(level1=set(('fairy tale book',)))
+vancelle = Librarian('vancelle', rooms.chiefs_office,
+    ['Vancelle ignores you.'])
+vancelle.add_levels(level1=set(('french book',)), level2=set((
+    'fairy tale book', 'floral book', 'princess book')))
 
 uu_librarian = NPC('orangutan', rooms.uu_library1, ['"Ooook ook."', '"Eeek eek!"',
     '"Ook eek." >:('])

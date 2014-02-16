@@ -115,7 +115,8 @@ articles (the, a, an, etc).'''
     def talk():
         if player.location.npc == noun:
             if noun == 'vancelle':
-                people.vancelle.talk(player.level, player.shelved_books)
+                people.vancelle.talk(player.level, player.inventory,
+                    player.shelved_books)
             else: people.npc_list[noun].talk()
         else: print "I don't see that person here."
 
@@ -123,8 +124,8 @@ articles (the, a, an, etc).'''
     'look': player.location.describe, 'inventory': player.inventory_check,
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'examine': examine, 'take': take,
-    'drop': drop, 'open': read, 'read': read, 'restart': restart,
-    'save': save, 'load': load, 'shelve': shelve}
+    'drop': drop, 'restart': restart, 'read': read, 'open': read,
+    'save': save, 'load': load, 'shelve': shelve, 'talk': talk}
     # 'cast': cast}
 
     try:
@@ -132,7 +133,6 @@ articles (the, a, an, etc).'''
     except:
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit': sys.exit()
-        elif verb == 'talk': talk()
         #is there a way to put the part below in the dictionary as well? would
         #have to nest dictionaries, which gave me an unhashable type error.
         elif verb in moves: player.move(moves[verb])

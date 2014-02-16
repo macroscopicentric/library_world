@@ -35,7 +35,7 @@ class Book(Item):
     def __init__(self, inside, home, *args):
         self.inside = inside
         self.home = home
-        # self.spell = spell
+        self.spell = None
         super(Book, self).__init__(*args)
 
     def open(self, player_spells):
@@ -75,9 +75,30 @@ rooms.librarian_alcove, 'ledger',
 contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
 to carry it around.''', rooms.librarian_alcove)
 
+#Level 1 Books
 belle_et_bete = Book('''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Belle and the beast.
 It looks like this book belongs in the Beast's library.''',
-    rooms.beast_library, 'fairy tale book',
-    '''The book has a plain brown cloth cover that says, "La Belle et la Bete."''', rooms.hall3)
+rooms.beast_library, 'french book',
+    '''The book has a plain brown cloth cover that says, "La Belle et la Bete. The only other
+adornment is a red rose on the spine."''', rooms.hall3)
+
+
+#Level 2 Books
+grimms_fairy_tales = Book('''These stories seem kind of gruesome, you note as you flip through the book. There seem to be an
+awful lot of people getting eaten and/or stabbing each other.''',
+rooms.beast_library, 'fairy tale book',
+    '''It has a brown leather cover, embossed with the title: "Grimm's Fairy Tales." There is a
+red rose stamped on the spine.''', rooms.robing_room)
+
+jack_beanstalk = Book('''It looks like someone's run rampant with the story here; this is a full novelisation
+of Jack and the Beanstalk.''', rooms.beast_library, 'floral book',
+    '''There's a patterened motif of vines and flowers covering this book, which is a copy of "Jack and
+the Beanstalk." There's also a red rose stamped on the spine.''', rooms.hall24)
+
+princess_bride = Book('''Far-off places, daring swordfights, magic spells, and a prince in disguise!''',
+    rooms.beast_library, 'princess book',
+    '''This book has a red cover. The title is "The Princess Bride," and there's a red rose on the spine.''',
+    rooms.uu_library4)
+
 # spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
 # immersed in the Charter. ''', 'otter', 'charter book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')

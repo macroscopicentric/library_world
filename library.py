@@ -33,7 +33,7 @@ class Player(object):
                 print "%s" % (thing)
 
     def spell_check(self):
-        if self.inventory == ['human']: print "You don't know any spells."
+        if self.known_spells == ['human']: print "You don't know any spells."
         else:
             print "You know these spells:"
             for spell in self.known_spells:
@@ -49,7 +49,7 @@ class Player(object):
 and down is up. But now it's gone, so you don't trouble yourself over it.'''
             print
             self.location = self.location.directions[direction]
-            time.sleep(2)
+            time.sleep(3)
             self.location.describe()
         elif direction not in self.location.directions:
             print "You can't go that way, stupid."
@@ -150,8 +150,6 @@ game.start()
 #Sequester code. Stop calling class attributes directly; create new methods instead.
 #Add Alexandria, expand WTNV, Dream's library, Restricted Section, Pagemaster, DW?, Powell's.
 
-#Bug: couldn't do class Player(object, location) to automatically init the location correctly.
-#Bug: bottom code is super sloppy. It was in GameEngine's init, but it complained about variables being defined (global/local issues).
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?
 #       HP solved this by NOT initializing with the paths, but adding them second. (Current workaround.)
@@ -165,4 +163,7 @@ game.start()
 #(Due to iteration over a changing list. Created a temp list to solve this.)
 #Solved?: two-word commands throw a fatal error if used without a "noun."
 #Bug: glitches (can be delayed) after saving/loading and then trying to exit. ("I'm sorry, I don't understand that command...")
-#Bug: list spells doesn't work. Open ledger works, but then prints that you can't open that.
+#Bug: save/load having a lot of issues.
+#Solved: list spells doesn't work. Open ledger works, but then prints that you can't open that.
+#Bug: when you talk to Vancelle after leveling up, it goes through all the level-up dialogue again (and it'll go through ALL of
+#it everytime you level up.)

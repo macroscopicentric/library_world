@@ -3,6 +3,9 @@ from list_items import list_items
 directory = []
 labyrinths = []
 
+opposite_directions = {'e': 'w', 'w': 'e', 'n': 's', 's': 'n', 'u': 'd',
+'d': 'u', 'ne': 'sw', 'sw': 'ne', 'nw': 'se', 'se': 'nw'}
+
 class Room(object):
     def __init__(self, name, description, locked=False, secondary_description=None):
         self.name = name
@@ -15,8 +18,15 @@ class Room(object):
         self.secondary_description = secondary_description
         directory.append(self)
 
-    def add_directions(self, directions):
-        self.directions = directions
+    def add_directions(self, **kwargs):
+        for direction in kwargs.keys():
+            self.directions[str(direction)] = kwargs[direction]
+
+        for direction in self.directions:
+            if self.name == 'Unseen University Library' and direction == 'd':
+                pass
+            else:
+                self.directions[direction].directions[opposite_directions[direction]] = self
 
     def describe(self):
         print self.name
@@ -53,22 +63,22 @@ binding_room = Room("Binding Room", '''This is the room where the librarians rep
 every flat surface, and a giant press in the back corner. The only exit is to the east.''')
 robing_room = Room("Robing Room", '''You're in a room full of miscellaneous useful things. Boat hooks, climbing ropes,
 and weapons line the walls. The only exit is to the west.''')
-upper_librarian_hallway = Room("Hallway", '''You're standing in a hallway, in the employees-only librarians' wing of the library. Painted blue doors
-line the hallway, but they're all closed and locked. There's another locked door at the south end of the hallway.
-There's an exit to the north, and steps leading down.''')
-chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office.
-Chief Librarian Vancelle is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
+upper_librarian_hallway = Room("Upper Hallway", '''You're standing in a hallway, in the employees-only librarians' wing of the library. Painted blue doors
+line the hallway, but they're all closed and locked. There's a door at the south end of the hallway. There's an exit
+to the north, and steps leading down.''')
+chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office. Chief Librarian Vancelle
+is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
 enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''')
-middle_librarian_hallway = Room("Hallway", '''You're standing in a hallway. All of the doors are painted red. They're all closed and locked.
+middle_librarian_hallway = Room("Middle Hallway", '''You're standing in a hallway. All of the doors are painted red. They're all closed and locked.
 There are stairs leading up and down.''')
 second_assistant_study = Room("Second Assistant Study", '''This is your new study, the room of a Second Assistant Librarian. There's enough
 room for a desk and not one but two chairs (what luxury!), and there's a door ajar that leads to a tiny bathroom, all your own. The only exit
 is to the west. ''', True)
-lower_librarian_hallway = Room("Hallway", '''You're standing in a hallway. There are many doors adjacent to this hallway, more than the two
+lower_librarian_hallway = Room("Lower Hallway", '''You're standing in a hallway. There are many doors adjacent to this hallway, more than the two
 upper floors. The doors are all painted yellow. They're all closed, except for the one in the southeastern corner.
 There are also stairs leading up.''')
 third_assistant_study = Room("Third Assistant Study", '''This is your study. It's very cramped; there's barely room for the desk and
-single chair that are here. The only exit is to the west.''')
+single chair that are here. The only exit is to the northwest.''')
 
 #Main Ramp Rooms (Clayr Library Spiral)
 hall1 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. Through the eastern archway, you can see the Main
@@ -124,7 +134,7 @@ There are archways to the west and south.''')
 
 hall21 = Room("East-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
 On the wall, there's a very old and very inaccurate world map. (Who ever heard of a place called
-Leones?!) There are archways to the east and south. There's an open door, with stairs beyond, to the west.''')
+Leones?!) There are archways to the east and south and stairs leading up.''')
 
 hall22 = Room("North-East Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow.
 There are archways to the north and east.''')
@@ -322,111 +332,89 @@ one of the archways reads "Apocalypsis Iesu Christi." There are doors to the nor
 
 
 #Room Directions
-reading_room.add_directions({'s': librarian_alcove, 'w': hall1})
-librarian_alcove.add_directions({'n': reading_room, 'w': binding_room, 'e': robing_room, 's': upper_librarian_hallway})
-binding_room.add_directions({'e': librarian_alcove})
-robing_room.add_directions({'w': librarian_alcove})
-upper_librarian_hallway.add_directions({'s': chiefs_office, 'n': librarian_alcove, 'd': middle_librarian_hallway})
-middle_librarian_hallway.add_directions({'u': upper_librarian_hallway, 'd': lower_librarian_hallway, 'e': second_assistant_study})
-second_assistant_study.add_directions({'w': middle_librarian_hallway})
-lower_librarian_hallway.add_directions({'u': middle_librarian_hallway, 'se': third_assistant_study})
-third_assistant_study.add_directions({'w': lower_librarian_hallway})
+reading_room.add_directions(s=librarian_alcove, w=hall1)
+librarian_alcove.add_directions(w=binding_room, e=robing_room, s=upper_librarian_hallway)
+upper_librarian_hallway.add_directions(s=chiefs_office, d=middle_librarian_hallway)
+middle_librarian_hallway.add_directions(d=lower_librarian_hallway, e=second_assistant_study)
+lower_librarian_hallway.add_directions(se=third_assistant_study)
 
-hall1.add_directions({'e': reading_room, 'w': hall2})
-hall2.add_directions({'e': hall1, 'w': hall3})
-hall3.add_directions({'e': hall2, 's': hall4, 'w':beast_library1})
-hall4.add_directions({'n': hall3, 's': hall5})
-hall5.add_directions({'n': hall4, 's': hall6})
-hall6.add_directions({'e': hall7, 'n': hall5})
-hall7.add_directions({'e': hall8, 'w': hall6})
-hall8.add_directions({'e': hall9, 'w': hall7, 's': wtnv_library1})
-hall9.add_directions({'n': hall10, 'w': hall8})
-hall10.add_directions({'n': hall11, 's': hall9})
-hall11.add_directions({'n': hall12, 's': hall10})
-hall12.add_directions({'w': hall13, 's': hall11})
-hall13.add_directions({'e': hall12, 'w': hall14, 'n': uu_library1})
-hall14.add_directions({'e': hall13, 's': hall15})
-hall15.add_directions({'n': hall14, 's': hall16})
-hall16.add_directions({'n': hall15, 'e': hall17})
-hall17.add_directions({'e': hall18, 'w': hall16})
-hall18.add_directions({'n': hall19, 'w': hall17})
-hall19.add_directions({'n': hall20, 's': hall18})
-hall20.add_directions({'w': hall21, 's': hall19})
-hall21.add_directions({'e': hall20, 's': hall22, 'w': labyrinth1})
-hall22.add_directions({'e': hall23, 'n': hall21})
-hall23.add_directions({'w': hall22, 'n': hall24, 'e': stilken_room1})
-hall24.add_directions({'s': hall23})
+hall1.add_directions(w=hall2)
+hall2.add_directions(w=hall3)
+hall3.add_directions(s=hall4, w=beast_library1)
+hall4.add_directions(s=hall5)
+hall5.add_directions(s=hall6)
+hall6.add_directions(e=hall7)
+hall7.add_directions(e=hall8)
+hall8.add_directions(e=hall9, s=wtnv_library1)
+hall9.add_directions(n=hall10)
+hall10.add_directions(n=hall11)
+hall11.add_directions(n=hall12)
+hall12.add_directions(w=hall13)
+hall13.add_directions(w=hall14, n=uu_library1)
+hall14.add_directions(s=hall15)
+hall15.add_directions(s=hall16)
+hall16.add_directions(e=hall17)
+hall17.add_directions(e=hall18)
+hall18.add_directions(n=hall19)
+hall19.add_directions(n=hall20)
+hall20.add_directions(w=hall21)
+hall21.add_directions(s=hall22, u=labyrinth1)
+hall22.add_directions(e=hall23)
+hall23.add_directions(n=hall24, e=stilken_room1)
 
-beast_library1.add_directions({'e': hall3, 's': beast_library2, 'n': beast_library4})
-beast_library2.add_directions({'n': beast_library1, 'u': beast_library3})
-beast_library3.add_directions({'d': beast_library2})
-beast_library4.add_directions({'s': beast_library1, 'u': beast_library5})
-beast_library5.add_directions({'d': beast_library4})
+beast_library1.add_directions(s=beast_library2, n=beast_library4)
+beast_library2.add_directions(u=beast_library3)
+beast_library4.add_directions(u=beast_library5)
 
-uu_library1.add_directions({'s': hall13, 'n': uu_library2, 'u': uu_library3, 'd': uu_library1})
-uu_library2.add_directions({'s': uu_library1, 'u': uu_library4, 'd': uu_library2})
-uu_library3.add_directions({'d': uu_library1, 'n': uu_library4})
-uu_library4.add_directions({'d': uu_library2, 's': uu_library3})
+uu_library1.add_directions(n=uu_library2, u=uu_library3, d=uu_library1)
+uu_library2.add_directions(u=uu_library4, d=uu_library2)
+uu_library3.add_directions(n=uu_library4)
 
-wtnv_library1.add_directions({'n': hall8, 'u': wtnv_library2})
-wtnv_library2.add_directions({'d': wtnv_library1})
+wtnv_library1.add_directions(u=wtnv_library2)
 
-stilken_room1.add_directions({'w': hall23, 'e': stilken_room2})
-stilken_room2.add_directions({'w': stilken_room1})
+stilken_room1.add_directions(e=stilken_room2)
 
-labyrinth1.add_directions({'e': labyrinth2, 'nw': labyrinth4, 's': labyrinth8, 'd': hall21})
-labyrinth2.add_directions({'w': labyrinth1, 'nw': labyrinth3})
-labyrinth3.add_directions({'se': labyrinth2, 'w': labyrinth4})
-labyrinth4.add_directions({'e': labyrinth3, 'se': labyrinth1, 'sw': labyrinth5})
-labyrinth5.add_directions({'ne': labyrinth4, 'w': labyrinth13})
-labyrinth6.add_directions({'se': labyrinth7, 'w': labyrinth12, 's': labyrinth9})
-labyrinth7.add_directions({'nw': labyrinth6, 'e': labyrinth8})
-labyrinth8.add_directions({'w': labyrinth7, 'n': labyrinth1})
-labyrinth9.add_directions({'n': labyrinth6, 'nw': labyrinth11, 'sw': labyrinth10})
-labyrinth10.add_directions({'ne': labyrinth9})
-labyrinth11.add_directions({'se': labyrinth9, 'sw': labyrinth14})
-labyrinth12.add_directions({'e': labyrinth6, 'n': labyrinth13})
-labyrinth13.add_directions({'n': labyrinth55, 's': labyrinth12, 'e': labyrinth5})
-labyrinth14.add_directions({'ne': labyrinth11, 's': labyrinth15})
-labyrinth15.add_directions({'e': labyrinth14, 's': labyrinth16})
-labyrinth16.add_directions({'n': labyrinth15, 'w': labyrinth22, 'se': labyrinth17})
-labyrinth17.add_directions({'nw': labyrinth16, 's': labyrinth18})
-labyrinth18.add_directions({'n': labyrinth17, 'sw': labyrinth19})
-labyrinth19.add_directions({'ne': labyrinth18, 'nw': labyrinth20})
-labyrinth20.add_directions({'se': labyrinth19, 'n': labyrinth21})
-labyrinth21.add_directions({'s': labyrinth20, 'ne': labyrinth22})
-labyrinth22.add_directions({'n': labyrinth23, 'e': labyrinth16, 'sw': labyrinth21, 'w': labyrinth24, 'se': finis_africae})
-labyrinth23.add_directions({'s': labyrinth22})
-labyrinth24.add_directions({'e': labyrinth22, 'ne': labyrinth25})
-labyrinth25.add_directions({'sw': labyrinth24, 'nw': labyrinth26})
-labyrinth26.add_directions({'se': labyrinth25, 'sw': labyrinth27})
-labyrinth27.add_directions({'ne': labyrinth26, 'n': labyrinth28})
-labyrinth28.add_directions({'e': labyrinth36, 's': labyrinth27, 'n': labyrinth32, 'sw': labyrinth29})
-labyrinth29.add_directions({'ne': labyrinth28, 'w': labyrinth30})
-labyrinth30.add_directions({'e': labyrinth29, 'ne': labyrinth31})
-labyrinth31.add_directions({'sw': labyrinth30})
-finis_africae.add_directions({'nw': labyrinth22})
-labyrinth32.add_directions({'s': labyrinth28, 'nw': labyrinth33})
-labyrinth33.add_directions({'se': labyrinth32, 'w': labyrinth34})
-labyrinth34.add_directions({'e': labyrinth33, 'sw': labyrinth35})
-labyrinth35.add_directions({'ne': labyrinth34})
-labyrinth36.add_directions({'w': labyrinth28, 'n': labyrinth37})
-labyrinth37.add_directions({'s': labyrinth36, 'n': labyrinth38})
-labyrinth38.add_directions({'s': labyrinth37, 'ne': labyrinth40, 'nw': labyrinth39})
-labyrinth39.add_directions({'se': labyrinth38})
-labyrinth40.add_directions({'sw': labyrinth38, 'nw': labyrinth41, 'n': labyrinth42})
-labyrinth41.add_directions({'se': labyrinth40})
-labyrinth42.add_directions({'w': labyrinth40, 'n': labyrinth43})
-labyrinth43.add_directions({'s': labyrinth42, 'e': labyrinth50, 'ne': labyrinth46, 'nw': labyrinth44})
-labyrinth44.add_directions({'se': labyrinth43, 'n': labyrinth45})
-labyrinth45.add_directions({'s': labyrinth44})
-labyrinth46.add_directions({'sw': labyrinth43, 'n': labyrinth47, 'e': labyrinth48})
-labyrinth47.add_directions({'s': labyrinth46})
-labyrinth48.add_directions({'w': labyrinth46, 'n': labyrinth49})
-labyrinth49.add_directions({'s': labyrinth48})
-labyrinth50.add_directions({'w': labyrinth43, 'e': labyrinth52})
-labyrinth51.add_directions({'e': labyrinth53})
-labyrinth52.add_directions({'w': labyrinth50, 'se': labyrinth54, 'sw': labyrinth53})
-labyrinth53.add_directions({'ne': labyrinth52, 'w': labyrinth51})
-labyrinth54.add_directions({'nw': labyrinth52, 'sw': labyrinth55})
-labyrinth55.add_directions({'ne': labyrinth54, 's': labyrinth13})
+labyrinth1.add_directions(e=labyrinth2, nw=labyrinth4, s=labyrinth8)
+labyrinth2.add_directions(nw=labyrinth3)
+labyrinth3.add_directions(w=labyrinth4)
+labyrinth4.add_directions(sw=labyrinth5)
+labyrinth5.add_directions(w=labyrinth13)
+labyrinth6.add_directions(se=labyrinth7, w=labyrinth12, s=labyrinth9)
+labyrinth7.add_directions(e=labyrinth8)
+labyrinth9.add_directions(nw=labyrinth11, sw=labyrinth10)
+labyrinth11.add_directions(sw=labyrinth14)
+labyrinth12.add_directions(n=labyrinth13)
+labyrinth13.add_directions(n=labyrinth55)
+labyrinth14.add_directions(s=labyrinth15)
+labyrinth15.add_directions(s=labyrinth16)
+labyrinth16.add_directions(w=labyrinth22, se=labyrinth17)
+labyrinth17.add_directions(s=labyrinth18)
+labyrinth18.add_directions(sw=labyrinth19)
+labyrinth19.add_directions(nw=labyrinth20)
+labyrinth20.add_directions(n=labyrinth21)
+labyrinth21.add_directions(ne=labyrinth22)
+labyrinth22.add_directions(n=labyrinth23, w=labyrinth24, se=finis_africae)
+labyrinth24.add_directions(ne=labyrinth25)
+labyrinth25.add_directions(nw=labyrinth26)
+labyrinth26.add_directions(sw=labyrinth27)
+labyrinth27.add_directions(n=labyrinth28)
+labyrinth28.add_directions(e=labyrinth36, n=labyrinth32, sw=labyrinth29)
+labyrinth29.add_directions(w=labyrinth30)
+labyrinth30.add_directions(ne=labyrinth31)
+labyrinth32.add_directions(nw=labyrinth33)
+labyrinth33.add_directions(w=labyrinth34)
+labyrinth34.add_directions(sw=labyrinth35)
+labyrinth36.add_directions(n=labyrinth37)
+labyrinth37.add_directions(n=labyrinth38)
+labyrinth38.add_directions(ne=labyrinth40, nw=labyrinth39)
+labyrinth40.add_directions(nw=labyrinth41, n=labyrinth42)
+labyrinth42.add_directions(n=labyrinth43)
+labyrinth43.add_directions(e=labyrinth50, ne=labyrinth46, nw=labyrinth44)
+labyrinth44.add_directions(n=labyrinth45)
+labyrinth46.add_directions(n=labyrinth47, e=labyrinth48)
+labyrinth48.add_directions(n=labyrinth49)
+labyrinth50.add_directions(e=labyrinth52)
+labyrinth51.add_directions(e=labyrinth53)
+labyrinth52.add_directions(se=labyrinth54, sw=labyrinth53)
+labyrinth54.add_directions(sw=labyrinth55)
+labyrinth55.add_directions(ne=labyrinth54)
