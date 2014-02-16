@@ -125,7 +125,7 @@ articles (the, a, an, etc).'''
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'examine': examine, 'take': take,
     'drop': drop, 'restart': restart, 'read': read, 'open': read,
-    'save': save, 'load': load, 'shelve': shelve, 'talk': talk}
+    'save': save, 'load': load, 'shelve': shelve}
     # 'cast': cast}
 
     try:
@@ -133,6 +133,7 @@ articles (the, a, an, etc).'''
     except:
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit': sys.exit()
+        elif verb == 'talk': talk()
         #is there a way to put the part below in the dictionary as well? would
         #have to nest dictionaries, which gave me an unhashable type error.
         elif verb in moves: player.move(moves[verb])

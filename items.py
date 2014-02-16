@@ -30,6 +30,15 @@ class Item(object):
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
+class Key(Item):
+    def level_up(self, player_level):
+        numbers = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six'}
+        if player_level == 1:
+            num = numbers[player_level].capitalize() + ' is'
+        else:
+            num = numbers[player_level].capitalize() + ' are'
+        self.description = '''It's a silver bracelet, set with seven emeralds. %s glowing.''' % (num)
+
 
 class Book(Item):
     def __init__(self, inside, home, *args):
@@ -58,7 +67,7 @@ bells = Item('bells', '''A set of seven bells hang on a bandolier, meant to be w
 etched with Charter marks and the bells' mahogany handles stick out of the top of the pouches.''')
 mouse = Item('mouse', '''It's a small clockwork mouse, about the size of your fist. There's a turnkey sticking out of the back.
 Interestingly, it also buzzes in your hand, like it's connected to the Charter somehow.''', rooms.third_assistant_study)
-key = Item('key', '''It's a silver bracelet, set with seven emeralds. One is glowing.''', rooms.third_assistant_study)
+key = Key('key', '''It's a silver bracelet, set with seven emeralds. One is glowing.''', rooms.third_assistant_study)
 waistcoat = Item('waistcoat', '''A yellow waistcoat. It flatters you quite nicely. And so professional!
 There's a whistle clipped to the lapel.''', rooms.third_assistant_study)
 dagger = Item('dagger', '''A silver dagger in a leather scabbard, attached to a belt. The blade looks quite sharp

@@ -149,6 +149,8 @@ game.start()
 #Add in more Clayr hallway landmarks as I add other libraries.
 #Sequester code. Stop calling class attributes directly; create new methods instead.
 #Add Alexandria, expand WTNV, Dream's library, Restricted Section, Pagemaster, DW?, Powell's.
+#Levels up, but doesn't change access. Also need to edit Vancelle's dialogue so that she indicates which books you need to shelve,
+#   and perhaps a hint in the beginning that you need to get your key before you can level up.
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?

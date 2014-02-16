@@ -1,5 +1,7 @@
 import random
+
 import rooms
+import items
 
 npc_list = {}
 
@@ -30,13 +32,16 @@ class Librarian(NPC):
         for level in [self.level1, self.level2]:
             if level <= shelved_books and 'key' in player_inventory:
                 player_level += 1
+                items.key.level_up(player_level)
                 print '''Level up! You're now level %s.''' % (player_level)
+
                 if player_level == 2:
                     print '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
                     self.new_dialogue(['"Go talk to Imshi if you need something."'])
                 elif player_level == 3:
                     self.new_dialogue(['Vancelle ignores you.'])
                 return True
+
 
     def talk(self, player_level, player_inventory, shelved_books):
         if not self.level_up(player_level, player_inventory, shelved_books):
