@@ -23,41 +23,44 @@ class NPC(object):
 class Librarian(NPC):
     def __init__(self, *args):
         super(Librarian, self).__init__(*args)
+        self.levels = {}
 
-    def add_levels(self, **kwargs):
-        for level, book_list in kwargs.items():
-            setattr(self, level, book_list)
+    def add_levels(self, *args):
+        counter = 1
+        for books in args:
+            self.levels[counter] = books
+            counter += 1
             
     def level_up(self, player_level, player_inventory, shelved_books):
-        for level in [self.level1, self.level2]:
-            if level <= shelved_books and 'key' in player_inventory:
+        for level in self.levels:
+            if self.levels[level] <= shelved_books and 'key' in player_inventory:
                 player_level += 1
                 items.key.level_up(player_level)
                 print '''Level up! You're now level %s.''' % (player_level)
 
+                #How to print the following only the first time, when they level up?
                 if player_level == 2:
                     print '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                    self.new_dialogue(['"Go talk to Imshi if you need something."'])
-                elif player_level == 3:
-                    self.new_dialogue(['Vancelle ignores you.'])
-                return True
+        return player_level
 
 
     def talk(self, player_level, player_inventory, shelved_books):
-        if not self.level_up(player_level, player_inventory, shelved_books):
-            try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
-            except: print "%s doesn't say anything." % (self.name.capitalize())
+        player_level = self.level_up(player_level, player_inventory, shelved_books)
+        print "You need to shelve these books to get to level %i:" % (player_level + 1)
+        print
+        for book in self.levels[player_level]:
+            print book
+        return player_level
         
 
 
-vancelle = Librarian('vancelle', rooms.chiefs_office,
-    ['Vancelle ignores you.'])
-vancelle.add_levels(level1=set(('french book',)), level2=set((
-    'fairy tale book', 'floral book', 'princess book')))
+vancelle = Librarian('vancelle', rooms.chiefs_office)
+vancelle.add_levels(set(('french book',)), set(('fairy tale book', 'floral book', 'princess book')))
 
 uu_librarian = NPC('orangutan', rooms.uu_library1, ['"Ooook ook."', '"Eeek eek!"',
     '"Ook eek." >:('])
-imshi = NPC('imshi', rooms.middle_librarian_hallway, ['"Go shelve a book, then come back and talk to Vancelle."'])
+imshi = NPC('imshi', rooms.middle_librarian_hallway,
+    ['"Talk to Vancelle to learn what books you need to shelve. Make sure you have your key though!"'])
 clippy = NPC('clippy', rooms.binding_room,
     ['''"It looks like you're trying to become a first-assistant librarian!... I'm sorry, I can't help with that."''',
 '''"I'm sorry, I've been ordered to ignore all attempts to hide my super useful awesome tips."''',

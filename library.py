@@ -10,25 +10,24 @@ spells = {}
 #different forms for different things. things other than small spaces?
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 
-home = rooms.reading_room
+home = rooms.chiefs_office
 
 class Player(object):
-    def __init__(self, location=home):
+    def __init__(self):
         self.alive = True
-        self.location = location
+        self.location = home
         self.shape = 'human'
         self.size = 'medium'
         self.flying = False
         self.known_spells = ['human']
         self.inventory = []
-        self.shelved_books = set()
+        self.shelved_books = set(('french book',))
         self.level = 1
 
     def inventory_check(self):
         if self.inventory == []: print "You're not holding anything!"
         else:
-            print "You're holding:"
-            print
+            print "You're holding:\n"
             for thing in self.inventory:
                 print "%s" % (thing)
 
@@ -36,9 +35,10 @@ class Player(object):
         if self.known_spells == ['human']: print "You don't know any spells."
         else:
             print "You know these spells:"
+            print
             for spell in self.known_spells:
                 if spell != 'human':
-                    print "\n%s" % (spell)
+                    print spell
 
     def move(self, direction):
         if direction == 'e' and self.location == rooms.reading_room:

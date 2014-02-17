@@ -115,8 +115,8 @@ articles (the, a, an, etc).'''
     def talk():
         if player.location.npc == noun:
             if noun == 'vancelle':
-                people.vancelle.talk(player.level, player.inventory,
-                    player.shelved_books)
+                player.level = people.vancelle.talk(player.level,
+                    player.inventory, player.shelved_books)
             else: people.npc_list[noun].talk()
         else: print "I don't see that person here."
 
