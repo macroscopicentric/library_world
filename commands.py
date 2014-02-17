@@ -3,6 +3,7 @@ import pickle
 
 import items
 import people
+import rooms
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'e': 'e', 'east': 'e', 'w': 'w', 'west': 'w', 's': 's', 'south': 's',
@@ -32,7 +33,7 @@ def command(user_input, player, game):
         #can i ask about overwriting a previous save file?
         with open(save_name, 'wb') as save_file:
             pickle.dump(player, save_file)
-            pickle.dump(items.item_list, save_file)
+            pickle.dump(rooms.directory, save_file)
         #recommended by Dive Into Python 3 (excellent explanation of
         #serialization and how to use pickle).
         #with open() ensures that the file is closed. Pickle only reads/writes
@@ -45,7 +46,7 @@ def command(user_input, player, game):
         #how to search for file, so it doesn't try to open a non-existent file?
         with open(save_name, 'rb') as save_file:
             player = pickle.load(save_file)
-            items.item_list = pickle.load(save_file)
+            rooms.directory = pickle.load(save_file)
         game.start()
 
     def restart():

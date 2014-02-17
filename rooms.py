@@ -7,12 +7,12 @@ opposite_directions = {'e': 'w', 'w': 'e', 'n': 's', 's': 'n', 'u': 'd',
 'd': 'u', 'ne': 'sw', 'sw': 'ne', 'nw': 'se', 'se': 'nw'}
 
 class Room(object):
-    def __init__(self, name, description, locked=False, secondary_description=None):
+    def __init__(self, name, description, inventory=[], npc=None, locked=False, secondary_description=None):
         self.name = name
         self.description = description
         self.directions = {}
-        self.inventory = []
-        self.npc = None
+        self.inventory = inventory
+        self.npc = npc
         self.locked = locked
         self.counter = 0
         self.secondary_description = secondary_description
@@ -48,8 +48,8 @@ class Room(object):
         self.counter = counter
 
 class Labyrinth(Room):
-    def __init__(self, *args):
-        super(Labyrinth, self).__init__(*args)
+    def __init__(self, *args, **kwargs):
+        super(Labyrinth, self).__init__(*args, **kwargs)
         self.labyrinth = True
 
 #Rooms Inits
@@ -57,28 +57,28 @@ class Labyrinth(Room):
 reading_room = Room("Reading Room", '''You're in the Main Reading Room. Large wooden tables fill the room. Clayr sit at some of the tables,
 reading. There are exits to the south and west. The main doors are open to the east.''')
 librarian_alcove = Room("Librarian Alcove", '''This is the librarian alcove, the main hub of their behind-the-scenes library management. There is a small
-roller-top desk in the corner. There are exits to the north, south, east, and west.''')
+roller-top desk in the corner. There are exits to the north, south, east, and west.''', ['ledger'])
 #possibly open the desk?
 binding_room = Room("Binding Room", '''This is the room where the librarians repair damaged books. There are books covering
-every flat surface, and a giant press in the back corner. The only exit is to the east.''')
+every flat surface, and a giant press in the back corner. The only exit is to the east.''', npc='clippy')
 robing_room = Room("Robing Room", '''You're in a room full of miscellaneous useful things. Boat hooks, climbing ropes,
-and weapons line the walls. The only exit is to the west.''')
+and weapons line the walls. The only exit is to the west.''', ['fairy tale book'])
 upper_librarian_hallway = Room("Upper Hallway", '''You're standing in a hallway, in the employees-only librarians' wing of the library. Painted blue doors
 line the hallway, but they're all closed and locked. There's a door at the south end of the hallway. There's an exit
 to the north, and steps leading down.''')
 chiefs_office = Room("Chief Librarian Vancelle's Office", '''This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office. Chief Librarian Vancelle
 is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice
-enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''')
+enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.''', npc='vancelle')
 middle_librarian_hallway = Room("Middle Hallway", '''You're standing in a hallway. All of the doors are painted red. They're all closed and locked.
-There are stairs leading up and down.''')
+There are stairs leading up and down.''', npc='imshi')
 second_assistant_study = Room("Second Assistant Study", '''This is your new study, the room of a Second Assistant Librarian. There's enough
 room for a desk and not one but two chairs (what luxury!), and there's a door ajar that leads to a tiny bathroom, all your own. The only exit
-is to the west. ''', True)
+is to the west. ''', ['statue'], True)
 lower_librarian_hallway = Room("Lower Hallway", '''You're standing in a hallway. There are many doors adjacent to this hallway, more than the two
 upper floors. The doors are all painted yellow. They're all closed, except for the one in the southeastern corner.
 There are also stairs leading up.''')
 third_assistant_study = Room("Third Assistant Study", '''This is your study. It's very cramped; there's barely room for the desk and
-single chair that are here. The only exit is to the northwest.''')
+single chair that are here. The only exit is to the northwest.''', ['mouse', 'key', 'waistcoat', 'dagger'])
 
 #Main Ramp Rooms (Clayr Library Spiral)
 hall1 = Room("East-West Hallway", '''You're in a hallway with gently sloping floors. Through the eastern archway, you can see the Main
@@ -87,7 +87,7 @@ hall2 = Room("East-West Hallway", '''You're in a hallway with gently sloping flo
 There are archways to the east and west.''')
 hall3 = Room("East-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There is a table in the corner with a rose lying on it. There are archways to the east
-and south, and a stained-glass door to the west.''')
+and south, and a stained-glass door to the west.''', ['french book'])
 
 hall4 = Room("North-South Hallway", '''You're in a hallway with gently sloping floors. The walls here are blue.
 There are archways to the north and south.''')
@@ -144,7 +144,7 @@ There are archways to the north and west. There's a locked door with a sunburst
 painted on it to the east.''')
 
 hall24 = Room("Hallway", '''You're in a hallway with gently sloping floors. The walls here are yellow. There's an archway to the south.
-On the west wall, there's a hole, far too small for a human to pass through.''')
+On the west wall, there's a hole, far too small for a human to pass through.''', ['floral book'])
 
 
 #Beast's Library
@@ -153,11 +153,11 @@ and northwest corners. The room extends to the north and south, and there's a do
 beast_library2 = Room("Beast's Library", '''You're in the southern end of a massive library. It extends to the north, and there's
 a staircase going up in the corner.''')
 beast_library3 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the southern wall of a massive library.
-There are stairs leading down.''')
+There are stairs leading down.''', npc='lumiere')
 beast_library4 = Room("Beast's Library", '''You're in the northern end of a massive library. It extends to the south, and there's
 a staircase going up in the corner.''')
 beast_library5 = Room("Beast's Library - Walkway", '''You're standing on a walkway about halfway up the northern wall of a massive library.
-There are stairs leading down.''')
+There are stairs leading down.''', npc='cogsworth')
 beast_library = [beast_library1, beast_library2, beast_library3, beast_library4, beast_library5]
 
 
@@ -168,7 +168,7 @@ the walls are covered with cherry panelling, in the rare instances that they are
 The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although,
 strangely, they seem to be walking upside down. You're in the reading hall, which extends to the
 north before ending in a massive window that takes up the entire northen wall. There are also stairs
-leading up and down, and a door to the south.''')
+leading up and down, and a door to the south.''', npc='orangutan')
 uu_library2 = Room('Unseen University Library', '''You're in the Unseen University Library.
 The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although,
 strangely, they seem to be walking upside down. You're in the reading hall, which extends to the
@@ -178,7 +178,7 @@ The walkway extends all the way around the walls of the southern end where you'r
 northern end of the hall beyond. There are stairs leading down.''')
 uu_library4 = Room('Unseen University Library - Walkway', '''You're on the upper walkway of the Unseen University Library.
 The walkway extends all the way around the walls of the northern end where you're standing, and into the
-southern end of the hall beyond. There are stairs leading down.''')
+southern end of the hall beyond. There are stairs leading down.''', ['princess book'])
 
 
 #WTNV Library
@@ -198,13 +198,13 @@ stilken_room1 = Room("Oak Room", '''This is an immensely peaceful room, without 
 which is home to a pleasant (if small) meadow and a large oak tree, as well as a small silver pool. A narrow
 gate is open to the east (too small for a human), and a door to the west.''', True)
 stilken_room2 = Room("Glass Floor Room", '''There is a glass floor in this room, and a low stone table in the middle. The only exit is a
-narrow gate to the west, too small for a human.''')
+narrow gate to the west, too small for a human.''', ['phial'])
 
 
 #Name of the Rose Labyrinth
 #Eastern Tower
 labyrinth1 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the northwest, east, and south, and stairs leading down.''')
+one of the archways reads "Apocalypsis Iesu Christi." There are doors to the northwest, east, and south, and stairs leading down.''', npc='jorge')
 labyrinth2 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular. There's an
 altar below the window. There are doors to the northwest and west.''')
 labyrinth3 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
