@@ -4,6 +4,9 @@ import pickle
 import items
 import people
 import rooms
+import spells
+
+#I really like that the HP text adventure has a thesaurus. How do I make one?
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'e': 'e', 'east': 'e', 'w': 'w', 'west': 'w', 's': 's', 'south': 's',
@@ -101,7 +104,7 @@ articles (the, a, an, etc).'''
             except: print "You're not carrying that item."
 
     def read():
-        try: items.item_list[noun].open(player.known_spells)
+        try: items.item_list[noun].open()
         except: print "You can't read that. Try reading a book."
 
     def shelve():
@@ -109,9 +112,8 @@ articles (the, a, an, etc).'''
             player.shelved_books)
         except: print "You can't shelve that."
 
-    #currently not working because spells (list) isn't being passed in.
-    # def cast():
-    #     spells[noun].use_spell()
+    def cast():
+        spells.spells[noun].use_spell()
 
     def talk():
         if player.location.npc == noun:
@@ -126,15 +128,13 @@ articles (the, a, an, etc).'''
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'examine': examine, 'take': take,
     'drop': drop, 'restart': restart, 'read': read, 'open': read,
-    'save': save, 'load': load, 'shelve': shelve}
-    # 'cast': cast}
+    'save': save, 'load': load, 'shelve': shelve, 'cast': cast}
 
     try:
         verbs[verb]()
     except:
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit': sys.exit()
-        elif verb == 'talk': talk()
         #is there a way to put the part below in the dictionary as well? would
         #have to nest dictionaries, which gave me an unhashable type error.
         elif verb in moves: player.move(moves[verb])

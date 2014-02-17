@@ -1,3 +1,4 @@
+import player
 import rooms
 
 item_list = {}
@@ -9,7 +10,8 @@ class Item(object):
         item_list[name] = self
 
     def examine(self, player_location):
-        if self.location == player_location or self.location == 'player':
+        if (self.name in player.player.inventory or
+            self.name in player.location.inventory):
             print self.description
         else: print "I'm sorry, I don't see that item."
 
@@ -17,6 +19,7 @@ class Item(object):
         try:
             player_inventory.append(self.name)
             location_inventory.remove(self.name)
+            print player_inventory
             print "You take the %s." % (self.name)
         except: print "I don't see that item."
 
@@ -24,12 +27,15 @@ class Item(object):
         try:
             player_inventory.remove(self.name)
             location_inventory.append(self.name)
+            print player_inventory
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
 class Key(Item):
     def level_up(self, player_level):
-        numbers = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six'}
+        numbers = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+        6: 'six'}
+
         if player_level == 1:
             num = numbers[player_level].capitalize() + ' is'
         else:
@@ -38,16 +44,16 @@ class Key(Item):
 
 
 class Book(Item):
-    def __init__(self, inside, home, *args):
+    def __init__(self, name, description, inside, home=None, spell=None):
         self.inside = inside
         self.home = home
-        self.spell = None
-        super(Book, self).__init__(*args)
+        self.spell = spell
+        super(Book, self).__init__(name, description)
 
-    def open(self, player_spells):
-        if self.location == 'player':
+    def open(self):
+        if self.name in player.player.inventory:
             print self.inside
-            if self.spell: player_spells.append(self.spell)
+            if self.spell: player.player.known_spells.append(self.spell)
         else: print "You have to pick it up first!"
 
     def shelve(self, player_location, player_inventory, shelved_books):
@@ -74,37 +80,43 @@ dog_statue = Item('statue', '''It's a small soapstone statue of a dog. The nose 
 phial = Item('phial', '''A small crystal phial. It's sealed with powerful Charter magic.''')
 
 #Books (Subclass of Items)
-ledger = Book('''As you expected, the book is full of lists of equipment checked out to past librarians. And there's your name,
-at the very bottom! There's a list of equipment for you, including a dagger, a clockwork mouse, a key, and
-a yellow waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''',
-None, 'ledger',
+ledger = Book('ledger',
 '''It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it
 contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want
-to carry it around.''')
+to carry it around.''',
+'''As you expected, the book is full of lists of equipment checked out to past librarians. And there's your name,
+at the very bottom! There's a list of equipment for you, including a dagger, a clockwork mouse, a key, and
+a yellow waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)''')
 
 #Level 1 Books
-belle_et_bete = Book('''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Belle and the beast.
+belle_et_bete = Book('french book',
+    '''The book has a plain brown cloth cover that says, "La Belle et la Bete." The only other
+adornment is a red rose on the spine.''',
+'''It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Belle and the beast.
 It looks like this book belongs in the Beast's library.''',
-rooms.beast_library, 'french book',
-    '''The book has a plain brown cloth cover that says, "La Belle et la Bete. The only other
-adornment is a red rose on the spine."''')
+rooms.beast_library)
 
 
 #Level 2 Books
-grimms_fairy_tales = Book('''These stories seem kind of gruesome, you note as you flip through the book. There seem to be an
-awful lot of people getting eaten and/or stabbing each other.''',
-rooms.beast_library, 'fairy tale book',
+grimms_fairy_tales = Book('fairy tale book',
     '''It has a brown leather cover, embossed with the title: "Grimm's Fairy Tales." There is a
-red rose stamped on the spine.''')
+red rose stamped on the spine.''',
+'''These stories seem kind of gruesome, you note as you flip through the book. There seem to be an
+awful lot of people getting eaten and/or stabbing each other.''',
+rooms.beast_library)
 
-jack_beanstalk = Book('''It looks like someone's run rampant with the story here; this is a full novelisation
-of Jack and the Beanstalk.''', rooms.beast_library, 'floral book',
+jack_beanstalk = Book('floral book',
     '''There's a patterened motif of vines and flowers covering this book, which is a copy of "Jack and
-the Beanstalk." There's also a red rose stamped on the spine.''')
+the Beanstalk." There's also a red rose stamped on the spine.''',
+'''It looks like someone's run rampant with the story here; this is a full novelisation
+of Jack and the Beanstalk.''', rooms.beast_library)
 
-princess_bride = Book('''Far-off places, daring swordfights, magic spells, and a prince in disguise!''',
-    rooms.beast_library, 'princess book',
-    '''This book has a red cover. The title is "The Princess Bride," and there's a red rose on the spine.''')
+princess_bride = Book('princess book',
+    '''This book has a red cover. The title is "The Princess Bride," and there's a red rose on the spine.''',
+    '''Far-off places, daring swordfights, magic spells, and a prince in disguise!''',
+    rooms.beast_library)
 
-# spell_book = Book('''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
-# immersed in the Charter. ''', 'otter', 'charter book', 'It\'s a plain brown book, small enough to fit in the palm of your hand.')
+spell_book = Book('charter book',
+    'It\'s a plain brown book, small enough to fit in the palm of your hand.',
+    '''It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally
+immersed in the Charter. ''', None, 'otter')

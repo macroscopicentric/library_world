@@ -55,7 +55,7 @@ class Labyrinth(Room):
 #Rooms Inits
 #Main Clayr Library
 reading_room = Room("Reading Room", '''You're in the Main Reading Room. Large wooden tables fill the room. Clayr sit at some of the tables,
-reading. There are exits to the south and west. The main doors are open to the east.''')
+reading. There are exits to the south and west. The main doors are open to the east.''', ['charter book'])
 librarian_alcove = Room("Librarian Alcove", '''This is the librarian alcove, the main hub of their behind-the-scenes library management. There is a small
 roller-top desk in the corner. There are exits to the north, south, east, and west.''', ['ledger'])
 #possibly open the desk?
