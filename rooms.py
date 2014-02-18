@@ -50,7 +50,7 @@ class Room(object):
 class Labyrinth(Room):
     def __init__(self, *args, **kwargs):
         super(Labyrinth, self).__init__(*args, **kwargs)
-        self.labyrinth = True
+        labyrinths.append(self)
 
 #Rooms Inits
 #Main Clayr Library

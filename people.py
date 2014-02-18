@@ -30,26 +30,24 @@ class Librarian(NPC):
             self.levels[counter] = books
             counter += 1
             
-    def level_up(self, player_level, player_inventory, shelved_books):
+    def level_up(self, player):
         for level in self.levels:
-            if self.levels[level] <= shelved_books and 'key' in player_inventory:
-                player_level += 1
-                items.key.level_up(player_level)
-                print '''Level up! You're now level %s.''' % (player_level)
+            if self.levels[level] <= player.shelved_books and 'key' in player.inventory:
+                player.level_up()
+                items.key.level_up(player.level)
+                print '''Level up! You're now level %s.''' % (player.level)
 
                 #How to print the following only the first time, when they level up?
-                if player_level == 2:
+                if player.level == 2:
                     print '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-        return player_level
 
 
-    def talk(self, player_level, player_inventory, shelved_books):
-        player_level = self.level_up(player_level, player_inventory, shelved_books)
-        print "You need to shelve these books to get to level %i:" % (player_level + 1)
+    def talk(self, player):
+        self.level_up(player)
+        print "You need to shelve these books to get to level %i:" % (player.level + 1)
         print
-        for book in self.levels[player_level]:
+        for book in self.levels[player.level]:
             print book
-        return player_level
         
 
 

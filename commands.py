@@ -82,12 +82,10 @@ articles (the, a, an, etc).'''
             if player.location.inventory:
                 temp = player.location.inventory[:]
                 for item in temp:
-                    items.item_list[item].take(player.inventory,
-                        player.location.inventory)
+                    items.item_list[item].take(player.location.inventory)
             else: print "There's nothing here to take."
         else:
-            try: items.item_list[noun].take(player.inventory,
-                player.location.inventory)
+            try: items.item_list[noun].take(player.location.inventory)
             except: print "I don't see that item."
 
     def drop():
@@ -95,12 +93,10 @@ articles (the, a, an, etc).'''
             if player.inventory:
                 temp = player.inventory[:]
                 for item in temp:
-                    items.item_list[item].drop(player.inventory,
-                        player.location.inventory)
+                    items.item_list[item].drop(player.location.inventory)
             else: player.inventory_check()
         else:
-            try: items.item_list[noun].drop(player.inventory,
-                player.location.inventory)
+            try: items.item_list[noun].drop(player.location.inventory)
             except: print "You're not carrying that item."
 
     def read():
@@ -108,8 +104,7 @@ articles (the, a, an, etc).'''
         except: print "You can't read that. Try reading a book."
 
     def shelve():
-        try: items.item_list[noun].shelve(player.location, player.inventory,
-            player.shelved_books)
+        try: items.item_list[noun].shelve(player.location)
         except: print "You can't shelve that."
 
     def cast():
@@ -118,8 +113,7 @@ articles (the, a, an, etc).'''
     def talk():
         if player.location.npc == noun:
             if noun == 'vancelle':
-                player.level = people.vancelle.talk(player.level,
-                    player.inventory, player.shelved_books)
+                people.vancelle.talk(player)
             else: people.npc_list[noun].talk()
         else: print "I don't see that person here."
 
@@ -128,7 +122,7 @@ articles (the, a, an, etc).'''
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'examine': examine, 'take': take,
     'drop': drop, 'restart': restart, 'read': read, 'open': read,
-    'save': save, 'load': load, 'shelve': shelve, 'cast': cast}
+    'save': save, 'load': load, 'shelve': shelve, 'cast': cast, 'talk': talk}
 
     try:
         verbs[verb]()

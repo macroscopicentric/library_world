@@ -21,9 +21,7 @@ game.start()
 #Bells (item) need to be a recursive so you can call each bell by name.
 #Make room states that can change over time (locked doors, etc). Also need to prevent going through the hole at the bottom of the tunnel.
 #   Could also use this to create different room descriptions if you get promoted and get a new study, etc.
-#   Need a player state that will change as you re-shelve books. But won't actually change unless you go back and talk to Vancelle.
 #Need to note somewhere that you can use 'human' to change back.
-#Shelve command.
 #Only describe the room the first time through? This would also cause issues with the way the save function is currently written.
 #   (Would also have to divide the directions from the description.)
 #Add in more Clayr hallway landmarks as I add other libraries.

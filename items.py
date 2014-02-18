@@ -15,19 +15,17 @@ class Item(object):
             print self.description
         else: print "I'm sorry, I don't see that item."
 
-    def take(self, player_inventory, location_inventory):
+    def take(self, location_inventory):
         try:
-            player_inventory.append(self.name)
+            player.player.take(self.name)
             location_inventory.remove(self.name)
-            print player_inventory
             print "You take the %s." % (self.name)
         except: print "I don't see that item."
 
-    def drop(self, player_inventory, location_inventory):
+    def drop(self, location_inventory):
         try:
-            player_inventory.remove(self.name)
+            player.player.drop(self.name)
             location_inventory.append(self.name)
-            print player_inventory
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
@@ -53,13 +51,12 @@ class Book(Item):
     def open(self):
         if self.name in player.player.inventory:
             print self.inside
-            if self.spell: player.player.known_spells.append(self.spell)
+            if self.spell: player.player.add_spell(self.spell)
         else: print "You have to pick it up first!"
 
-    def shelve(self, player_location, player_inventory, shelved_books):
+    def shelve(self, player_location):
         if player_location in self.home:
-            player_inventory.remove(self.name)
-            shelved_books.add(self.name,)
+            player.player.shelve_book()
             print "You shelve the %s." % (self.name)
         else: print "You can only shelve books where they belong!"
 

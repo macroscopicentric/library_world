@@ -1,7 +1,6 @@
 import time
 
 import rooms
-import items
 import people
 
 home = rooms.reading_room
@@ -18,12 +17,25 @@ class Player(object):
         self.shelved_books = set()
         self.level = 1
 
+    def level_up(self):
+        self.level += 1
+
     def inventory_check(self):
         if self.inventory == []: print "You're not holding anything!"
         else:
             print "You're holding:\n"
             for thing in self.inventory:
                 print "%s" % (thing)
+
+    def take(self, item):
+        self.inventory.append(item)
+
+    def drop(self, item):
+        self.inventory.remove(item)
+
+    def shelve_book(self, book):
+        self.drop(book)
+        self.shelved_books.add(self.name,)
 
     def spell_check(self):
         if self.known_spells == ['human']: print "You don't know any spells."
@@ -33,6 +45,9 @@ class Player(object):
             for spell in self.known_spells:
                 if spell != 'human':
                     print spell
+
+    def add_spell(self, spell):
+        self.known_spells.append(spell)
 
     def move(self, direction):
         if direction == 'e' and self.location == rooms.reading_room:
@@ -61,7 +76,7 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
             print "I didn't understand that direction, sorry."
 
     def teleport(self):
-        if hasattr(self.location, 'labyrinth'):
+        if self.location in rooms.labyrinths:
             self.location = rooms.labyrinth1
             self.location.describe()
         else:
