@@ -1,5 +1,6 @@
 import sys
 import pickle
+import random
 
 import items
 import people
@@ -71,11 +72,26 @@ stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [
 Please keep in mind that commands can only be one word, but nouns can be more than one. Don't bother with
 articles (the, a, an, etc).'''
 
+    #Easter Eggs
     def say_hi():
         print "Hullo!"
 
+    def break_thing():
+        pass
+
+    def swear():
+        responses = ["Do you kiss your mother with your mouth?!",
+        "That's not appropriate vocabulary for an adventurer."]
+        print responses[random.randint(0, len(responses) - 1)]
+
+    def zork():
+        print "At your service!"
+
+    def xyzzy():
+        print 'A hollow voice says "fool."'
+
     def examine():
-        items.item_list[noun].examine(player.location)
+        items.item_list[noun].examine()
 
     def take():
         if noun == 'all':
@@ -100,8 +116,11 @@ articles (the, a, an, etc).'''
             except: print "You're not carrying that item."
 
     def read():
-        try: items.item_list[noun].open()
-        except: print "You can't read that. Try reading a book."
+        if noun == 'book':
+            print 'Which book?'
+        else:
+            try: items.item_list[noun].open()
+            except: print "You can't read that. Try reading a book."
 
     def shelve():
         try: items.item_list[noun].shelve(player.location)
@@ -118,9 +137,10 @@ articles (the, a, an, etc).'''
         else: print "I don't see that person here."
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
-    'look': player.location.describe, 'inventory': player.inventory_check,
+    'look': player.location.describe, 'z': player.location.describe,
+    'inventory': player.inventory_check, 'xyzzy': xyzzy, 'zork': zork,
     'i': player.inventory_check, 'spells': player.spell_check,
-    'teleport': player.teleport, 'examine': examine, 'take': take,
+    'teleport': player.teleport, 'x': examine, 'take': take, 'examine': examine,
     'drop': drop, 'restart': restart, 'read': read, 'open': read,
     'save': save, 'load': load, 'shelve': shelve, 'cast': cast, 'talk': talk}
 

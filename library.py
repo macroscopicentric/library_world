@@ -1,4 +1,5 @@
 from player import player
+import people #to set level at bottom
 import commands
 
 class GameEngine(object):
@@ -12,6 +13,9 @@ class GameEngine(object):
             commands.command(commands.input_format(), player, game)
 
 game = GameEngine()
+
+# people.vancelle.level_up(player)
+
 game.start()
 
 #To do:
@@ -29,6 +33,9 @@ game.start()
 #Add Alexandria, expand WTNV, Dream's library, Restricted Section, Pagemaster, DW?, Powell's.
 #Levels up, but doesn't change access. Also need to edit Vancelle's dialogue so that she indicates which books you need to shelve,
 #   and perhaps a hint in the beginning that you need to get your key before you can level up.
+#Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).
+#Increase number/type of spells. Some spells not for changing into animals, but things like "charter water" for Alexandria.
+#Lock function in rooms, pull out of player and test there. Change responses to account for things like Alexandria.
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?
