@@ -355,132 +355,255 @@ middle. The only exit is a narrow gate to the west, too small for a human.''',
 
 #Name of the Rose Labyrinth
 #Eastern Tower
-labyrinth1 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the northwest, east, and south, and stairs leading down.''', npc='jorge')
-labyrinth2 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular. There's an
-altar below the window. There are doors to the northwest and west.''')
-labyrinth3 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Obscuratus est sol et aer." There are doors to the west and southeast.''')
-labyrinth4 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Facta est grandi et ignis." There are doors to the east, southeast, and southwest.''')
-labyrinth5 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "U*." There are doors to the northeast and west.''') #unfinished inscription (U)
-labyrinth6 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "D*." There are doors to the west, southeast, and south.''') #unfinished inscription (D)
-labyrinth7 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Super thronos viginti quatuor." There are doors to the east and northwest.''')
-labyrinth8 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "V*." There are doors to the north and west.''') #unfinished inscription (V)
-labyrinth12 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and east.''')
-labyrinth13 = Labyrinth("Labyrinth Room - Eastern Tower", '''You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the north, east, and south.''')
+labyrinth1 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+heptagonal, and the inscription above one of the archways reads "Apocalypsis
+Iesu Christi." There are doors to the northwest, east, and south, and stairs
+leading down.''', npc='jorge')
+labyrinth2 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular. There's an altar below the window. There are doors to the
+northwest and west.''')
+labyrinth3 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Obscuratus est sol et aer." There are doors to the west and southeast.''')
+labyrinth4 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Facta
+est grandi et ignis." There are doors to the east, southeast, and southwest.''')
+labyrinth5 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "U*." There are
+doors to the northeast and west.''') #unfinished inscription (U)
+labyrinth6 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "D*." There are
+doors to the west, southeast, and south.''') #unfinished inscription (D)
+labyrinth7 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Super
+thronos viginti quatuor." There are doors to the east and northwest.''')
+labyrinth8 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "V*."
+There are doors to the north and west.''') #unfinished inscription (V)
+labyrinth12 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Apocalypsis Iesu Christi." There are doors to the north and east.''')
+labyrinth13 = Labyrinth("Labyrinth Room - Eastern Tower",
+    '''You're in a room in the eastern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Equus
+albus." There are doors to the north, east, and south.''')
 
 #Between East and South
-labyrinth9 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Gratia vobis et pax." There are doors to the north, northwest, and southwest.''')
-labyrinth10 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Y*." There is a door to the northeast.''') #unfinished inscription (Y)
-labyrinth11 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the southeast and southwest.''')
-labyrinth14 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Primogenitus mortuorum." There are doors to the northeast and south.''')
+labyrinth9 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the east and south towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Gratia vobis et pax." There are doors to the north, northwest, and
+southwest.''')
+labyrinth10 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the east and south towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Y*." There is a door to the northeast.''') #unfinished inscription (Y)
+labyrinth11 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the east and south towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Equus albus." There are doors to the southeast and southwest.''')
+labyrinth14 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the east and south towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Primogenitus mortuorum." There are doors to the northeast and south.''')
 
 #Southern Tower
-labyrinth15 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Tertia pars terrae combusta est." There are doors to the east and south.''')
-labyrinth16 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "U*." There are doors to the north, west, and southeast.''') #unfinished inscription (U)
-labyrinth17 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There are doors to the northwest and south.''') #unfinished inscription (L)
-labyrinth18 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the north and southwest.''')
-labyrinth19 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Obscuratus est sol et aer." There are doors to the northeast and northwest.''')
-labyrinth20 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Nomen illi mors." There are doors to the north and southeast.''')
-labyrinth21 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the northeast and south.''')
-labyrinth22 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "Super thronos viginti quatuor." There are doors to the north, east, west, and southwest,
-and a mirror on the southeast wall with the same inscription written over it.''')
-labyrinth23 = Labyrinth("Labyrinth Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Y*." There is a door to the south.''') #unfinished inscription (Y)
-finis_africae = Labyrinth("Hidden Room - Southern Tower", '''You're in a room in the southern tower of the labyrinth. This one is heptagonal. There's a door to the northwest.''', True)
+labyrinth15 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Tertia pars terrae combusta est." There are doors to the east and south.''')
+labyrinth16 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "U*." There are
+doors to the north, west, and southeast.''') #unfinished inscription (U)
+labyrinth17 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "L*."
+There are doors to the northwest and south.''') #unfinished inscription (L)
+labyrinth18 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Equus
+albus." There are doors to the north and southwest.''')
+labyrinth19 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Obscuratus est sol et aer." There are doors to the northeast and
+northwest.''')
+labyrinth20 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Nomen illi mors." There are doors to the north and southeast.''')
+labyrinth21 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Equus
+albus." There are doors to the northeast and south.''')
+labyrinth22 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "Super thronos
+viginti quatuor." There are doors to the north, east, west, and southwest, and
+a mirror on the southeast wall with the same inscription written over it.''')
+labyrinth23 = Labyrinth("Labyrinth Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Y*."
+There is a door to the south.''') #unfinished inscription (Y)
+finis_africae = Labyrinth("Hidden Room - Southern Tower",
+    '''You're in a room in the southern tower of the labyrinth. This one is
+heptagonal. There's a door to the northwest.''', True)
 
 #Between South and West
-labyrinth24 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Primogenitus mortuorum." There are doors to the northeast and east.''')
-labyrinth25 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Requiescant a laboribus suis." There are doors to the northwest and southwest.''')
-labyrinth26 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Obscuratus est sol et aer." There are doors to the southeast and southwest.''')
-labyrinth27 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and northeast.''')
+labyrinth24 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the south and west towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Primogenitus mortuorum." There are doors to the northeast and east.''')
+labyrinth25 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the south and west towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Requiescant a laboribus suis." There are doors to the northwest and
+southwest.''')
+labyrinth26 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the south and west towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Obscuratus est sol et aer." There are doors to the southeast and
+southwest.''')
+labyrinth27 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the south and west towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Apocalypsis Iesu Christi." There are doors to the north and
+northeast.''')
 
 #West Tower
-labyrinth28 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "Nomen illi mors." There are doors to the north, east, west, and southwest.''')
-labyrinth29 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Requiescant a laboribus suis." There are doors to the northeast and west.''')
-labyrinth30 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There are doors to the northeast and east.''')
-labyrinth31 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There is a door to the southwest.''')
-labyrinth32 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the northwest and south.''')
-labyrinth33 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "H*." There are doors to the southeast and west.''') #unfinished inscription (H)
-labyrinth34 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the east and southwest.''')
-labyrinth35 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "B*." There is a door to the northeast.''') #unfinished inscription (B)
-labyrinth36 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "M*." There are doors to the north and west.''') #unfinished inscription (M)
-labyrinth37 = Labyrinth("Labyrinth Room - Western Tower", '''You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north and south.''')
+labyrinth28 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "Nomen illi
+mors." There are doors to the north, east, west, and southwest.''')
+labyrinth29 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "Requiescant a
+laboribus suis." There are doors to the northeast and west.''')
+labyrinth30 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "Equus albus."
+There are doors to the northeast and east.''')
+labyrinth31 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is
+heptagonal, and the inscription above one of the archways reads "Apocalypsis
+Iesu Christi." There is a door to the southwest.''')
+labyrinth32 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "In diebu
+illis." There are doors to the northwest and south.''')
+labyrinth33 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "H*." There
+are doors to the southeast and west.''') #unfinished inscription (H)
+labyrinth34 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "In diebu
+illis." There are doors to the east and southwest.''')
+labyrinth35 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "B*." There is
+a door to the northeast.''') #unfinished inscription (B)
+labyrinth36 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "M*." There
+are doors to the north and west.''') #unfinished inscription (M)
+labyrinth37 = Labyrinth("Labyrinth Room - Western Tower",
+    '''You're in a room in the western tower of labyrinth. This one is roughly
+rectangular, and the inscription above one of the archways reads "Apocalypsis
+Iesu Christi." There are doors to the north and south.''')
 
 #Between West and North
-labyrinth38 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the northeast, northwest, and south.''')
-labyrinth39 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There is a door to the southeast.''') #unfinished inscription (L)
-labyrinth40 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, northwest, and southwest.''')
-labyrinth41 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There is a door to the southeast.''') #unfinished inscription (L)
+labyrinth38 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the west and north towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "In diebu illis." There are doors to the northeast, northwest, and
+south.''')
+labyrinth39 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the west and north towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "L*." There is a door to the southeast.''') #unfinished inscription (L)
+labyrinth40 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the west and north towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Apocalypsis Iesu Christi." There are doors to the north, northwest, and
+southwest.''')
+labyrinth41 = Labyrinth("Labyrinth Room",
+    '''You're in a room in the labyrinth between the west and north towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "L*." There is a door to the southeast.''') #unfinished inscription (L)
 
 #North Tower
-labyrinth42 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Gratia vobis et pax." There are doors to the north and west.''')
-labyrinth43 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "M*." There are doors to the northeast, northwest, east, and south.''') #unfinished inscription (M)
-labyrinth44 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the north and southeast.''')
-labyrinth45 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "L*." There is a door to the south.''') #unfinished inscription (L)
-labyrinth46 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is heptagonal, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the north, east, and southwest.''')
-labyrinth47 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Gratia vobis et pax." There is a door to the south.''')
-labyrinth48 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the north and west.''')
-labyrinth49 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Nomen illi mors." There is a door to the south.''')
-labyrinth50 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is pentagonal, and the inscription above
-one of the archways reads "Requiescant a laboribus suis." There are doors to the east and west.''')
-labyrinth51 = Labyrinth("Labyrinth Room - Northern Tower", '''You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above
-one of the archways reads "Equus albus." There is a door to the east.''')
+labyrinth42 = Labyrinth("Labyrinth Room - Northern Tower",
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Gratia vobis et pax." There are doors to the north and west.''')
+labyrinth43 = Labyrinth("Labyrinth Room - Northern Tower",
+    '''You're in a room in the northern tower of the labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "M*." There are
+doors to the northeast, northwest, east, and south.''') #unfinished inscription (M)
+labyrinth44 = Labyrinth("Labyrinth Room - Northern Tower",
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "In
+diebu illis." There are doors to the north and southeast.''')
+labyrinth45 = Labyrinth("Labyrinth Room - Northern Tower", 
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "L*."
+There is a door to the south.''') #unfinished inscription (L)
+labyrinth46 = Labyrinth("Labyrinth Room - Northern Tower", 
+    '''You're in a room in the northern tower of the labyrinth. This one is
+heptagonal, and the inscription above one of the archways reads "Apocalypsis
+Iesu Christi." There are doors to the north, east, and southwest.''')
+labyrinth47 = Labyrinth("Labyrinth Room - Northern Tower", 
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads
+"Gratia vobis et pax." There is a door to the south.''')
+labyrinth48 = Labyrinth("Labyrinth Room - Northern Tower",
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "In
+diebu illis." There are doors to the north and west.''')
+labyrinth49 = Labyrinth("Labyrinth Room - Northern Tower", 
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Nomen
+illi mors." There is a door to the south.''')
+labyrinth50 = Labyrinth("Labyrinth Room - Northern Tower", 
+    '''You're in a room in the northern tower of the labyrinth. This one is
+pentagonal, and the inscription above one of the archways reads "Requiescant a
+laboribus suis." There are doors to the east and west.''')
+labyrinth51 = Labyrinth("Labyrinth Room - Northern Tower", 
+    '''You're in a room in the northern tower of the labyrinth. This one is
+roughly rectangular, and the inscription above one of the archways reads "Equus
+albus." There is a door to the east.''')
 
 #Between North and East
-labyrinth52 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the west, southeast, and southwest.''')
-labyrinth53 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Cecidit de cielo stella magna." There are doors to the northeast and west.''')
-labyrinth54 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "In diebu illis." There are doors to the northwest and southwest.''')
-labyrinth55 = Labyrinth("Labyrinth Room", '''You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above
-one of the archways reads "Apocalypsis Iesu Christi." There are doors to the northeast and south.''')
+labyrinth52 = Labyrinth("Labyrinth Room", 
+    '''You're in a room in the labyrinth between the north and east towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Apocalypsis Iesu Christi." There are doors to the west, southeast, and
+southwest.''')
+labyrinth53 = Labyrinth("Labyrinth Room", 
+    '''You're in a room in the labyrinth between the north and east towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Cecidit de cielo stella magna." There are doors to the northeast and
+west.''')
+labyrinth54 = Labyrinth("Labyrinth Room", 
+    '''You're in a room in the labyrinth between the north and east towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "In diebu illis." There are doors to the northwest and southwest.''')
+labyrinth55 = Labyrinth("Labyrinth Room", 
+    '''You're in a room in the labyrinth between the north and east towers.
+This one is roughly rectangular, and the inscription above one of the archways
+reads "Apocalypsis Iesu Christi." There are doors to the northeast and
+south.''')
 
 
 #Room Directions

@@ -64,7 +64,8 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
             print "You can't go that way, stupid."
         elif (direction in self.location.directions
             and self.location.directions[direction].locked) == True:
-            print "That door's locked. And it'll stay locked no matter how many times you tug on the handle, so stop trying."
+            print '''That door's locked. And it'll stay locked no matter how many
+times you tug on the handle, so stop trying.'''
         # elif direction in rooms.self.location.directions and...:
         #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
         #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),

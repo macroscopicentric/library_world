@@ -1,4 +1,5 @@
 from player import player
+import rooms
 
 spells = {}
 #not used for anything yet. need to be able to respond to commands and use
@@ -12,6 +13,8 @@ class Spell(object):
         spells[name] = self
 
     def use_spell(self):
+        small_spaces = []
+
         if self.name in player.known_spells:
             if player.shape != self.name:
                 player.shape = self.name
@@ -27,6 +30,8 @@ class Spell(object):
 
                 if player.size == 'small':
                     print "You've shrunk substantially. Now you can climb through small spaces."
+                    for room in small_spaces:
+                        rooms.room.unlock()
                 elif player.size == 'large':
                     print "You're huge! Nothing's going to mess with you."
                 if player.flying == True:

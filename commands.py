@@ -11,8 +11,8 @@ import spells
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'e': 'e', 'east': 'e', 'w': 'w', 'west': 'w', 's': 's', 'south': 's',
-'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw', 'sw': 'sw', 'southeast': 'se',
-'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
+'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw', 'sw': 'sw',
+'southeast': 'se', 'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
 
 def input_format():
     user_input = raw_input(">").lower().split(" ", 1)
@@ -62,15 +62,17 @@ def command(user_input, player, game):
         else: print 'I\'m sorry, I don\'t understand that command.'
 
     def help_command():
-        print '''My commands are like a traditional text adventure\'s. To move, use cardinal or ordinal directions
-or "up" and "down". Other commands you can use: "look" (describes the room to you), "examine [object]", "inventory"
-or "i" (lists your inventory), "take [object]" or "take all", "drop [object]" or "drop all", "cast [Charter spell]",
-"spells" (lists the spells you know), "teleport" (sends you back to the Reading Room, or the labyrinth
-stairs if you're in the labyrinth), "talk [character]", "read [book]" or "open [book]", "shelve [book]",
-"exit" or "quit" (exits the game), or "restart" (restarts the game).
+        print '''My commands are like a traditional text adventure\'s. To move,
+use cardinal or ordinal directions or "up" and "down". Other commands you can
+use: "look" (describes the room to you), "examine [object]", "inventory" or "i"
+(lists your inventory), "take [object]" or "take all", "drop [object]" or "drop
+all", "cast [Charter spell]", "spells" (lists the spells you know), "teleport"
+(sends you back to the Reading Room, or the labyrinth stairs if you're in the
+labyrinth), "talk [character]", "read [book]" or "open [book]", "shelve
+[book]", "exit" or "quit" (exits the game), or "restart" (restarts the game).
 
-Please keep in mind that commands can only be one word, but nouns can be more than one. Don't bother with
-articles (the, a, an, etc).'''
+Please keep in mind that commands can only be one word, but nouns can be more
+than one. Don't bother with articles (the, a, an, etc).'''
 
     #Easter Eggs
     def say_hi():
@@ -140,9 +142,10 @@ articles (the, a, an, etc).'''
     'look': player.location.describe, 'z': player.location.describe,
     'inventory': player.inventory_check, 'xyzzy': xyzzy, 'zork': zork,
     'i': player.inventory_check, 'spells': player.spell_check,
-    'teleport': player.teleport, 'x': examine, 'take': take, 'examine': examine,
-    'drop': drop, 'restart': restart, 'read': read, 'open': read,
-    'save': save, 'load': load, 'shelve': shelve, 'cast': cast, 'talk': talk}
+    'teleport': player.teleport, 'x': examine, 'take': take,
+    'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
+    'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
+    'talk': talk}
 
     try:
         verbs[verb]()
