@@ -82,7 +82,7 @@ than one. Don't bother with articles (the, a, an, etc).'''
         pass
 
     def swear():
-        responses = ["Do you kiss your mother with your mouth?!",
+        responses = ["Do you kiss your mother with that mouth?!",
         "That's not appropriate vocabulary for an adventurer."]
         print responses[random.randint(0, len(responses) - 1)]
 
@@ -90,7 +90,7 @@ than one. Don't bother with articles (the, a, an, etc).'''
         print "At your service!"
 
     def xyzzy():
-        print 'A hollow voice says "fool."'
+        print 'A hollow voice says, "fool."'
 
     def examine():
         items.item_list[noun].examine()
@@ -145,7 +145,7 @@ than one. Don't bother with articles (the, a, an, etc).'''
     'teleport': player.teleport, 'x': examine, 'take': take,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
-    'talk': talk}
+    'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear}
 
     try:
         verbs[verb]()

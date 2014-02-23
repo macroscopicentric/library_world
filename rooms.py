@@ -8,6 +8,8 @@ opposite_directions = {'e': 'w', 'w': 'e', 'n': 's', 's': 'n', 'u': 'd',
 
 class Room(object):
     def __init__(self, name, description, inventory=[], npc=None, locked=False,
+        locked_description='''That door's locked. And it'll stay locked no
+matter how many times you tug on the handle, so stop trying.''',
         secondary_description=None):
         self.name = name
         self.description = description
@@ -16,6 +18,7 @@ class Room(object):
         self.npc = npc
         self.locked = locked
         self.counter = 0
+        self.locked_description = locked_description
         self.secondary_description = secondary_description
         directory.append(self)
 
@@ -48,6 +51,10 @@ class Room(object):
     def unlock(self):
         self.locked = False
 
+    def add_counter(self):
+        self.counter = 1
+
+
 class Labyrinth(Room):
     def __init__(self, *args, **kwargs):
         super(Labyrinth, self).__init__(*args, **kwargs)
@@ -56,6 +63,9 @@ class Labyrinth(Room):
 
 #Rooms Inits
 #Main Clayr Library
+outside_of_library = Room("Outside the Library", '', locked=True,
+    locked_description='''No, I really don't think you want to go that way. Why
+don't you stick to the library?''')
 reading_room = Room("Reading Room",
     '''You're in the Main Reading Room. Large wooden tables fill the room.
 Clayr sit at some of the tables, reading. There are exits to the south and
@@ -91,7 +101,7 @@ second_assistant_study = Room("Second Assistant Study",
     '''This is your new study, the room of a Second Assistant Librarian.
 There's enough room for a desk and not one but two chairs (what luxury!), and
 there's a door ajar that leads to a tiny bathroom, all your own. The only exit
-is to the west. ''', ['statue'], locked=True)
+is to the west. ''', ['statue', 'red waistcoat'], locked=True)
 lower_librarian_hallway = Room("Lower Hallway",
     '''You're standing in a hallway. There are many doors adjacent to this
 hallway, more than the two upper floors. The doors are all painted yellow.
@@ -100,7 +110,9 @@ also stairs leading up.''')
 third_assistant_study = Room("Third Assistant Study",
     '''This is your study. It's very cramped; there's barely room for the desk
 and single chair that are here. The only exit is to the northwest.''',
-['mouse', 'key', 'waistcoat', 'dagger'])
+['mouse', 'key', 'yellow waistcoat', 'dagger'],
+'''This is your old study. It's quite cramped. Hard to believe that you spent
+so much time in this tiny room! The only exit is to the northwest.''')
 
 #Main Ramp Rooms (Clayr Library Spiral)
 hall1 = Room("East-West Hallway",
@@ -267,7 +279,9 @@ alexandria2 = Room('Royal Library of Alexandria - Peripatos Walk',
 gardens to either side of the walkway, but no doors to get there. You can see
 sky beyond the roof above you, which is strange since you know you're still
 underground. But it's quite convincing; you can hear birds and everything.
-There are doors to the north and south.''', locked=True)
+There are doors to the north and south.''', locked=True,
+locked_description='''Since there's a giant fire in front of the door, I'm
+going to pretend you didn't just try to go in that direction.''')
 alexandria3 = Room('Royal Library of Alexandria - Meeting Room',
     '''This is a small but welcoming meeting room. There's a large sturdy stone
 table in the center, surrounded by wooden chairs. There are doors to the
@@ -285,7 +299,9 @@ a path leading to the northwest.''')
 alexandria6 = Room('Royal Library of Alexandria - Lecture Hall',
     '''This is a large lecture hall. There are steps leading down to a lectern
 at the front of the room. There are doors to the north and east.''',
-locked=True)
+locked=True,
+locked_description='''Since there's a giant fire in front of the door, I'm
+going to pretend you didn't just try to go in that direction.''')
 
 
 #WTNV Library
@@ -457,7 +473,7 @@ roughly rectangular, and the inscription above one of the archways reads "Y*."
 There is a door to the south.''') #unfinished inscription (Y)
 finis_africae = Labyrinth("Hidden Room - Southern Tower",
     '''You're in a room in the southern tower of the labyrinth. This one is
-heptagonal. There's a door to the northwest.''', True)
+heptagonal. There's a door to the northwest.''', locked=True)
 
 #Between South and West
 labyrinth24 = Labyrinth("Labyrinth Room",
@@ -607,7 +623,7 @@ south.''')
 
 
 #Room Directions
-reading_room.add_directions(s=librarian_alcove, w=hall1)
+reading_room.add_directions(s=librarian_alcove, w=hall1, e=outside_of_library)
 librarian_alcove.add_directions(w=binding_room, e=robing_room,
     s=upper_librarian_hallway)
 upper_librarian_hallway.add_directions(s=chiefs_office, d=middle_librarian_hallway)

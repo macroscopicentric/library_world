@@ -50,9 +50,7 @@ class Player(object):
         self.known_spells.append(spell)
 
     def move(self, direction):
-        if direction == 'e' and self.location == rooms.reading_room:
-            print "No, I really don't think you want to go that way. Why don't you stick to the library?"
-        elif direction == 'd' and (self.location == rooms.uu_library1 or
+        if direction == 'd' and (self.location == rooms.uu_library1 or
             self.location == rooms.uu_library2):
             print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
 and down is up. But now it's gone, so you don't trouble yourself over it.'''
@@ -62,17 +60,16 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
             self.location.describe()
         elif direction not in self.location.directions:
             print "You can't go that way, stupid."
-        elif (direction in self.location.directions
-            and self.location.directions[direction].locked) == True:
-            print '''That door's locked. And it'll stay locked no matter how many
-times you tug on the handle, so stop trying.'''
         # elif direction in rooms.self.location.directions and...:
         #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
         #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
         #since a door goes both ways and a key is one-time in one direction.
         elif direction in self.location.directions:
-            self.location = self.location.directions[direction]
-            self.location.describe()
+            if self.location.directions[direction].locked == True:
+                print self.location.directions[direction].locked_description
+            else:
+                self.location = self.location.directions[direction]
+                self.location.describe()
         else:
             print "I didn't understand that direction, sorry."
 

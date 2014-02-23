@@ -40,6 +40,10 @@ class Librarian(NPC):
                 #How to print the following only the first time, when they level up?
                 if player.level == 2:
                     print '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
+                if player.level == 4:
+                    print '''"Congratulations, I\'ve decided to promote you to Second-Assistant
+Librarian! You now have a new study off of the Second-Assistant Hallway
+downstairs."'''
 
 
     def talk(self, player):

@@ -35,7 +35,7 @@ class Key(Item):
         6: 'six'}
 
         level2_unlocks = [uu_library1, wtnv_library1, labyrinth1, alexandria1]
-        level4_unlocks = [stilken_room1]
+        level4_unlocks = [stilken_room1, second_assistant_study]
 
         if player_level == 1:
             num = numbers[player_level].capitalize() + ' is'
@@ -48,6 +48,7 @@ class Key(Item):
         if player_level == 4:
             for room in rooms.level4_unlocks:
                 rooms.room.unlock()
+                rooms.third_assistant_study.add_counter()
         self.description = '''It's a silver bracelet, set with seven emeralds. %s glowing.''' % (num)
 
 
@@ -91,7 +92,7 @@ turnkey sticking out of the back. Interestingly, it also buzzes in your hand,
 like it's connected to the Charter somehow.''')
 key = Key('key',
     '''It's a silver bracelet, set with seven emeralds. One is glowing.''')
-waistcoat = Item('waistcoat',
+waistcoat = Item('yellow waistcoat',
     '''A yellow waistcoat. It flatters you quite nicely. And so professional!
 There's a whistle clipped to the lapel.''')
 dagger = Item('dagger',
@@ -101,6 +102,10 @@ dog_statue = Item('statue',
     '''It's a small soapstone statue of a dog. The nose is rubbed smooth.''')
 phial = Item('phial',
     '''A small crystal phial. It's sealed with powerful Charter magic.''')
+
+waistcoat2 = Item('red waistcoat',
+    '''A red waistcoat. Looking down, you decide that red is a much better
+color on you than yellow. There's a whistle clipped to the lapel.''')
 
 #Books (Subclass of Items)
 ledger = Book('ledger',

@@ -36,6 +36,7 @@ game.start()
 #Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).
 #Increase number/type of spells. Some spells not for changing into animals, but things like "charter water" for Alexandria.
 #Lock function in rooms, pull out of player and test there. Change responses to account for things like Alexandria.
+#Madame Pince: if she catches you, she confiscates all of your books.
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?
