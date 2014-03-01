@@ -14,6 +14,8 @@ moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw', 'sw': 'sw',
 'southeast': 'se', 'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
 
+arts_and_preps = ['to', 'the', 'a', 'an']
+
 def input_format():
     user_input = raw_input(">").lower().split(" ", 1)
 
@@ -21,12 +23,28 @@ def input_format():
         detail = user_input.pop().split(".").pop(0)
         user_input.append(detail)
 
+    #allows splitting for compound sentences ("give __ to __") while still
+    #retaining book items as one word.
+    if len(user_input) > 1:
+        if 'book' in user_input[1]:
+            user_input = [user_input[0]] + user_input[1].split('book ', 1)
+            user_input[1] = user_input[1] + 'book'
+            user_input = user_input[0:2] + user_input[2].split(' ')
+        else:
+            user_input = [user_input[0]] + user_input[1].split(' ')
+
+    for word in arts_and_preps:
+        if word in user_input:
+            user_input.remove(word)
+
     return user_input
 
 def command(user_input, player, game):
+    print user_input
+
     verb = user_input[0]
-    noun = ''
-    if len(user_input) > 1: noun = user_input[1]
+    if len(user_input) > 1: direct_object = user_input[1]
+    if len(user_input) > 2: indirect_object = user_input[2]
 
     #Helper functions so I can add all methods to the verbs dictionary:
     def save():
@@ -66,13 +84,15 @@ def command(user_input, player, game):
 use cardinal or ordinal directions or "up" and "down". Other commands you can
 use: "look" (describes the room to you), "examine [object]", "inventory" or "i"
 (lists your inventory), "take [object]" or "take all", "drop [object]" or "drop
-all", "cast [Charter spell]", "spells" (lists the spells you know), "teleport"
-(sends you back to the Reading Room, or the labyrinth stairs if you're in the
-labyrinth), "talk [character]", "read [book]" or "open [book]", "shelve
-[book]", "exit" or "quit" (exits the game), or "restart" (restarts the game).
+all", "give [object] to [person]", "cast [Charter spell]", "spells" (lists the
+spells you know), "teleport" (sends you back to the Reading Room, or the
+labyrinth stairs if you're in the labyrinth), "talk [character]", "read [book]"
+or "open [book]", "shelve [book]", "exit" or "quit" (exits the game), or
+"restart" (restarts the game).
 
-Please keep in mind that commands can only be one word, but nouns can be more
-than one. Don't bother with articles (the, a, an, etc).'''
+Please keep in mind that commands and people names can only be one word, but
+direct objects can be more than one. Don't bother with articles (the, a, an,
+etc).'''
 
     #Easter Eggs
     def say_hi():
@@ -93,49 +113,55 @@ than one. Don't bother with articles (the, a, an, etc).'''
         print 'A hollow voice says, "fool."'
 
     def examine():
-        items.item_list[noun].examine()
+        items.item_list[direct_object].examine()
 
     def take():
-        if noun == 'all':
+        if direct_object == 'all':
             if player.location.inventory:
                 temp = player.location.inventory[:]
                 for item in temp:
-                    items.item_list[item].take(player.location.inventory)
+                    items.item_list[direct_object].take(player.location.inventory)
             else: print "There's nothing here to take."
         else:
-            try: items.item_list[noun].take(player.location.inventory)
+            try: items.item_list[direct_object].take(player.location.inventory)
             except: print "I don't see that item."
 
     def drop():
-        if noun == 'all':
+        if direct_object == 'all':
             if player.inventory:
                 temp = player.inventory[:]
                 for item in temp:
-                    items.item_list[item].drop(player.location.inventory)
+                    items.item_list[direct_object].drop(player.location.inventory)
             else: player.inventory_check()
         else:
-            try: items.item_list[noun].drop(player.location.inventory)
+            try: items.item_list[direct_object].drop(player.location.inventory)
             except: print "You're not carrying that item."
 
+    def give():
+        try: items.item_list[direct_object].give(player.location.inventory,
+            indirect_object)
+        except: print '''I didn't quite get that. Did you use the format "give
+[object] to [person]"?'''
+
     def read():
-        if noun == 'book':
+        if direct_object == 'book':
             print 'Which book?'
         else:
-            try: items.item_list[noun].open()
+            try: items.item_list[direct_object].open()
             except: print "You can't read that. Try reading a book."
 
     def shelve():
-        try: items.item_list[noun].shelve(player.location)
+        try: items.item_list[direct_object].shelve(player.location)
         except: print "You can't shelve that."
 
     def cast():
-        spells.spells[noun].use_spell()
+        spells.spells[direct_object].use_spell()
 
     def talk():
-        if player.location.npc == noun:
-            if noun == 'vancelle':
+        if player.location.npc == direct_object:
+            if direct_object == 'vancelle':
                 people.vancelle.talk(player)
-            else: people.npc_list[noun].talk()
+            else: people.npc_list[direct_object].talk()
         else: print "I don't see that person here."
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
@@ -145,7 +171,7 @@ than one. Don't bother with articles (the, a, an, etc).'''
     'teleport': player.teleport, 'x': examine, 'take': take,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
-    'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear}
+    'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear, 'give': give}
 
     try:
         verbs[verb]()

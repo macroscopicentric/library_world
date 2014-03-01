@@ -29,6 +29,17 @@ class Item(object):
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
+    def give(self, location_inventory, person):
+        if person == player.player.location.npc:
+            try:
+                player.player.drop(self.name)
+                print "%s takes the %s from you." % (person.capitalize(),
+                    self.name)
+            except: print "You're not carrying that!"
+        else:
+            print "That person isn't here!"
+
+
 class Key(Item):
     def level_up(self, player_level):
         numbers = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
