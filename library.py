@@ -37,6 +37,7 @@ game.start()
 #Increase number/type of spells. Some spells not for changing into animals, but things like "charter water" for Alexandria.
 #Lock function in rooms, pull out of player and test there. Change responses to account for things like Alexandria.
 #Madame Pince: if she catches you, she confiscates all of your books.
+#Orangutan vs. "the librarian"-- need formatting in commands list. Maybe also move wish fulfillment to a separate method in people?
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?

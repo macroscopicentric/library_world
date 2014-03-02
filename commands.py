@@ -28,8 +28,8 @@ def input_format():
     if len(user_input) > 1:
         if 'book' in user_input[1]:
             user_input = [user_input[0]] + user_input[1].split('book ', 1)
-            user_input[1] = user_input[1] + 'book'
-            user_input = user_input[0:2] + user_input[2].split(' ')
+            try: user_input = user_input[0:2] + user_input[2].split(' ')
+            except: pass
         else:
             user_input = [user_input[0]] + user_input[1].split(' ')
 
@@ -84,11 +84,11 @@ def command(user_input, player, game):
 use cardinal or ordinal directions or "up" and "down". Other commands you can
 use: "look" (describes the room to you), "examine [object]", "inventory" or "i"
 (lists your inventory), "take [object]" or "take all", "drop [object]" or "drop
-all", "give [object] to [person]", "cast [Charter spell]", "spells" (lists the
-spells you know), "teleport" (sends you back to the Reading Room, or the
-labyrinth stairs if you're in the labyrinth), "talk [character]", "read [book]"
-or "open [book]", "shelve [book]", "exit" or "quit" (exits the game), or
-"restart" (restarts the game).
+all", "give [object] (to) [person]", "cast [Charter spell]", "spells" (lists
+the spells you know), "teleport" (sends you back to the Reading Room, or the
+labyrinth stairs if you're in the labyrinth), "talk (to) [character]",
+"read [book]" or "open [book]", "shelve [book]", "exit" or "quit" (exits the
+game), or "restart" (restarts the game).
 
 Please keep in mind that commands and people names can only be one word, but
 direct objects can be more than one. Don't bother with articles (the, a, an,
@@ -138,8 +138,19 @@ etc).'''
             except: print "You're not carrying that item."
 
     def give():
-        try: items.item_list[direct_object].give(player.location.inventory,
-            indirect_object)
+        try:
+            if indirect_object == 'orangutan':
+                if direct_object == 'chalk':
+                    items.item_list[direct_object].give(people.npc_list[indirect_object])
+                    reward = 'charter book'
+                    print "The Librarian gives you a %s." % (reward)
+                    player.take(reward)
+                    people.uu_librarian.wish_come_true = True
+                    people.uu_librarian.new_dialogue(['The Librarian smiles contentedly at you.'])
+                if direct_object == 'banana':
+                    print "The Librarian looks at you in disgust."
+            else:
+                items.item_list[direct_object].give(people.npc_list[indirect_object])
         except: print '''I didn't quite get that. Did you use the format "give
 [object] to [person]"?'''
 
@@ -161,7 +172,7 @@ etc).'''
         if player.location.npc == direct_object:
             if direct_object == 'vancelle':
                 people.vancelle.talk(player)
-            else: people.npc_list[direct_object].talk()
+            else: people.npc_list[direct_object].talk(player)
         else: print "I don't see that person here."
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,

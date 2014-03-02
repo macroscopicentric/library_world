@@ -29,13 +29,15 @@ class Item(object):
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
-    def give(self, location_inventory, person):
-        if person == player.player.location.npc:
-            try:
-                player.player.drop(self.name)
-                print "%s takes the %s from you." % (person.capitalize(),
-                    self.name)
-            except: print "You're not carrying that!"
+    def give(self, person):
+        if person.name == player.player.location.npc:
+            if person.want == self.name:
+                try:
+                    player.player.drop(self.name)
+                    print "%s takes the %s from you." % (person.name.capitalize(),
+                        self.name)
+                except: print "You're not carrying that!"
+            else: print "%s doesn't want that." % (person.name.capitalize())
         else:
             print "That person isn't here!"
 
@@ -91,11 +93,11 @@ bells = Item('bells',
    '''A set of seven bells hang on a bandolier, meant to be worn across the
 chest. Their leather pouches are etched with Charter marks and the bells'
 mahogany handles stick out of the top of the pouches.''')
-spell_book = Book('charter book',
+charter_book = Book('charter book',
     'It\'s a plain brown book, small enough to fit in the palm of your hand.',
     '''It's full of spells! There's one that looks right at your level. You
 read it, and suddenly feel like you've been totally immersed in the
-Charter.''', None, 'otter')
+Charter.''', spell='water')
 
 mouse = Item('mouse',
     '''It's a small clockwork mouse, about the size of your fist. There's a
@@ -118,6 +120,9 @@ waistcoat2 = Item('red waistcoat',
     '''A red waistcoat. Looking down, you decide that red is a much better
 color on you than yellow. There's a whistle clipped to the lapel.''')
 
+banana = Item('banana', 'This banana smells strangely like herring.')
+chalk = Item('chalk', 'A piece of chalk. Pretty boring, really.')
+
 #Books (Subclass of Items)
 ledger = Book('ledger',
 '''It's a large leather ledger. It's incredibly heavy, and when you open it you
@@ -129,6 +134,12 @@ librarians. And there's your name, at the very bottom! There's a list of
 equipment for you, including a dagger, a clockwork mouse, a key, and a yellow
 waistcoat. Now, I wonder where those things could be. (You didn't lose them
 already, did you?)''')
+
+translation_book = Book('translation book',
+    '''It's an orangutan-to-English translation book, printed by the Unseen
+University Press.''',
+'''The first entry indicates that "Ooook ook." means "I am filled with
+existential angst."''')
 
 #Level 1 Books
 belle_et_bete = Book('french book',
@@ -157,4 +168,16 @@ princess_bride = Book('princess book',
     '''This book has a red cover. The title is "The Princess Bride," and
 there's a red rose on the spine.''',
     '''Far-off places, daring swordfights, magic spells, and a prince in
-disguise!''',rooms.beast_library)
+disguise!''', rooms.beast_library)
+
+#Level 3 Books
+labyrinth_book = Book('labyrinth book',
+    '''This book is titled "The Name of the Rose." There's a cross stamped on
+the spine.''',
+    '''The book seems to be a novel about two monks, set in a strange world
+without magic.''', rooms.labyrinths)
+
+latin_book = Book('latin book',
+    '''The title of the book, and the rest of it, seem to be entirely in
+Latin. There's a cross stamped on the spine.''',
+'''The book is in Latin, stupid. You can't read it.''', rooms.labyrinths)

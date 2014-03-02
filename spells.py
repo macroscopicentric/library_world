@@ -16,7 +16,12 @@ class Spell(object):
         small_spaces = []
 
         if self.name in player.known_spells:
-            if player.shape != self.name:
+            if self.name == 'water':
+                print "You spray water everywhere."
+                if player.location == rooms.alexandria1:
+                    print "You spray the fires, and they go out. The walls are now gently smoking."
+                    rooms.alexandria1.add_counter()
+            elif player.shape != self.name:
                 player.shape = self.name
                 player.size = self.size
                 player.flying = self.flying
@@ -42,3 +47,4 @@ class Spell(object):
 
 otter = Spell('otter', 'small')
 human = Spell('human')
+water = Spell('water')

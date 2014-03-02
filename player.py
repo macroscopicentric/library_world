@@ -20,6 +20,12 @@ class Player(object):
     def level_up(self):
         self.level += 1
 
+    #for checking inventory from other modules
+    def invent_test(self, item):
+        if item in self.inventory:
+            return True
+        else: return False
+
     def inventory_check(self):
         if self.inventory == []: print "You're not holding anything!"
         else:

@@ -223,7 +223,7 @@ tall windows in the southwest and northwest corners. The room extends to the
 north and south, and there's a door to the east.''')
 beast_library2 = Room("Beast's Library",
     '''You're in the southern end of a massive library. It extends to the
-north, and there's a staircase going up in the corner.''')
+north, and there's a staircase going up in the corner.''', inventory=['banana'])
 beast_library3 = Room("Beast's Library - Walkway",
     '''You're standing on a walkway about halfway up the southern wall of a
 massive library. There are stairs leading down.''', npc='lumiere')
@@ -262,7 +262,7 @@ uu_library4 = Room('Unseen University Library - Walkway',
     '''You're on the upper walkway of the Unseen University Library. The
 walkway extends all the way around the walls of the northern end where you're
 standing, and into the southern end of the hall beyond. There are stairs
-leading down.''', ['princess book'])
+leading down.''', inventory=['princess book'])
 
 #Alexandria
 alexandria1 = Room('Royal Library of Alexandria - Reading Room',
@@ -272,8 +272,8 @@ of the room! It's spread to the far side of the room, covering the doors you
 can see in the other three walls. The only safe exit is to go back through the
 door east.''', secondary_description=
 '''This is a beautiful reading room with high ceilings and columns everywhere.
-Bookshelves line the walls. There are doors to the north, east, and west.''',
-locked=True)
+Bookshelves line the walls, and the room seems kind of smoky. There are doors
+to the north, east, and west.''', locked=True, inventory=['translation book'])
 alexandria2 = Room('Royal Library of Alexandria - Peripatos Walk',
     '''You're in a long, covered walkway between two "buildings." There are
 gardens to either side of the walkway, but no doors to get there. You can see
@@ -348,13 +348,13 @@ and west.''')
 wtnv_library6 = Room("Night Vale Public Library - Childrens' Sections",
     '''This room is shaped like a pirate ship, with a mast that almost reaches
 the ceiling. Dismembered bodies cover the floor. There are doors to the east
-and west.''')
+and west.''', inventory=['latin book'])
 wtnv_library7 = Room("Night Vale Public Library - Crow's Nest",
     '''Phew! You've cleverly avoided the librarians by climbing the pirate
 ship's crow's nest. They'll *never* look for you up here, I'm sure. This is
 quite a comfy perch, really. You could theoretically see quite far over the
 stacks, if the lighting weren't so terrible. Unfortunately, you'll have to go
-down at some point, as there is nowhere else to go.''')
+down at some point, as there is nowhere else to go.''', inventory=['labyrinth book'])
 
 
 #Stilken Room
@@ -379,7 +379,7 @@ leading down.''', npc='jorge')
 labyrinth2 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 roughly rectangular. There's an altar below the window. There are doors to the
-northwest and west.''')
+northwest and west.''', inventory=['chalk'])
 labyrinth3 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 roughly rectangular, and the inscription above one of the archways reads

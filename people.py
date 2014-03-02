@@ -6,16 +6,26 @@ import items
 npc_list = {}
 
 class NPC(object):
-    def __init__(self, name, dialogue=[]):
+    def __init__(self, name, dialogue=[], want=''):
         self.name = name
         self.dialogue = dialogue
-        self.counter = 0
+        self.want = want
+        self.wish_come_true = False
         npc_list[name] = self
 
     def new_dialogue(self, new_dialogue):
         self.dialogue = new_dialogue
 
-    def talk(self):
+    def talk(self, player):
+        if self.name == 'orangutan' and self.wish_come_true == False:
+            if player.invent_test('translation book'):
+                self.new_dialogue(['''"Oh woe is me," says the Librarian forlornly, "I have lost my
+chalk and cannot navigate the library, like Theseus in the
+Minotaur's Labyrinth."'''])
+            else:
+                self.new_dialogue(['"Ooook ook."', '"Eeek eek!"',
+                    '"Ook eek." >:('])
+
         try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
         except: print "%s doesn't say anything." % (self.name.capitalize())
 
@@ -59,7 +69,7 @@ vancelle = Librarian('vancelle')
 vancelle.add_levels(set(('french book',)), set(('fairy tale book', 'floral book', 'princess book')))
 
 uu_librarian = NPC('orangutan', ['"Ooook ook."', '"Eeek eek!"',
-    '"Ook eek." >:('])
+    '"Ook eek." >:('], want='chalk')
 imshi = NPC('imshi',
     ['"Talk to Vancelle to learn what books you need to shelve. Make sure you have your key though!"',
     '"If you\'re looking for your key, have you checked your office?"'])
