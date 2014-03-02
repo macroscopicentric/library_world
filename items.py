@@ -31,15 +31,10 @@ class Item(object):
 
     def give(self, person):
         if person.name == player.player.location.npc:
-            if person.want == self.name:
-                try:
-                    player.player.drop(self.name)
-                    print "%s takes the %s from you." % (person.name.capitalize(),
-                        self.name)
-                except: print "You're not carrying that!"
-            else: print "%s doesn't want that." % (person.name.capitalize())
-        else:
-            print "That person isn't here!"
+            try:
+                person.wish_fulfillment(self.name, player.player)
+            except: print "You're not carrying that!"
+        else: print "That person isn't here!"
 
 
 class Key(Item):

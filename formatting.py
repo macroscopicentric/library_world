@@ -19,3 +19,13 @@ def article(word):
         return 'a ' + word
     else:
         return 'an ' + word
+
+def print_npc(npc, function):
+    if function == 'room':
+        article = 'An'
+    elif function == 'give':
+        article = 'The'
+
+    if npc == 'orangutan':
+        return "%s %s" % (article, npc)
+    else: return "%s" % (npc.capitalize())

@@ -1,5 +1,7 @@
 import random
 
+import formatting
+
 import rooms
 import items
 
@@ -28,6 +30,24 @@ Minotaur's Labyrinth."'''])
 
         try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
         except: print "%s doesn't say anything." % (self.name.capitalize())
+
+    def wish_fulfillment(self, item, player):
+        if self.want == item:
+            if self.name == 'orangutan':
+                reward = 'charter book'
+                print formatting.print_npc(self.name,
+                    'give') + " takes the %s from you." % (item)
+                player.drop(item)
+                print "The Librarian gives you a %s." % (reward)
+                player.take(reward)
+                self.wish_come_true = True
+                self.new_dialogue(['The orangutan smiles contentedly at you.'])            
+        elif self.name == 'orangutan' and item == 'banana':
+            print formatting.print_npc(self.name,
+                'give') + " looks at you in disgust."
+        else: print formatting.print_npc(self.name,
+            'give') + " doesn't want that."
+
 
 class Librarian(NPC):
     def __init__(self, *args):

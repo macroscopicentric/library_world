@@ -17,7 +17,8 @@ class Spell(object):
 
         if self.name in player.known_spells:
             if self.name == 'water':
-                print "You spray water everywhere."
+                print '''You spray water everywhere. In a library. You're clearly very
+bright and good at your job.'''
                 if player.location == rooms.alexandria1:
                     print "You spray the fires, and they go out. The walls are now gently smoking."
                     rooms.alexandria1.add_counter()

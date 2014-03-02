@@ -40,7 +40,7 @@ def input_format():
     return user_input
 
 def command(user_input, player, game):
-    print user_input
+    # print user_input
 
     verb = user_input[0]
     if len(user_input) > 1: direct_object = user_input[1]
@@ -139,18 +139,7 @@ etc).'''
 
     def give():
         try:
-            if indirect_object == 'orangutan':
-                if direct_object == 'chalk':
-                    items.item_list[direct_object].give(people.npc_list[indirect_object])
-                    reward = 'charter book'
-                    print "The Librarian gives you a %s." % (reward)
-                    player.take(reward)
-                    people.uu_librarian.wish_come_true = True
-                    people.uu_librarian.new_dialogue(['The Librarian smiles contentedly at you.'])
-                if direct_object == 'banana':
-                    print "The Librarian looks at you in disgust."
-            else:
-                items.item_list[direct_object].give(people.npc_list[indirect_object])
+            items.item_list[direct_object].give(people.npc_list[indirect_object])
         except: print '''I didn't quite get that. Did you use the format "give
 [object] to [person]"?'''
 
@@ -177,6 +166,7 @@ etc).'''
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
     'look': player.location.describe, 'z': player.location.describe,
+    'l': player.location.describe,
     'inventory': player.inventory_check, 'xyzzy': xyzzy, 'zork': zork,
     'i': player.inventory_check, 'spells': player.spell_check,
     'teleport': player.teleport, 'x': examine, 'take': take,

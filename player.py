@@ -4,6 +4,7 @@ import rooms
 import people
 
 home = rooms.reading_room
+# home = rooms.uu_library1
 
 class Player(object):
     def __init__(self, inventory=[]):

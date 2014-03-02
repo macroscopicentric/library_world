@@ -1,4 +1,4 @@
-from list_items import list_items
+import formatting
 
 directory = []
 labyrinths = []
@@ -40,13 +40,11 @@ matter how many times you tug on the handle, so stop trying.''',
         if self.counter == 1 and self.secondary_description:
             print self.secondary_description
 
-        if self.inventory: print list_items(self.inventory)
+        if self.inventory: print formatting.list_items(self.inventory)
 
         if self.npc != None:
             if not self.inventory: print
-            if self.npc == 'orangutan':
-                print "An %s is here." % (self.npc)
-            else: print "%s is here." % (self.npc.capitalize())
+            print formatting.print_npc(self.npc, 'room') + ' is here.'
 
     def unlock(self):
         self.locked = False
