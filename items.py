@@ -118,6 +118,9 @@ color on you than yellow. There's a whistle clipped to the lapel.''')
 banana = Item('banana', 'This banana smells strangely like herring.')
 chalk = Item('chalk', 'A piece of chalk. Pretty boring, really.')
 
+wire = Item('wire', "It's a piece of wire about a foot long.")
+scissors = Item('scissors', 'A pair of scissors.')
+
 #Books (Subclass of Items)
 ledger = Book('ledger',
 '''It's a large leather ledger. It's incredibly heavy, and when you open it you
@@ -172,7 +175,19 @@ the spine.''',
     '''The book seems to be a novel about two monks, set in a strange world
 without magic.''', rooms.labyrinths)
 
-latin_book = Book('latin book',
+astronomy_book = Book('astronomy book',
     '''The title of the book, and the rest of it, seem to be entirely in
 Latin. There's a cross stamped on the spine.''',
-'''The book is in Latin, stupid. You can't read it.''', rooms.labyrinths)
+'''The book is in Latin, so you can't read it. But it looks as though it's
+about astronomy, as there are pages full of astronomical tables.''',
+rooms.labyrinths)
+
+#Level 4 Books
+
+#Level 5 Books
+
+#Level 6 Books
+poetics = Book('drama book', '''It seems to be a translated copy of Poetics II,
+the lost Aristotelian essay on comedic drama.''',
+'''It's just Aristotle's theories on Greek comedic drama. Boring. Go read
+something with magic in it.''', rooms.labyrinths)

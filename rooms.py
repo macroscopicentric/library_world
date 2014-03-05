@@ -346,7 +346,7 @@ and west.''')
 wtnv_library6 = Room("Night Vale Public Library - Childrens' Sections",
     '''This room is shaped like a pirate ship, with a mast that almost reaches
 the ceiling. Dismembered bodies cover the floor. There are doors to the east
-and west.''', inventory=['latin book'])
+and west.''', inventory=['astronomy book'])
 wtnv_library7 = Room("Night Vale Public Library - Crow's Nest",
     '''Phew! You've cleverly avoided the librarians by climbing the pirate
 ship's crow's nest. They'll *never* look for you up here, I'm sure. This is
@@ -373,11 +373,11 @@ labyrinth1 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 heptagonal, and the inscription above one of the archways reads "Apocalypsis
 Iesu Christi." There are doors to the northwest, east, and south, and stairs
-leading down.''', npc='jorge')
+leading down.''', npc='jorge', inventory=['chalk'])
 labyrinth2 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 roughly rectangular. There's an altar below the window. There are doors to the
-northwest and west.''', inventory=['chalk'])
+northwest and west.''')
 labyrinth3 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 roughly rectangular, and the inscription above one of the archways reads
@@ -471,7 +471,8 @@ roughly rectangular, and the inscription above one of the archways reads "Y*."
 There is a door to the south.''') #unfinished inscription (Y)
 finis_africae = Labyrinth("Hidden Room - Southern Tower",
     '''You're in a room in the southern tower of the labyrinth. This one is
-heptagonal. There's a door to the northwest.''', locked=True)
+heptagonal. There's a door to the northwest.''', locked=True,
+inventory=['drama book'])
 
 #Between South and West
 labyrinth24 = Labyrinth("Labyrinth Room",

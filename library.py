@@ -30,14 +30,18 @@ game.start()
 #   (Would also have to divide the directions from the description.)
 #Add in more Clayr hallway landmarks as I add other libraries.
 #Sequester code. Stop calling class attributes directly; create new methods instead.
-#Add Alexandria, expand WTNV, Dream's library, Restricted Section, Pagemaster, DW?, Powell's.
+#Add Dream's library, Restricted Section, Pagemaster, DW?, Powell's.
 #Levels up, but doesn't change access. Also need to edit Vancelle's dialogue so that she indicates which books you need to shelve,
 #   and perhaps a hint in the beginning that you need to get your key before you can level up.
 #Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).
-#Increase number/type of spells. Some spells not for changing into animals, but things like "charter water" for Alexandria.
 #Lock function in rooms, pull out of player and test there. Change responses to account for things like Alexandria.
-#Madame Pince: if she catches you, she confiscates all of your books.
-#Orangutan vs. "the librarian"-- need formatting in commands list. Maybe also move wish fulfillment to a separate method in people?
+#Madame Pince: if she catches you, she confiscates all of your books. Ways to get around her: drop the banana (or throw) in
+#   front of the door, and she has to go to the hospital and doesn't come back, or remove seal with wire (like Lirael does in the book).
+#   -->Command? "break" or "cut"?
+#Add books to Vancelle level ups.
+#How to unlock finis Africae?
+#End game: promoted to level 7, Vancelle gives you the charter book that allows you to turn into an otter,
+#   so you can slip through the crack and find the pipes, crown, and trowel.
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?
