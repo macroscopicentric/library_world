@@ -15,17 +15,17 @@ class Item(object):
             print self.description
         else: print "I'm sorry, I don't see that item."
 
-    def take(self, location_inventory):
+    def take(self, location):
         try:
             player.player.take(self.name)
-            location_inventory.remove(self.name)
+            location.remove_invent(self.name)
             print "You take the %s." % (self.name)
         except: print "I don't see that item."
 
-    def drop(self, location_inventory):
+    def drop(self, location):
         try:
             player.player.drop(self.name)
-            location_inventory.append(self.name)
+            location.add_invent(self.name)
             print "You drop the %s." % (self.name)
         except: print "You're not carrying that!"
 
@@ -169,6 +169,10 @@ there's a red rose on the spine.''',
 disguise!''', rooms.beast_library)
 
 #Level 3 Books
+
+#Level 4 Books
+
+#Level 5 Books
 labyrinth_book = Book('labyrinth book',
     '''This book is titled "The Name of the Rose." There's a cross stamped on
 the spine.''',
@@ -181,10 +185,6 @@ Latin. There's a cross stamped on the spine.''',
 '''The book is in Latin, so you can't read it. But it looks as though it's
 about astronomy, as there are pages full of astronomical tables.''',
 rooms.labyrinths)
-
-#Level 4 Books
-
-#Level 5 Books
 
 #Level 6 Books
 poetics = Book('drama book', '''It seems to be a translated copy of Poetics II,

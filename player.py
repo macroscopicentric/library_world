@@ -23,9 +23,11 @@ class Player(object):
 
     #for checking inventory from other modules
     def invent_test(self, item):
-        if item in self.inventory:
-            return True
-        else: return False
+        return item in self.inventory
+
+    #for testing location from other modules
+    def location_test(self, location):
+        return location == self.location
 
     def inventory_check(self):
         if self.inventory == []: print "You're not holding anything!"
@@ -57,28 +59,8 @@ class Player(object):
         self.known_spells.append(spell)
 
     def move(self, direction):
-        if direction == 'd' and (self.location == rooms.uu_library1 or
-            self.location == rooms.uu_library2):
-            print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-and down is up. But now it's gone, so you don't trouble yourself over it.'''
-            print
-            self.location = self.location.directions[direction]
-            time.sleep(3)
-            self.location.describe()
-        elif direction not in self.location.directions:
-            print "You can't go that way, stupid."
-        # elif direction in rooms.self.location.directions and...:
-        #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
-        #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
-        #since a door goes both ways and a key is one-time in one direction.
-        elif direction in self.location.directions:
-            if self.location.directions[direction].locked == True:
-                print self.location.directions[direction].locked_description
-            else:
-                self.location = self.location.directions[direction]
-                self.location.describe()
-        else:
-            print "I didn't understand that direction, sorry."
+        self.location = self.location.directions[direction]
+        return self.location.describe()
 
     def teleport(self):
         if self.location in rooms.labyrinths:

@@ -32,6 +32,16 @@ matter how many times you tug on the handle, so stop trying.''',
             else:
                 self.directions[direction].directions[opposite_directions[direction]] = self
 
+    #for testing possible move directions from other modules
+    def directions_test(self, direction):
+        return direction in self.directions
+
+    def lock_test(self):
+        return self.locked
+
+    def lock_desc(self):
+        return self.locked_description
+
     def describe(self):
         print self.name
         print
@@ -52,6 +62,12 @@ matter how many times you tug on the handle, so stop trying.''',
     def add_counter(self):
         self.counter = 1
 
+    def add_invent(self, item):
+        self.inventory.append(item)
+
+    def remove_invent(self, item):
+        self.inventory.remove(item)
+
 
 class Labyrinth(Room):
     def __init__(self, *args, **kwargs):
@@ -66,8 +82,7 @@ outside_of_library = Room("Outside the Library", '', locked=True,
 don't you stick to the library?''')
 reading_room = Room("Reading Room",
     '''You're in the Main Reading Room. Large wooden tables fill the room.
-Clayr sit at some of the tables, reading. There are exits to the south and
-west. The main doors are open to the east.''')
+There are exits to the south and west. The main doors are open to the east.''')
 librarian_alcove = Room("Librarian Alcove",
     '''This is the librarian alcove, the main hub of their behind-the-scenes
 library management. There is a small roller-top desk in the corner. There are
@@ -163,16 +178,17 @@ purple. There are archways to the west and south.''')
 
 hall13 = Room("East-West Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
-There is an empty soap dispenser on the wall labeled "Librarian Repellent."
-There are archways to the east and west, and a door to the north with two
-emeralds over it.''')
+There are archways to the east and west.''')
 hall14 = Room("East-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the east and south.''')
 
 hall15 = Room("North-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the north and south.''')
+There are archways to the north and south, and a velvet rope sealed with
+Vancelle's official seal blocking a door to the west.''',
+secondary_description='''You're in a hallway with gently sloping floors. The walls here are red.
+There are archways to the north and south, and a door to the west.''')
 hall16 = Room("North-East Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and east.''')
@@ -186,7 +202,9 @@ There are archways to the north and west.''')
 
 hall19 = Room("North-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the north and south.''')
+There is an empty soap dispenser on the wall labeled "Librarian Repellent."
+There are archways to the north and south, and a door to the north with two
+emeralds over it.''')
 hall20 = Room("West-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are
 orange. There are archways to the west and south.''')
@@ -300,6 +318,16 @@ at the front of the room. There are doors to the north and east.''',
 locked=True,
 locked_description='''Since there's a giant fire in front of the door, I'm
 going to pretend you didn't just try to go in that direction.''')
+
+#Restricted Section (HP)
+restricted = Room('Restricted Section',
+    '''You're in the restricted section of an obviously magical library. There
+are aisles of bookshelves with a shelf at hip-level to be used as desks, and
+study tables next to the floor-length windows. The only exit is to the east.''',
+locked=True,
+locked_description='''You try to sneak into the Restricted Section, but Madame
+Pince catches you and confiscates all your books! She then herds you out of her
+library and all the way back to the main reading room.''')
 
 
 #WTNV Library
@@ -642,13 +670,13 @@ hall9.add_directions(n=hall10)
 hall10.add_directions(n=hall11, w=alexandria1)
 hall11.add_directions(n=hall12)
 hall12.add_directions(w=hall13)
-hall13.add_directions(w=hall14, n=wtnv_library1)
+hall13.add_directions(w=hall14) #lucien
 hall14.add_directions(s=hall15)
-hall15.add_directions(s=hall16)
+hall15.add_directions(s=hall16, w=restricted)
 hall16.add_directions(e=hall17)
-hall17.add_directions(e=hall18)
+hall17.add_directions(e=hall18) #dw
 hall18.add_directions(n=hall19)
-hall19.add_directions(n=hall20)
+hall19.add_directions(n=hall20, e=wtnv_library1)
 hall20.add_directions(w=hall21)
 hall21.add_directions(s=hall22, u=labyrinth1)
 hall22.add_directions(e=hall23)

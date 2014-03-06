@@ -120,10 +120,10 @@ etc).'''
             if player.location.inventory:
                 temp = player.location.inventory[:]
                 for item in temp:
-                    items.item_list[direct_object].take(player.location.inventory)
+                    items.item_list[direct_object].take(player.location)
             else: print "There's nothing here to take."
         else:
-            try: items.item_list[direct_object].take(player.location.inventory)
+            try: items.item_list[direct_object].take(player.location)
             except: print "I don't see that item."
 
     def drop():
@@ -131,10 +131,10 @@ etc).'''
             if player.inventory:
                 temp = player.inventory[:]
                 for item in temp:
-                    items.item_list[direct_object].drop(player.location.inventory)
+                    items.item_list[direct_object].drop(player.location)
             else: player.inventory_check()
         else:
-            try: items.item_list[direct_object].drop(player.location.inventory)
+            try: items.item_list[direct_object].drop(player.location)
             except: print "You're not carrying that item."
 
     def give():
@@ -164,6 +164,32 @@ etc).'''
             else: people.npc_list[direct_object].talk(player)
         else: print "I don't see that person here."
 
+    def move():
+        new_direction = player.location.directions[direction]
+
+        try:
+            #if direction in rooms.self.location.directions and...:
+            #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
+            #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
+            #since a door goes both ways and a key is one-time in one direction.
+            if new_direction.lock_test:
+                print new_direction.lock_desc
+                if new_direction == rooms.restricted:
+                    for item in player.inventory:
+                        if 'book' in item:
+                            items.item_list[item].drop(rooms.restricted)
+                    player.teleport()
+            elif moves[verb] == 'd' and (player.location_test(rooms.uu_library1) or
+                player.location_test(rooms.uu_library2)):
+                print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
+and down is up. But now it's gone, so you don't trouble yourself over it.'''
+                print
+                time.sleep(3)
+                print player.move(moves[verb])
+            else: print player.move(moves[verb])
+        except: print "You can't go that way, stupid."
+
+
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
     'look': player.location.describe, 'z': player.location.describe,
     'l': player.location.describe,
@@ -181,6 +207,6 @@ etc).'''
         if verb == 'exit' or verb == 'quit': sys.exit()
         #is there a way to put the part below in the dictionary as well? would
         #have to nest dictionaries, which gave me an unhashable type error.
-        elif verb in moves: player.move(moves[verb])
+        elif verb in moves: self.move(moves[verb])
         else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
