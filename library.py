@@ -22,22 +22,14 @@ game.start()
 #Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,
 #often in the middle of a word. Would also need to delete extra spaces if I can do automatic line breaks.)
 #Sloppy code, incl. initializations at the bottom.
-#Bells (item) need to be a recursive so you can call each bell by name.
-#Make room states that can change over time (locked doors, etc). Also need to prevent going through the hole at the bottom of the tunnel.
-#   Could also use this to create different room descriptions if you get promoted and get a new study, etc.
 #Need to note somewhere that you can use 'human' to change back.
 #Only describe the room the first time through? This would also cause issues with the way the save function is currently written.
 #   (Would also have to divide the directions from the description.)
 #Add in more Clayr hallway landmarks as I add other libraries.
-#Sequester code. Stop calling class attributes directly; create new methods instead.
-#Add Dream's library?, Restricted Section, DW, Ghostbusters?
-#Levels up, but doesn't change access. Also need to edit Vancelle's dialogue so that she indicates which books you need to shelve,
-#   and perhaps a hint in the beginning that you need to get your key before you can level up.
+#Add Dream's library?, DW, Ghostbusters?
 #Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).
 #Lock function in rooms, pull out of player and test there. Change responses to account for things like Alexandria.
-#Madame Pince: if she catches you, she confiscates all of your books. Ways to get around her: drop the banana (or throw) in
-#   front of the door, and she has to go to the hospital and doesn't come back, or remove seal with wire (like Lirael does in the book).
-#   -->Command? "break" or "cut"?
+#Madame Pince: dropping banana and then leaving > Pince goes to hospital and door unlocks. WHERE to put code for testing the two conditions?
 #       Way to send books back to their default locations? it would also be nice to have one place to set default settings
 #       for items, rooms, players for testing etc.
 #Standardize returns, remove some of the circularity? Commands go everywhere and branch into multiple modules.

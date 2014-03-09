@@ -86,26 +86,43 @@ downstairs."'''
 
 
 vancelle = Librarian('vancelle')
-vancelle.add_levels(set(('french book',)), set(('fairy tale book', 'floral book', 'princess book')))
+vancelle.add_levels(set(('french book',)), set(('fairy tale book',
+    'floral book', 'princess book')), set(('astronomy book', 'potions book',
+    'fantasy book')))
 
 uu_librarian = NPC('orangutan', ['"Ooook ook."', '"Eeek eek!"',
     '"Ook eek." >:('], want='chalk')
+
 imshi = NPC('imshi',
-    ['"Talk to Vancelle to learn what books you need to shelve. Make sure you have your key though!"',
+    ['''"Talk to Vancelle to learn what books you need to shelve. Make sure you
+have your key though!"''',
     '"If you\'re looking for your key, have you checked your office?"'])
+
 clippy = NPC('clippy',
-    ['''"It looks like you're trying to become a first-assistant librarian!... I'm sorry, I can't help with that."''',
-'''"I'm sorry, I've been ordered to ignore all attempts to hide my super useful awesome tips."''',
+    ['''"It looks like you're trying to become a first-assistant librarian!...
+I'm sorry, I can't help with that."''',
+'''"I'm sorry, I've been ordered to ignore all attempts to hide my super useful
+awesome tips."''',
 '''"Why would you want to disable me? I'm so helpful." :( :( :(''',
 '''"YES HELPFUL I AM HELPING SO HELPFUL."'''])
+
 jorge = NPC('jorge',
-    ['''"Laughter kills fear, and without fear there can be no faith, because without
-fear of the Devil, there is no need of God."''', '"Christ never laughed and nor should you."',
-'"Laughter is a devilish wind which deforms the lineaments of the face and makes men look like monkeys."',
+    ['''"Laughter kills fear, and without fear there can be no faith, because
+without fear of the Devil, there is no need of God."''',
+'"Christ never laughed and nor should you."',
+'''"Laughter is a devilish wind which deforms the lineaments of the face and
+makes men look like monkeys."''',
 'Jorge frowns at you severely.'])
-lumiere = NPC('lumiere', ['''"You shouldn't believe anything that overgrown pocketwatch says."''',
+
+lumiere = NPC('lumiere',
+    ['''"You shouldn't believe anything that overgrown pocketwatch says."''',
     '''"Ma chere mademoiselle, I hope you enjoy our mountains of books!"''',
-    '''"It is with deepest pride and greatest pleasure that we welcome you... to the library!"'''])
-cogsworth = NPC('cogsworth', ['''"You shouldn't listen to that paraffin-headed peabrain!"''',
-    '''"I hope you enjoy our library; there are more books than you'll be able to read in a lifetime!"''',
-    '''"This is an example of the late neoclassic Baroque period. And, as I always say, 'If it's not Baroque, don't fix it!'"'''])
+    '''"It is with deepest pride and greatest pleasure that we welcome you...
+to the library!"'''])
+
+cogsworth = NPC('cogsworth',
+    ['''"You shouldn't listen to that paraffin-headed peabrain!"''',
+    '''"I hope you enjoy our library; there are more books than you'll be able
+to read in a lifetime!"''',
+    '''"This is an example of the late neoclassic Baroque period. And, as I
+always say, 'If it's not Baroque, don't fix it!'"'''])

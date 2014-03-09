@@ -80,14 +80,13 @@ class Book(Item):
         else: print "You can only shelve books where they belong!"
 
 #Items
-#Unused
-pan_pipes = Item('pipes',
-   '''It's a set of pan pipes. There are seven total. They're plain wood,
-bound together with leather, and inscribed with Charter marks.''')
-bells = Item('bells',
-   '''A set of seven bells hang on a bandolier, meant to be worn across the
-chest. Their leather pouches are etched with Charter marks and the bells'
-mahogany handles stick out of the top of the pouches.''')
+# pan_pipes = Item('pipes',
+#    '''It's a set of pan pipes. There are seven total. They're plain wood,
+# bound together with leather, and inscribed with Charter marks.''')
+# bells = Item('bells',
+#    '''A set of seven bells hang on a bandolier, meant to be worn across the
+# chest. Their leather pouches are etched with Charter marks and the bells'
+# mahogany handles stick out of the top of the pouches.''')
 charter_book = Book('charter book',
     'It\'s a plain brown book, small enough to fit in the palm of your hand.',
     '''It's full of spells! There's one that looks right at your level. You
@@ -169,6 +168,27 @@ there's a red rose on the spine.''',
 disguise!''', rooms.beast_library)
 
 #Level 3 Books
+astronomy_book = Book('astronomy book',
+    '''The title of the book, and the rest of it, seem to be entirely in
+Latin. There's a cross stamped on the spine.''',
+'''The book is in Latin, so you can't read it. But it looks as though it's
+about astronomy, as there are pages full of astronomical tables.''',
+rooms.labyrinths)
+
+potions_book = Book('potions book',
+    '''It's titled "Most Potente Potions" by Phineas Bourne. The cover is
+leather, but looks strangely oily and almost appears to be moving. There are
+three small stars stamped on the spine.''',
+'''There are directions in here for all sorts of strange potions; you managed
+to open it to the page about brewing a Laxative Potion.''', rooms.restricted)
+
+harry_potter = Book('fantasy book',
+    '''This book MAY be even heavier than the librarians' ledger. There's a
+picture of a boy with black hair and glasses on the cover, and three small
+stars stamped on the spine.''',
+'''It seems like this is another novel. This one is a fantasy novel about a
+wizard and his two friends and the dark wizard they fight.''',
+rooms.restricted)
 
 #Level 4 Books
 
@@ -178,13 +198,6 @@ labyrinth_book = Book('labyrinth book',
 the spine.''',
     '''The book seems to be a novel about two monks, set in a strange world
 without magic.''', rooms.labyrinths)
-
-astronomy_book = Book('astronomy book',
-    '''The title of the book, and the rest of it, seem to be entirely in
-Latin. There's a cross stamped on the spine.''',
-'''The book is in Latin, so you can't read it. But it looks as though it's
-about astronomy, as there are pages full of astronomical tables.''',
-rooms.labyrinths)
 
 #Level 6 Books
 poetics = Book('drama book', '''It seems to be a translated copy of Poetics II,

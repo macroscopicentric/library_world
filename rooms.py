@@ -403,7 +403,7 @@ labyrinth1 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 heptagonal, and the inscription above one of the archways reads "Apocalypsis
 Iesu Christi." There are doors to the northwest, east, and south, and stairs
-leading down.''', npc='jorge', inventory=['chalk'])
+leading down.''', npc='jorge', inventory=['chalk', 'potions book'])
 labyrinth2 = Labyrinth("Labyrinth Room - Eastern Tower",
     '''You're in a room in the eastern tower of the labyrinth. This one is
 roughly rectangular. There's an altar below the window. There are doors to the
@@ -541,7 +541,8 @@ There are doors to the northeast and east.''')
 labyrinth31 = Labyrinth("Labyrinth Room - Western Tower",
     '''You're in a room in the western tower of labyrinth. This one is
 heptagonal, and the inscription above one of the archways reads "Apocalypsis
-Iesu Christi." There is a door to the southwest.''')
+Iesu Christi." There is a door to the southwest.''',
+inventory=['fantasy book'])
 labyrinth32 = Labyrinth("Labyrinth Room - Western Tower",
     '''You're in a room in the western tower of labyrinth. This one is
 pentagonal, and the inscription above one of the archways reads "In diebu
