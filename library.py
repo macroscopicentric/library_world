@@ -64,3 +64,4 @@ game.start()
 #Solved: list spells doesn't work. Open ledger works, but then prints that you can't open that.
 #Bug: when you talk to Vancelle after leveling up, it goes through all the level-up dialogue again (and it'll go through ALL of
 #it everytime you level up.)
+#SOLVED: prints "none" when moving between rooms.

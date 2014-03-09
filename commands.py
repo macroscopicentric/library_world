@@ -14,7 +14,7 @@ moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw', 'sw': 'sw',
 'southeast': 'se', 'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
 
-arts_and_preps = ['to', 'the', 'a', 'an']
+arts_and_preps = ['to', 'the', 'a', 'an', 'with']
 
 def input_format():
     user_input = raw_input(">").lower().split(" ", 1)
@@ -40,7 +40,7 @@ def input_format():
     return user_input
 
 def command(user_input, player, game):
-    # print user_input
+    print user_input
 
     verb = user_input[0]
     if len(user_input) > 1: direct_object = user_input[1]
@@ -80,15 +80,24 @@ def command(user_input, player, game):
         else: print 'I\'m sorry, I don\'t understand that command.'
 
     def help_command():
-        print '''My commands are like a traditional text adventure\'s. To move,
-use cardinal or ordinal directions or "up" and "down". Other commands you can
-use: "look" (describes the room to you), "examine [object]", "inventory" or "i"
-(lists your inventory), "take [object]" or "take all", "drop [object]" or "drop
-all", "give [object] (to) [person]", "cast [Charter spell]", "spells" (lists
-the spells you know), "teleport" (sends you back to the Reading Room, or the
-labyrinth stairs if you're in the labyrinth), "talk (to) [character]",
-"read [book]" or "open [book]", "shelve [book]", "exit" or "quit" (exits the
-game), or "restart" (restarts the game).
+        print '''My commands are like a traditional text adventure\'s. To move, use
+cardinal or ordinal directions or "up" and "down". Other commands you can use:
+* "look", "l", or "z" (describes the room to you)
+* "examine [object]" or "x [object]"
+* "inventory" or "i" (lists your inventory)
+* "take [object]" or "take all"
+* "drop [object]" or "drop all"
+* "give [object] (to) [person]"
+* "cast [Charter spell]"
+* "spells" (lists the spells you know)
+* "teleport" (sends you back to the Reading Room, or the labyrinth stairs if
+    you're in the labyrinth)
+* "talk (to) [character]"
+* "break [object]" or "cut [object]"
+* "read [book]" or "open [book]"
+* "shelve [book]"
+* "exit" or "quit" (exits the game)
+* "restart" (restarts the game)
 
 Please keep in mind that commands and people names can only be one word, but
 direct objects can be more than one. Don't bother with articles (the, a, an,
@@ -97,9 +106,6 @@ etc).'''
     #Easter Eggs
     def say_hi():
         print "Hullo!"
-
-    def break_thing():
-        pass
 
     def swear():
         responses = ["Do you kiss your mother with that mouth?!",
@@ -112,6 +118,7 @@ etc).'''
     def xyzzy():
         print 'A hollow voice says, "fool."'
 
+    #Actual commands
     def examine():
         items.item_list[direct_object].examine()
 
@@ -120,7 +127,7 @@ etc).'''
             if player.location.inventory:
                 temp = player.location.inventory[:]
                 for item in temp:
-                    items.item_list[direct_object].take(player.location)
+                    items.item_list[item].take(player.location)
             else: print "There's nothing here to take."
         else:
             try: items.item_list[direct_object].take(player.location)
@@ -131,11 +138,36 @@ etc).'''
             if player.inventory:
                 temp = player.inventory[:]
                 for item in temp:
-                    items.item_list[direct_object].drop(player.location)
+                    items.item_list[item].drop(player.location)
             else: player.inventory_check()
         else:
             try: items.item_list[direct_object].drop(player.location)
             except: print "You're not carrying that item."
+
+    def break_thing():
+        if (direct_object == 'seal' or
+            direct_object == 'rope') and player.location_test(hall15):
+            if player.invent_test('wire'):
+                print '''You carefully peel Vancelle's seal off of the rope at both ends
+using the piece of wire. You set the rope and seals in the corner.'''
+                rooms.restricted.unlock()
+                player.location.add_counter()
+            elif player.invent_test('scissors'):
+                print '''As you poise the scissors to cut through the rope, Madam Pince
+appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
+YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
+promptly confiscates all your books, and to add insult to injury, she escorts
+you all the way back to the main reading room.'''
+                for item in player.inventory:
+                    if 'book' in item:
+                        items.item_list[item].drop(rooms.restricted)
+                player.teleport()
+        else:
+            if direct_object in items.item_list:
+                print '''You try to break the %s, but it just bounces off the wall.
+Disgusted, you put it back.''' % (direct_object)
+            else: print '''It would take super-human strength to break that.
+Spoiler: you're not super-human.'''
 
     def give():
         try:
@@ -165,28 +197,18 @@ etc).'''
         else: print "I don't see that person here."
 
     def move():
-        new_direction = player.location.directions[direction]
-
         try:
             #if direction in rooms.self.location.directions and...:
             #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
             #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
             #since a door goes both ways and a key is one-time in one direction.
-            if new_direction.lock_test:
-                print new_direction.lock_desc
-                if new_direction == rooms.restricted:
-                    for item in player.inventory:
-                        if 'book' in item:
-                            items.item_list[item].drop(rooms.restricted)
-                    player.teleport()
-            elif moves[verb] == 'd' and (player.location_test(rooms.uu_library1) or
+            if moves[verb] == 'd' and (player.location_test(rooms.uu_library1) or
                 player.location_test(rooms.uu_library2)):
                 print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-and down is up. But now it's gone, so you don't trouble yourself over it.'''
-                print
+and down is up. But now it's gone, so you don't trouble yourself over it.\n'''
                 time.sleep(3)
-                print player.move(moves[verb])
-            else: print player.move(moves[verb])
+                player.move(moves[verb])
+            else: player.move(moves[verb])
         except: print "You can't go that way, stupid."
 
 
@@ -198,15 +220,17 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
     'teleport': player.teleport, 'x': examine, 'take': take,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
-    'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear, 'give': give}
+    'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear, 'give': give,
+    'cut': break_thing, 'break': break_thing}
 
     try:
         verbs[verb]()
     except:
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit': sys.exit()
-        #is there a way to put the part below in the dictionary as well? would
-        #have to nest dictionaries, which gave me an unhashable type error.
-        elif verb in moves: self.move(moves[verb])
+        #is there a way to put the part below in the dictionary as well? created
+        #a tuple from the keys but then it's NESTED and the search (try above) only
+        #goes one level deep.
+        elif verb in moves.keys(): move()
         else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 

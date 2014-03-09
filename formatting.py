@@ -15,10 +15,13 @@ def list_items(items):
 def article(word):
     consonants = 'bcdfghjklmnpqrstvwxyz'
     vowels = 'aeiou'
-    if word[0] in consonants:
-        return 'a ' + word
+    if word[-1] == 's':
+        return word
     else:
-        return 'an ' + word
+        if word[0] in consonants:
+            return 'a ' + word
+        else:
+            return 'an ' + word
 
 def print_npc(npc, function):
     if function == 'room':

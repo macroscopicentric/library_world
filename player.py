@@ -60,7 +60,7 @@ class Player(object):
 
     def move(self, direction):
         self.location = self.location.directions[direction]
-        return self.location.describe()
+        self.location.describe()
 
     def teleport(self):
         if self.location in rooms.labyrinths:

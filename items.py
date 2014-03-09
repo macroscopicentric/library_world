@@ -115,11 +115,11 @@ waistcoat2 = Item('red waistcoat',
     '''A red waistcoat. Looking down, you decide that red is a much better
 color on you than yellow. There's a whistle clipped to the lapel.''')
 
-banana = Item('banana', 'This banana smells strangely like herring.')
+banana = Item('banana', '''It's a banana. Why are you examining it.''') #red herring for Librarian (UU), way to get past Madame Pince.
 chalk = Item('chalk', 'A piece of chalk. Pretty boring, really.')
 
-wire = Item('wire', "It's a piece of wire about a foot long.")
-scissors = Item('scissors', 'A pair of scissors.')
+wire = Item('wire', "A piece of wire about a foot long.")
+scissors = Item('scissors', 'A pair of scissors.') #red herring for Restricted Section.
 
 #Books (Subclass of Items)
 ledger = Book('ledger',

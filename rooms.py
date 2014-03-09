@@ -43,9 +43,7 @@ matter how many times you tug on the handle, so stop trying.''',
         return self.locked_description
 
     def describe(self):
-        print self.name
-        print
-        print self.description
+        print "%s\n\n%s" % (self.name, self.description)
 
         if self.counter == 1 and self.secondary_description:
             print self.secondary_description
@@ -86,12 +84,12 @@ There are exits to the south and west. The main doors are open to the east.''')
 librarian_alcove = Room("Librarian Alcove",
     '''This is the librarian alcove, the main hub of their behind-the-scenes
 library management. There is a small roller-top desk in the corner. There are
-exits to the north, south, east, and west.''', ['ledger'])
+exits to the north, south, east, and west.''', inventory=['ledger', 'scissors'])
 #possibly open the desk?
 binding_room = Room("Binding Room",
     '''This is the room where the librarians repair damaged books. There are
 books covering every flat surface, and a giant press in the back corner. The
-only exit is to the east.''', npc='clippy')
+only exit is to the east.''', inventory=['wire'], npc='clippy')
 robing_room = Room("Robing Room",
     '''You're in a room full of miscellaneous useful things. Boat hooks,
 climbing ropes, and weapons line the walls. The only exit is to the west.''',
@@ -114,7 +112,7 @@ second_assistant_study = Room("Second Assistant Study",
     '''This is your new study, the room of a Second Assistant Librarian.
 There's enough room for a desk and not one but two chairs (what luxury!), and
 there's a door ajar that leads to a tiny bathroom, all your own. The only exit
-is to the west. ''', ['statue', 'red waistcoat'], locked=True)
+is to the west. ''', inventory=['statue', 'red waistcoat'], locked=True)
 lower_librarian_hallway = Room("Lower Hallway",
     '''You're standing in a hallway. There are many doors adjacent to this
 hallway, more than the two upper floors. The doors are all painted yellow.
@@ -123,8 +121,8 @@ also stairs leading up.''')
 third_assistant_study = Room("Third Assistant Study",
     '''This is your study. It's very cramped; there's barely room for the desk
 and single chair that are here. The only exit is to the northwest.''',
-['mouse', 'key', 'yellow waistcoat', 'dagger'],
-'''This is your old study. It's quite cramped. Hard to believe that you spent
+inventory=['mouse', 'key', 'yellow waistcoat', 'dagger'],
+secondary_description='''This is your old study. It's quite cramped. Hard to believe that you spent
 so much time in this tiny room! The only exit is to the northwest.''')
 
 #Main Ramp Rooms (Clayr Library Spiral)
@@ -186,9 +184,12 @@ There are archways to the east and south.''')
 hall15 = Room("North-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and south, and a velvet rope sealed with
-Vancelle's official seal blocking a door to the west.''',
+Vancelle's official seal blocking a door to the west. Next to the door, there's
+a sign posted: "RESTRICTED. Do not enter without Madame Pince's permission."''',
 secondary_description='''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the north and south, and a door to the west.''')
+There's a velvet rope piled neatly in the corner. There are archways to the
+north and south, and a door to the west. Next to the door, there's a sign posted:
+"RESTRICTED. Do not enter without Madame Pince's permission."''')
 hall16 = Room("North-East Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
 There are archways to the north and east.''')
@@ -325,9 +326,10 @@ restricted = Room('Restricted Section',
 are aisles of bookshelves with a shelf at hip-level to be used as desks, and
 study tables next to the floor-length windows. The only exit is to the east.''',
 locked=True,
-locked_description='''You try to sneak into the Restricted Section, but Madame
-Pince catches you and confiscates all your books! She then herds you out of her
-library and all the way back to the main reading room.''')
+locked_description='''This is Madam Pince's territory and it's CLEARLY
+off-limits, so I'm going to pretend you didn't just try to do that. You're
+welcome for saving you from that hell, although you obviously don't deserve
+it. *coughidiotcough*''')
 
 
 #WTNV Library
