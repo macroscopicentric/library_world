@@ -37,7 +37,7 @@ game.start()
 #How to unlock finis Africae?
 #End game: promoted to level 7, Vancelle gives you the charter book that allows you to turn into an otter,
 #   so you can slip through the crack and find the pipes, crown, and trowel.
-#Incorporate elements of Pagemaster, Lucien's library, Babel? --> Daniel Dennet's Library of Mendel. Like UU, latter two == a larger symbol.
+#Add NV Librarians, banana peel for Madame Pince, Vashta Nerada, Ghostbusters ghost, Stilken?
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?

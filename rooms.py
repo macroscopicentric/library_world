@@ -332,7 +332,7 @@ locked=True,
 locked_description='''This is Madam Pince's territory and it's CLEARLY
 off-limits, so I'm going to pretend you didn't just try to do that. You're
 welcome for saving you from that hell, although you obviously don't deserve
-it. *coughidiotcough*''')
+it. *coughidiotcough*''', inventory=['diary'])
 
 
 #WTNV Library
@@ -344,7 +344,7 @@ Hunt. Tragically, this section of the library seems to lack both librarian
 repellant dispensers and trees. I would get out of here as soon as possible if
 I were you, as you probably don't want to meet the librarians in this
 particular library. There are doors to the north, east, and west.''',
-locked=True)
+locked=True, inventory=['dark history book'])
 wtnv_library2 = Room('Night Vale Public Library - Northwest Corner',
     '''You're in a long, narrow, dimly-lit room with immensely high
 bookshelves. You thought you'd left the biography section, but one of the
@@ -612,7 +612,8 @@ There is a door to the south.''') #unfinished inscription (L)
 labyrinth46 = Labyrinth("Labyrinth Room - Northern Tower", 
     '''You're in a room in the northern tower of the labyrinth. This one is
 heptagonal, and the inscription above one of the archways reads "Apocalypsis
-Iesu Christi." There are doors to the north, east, and southwest.''')
+Iesu Christi." There are doors to the north, east, and southwest.''',
+inventory=['epic book'])
 labyrinth47 = Labyrinth("Labyrinth Room - Northern Tower", 
     '''You're in a room in the northern tower of the labyrinth. This one is
 roughly rectangular, and the inscription above one of the archways reads

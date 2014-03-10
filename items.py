@@ -195,11 +195,27 @@ by Terry Pratchett. There's a turtle stamped on the spine.''',
 '''It's another novel. This time it's about an incompetent wizard who falls off
 the edge of the world.''', rooms.uu_libraries)
 
+fiends = Book('dark history book', '''It's titled "Fifteenth-Century Fiends,"
+author unknown. There are three small stars stamped on the spine.''',
+'''This is a history book. It's pretty depressing; there are lots of stories of
+beheadings and Muggle torture.''', rooms.restricted)
+
 #Level 4 Books
 odyssey = Book('odyssean book', '''A copy of Homer's "Odyssey." There is a
 scroll stamped on the spine.''',
 '''When you open it, you notice that the book is heavily marked in many
 different handwritings.''', rooms.alexandria)
+
+illiad = Book('epic book', '''A copy of Homer's "Illiad." There is a scroll
+stamped on the spine.''',
+'''When you open it, you notice that the book is heavily marked in many
+different handwritings.''', rooms.alexandria)
+
+diary = Book('diary', '''This looks like someone's personal notebook, maybe a
+diary. The cover is blue and paneled. There is a clock stamped on the spine.''',
+'''It's someone's notes, in very small, neat handwriting. Whoever it is must
+have some sort of personal code because you can't read what they've
+written.''')
 
 #Level 5 Books
 labyrinth_book = Book('labyrinth book',
