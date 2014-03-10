@@ -88,7 +88,8 @@ downstairs."'''
 vancelle = Librarian('vancelle')
 vancelle.add_levels(set(('french book',)), set(('fairy tale book',
     'floral book', 'princess book')), set(('astronomy book', 'potions book',
-    'fantasy book')))
+    'fantasy book','magic book')), set(('odyssean book',)),
+    set(('labyrinth book',)), set(('drama book',)))
 
 uu_librarian = NPC('orangutan', ['"Ooook ook."', '"Eeek eek!"',
     '"Ook eek." >:('], want='chalk')

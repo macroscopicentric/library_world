@@ -280,6 +280,7 @@ uu_library4 = Room('Unseen University Library - Walkway',
 walkway extends all the way around the walls of the northern end where you're
 standing, and into the southern end of the hall beyond. There are stairs
 leading down.''', inventory=['princess book'])
+uu_libraries = [uu_library1,uu_library2, uu_library3, uu_library4]
 
 #Alexandria
 alexandria1 = Room('Royal Library of Alexandria - Reading Room',
@@ -298,7 +299,8 @@ sky beyond the roof above you, which is strange since you know you're still
 underground. But it's quite convincing; you can hear birds and everything.
 There are doors to the north and south.''', locked=True,
 locked_description='''Since there's a giant fire in front of the door, I'm
-going to pretend you didn't just try to go in that direction.''')
+going to pretend you didn't just try to go in that direction.''',
+inventory=['magic book'])
 alexandria3 = Room('Royal Library of Alexandria - Meeting Room',
     '''This is a small but welcoming meeting room. There's a large sturdy stone
 table in the center, surrounded by wooden chairs. There are doors to the
@@ -319,6 +321,7 @@ at the front of the room. There are doors to the north and east.''',
 locked=True,
 locked_description='''Since there's a giant fire in front of the door, I'm
 going to pretend you didn't just try to go in that direction.''')
+alexandria = [alexandria1, alexandria2, alexandria3, alexandria4, alexandria5, alexandria6]
 
 #Restricted Section (HP)
 restricted = Room('Restricted Section',
@@ -390,11 +393,12 @@ stilken_room1 = Room("Oak Room",
     '''This is an immensely peaceful room, without a book in sight. The floor
 is tiled, except for the center, which is home to a pleasant (if small) meadow
 and a large oak tree, as well as a small silver pool. A narrow gate is open to
-the east (too small for a human), and a door to the west.''', locked=True)
+the east (too small for a human), and a door to the west.''', locked=True,
+inventory=['odyssean book'])
 stilken_room2 = Room("Glass Floor Room",
     '''There is a glass floor in this room, and a low stone table in the
 middle. The only exit is a narrow gate to the west, too small for a human.''',
-['phial'])
+inventory=['phial'])
 
 
 #Name of the Rose Labyrinth

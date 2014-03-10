@@ -190,7 +190,16 @@ stars stamped on the spine.''',
 wizard and his two friends and the dark wizard they fight.''',
 rooms.restricted)
 
+colour_magic = Book('magic book', '''This book is called "The Colour of Magic"
+by Terry Pratchett. There's a turtle stamped on the spine.''',
+'''It's another novel. This time it's about an incompetent wizard who falls off
+the edge of the world.''', rooms.uu_libraries)
+
 #Level 4 Books
+odyssey = Book('odyssean book', '''A copy of Homer's "Odyssey." There is a
+scroll stamped on the spine.''',
+'''When you open it, you notice that the book is heavily marked in many
+different handwritings.''', rooms.alexandria)
 
 #Level 5 Books
 labyrinth_book = Book('labyrinth book',
@@ -201,6 +210,7 @@ without magic.''', rooms.labyrinths)
 
 #Level 6 Books
 poetics = Book('drama book', '''It seems to be a translated copy of Poetics II,
-the lost Aristotelian essay on comedic drama.''',
+the lost Aristotelian essay on comedic drama. There is a cross stamped on the
+spine.''',
 '''It's just Aristotle's theories on Greek comedic drama. Boring. Go read
 something with magic in it.''', rooms.labyrinths)
