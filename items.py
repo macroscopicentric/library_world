@@ -75,7 +75,7 @@ class Book(Item):
 
     def shelve(self, player_location):
         if player_location in self.home:
-            player.player.shelve_book()
+            player.player.shelve_book(self.name)
             print "You shelve the %s." % (self.name)
         else: print "You can only shelve books where they belong!"
 

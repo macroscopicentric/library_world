@@ -44,7 +44,7 @@ class Player(object):
 
     def shelve_book(self, book):
         self.drop(book)
-        self.shelved_books.add(self.name,)
+        self.shelved_books.add(book,)
 
     def spell_check(self):
         if self.known_spells == ['human']: print "You don't know any spells."

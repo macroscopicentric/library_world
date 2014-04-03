@@ -129,6 +129,8 @@ etc).'''
                 for item in temp:
                     items.item_list[item].take(player.location)
             else: print "There's nothing here to take."
+        elif direct_object == 'book':
+            print "I need something more specific. What book do you want me to take?"
         else:
             try: items.item_list[direct_object].take(player.location)
             except: print "I don't see that item."
@@ -140,6 +142,8 @@ etc).'''
                 for item in temp:
                     items.item_list[item].drop(player.location)
             else: player.inventory_check()
+        elif direct_object == 'book':
+            print "I need something more specific. What book do you want me to drop?"
         else:
             try: items.item_list[direct_object].drop(player.location)
             except: print "You're not carrying that item."
