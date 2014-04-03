@@ -59,8 +59,11 @@ class Player(object):
         self.known_spells.append(spell)
 
     def move(self, direction):
-        self.location = self.location.directions[direction]
-        self.location.describe()
+        if self.location.directions[direction].lock_test():
+            print self.location.directions[direction].lock_desc()
+        else:
+            self.location = self.location.directions[direction]
+            self.location.describe()
 
     def teleport(self):
         if self.location in rooms.labyrinths:

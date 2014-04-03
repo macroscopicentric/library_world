@@ -40,7 +40,7 @@ def input_format():
     return user_input
 
 def command(user_input, player, game):
-    print user_input
+    # print user_input
 
     verb = user_input[0]
     if len(user_input) > 1: direct_object = user_input[1]
