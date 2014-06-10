@@ -1,11 +1,11 @@
 from player import player
-import people #to set level at bottom
 import commands
 
 class GameEngine(object):
     def start(self):
-        # player = Player()
-        player.location.describe()
+        # first_person = player.Player()
+        #Why did I do that? It doesn't work.
+        print player.location.describe()
         self.play()
 
     def play(self):
@@ -13,8 +13,6 @@ class GameEngine(object):
             commands.command(commands.input_format(), player, game)
 
 game = GameEngine()
-
-# people.vancelle.level_up(player)
 
 game.start()
 
@@ -38,6 +36,8 @@ game.start()
 #End game: promoted to level 7, Vancelle gives you the charter book that allows you to turn into an otter,
 #   so you can slip through the crack and find the pipes, crown, and trowel.
 #Add NV Librarians, banana peel for Madame Pince, Vashta Nerada, Ghostbusters ghost, Stilken?
+#Alan suggested taking all inits out of their respective modules (since while in the modules they're only run once during import).
+#   Difficult for modules with more inits (ie, rooms). How to compartmentalize those?
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?

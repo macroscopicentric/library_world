@@ -28,24 +28,26 @@ Minotaur's Labyrinth."'''])
                 self.new_dialogue(['"Ooook ook."', '"Eeek eek!"',
                     '"Ook eek." >:('])
 
-        try: print self.dialogue[random.randint(0, len(self.dialogue) - 1)]
-        except: print "%s doesn't say anything." % (self.name.capitalize())
+        try:
+            return self.dialogue[random.randint(0, len(self.dialogue) - 1)]
+        except:
+            return "%s doesn't say anything." % (self.name.capitalize())
 
     def wish_fulfillment(self, item, player):
-        if self.want == item:
-            if self.name == 'orangutan':
+        if self.name == 'orangutan':
+            if self.want == item:
                 reward = 'charter book'
-                print formatting.print_npc(self.name,
-                    'give') + " takes the %s from you." % (item)
                 player.drop(item)
-                print "The Librarian gives you a %s." % (reward)
                 player.take(reward)
                 self.wish_come_true = True
-                self.new_dialogue(['The orangutan smiles contentedly at you.'])            
-        elif self.name == 'orangutan' and item == 'banana':
-            print formatting.print_npc(self.name,
-                'give') + " looks at you in disgust."
-        else: print formatting.print_npc(self.name,
+                self.new_dialogue(['The orangutan smiles contentedly at you.']) 
+                return (formatting.print_npc(self.name,
+                    'give') + " takes the " + item + " from you and gives you a " + reward + " in return.")          
+            elif item == 'banana':
+                return formatting.print_npc(self.name,
+                    'give') + " looks at you in disgust."
+        else:
+            return formatting.print_npc(self.name,
             'give') + " doesn't want that."
 
 
@@ -59,29 +61,37 @@ class Librarian(NPC):
         for books in args:
             self.levels[counter] = books
             counter += 1
+
+    def delete_level(self, level):
+        #Built so the for loop in level_up below won't repeat levels it's gone
+        #through previously.
+        del self.levels[level]
             
     def level_up(self, player):
         for level in self.levels:
-            if self.levels[level] <= player.shelved_books and 'key' in player.inventory:
+            if self.levels[level] <= player.book_progress() and player.invent_test('key'):
                 player.level_up()
-                items.key.level_up(player.level)
-                print '''Level up! You're now level %s.''' % (player.level)
+                items.key.level_up(player.level_check)
+                level_dialogue = '''Level up! You're now level %s.''' % (player.level_check)
+                delete_level(level)
+                #Is this a terrible idea within the for loop?
 
                 #How to print the following only the first time, when they level up?
-                if player.level == 2:
-                    print '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                if player.level == 4:
-                    print '''"Congratulations, I\'ve decided to promote you to Second-Assistant
+                if player.level_check == 2:
+                    level_dialogue += '\n"Congratulations, you\'ve shelved your first book. Now go do the rest."'
+                if player.level_check == 4:
+                    level_dialogue += '''\n"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
+                return level_dialogue
 
 
     def talk(self, player):
         self.level_up(player)
-        print "You need to shelve these books to get to level %i:" % (player.level + 1)
-        print
+        goal = "You need to shelve these books to get to level %i:\n" % (player.level + 1)
         for book in self.levels[player.level]:
-            print book
+            goal += "\n" + book
+        return goal
         
 
 

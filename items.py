@@ -12,29 +12,34 @@ class Item(object):
     def examine(self):
         if (self.name in player.player.inventory or
             self.name in player.player.location.inventory):
-            print self.description
-        else: print "I'm sorry, I don't see that item."
+            return self.description
+        else:
+            return "I'm sorry, I don't see that item."
 
     def take(self, location):
         try:
             player.player.take(self.name)
             location.remove_invent(self.name)
-            print "You take the %s." % (self.name)
-        except: print "I don't see that item."
+            return "You take the %s." % (self.name)
+        except:
+            return "I don't see that item."
 
     def drop(self, location):
         try:
             player.player.drop(self.name)
             location.add_invent(self.name)
-            print "You drop the %s." % (self.name)
-        except: print "You're not carrying that!"
+            return "You drop the %s." % (self.name)
+        except:
+            return "You're not carrying that!"
 
     def give(self, person):
         if person.name == player.player.location.npc:
             try:
                 person.wish_fulfillment(self.name, player.player)
-            except: print "You're not carrying that!"
-        else: print "That person isn't here!"
+            except:
+                return "You're not carrying that!"
+        else:
+            return "That person isn't here!"
 
 
 class Key(Item):
@@ -69,15 +74,16 @@ class Book(Item):
 
     def open(self):
         if self.name in player.player.inventory:
-            print self.inside
-            if self.spell: player.player.add_spell(self.spell)
-        else: print "You have to pick it up first!"
+            if self.spell:
+                player.player.add_spell(self.spell)
+            return self.inside
+        else: return "You have to pick it up first!"
 
     def shelve(self, player_location):
         if player_location in self.home:
             player.player.shelve_book(self.name)
-            print "You shelve the %s." % (self.name)
-        else: print "You can only shelve books where they belong!"
+            return "You shelve the %s." % (self.name)
+        else: return "You can only shelve books where they belong!"
 
 #Items
 # pan_pipes = Item('pipes',

@@ -21,6 +21,12 @@ class Player(object):
     def level_up(self):
         self.level += 1
 
+    def level_check(self):
+        return self.level
+
+    def book_progress(self):
+        return self.shelved_books
+
     #for checking inventory from other modules
     def invent_test(self, item):
         return item in self.inventory
@@ -30,11 +36,14 @@ class Player(object):
         return location == self.location
 
     def inventory_check(self):
-        if self.inventory == []: print "You're not holding anything!"
+        if self.inventory == []:
+            check_result = "You're not holding anything!"
         else:
-            print "You're holding:\n"
+            check_result = "You're holding:\n"
             for thing in self.inventory:
-                print "%s" % (thing)
+                check_result += "\n" + thing
+
+        return check_result
 
     def take(self, item):
         self.inventory.append(item)
@@ -47,30 +56,32 @@ class Player(object):
         self.shelved_books.add(book,)
 
     def spell_check(self):
-        if self.known_spells == ['human']: print "You don't know any spells."
+        if self.known_spells == ['human']:
+            spells_inventory = "You don't know any spells."
         else:
-            print "You know these spells:"
-            print
+            spells_inventory = "You know these spells:\n"
             for spell in self.known_spells:
                 if spell != 'human':
-                    print spell
+                    spells_inventory += "\n" + spell
+
+        return spells_inventory
 
     def add_spell(self, spell):
         self.known_spells.append(spell)
 
     def move(self, direction):
         if self.location.directions[direction].lock_test():
-            print self.location.directions[direction].lock_desc()
+            return self.location.directions[direction].lock_desc()
         else:
             self.location = self.location.directions[direction]
-            self.location.describe()
+            return self.location.describe()
 
     def teleport(self):
         if self.location in rooms.labyrinths:
             self.location = rooms.labyrinth1
-            self.location.describe()
+            return self.location.describe()
         else:
             self.location = home
-            self.location.describe()
+            return self.location.describe()
 
 player = Player()

@@ -7,6 +7,12 @@ import people
 import rooms
 import spells
 
+#Not sure how to implement this:
+# game_state = {
+#     rooms: the_rooms,
+#     player: the_player
+# }
+
 #I really like that the HP text adventure has a thesaurus. How do I make one?
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
@@ -66,6 +72,8 @@ def command(user_input, player, game):
         print "What's the file name?"
         save_name = input_format()[0] + '.txt'
         #how to search for file, so it doesn't try to open a non-existent file?
+        #Alan's suggestion, to pull from the game state dict at top:
+        #game_state.player = pickle.load(thePcileFile.txt)
         with open(save_name, 'rb') as save_file:
             player = pickle.load(save_file)
             rooms.directory = pickle.load(save_file)
@@ -96,6 +104,7 @@ cardinal or ordinal directions or "up" and "down". Other commands you can use:
 * "break [object]" or "cut [object]"
 * "read [book]" or "open [book]"
 * "shelve [book]"
+* "level" (tells you what level you are and what books you've already shelved)
 * "exit" or "quit" (exits the game)
 * "restart" (restarts the game)
 
@@ -120,33 +129,42 @@ etc).'''
 
     #Actual commands
     def examine():
-        items.item_list[direct_object].examine()
+        print items.item_list[direct_object].examine()
+
+    def inventory():
+        print player.inventory_check()
 
     def take():
         if direct_object == 'all':
             if player.location.inventory:
                 temp = player.location.inventory[:]
                 for item in temp:
-                    items.item_list[item].take(player.location)
-            else: print "There's nothing here to take."
+                    print items.item_list[item].take(player.location)
+            else:
+                print "There's nothing here to take."
         elif direct_object == 'book':
             print "I need something more specific. What book do you want me to take?"
         else:
-            try: items.item_list[direct_object].take(player.location)
-            except: print "I don't see that item."
+            try:
+                print items.item_list[direct_object].take(player.location)
+            except:
+                print "I don't see that item."
 
     def drop():
         if direct_object == 'all':
             if player.inventory:
                 temp = player.inventory[:]
                 for item in temp:
-                    items.item_list[item].drop(player.location)
-            else: player.inventory_check()
+                    print items.item_list[item].drop(player.location)
+            else:
+                print player.inventory_check()
         elif direct_object == 'book':
             print "I need something more specific. What book do you want me to drop?"
         else:
-            try: items.item_list[direct_object].drop(player.location)
-            except: print "You're not carrying that item."
+            try:
+                print items.item_list[direct_object].drop(player.location)
+            except:
+                print "You're not carrying that item."
 
     def break_thing():
         if (direct_object == 'seal' or
@@ -164,41 +182,61 @@ promptly confiscates all your books, and to add insult to injury, she escorts
 you all the way back to the main reading room.'''
                 for item in player.inventory:
                     if 'book' in item:
-                        items.item_list[item].drop(rooms.restricted)
-                player.teleport()
+                        print items.item_list[item].drop(rooms.restricted)
+                print player.teleport()
         else:
             if direct_object in items.item_list:
                 print '''You try to break the %s, but it just bounces off the wall.
 Disgusted, you put it back.''' % (direct_object)
-            else: print '''It would take super-human strength to break that.
+            else:
+                print '''It would take super-human strength to break that.
 Spoiler: you're not super-human.'''
 
     def give():
         try:
-            items.item_list[direct_object].give(people.npc_list[indirect_object])
-        except: print '''I didn't quite get that. Did you use the format "give
+            print items.item_list[direct_object].give(people.npc_list[indirect_object])
+        except:
+            print '''I didn't quite get that. Did you use the format "give
 [object] to [person]"?'''
 
     def read():
         if direct_object == 'book':
             print 'Which book?'
         else:
-            try: items.item_list[direct_object].open()
-            except: print "You can't read that. Try reading a book."
+            try:
+                print items.item_list[direct_object].open()
+            except:
+                print "You can't read that. Try reading a book."
 
     def shelve():
-        try: items.item_list[direct_object].shelve(player.location)
-        except: print "You can't shelve that."
+        try:
+            print items.item_list[direct_object].shelve(player.location)
+        except:
+            print "You can't shelve that."
+
+    def level_check():
+        print "You are level %s." % (player.level_check())
+        print "You have shelved these books:\n"
+        for book in player.book_progress():
+            print book
+
+    def spells_check():
+        print player.spell_check()
 
     def cast():
-        spells.spells[direct_object].use_spell()
+        print spells.spells[direct_object].use_spell()
+
+    def teleport():
+        print player.teleport()
 
     def talk():
         if player.location.npc == direct_object:
-            if direct_object == 'vancelle':
-                people.vancelle.talk(player)
-            else: people.npc_list[direct_object].talk(player)
-        else: print "I don't see that person here."
+            print people.npc_list[direct_object].talk(player)
+        else:
+            print "I don't see that person here."
+
+    def look():
+        print player.location.describe()
 
     def move():
         try:
@@ -211,17 +249,15 @@ Spoiler: you're not super-human.'''
                 print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
 and down is up. But now it's gone, so you don't trouble yourself over it.\n'''
                 time.sleep(3)
-                player.move(moves[verb])
-            else: player.move(moves[verb])
+                print player.move(moves[verb])
+            else: print player.move(moves[verb])
         except: print "You can't go that way, stupid."
 
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
-    'look': player.location.describe, 'z': player.location.describe,
-    'l': player.location.describe,
-    'inventory': player.inventory_check, 'xyzzy': xyzzy, 'zork': zork,
-    'i': player.inventory_check, 'spells': player.spell_check,
-    'teleport': player.teleport, 'x': examine, 'take': take,
+    'look': look, 'z': look, 'l': look, 'inventory': inventory, 'xyzzy': xyzzy,
+    'zork': zork, 'i': inventory, 'spells': spells_check,
+    'teleport': teleport, 'x': examine, 'take': take, 'level': level_check,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
     'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear, 'give': give,
