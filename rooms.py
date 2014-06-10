@@ -53,7 +53,7 @@ matter how many times you tug on the handle, so stop trying.''',
 
         if self.npc != None:
             if not self.inventory: room_description += "\n"
-            room_description += formatting.print_npc(self.npc, 'room') + ' is here.'
+            room_description += "\n" + formatting.print_npc(self.npc, 'room') + ' is here.'
 
         return room_description
 

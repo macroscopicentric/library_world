@@ -34,8 +34,12 @@ def input_format():
     if len(user_input) > 1:
         if 'book' in user_input[1]:
             user_input = [user_input[0]] + user_input[1].split('book ', 1)
-            try: user_input = user_input[0:2] + user_input[2].split(' ')
-            except: pass
+            try:
+                user_input = user_input[0:2] + user_input[2].split(' ')
+            except:
+                pass
+        elif 'waistcoat' in user_input[1]:
+            pass
         else:
             user_input = [user_input[0]] + user_input[1].split(' ')
 
