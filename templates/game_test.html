@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Library World</title>
+    <link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>
+    <!--above line copied directly from tutorial-->
+</head>
+
+<body>
+    <div class="page">
+        <h1>Library World ({{room}})</h1>
+
+        <div class="dynamictext">
+            <p>
+                {{printout}}
+            </p>
+
+            <form class='command' method='post' action='library_world'>
+                <p>
+                ><input class="textbox" name="response">
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

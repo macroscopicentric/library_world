@@ -1,0 +1,28 @@
+html {
+    color: #474747;
+}
+
+#page {
+    margin: 2%;
+    padding: 2%;
+    color: #FFF;
+    font-family: Garamond, "Times New Roman", Times, serif;
+}
+
+h1 {
+    padding: 3%;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.textbox {
+    border: none;
+    font-family: Garamond, "Times New Roman", Times, serif;
+    font-size: .66em;
+    font-weight: 400;
+}
