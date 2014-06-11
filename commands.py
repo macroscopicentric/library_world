@@ -22,8 +22,8 @@ moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 
 arts_and_preps = ['to', 'the', 'a', 'an', 'with']
 
-def input_format():
-    user_input = raw_input(">").lower().split(" ", 1)
+def input_format(user_input):
+    user_input = user_input.lower().split(" ", 1)
 
     if "." in user_input[-1]:
         detail = user_input.pop().split(".").pop(0)
@@ -49,7 +49,7 @@ def input_format():
 
     return user_input
 
-def command(user_input, player, game):
+def command(user_input, player, play):
     # print user_input
 
     verb = user_input[0]
@@ -70,7 +70,7 @@ def command(user_input, player, game):
         #serialization and how to use pickle).
         #with open() ensures that the file is closed. Pickle only reads/writes
         #binary, so 'wb' is needed.
-        print "File saved."
+        return "File saved."
 
     def load():
         print "What's the file name?"
@@ -81,18 +81,20 @@ def command(user_input, player, game):
         with open(save_name, 'rb') as save_file:
             player = pickle.load(save_file)
             rooms.directory = pickle.load(save_file)
-        game.start()
+        play()
 
     def restart():
         print "Are you sure you want to restart? Y/N"
         user_input = verbs_list.input_format()
         if user_input == "y" or user_input == "yes":
-            game.start()
-        elif user_input == "n" or user_input == "no": game.play()
-        else: print 'I\'m sorry, I don\'t understand that command.'
+            play()
+        elif user_input == "n" or user_input == "no":
+            pass
+        else:
+            return 'I\'m sorry, I don\'t understand that command.'
 
     def help_command():
-        print '''My commands are like a traditional text adventure\'s. To move, use
+        return '''My commands are like a traditional text adventure\'s. To move, use
 cardinal or ordinal directions or "up" and "down". Other commands you can use:
 * "look", "l", or "z" (describes the room to you)
 * "examine [object]" or "x [object]"
@@ -118,129 +120,134 @@ etc).'''
 
     #Easter Eggs
     def say_hi():
-        print "Hullo!"
+        return "Hullo!"
 
     def swear():
         responses = ["Do you kiss your mother with that mouth?!",
         "That's not appropriate vocabulary for an adventurer."]
-        print responses[random.randint(0, len(responses) - 1)]
+        return responses[random.randint(0, len(responses) - 1)]
 
     def zork():
-        print "At your service!"
+        return "At your service!"
 
     def xyzzy():
-        print 'A hollow voice says, "fool."'
+        return 'A hollow voice says, "fool."'
 
     #Actual commands
     def examine():
-        print items.item_list[direct_object].examine()
+        return items.item_list[direct_object].examine()
 
     def inventory():
-        print player.inventory_check()
+        return player.inventory_check()
 
     def take():
         if direct_object == 'all':
-            if player.location.inventory:
+            if player.location.check_invent:
                 temp = player.location.inventory[:]
+                item_pickup = ""
                 for item in temp:
-                    print items.item_list[item].take(player.location)
+                    item_pickup += items.item_list[item].take(player.location) + "\n"
+                return item_pickup
             else:
-                print "There's nothing here to take."
+                return "There's nothing here to take."
         elif direct_object == 'book':
-            print "I need something more specific. What book do you want me to take?"
+            return "I need something more specific. What book do you want me to take?"
         else:
             try:
-                print items.item_list[direct_object].take(player.location)
+                return items.item_list[direct_object].take(player.location)
             except:
-                print "I don't see that item."
+                return "I don't see that item."
 
     def drop():
         if direct_object == 'all':
             if player.inventory:
                 temp = player.inventory[:]
+                item_drop = ""
                 for item in temp:
-                    print items.item_list[item].drop(player.location)
+                    item_drop += items.item_list[item].drop(player.location) + "\n"
+                return item_drop
             else:
-                print player.inventory_check()
+                return player.inventory_check()
         elif direct_object == 'book':
-            print "I need something more specific. What book do you want me to drop?"
+            return "I need something more specific. What book do you want me to drop?"
         else:
             try:
-                print items.item_list[direct_object].drop(player.location)
+                return items.item_list[direct_object].drop(player.location)
             except:
-                print "You're not carrying that item."
+                return "You're not carrying that item."
 
     def break_thing():
         if (direct_object == 'seal' or
             direct_object == 'rope') and player.location_test(hall15):
             if player.invent_test('wire'):
-                print '''You carefully peel Vancelle's seal off of the rope at both ends
-using the piece of wire. You set the rope and seals in the corner.'''
                 rooms.restricted.unlock()
                 player.location.add_counter()
+                return '''You carefully peel Vancelle's seal off of the rope at both ends
+using the piece of wire. You set the rope and seals in the corner.'''
             elif player.invent_test('scissors'):
-                print '''As you poise the scissors to cut through the rope, Madam Pince
+                for item in player.inventory:
+                    if 'book' in item:
+                        items.item_list[item].drop(rooms.restricted)
+                message = '''As you poise the scissors to cut through the rope, Madam Pince
 appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
 YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
 promptly confiscates all your books, and to add insult to injury, she escorts
-you all the way back to the main reading room.'''
-                for item in player.inventory:
-                    if 'book' in item:
-                        print items.item_list[item].drop(rooms.restricted)
-                print player.teleport()
+you all the way back to the main reading room.\n'''
+                return message + player.teleport()
         else:
             if direct_object in items.item_list:
-                print '''You try to break the %s, but it just bounces off the wall.
+                return '''You try to break the %s, but it just bounces off the wall.
 Disgusted, you put it back.''' % (direct_object)
             else:
-                print '''It would take super-human strength to break that.
+                return '''It would take super-human strength to break that.
 Spoiler: you're not super-human.'''
 
     def give():
         try:
-            print items.item_list[direct_object].give(people.npc_list[indirect_object])
+            return items.item_list[direct_object].give(people.npc_list[indirect_object])
         except:
-            print '''I didn't quite get that. Did you use the format "give
+            return '''I didn't quite get that. Did you use the format "give
 [object] to [person]"?'''
 
     def read():
         if direct_object == 'book':
-            print 'Which book?'
+            return 'Which book?'
         else:
             try:
-                print items.item_list[direct_object].open()
+                return items.item_list[direct_object].open()
             except:
-                print "You can't read that. Try reading a book."
+                return "You can't read that. Try reading a book."
 
     def shelve():
         try:
-            print items.item_list[direct_object].shelve(player.location)
+            return items.item_list[direct_object].shelve(player.location)
         except:
-            print "You can't shelve that."
+            return "You can't shelve that."
 
     def level_check():
-        print "You are level %s." % (player.level_check())
-        print "You have shelved these books:\n"
+        message = (("You are level %s." % (player.level_check())) +
+            "\nYou have shelved these books:\n")
         for book in player.book_progress():
-            print book
+            message += "\n" + book
+        return message
 
     def spells_check():
-        print player.spell_check()
+        return player.spell_check()
 
     def cast():
-        print spells.spells[direct_object].use_spell()
+        return spells.spells[direct_object].use_spell()
 
     def teleport():
-        print player.teleport()
+        return player.teleport()
 
     def talk():
         if player.location.npc == direct_object:
-            print people.npc_list[direct_object].talk(player)
+            return people.npc_list[direct_object].talk(player)
         else:
-            print "I don't see that person here."
+            return "I don't see that person here."
 
     def look():
-        print player.location.describe()
+        return player.location.describe()
 
     def move():
         try:
@@ -250,12 +257,12 @@ Spoiler: you're not super-human.'''
             #since a door goes both ways and a key is one-time in one direction.
             if moves[verb] == 'd' and (player.location_test(rooms.uu_library1) or
                 player.location_test(rooms.uu_library2)):
-                print '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-and down is up. But now it's gone, so you don't trouble yourself over it.\n'''
-                time.sleep(3)
-                print player.move(moves[verb])
-            else: print player.move(moves[verb])
-        except: print "You can't go that way, stupid."
+                return '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
+and down is up. But now it's gone, so you don't trouble yourself over it.\n\n''' + player.move(moves[verb])
+                #Since I'm no longer printing things out, not sure how to do the time delay:
+                #time.sleep(3)
+            else: return player.move(moves[verb])
+        except: return "You can't go that way, stupid."
 
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
@@ -268,13 +275,16 @@ and down is up. But now it's gone, so you don't trouble yourself over it.\n'''
     'cut': break_thing, 'break': break_thing}
 
     try:
-        verbs[verb]()
+        return verbs[verb]()
     except:
         #sys.exit() doesn't work within a try.
-        if verb == 'exit' or verb == 'quit': sys.exit()
+        if verb == 'exit' or verb == 'quit':
+            sys.exit()
         #is there a way to put the part below in the dictionary as well? created
         #a tuple from the keys but then it's NESTED and the search (try above) only
         #goes one level deep.
-        elif verb in moves.keys(): move()
-        else: print 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
+        elif verb in moves.keys():
+            return move()
+        else:
+            return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 

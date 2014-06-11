@@ -69,6 +69,12 @@ matter how many times you tug on the handle, so stop trying.''',
     def remove_invent(self, item):
         self.inventory.remove(item)
 
+    def check_invent(self):
+        if self.inventory:
+            return True
+        else:
+            return False
+
 
 class Labyrinth(Room):
     def __init__(self, *args, **kwargs):

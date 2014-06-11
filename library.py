@@ -1,20 +1,19 @@
 from player import player
 import commands
 
-class GameEngine(object):
-    def start(self):
-        # first_person = player.Player()
-        #Why did I do that? It doesn't work.
-        print player.location.describe()
-        self.play()
+def play():
+    print player.location.describe()
+    while True:
+        print commands.command(commands.input_format(raw_input(">")), player, play)
 
-    def play(self):
-        while True:
-            commands.command(commands.input_format(), player, game)
+def start_web():
+    return player.location.describe(), player.location.name
 
-game = GameEngine()
+def play_web(flask_input):
+    return commands.command(commands.input_format(flask_input), player, play_web), player.location.name
 
-game.start()
+if __name__ == "__main__":
+    play()
 
 #To do:
 #Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,
