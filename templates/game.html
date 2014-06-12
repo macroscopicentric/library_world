@@ -6,12 +6,6 @@
     <title>Library World</title>
     <link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>
     <!--above line copied directly from tutorial-->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $(".textbox").focus();
-        });
-</script>
 </head>
 
 <body>
@@ -27,22 +21,19 @@
                     {% if 'event' in output.keys() %}
                         {{output[event]}}
                         <br>
-                        <br>
                     {% endif %}
 
                     {% if 'header' in output.keys() %}
                         {{output['header']}}
                         <br>
-                        <br>
                     {% endif %}
 
                     {% for line in output['text'] %}
-                        {{line}}
                         <br>
+                        {{line}}
                     {% endfor %}
 
                     {% if 'inventory' in output.keys() %}
-                        <br>
                         <br>
                         {{output['inventory']}}
                     {% endif %}
@@ -50,7 +41,7 @@
                     {% if 'npc' in output.keys() and 'inventory' in output.keys() %}
                         <br>
                         {{output['npc']}}
-                    {% elif 'npc' in output.keys() and 'inventory' in output.keys() %}
+                    {% elif 'npc' in output.keys() and 'inventory' not in output.keys() %}
                         <br>
                         <br>
                         {{output['npc']}}
@@ -67,5 +58,12 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".textbox").focus();
+    });
+</script>
 
 </html>

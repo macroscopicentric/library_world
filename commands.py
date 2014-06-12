@@ -96,7 +96,7 @@ def command(user_input, player, play):
     def help_command():
         return {'header':'''My commands are like a traditional text adventure\'s.
 To move, use cardinal or ordinal directions or "up" and "down". Other commands
-you can use:''', text: ['* "look", "l", or "z" (describes the room to you)',
+you can use:''', 'text': ['* "look", "l", or "z" (describes the room to you)',
 '* "examine [object]" or "x [object]"',
 '* "inventory" or "i" (lists your inventory)',
 '* "take [object]" or "take all"',
@@ -112,10 +112,9 @@ you can use:''', text: ['* "look", "l", or "z" (describes the room to you)',
 '* "shelve [book]"',
 '''* "level" (tells you what level you are and what books you've already shelved)''',
 '* "exit" or "quit" (exits the game)',
-'* "restart" (restarts the game)',
-'''Please keep in
-mind that commands and people names can only be one word, but direct objects
-can be more than one. You don't need articles (the, a, an, etc).''']}
+'* "restart" (restarts the game)', '',
+'''Please keep in mind that commands and people names can only be one word, but
+direct objects can be more than one. You don't need articles (the, a, an, etc).''']}
 
     #Easter Eggs
     def say_hi():
@@ -226,7 +225,7 @@ Spoiler: you're not super-human.'''
             return "You can't shelve that."
 
     def level_check():
-        message = {'header': (("You are level %s." % (player.level_check())) +
+        message = {'header': (("You are level %s. " % (player.level_check())) +
             "You have shelved these books:"), 'text': []}
         for book in player.book_progress():
             message['text'] += [book]

@@ -18,17 +18,17 @@ def terminal_formatting(output):
 
     formatted_output = ''
     if 'event' in output.keys():
-        formatted_output += output['event'] + '\n\n'
+        formatted_output += output['event'] + '\n'
     if 'header' in output.keys():
-        formatted_output += output['header'] + '\n\n'
+        formatted_output += output['header'] + '\n'
 
     formatted_output += description
 
     if 'inventory' in output.keys():
-        formatted_output += '\n\n' + output['inventory']
+        formatted_output += '\n' + output['inventory']
     if 'npc' in output.keys() and 'inventory' in output.keys():
         formatted_output += '\n' + output['npc']
-    elif 'npc' in output.keys() and 'inventory' in output.keys():
+    elif 'npc' in output.keys() and 'inventory' not in output.keys():
         formatted_output += '\n\n' + output['npc']
 
     return formatted_output

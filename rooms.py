@@ -249,13 +249,13 @@ north and south, and there's a door to the east.''')
 beast_library2 = Room("Beast's Library",
     '''You're in the southern end of a massive library. It extends to the
 north, and there's a staircase going up in the corner.''', inventory=['banana'])
-beast_library3 = Room("Beast's Library - Walkway",
+beast_library3 = Room("Beast's Library - South Walkway",
     '''You're standing on a walkway about halfway up the southern wall of a
 massive library. There are stairs leading down.''', npc='lumiere')
 beast_library4 = Room("Beast's Library",
     '''You're in the northern end of a massive library. It extends to the
 south, and there's a staircase going up in the corner.''')
-beast_library5 = Room("Beast's Library - Walkway",
+beast_library5 = Room("Beast's Library - North Walkway",
     '''You're standing on a walkway about halfway up the northern wall of a
 massive library. There are stairs leading down.''', npc='cogsworth')
 beast_library = [beast_library1, beast_library2, beast_library3,
