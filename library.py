@@ -9,6 +9,9 @@ def from_terminal_play():
         print terminal_formatting(output)
 
 def terminal_formatting(output):
+    if type(output) == str:
+        return output
+
     description = ''
     for item in output['text']:
         description += '\n' + item
