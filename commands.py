@@ -94,29 +94,28 @@ def command(user_input, player, play):
             return 'I\'m sorry, I don\'t understand that command.'
 
     def help_command():
-        return '''My commands are like a traditional text adventure\'s. To move, use
-cardinal or ordinal directions or "up" and "down". Other commands you can use:
-* "look", "l", or "z" (describes the room to you)
-* "examine [object]" or "x [object]"
-* "inventory" or "i" (lists your inventory)
-* "take [object]" or "take all"
-* "drop [object]" or "drop all"
-* "give [object] (to) [person]"
-* "cast [Charter spell]"
-* "spells" (lists the spells you know)
-* "teleport" (sends you back to the Reading Room, or the labyrinth stairs if
-    you're in the labyrinth)
-* "talk (to) [character]"
-* "break [object]" or "cut [object]"
-* "read [book]" or "open [book]"
-* "shelve [book]"
-* "level" (tells you what level you are and what books you've already shelved)
-* "exit" or "quit" (exits the game)
-* "restart" (restarts the game)
-
-Please keep in mind that commands and people names can only be one word, but
-direct objects can be more than one. Don't bother with articles (the, a, an,
-etc).'''
+        return {'header':'''My commands are like a traditional text adventure\'s.
+To move, use cardinal or ordinal directions or "up" and "down". Other commands
+you can use:''', text: ['* "look", "l", or "z" (describes the room to you)',
+'* "examine [object]" or "x [object]"',
+'* "inventory" or "i" (lists your inventory)',
+'* "take [object]" or "take all"',
+'* "drop [object]" or "drop all"',
+'* "give [object] (to) [person]"',
+'* "cast [Charter spell]"',
+'* "spells" (lists the spells you know)',
+'''* "teleport" (sends you back to the Reading Room, or the labyrinth stairs if
+    you're in the labyrinth)''',
+'* "talk (to) [character]"',
+'* "break [object]" or "cut [object]"',
+'* "read [book]" or "open [book]"',
+'* "shelve [book]"',
+'''* "level" (tells you what level you are and what books you've already shelved)''',
+'* "exit" or "quit" (exits the game)',
+'* "restart" (restarts the game)',
+'''Please keep in
+mind that commands and people names can only be one word, but direct objects
+can be more than one. You don't need articles (the, a, an, etc).''']}
 
     #Easter Eggs
     def say_hi():
@@ -144,9 +143,9 @@ etc).'''
         if direct_object == 'all':
             if player.location.check_invent:
                 temp = player.location.inventory[:]
-                item_pickup = ""
+                item_pickup = {'text': []}
                 for item in temp:
-                    item_pickup += items.item_list[item].take(player.location) + "\n"
+                    item_pickup['text'] += [items.item_list[item].take(player.location)]
                 return item_pickup
             else:
                 return "There's nothing here to take."
@@ -162,9 +161,9 @@ etc).'''
         if direct_object == 'all':
             if player.inventory:
                 temp = player.inventory[:]
-                item_drop = ""
+                item_drop = {'text': []}
                 for item in temp:
-                    item_drop += items.item_list[item].drop(player.location) + "\n"
+                    item_drop['text'] += [items.item_list[item].drop(player.location)]
                 return item_drop
             else:
                 return player.inventory_check()
@@ -188,12 +187,14 @@ using the piece of wire. You set the rope and seals in the corner.'''
                 for item in player.inventory:
                     if 'book' in item:
                         items.item_list[item].drop(rooms.restricted)
-                message = '''As you poise the scissors to cut through the rope, Madam Pince
+                message = player.teleport()
+                message = {'event':
+                '''As you poise the scissors to cut through the rope, Madam Pince
 appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
 YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
 promptly confiscates all your books, and to add insult to injury, she escorts
-you all the way back to the main reading room.\n'''
-                return message + player.teleport()
+you all the way back to the main reading room.'''}
+                return message
         else:
             if direct_object in items.item_list:
                 return '''You try to break the %s, but it just bounces off the wall.
@@ -225,10 +226,10 @@ Spoiler: you're not super-human.'''
             return "You can't shelve that."
 
     def level_check():
-        message = (("You are level %s." % (player.level_check())) +
-            "\nYou have shelved these books:\n")
+        message = {'header': (("You are level %s." % (player.level_check())) +
+            "You have shelved these books:"), 'text': []}
         for book in player.book_progress():
-            message += "\n" + book
+            message['text'] += [book]
         return message
 
     def spells_check():
@@ -257,12 +258,14 @@ Spoiler: you're not super-human.'''
             #since a door goes both ways and a key is one-time in one direction.
             if moves[verb] == 'd' and (player.location_test(rooms.uu_library1) or
                 player.location_test(rooms.uu_library2)):
-                return '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-and down is up. But now it's gone, so you don't trouble yourself over it.\n\n''' + player.move(moves[verb])
-                #Since I'm no longer printing things out, not sure how to do the time delay:
-                #time.sleep(3)
-            else: return player.move(moves[verb])
-        except: return "You can't go that way, stupid."
+                action = player.move(moves[verb])
+                action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
+and down is up. But now it's gone, so you don't trouble yourself over it.'''
+                return action
+            else:
+                return player.move(moves[verb])
+        except:
+            return "You can't go that way, stupid."
 
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,

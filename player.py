@@ -18,11 +18,11 @@ class Player(object):
         self.shelved_books = set()
         self.level = 1
 
-    def level_up(self):
-        self.level += 1
-
     def level_check(self):
         return self.level
+
+    def level_up(self):
+        self.level += 1
 
     def book_progress(self):
         return self.shelved_books
@@ -39,9 +39,9 @@ class Player(object):
         if self.inventory == []:
             check_result = "You're not holding anything!"
         else:
-            check_result = "You're holding:\n"
+            check_result = {'header': "You're holding:", 'text': []}
             for thing in self.inventory:
-                check_result += "\n" + thing
+                check_result['text'] += [thing]
 
         return check_result
 
@@ -59,10 +59,10 @@ class Player(object):
         if self.known_spells == ['human']:
             spells_inventory = "You don't know any spells."
         else:
-            spells_inventory = "You know these spells:\n"
+            spells_inventory = {'header': "You know these spells:", 'text': []}
             for spell in self.known_spells:
                 if spell != 'human':
-                    spells_inventory += "\n" + spell
+                    spells_inventory['text'] += [spell]
 
         return spells_inventory
 

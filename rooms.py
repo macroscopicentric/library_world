@@ -43,17 +43,16 @@ matter how many times you tug on the handle, so stop trying.''',
         return self.locked_description
 
     def describe(self):
-        room_description = self.name + "\n\n" + self.description
+        room_description = {'header':self.name, 'text': [self.description]}
 
         if self.counter == 1 and self.secondary_description:
-            room_description += "\n" + self.secondary_description
+            room_description['text'] = self.secondary_description
 
         if self.inventory:
-            room_description += "\n" + formatting.list_items(self.inventory)
+            room_description['inventory'] = formatting.list_items(self.inventory)
 
         if self.npc != None:
-            if not self.inventory: room_description += "\n"
-            room_description += "\n" + formatting.print_npc(self.npc, 'room') + ' is here.'
+            room_description['npc'] = formatting.print_npc(self.npc, 'room') + ' is here.'
 
         return room_description
 

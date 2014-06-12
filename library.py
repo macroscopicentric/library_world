@@ -1,10 +1,34 @@
 from player import player
 import commands
 
-def play():
-    print player.location.describe()
+def from_terminal_play():
+    print terminal_formatting(player.location.describe())
     while True:
-        print commands.command(commands.input_format(raw_input(">")), player, play)
+        output = commands.command(commands.input_format(raw_input(">")), player, from_terminal_play)
+
+        print terminal_formatting(output)
+
+def terminal_formatting(output):
+    description = ''
+    for item in output['text']:
+        description += '\n' + item
+
+    formatted_output = ''
+    if 'event' in output.keys():
+        formatted_output += output['event'] + '\n\n'
+    if 'header' in output.keys():
+        formatted_output += output['header'] + '\n\n'
+
+    formatted_output += description
+
+    if 'inventory' in output.keys():
+        formatted_output += '\n\n' + output['inventory']
+    if 'npc' in output.keys() and 'inventory' in output.keys():
+        formatted_output += '\n' + output['npc']
+    elif 'npc' in output.keys() and 'inventory' in output.keys():
+        formatted_output += '\n\n' + output['npc']
+
+    return formatted_output
 
 def start_web():
     return player.location.describe(), player.location.name
@@ -13,7 +37,7 @@ def play_web(flask_input):
     return commands.command(commands.input_format(flask_input), player, play_web), player.location.name
 
 if __name__ == "__main__":
-    play()
+    from_terminal_play()
 
 #To do:
 #Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,

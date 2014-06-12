@@ -11,14 +11,14 @@ def game_function():
     global description, room_name
     if request.method == 'GET':
         return render_template('game_call.html', room=room_name,
-            printout=description)
+            printout=description.replace('\n', '<br>'))
     else:
         anything_butt_butts.response = request.form['response']
 
         description, room_name = play_web(anything_butt_butts.response)
 
         return render_template('game_call.html', room=room_name,
-            printout=description)
+            printout=description.replace('\n', '<br>'))
 
 if __name__ == '__main__':
     anything_butt_butts.run(debug=True)

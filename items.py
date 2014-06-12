@@ -77,13 +77,15 @@ class Book(Item):
             if self.spell:
                 player.player.add_spell(self.spell)
             return self.inside
-        else: return "You have to pick it up first!"
+        else:
+            return "You have to pick it up first!"
 
     def shelve(self, player_location):
         if player_location in self.home:
             player.player.shelve_book(self.name)
             return "You shelve the %s." % (self.name)
-        else: return "You can only shelve books where they belong!"
+        else:
+            return "You can only shelve books where they belong!"
 
 #Items
 # pan_pipes = Item('pipes',

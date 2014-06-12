@@ -72,25 +72,34 @@ class Librarian(NPC):
             if self.levels[level] <= player.book_progress() and player.invent_test('key'):
                 player.level_up()
                 items.key.level_up(player.level_check)
-                level_dialogue = '''Level up! You're now level %s.''' % (player.level_check)
+                level_dialogue = {'event':
+                    '''Level up! You're now level %s.''' % (player.level_check),
+                    'header': '', 'text': []}
                 delete_level(level)
                 #Is this a terrible idea within the for loop?
 
                 #How to print the following only the first time, when they level up?
                 if player.level_check == 2:
-                    level_dialogue += '\n"Congratulations, you\'ve shelved your first book. Now go do the rest."'
+                    level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
                 if player.level_check == 4:
-                    level_dialogue += '''\n"Congratulations, I\'ve decided to promote you to Second-Assistant
+                    level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
                 return level_dialogue
 
 
     def talk(self, player):
-        self.level_up(player)
-        goal = "You need to shelve these books to get to level %i:\n" % (player.level + 1)
+        level_dialogue = self.level_up(player)
+        goal = '''"You need to shelve these books to get to level %i:"''' % (player.level + 1)
+
+        #for proper formatting of dialogue ("") and adding space between potential dialogue from level_up.
+        if level_dialogue['header']:
+            level_dialogue['header'] = level_dialogue['header'][0:-1] + ' ' + goal[1:]
+        else:
+            level_dialogue['header'] = goal
+
         for book in self.levels[player.level]:
-            goal += "\n" + book
+            level_dialogue['text'] += [book]
         return goal
         
 

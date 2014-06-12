@@ -28,25 +28,30 @@ bright and good at your job.'''
                 player.shape = self.name
                 player.size = self.size
                 player.flying = self.flying
+
                 #For spells that start with a vowel:
                 if self.name == 'otter' or self.name == 'owl':
-                    return "You're an %s!" % self.name
+                    feedback = "You're an %s!" % self.name
                 elif self.name == 'human':
-                    return "You're human again."
+                    feedback = "You're human again."
                 else:
-                    return "You're a %s!" % self.name
+                    feedback = "You're a %s!" % self.name
 
                 if player.size == 'small':
                     for room in small_spaces:
                         rooms.room.unlock()
-                    return "You've shrunk substantially. Now you can climb through small spaces."
+                    feedback += " You've shrunk substantially. Now you can climb through small spaces."
                 elif player.size == 'large':
-                    return "You're huge! Nothing's going to mess with you."
+                    feedback += " You're huge! Nothing's going to mess with you."
                 if player.flying == True:
-                    return "You can fly!"
+                    feedback += " You can fly!"
 
-            else: return "You're already in that shape."
-        else: return "You don't know that spell, sorry."
+                return feedback
+
+            else:
+                return "You're already in that shape."
+        else:
+                return "You don't know that spell, sorry."
 
 otter = Spell('otter', 'small')
 human = Spell('human')
