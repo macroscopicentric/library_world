@@ -62,31 +62,27 @@ class Librarian(NPC):
             self.levels[counter] = books
             counter += 1
 
-    def delete_level(self, level):
-        #Built so the for loop in level_up below won't repeat levels it's gone
-        #through previously.
-        del self.levels[level]
+    # def delete_level(self, level):
+    #     #Built so the for loop in level_up below won't repeat levels it's gone
+    #     #through previously.
+    #     del self.levels[level]
             
     def level_up(self, player):
+        level_dialogue = {'text': []}
         for level in self.levels:
-            if self.levels[level] <= player.book_progress() and player.invent_test('key'):
+            if (self.levels[level] <= player.book_progress()) and player.invent_test('key'):
                 player.level_up()
-                items.key.level_up(player.level_check)
-                level_dialogue = {'event':
-                    '''Level up! You're now level %s.''' % (player.level_check),
-                    'header': '', 'text': []}
-                delete_level(level)
-                #Is this a terrible idea within the for loop?
+                items.key.level_up(player.level_check())
+                level_dialogue['event'] = '''Level up! You're now level %i.''' % (player.level_check())
 
                 #How to print the following only the first time, when they level up?
-                if player.level_check == 2:
+                if player.level_check() == 2:
                     level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                if player.level_check == 4:
+                if player.level_check() == 4:
                     level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
-                return level_dialogue
-
+        return level_dialogue
 
     def talk(self, player):
         level_dialogue = self.level_up(player)
@@ -98,9 +94,10 @@ downstairs."'''
         else:
             level_dialogue['header'] = goal
 
-        for book in self.levels[player.level]:
+        for book in self.levels[player.level_check()]:
             level_dialogue['text'] += [book]
-        return goal
+
+        return level_dialogue
         
 
 

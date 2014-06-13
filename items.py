@@ -47,8 +47,9 @@ class Key(Item):
         numbers = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
         6: 'six'}
 
-        level2_unlocks = [uu_library1, wtnv_library1, labyrinth1, alexandria1]
-        level4_unlocks = [stilken_room1, second_assistant_study]
+        level2_unlocks = [rooms.uu_library1, rooms.wtnv_library1,
+            rooms.labyrinth1, rooms.alexandria1]
+        level4_unlocks = [rooms.stilken_room1, rooms.second_assistant_study]
 
         if player_level == 1:
             num = numbers[player_level].capitalize() + ' is'
@@ -56,13 +57,15 @@ class Key(Item):
             num = numbers[player_level].capitalize() + ' are'
 
         if player_level == 2:
-            for room in rooms.level2_unlocks:
-                rooms.room.unlock()
+            for room in level2_unlocks:
+                room.unlock()
         if player_level == 4:
-            for room in rooms.level4_unlocks:
-                rooms.room.unlock()
+            for room in level4_unlocks:
+                room.unlock()
                 rooms.third_assistant_study.add_counter()
         self.description = '''It's a silver bracelet, set with seven emeralds. %s glowing.''' % (num)
+
+        return self.description
 
 
 class Book(Item):

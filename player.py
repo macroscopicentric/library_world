@@ -5,6 +5,7 @@ import people
 
 home = rooms.reading_room
 # home = rooms.uu_library1
+# home = rooms.chiefs_office
 
 class Player(object):
     def __init__(self, inventory=[]):
@@ -14,6 +15,7 @@ class Player(object):
         self.size = 'medium'
         self.flying = False
         self.known_spells = ['human']
+        self.spell_counter = 0
         self.inventory = inventory
         self.shelved_books = set()
         self.level = 1
@@ -23,6 +25,11 @@ class Player(object):
 
     def level_up(self):
         self.level += 1
+
+    def first_spell(self):
+        #increases self.spell_counter so I can give a warning on how to change back.
+        self.spell_counter += 1
+        return ''''You've used your first spell! To change back to human, just type "cast human".'''
 
     def book_progress(self):
         return self.shelved_books

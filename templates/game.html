@@ -21,19 +21,23 @@
                     {% if 'event' in output.keys() %}
                         {{output[event]}}
                         <br>
+                        <br>
                     {% endif %}
 
                     {% if 'header' in output.keys() %}
                         {{output['header']}}
                         <br>
+                        <br>
                     {% endif %}
 
-                    {% for line in output['text'] %}
+                    {{output['text'][0]}}
+                    {% for line in output['text'][1:] %}
                         <br>
                         {{line}}
                     {% endfor %}
 
                     {% if 'inventory' in output.keys() %}
+                        <br>
                         <br>
                         {{output['inventory']}}
                     {% endif %}

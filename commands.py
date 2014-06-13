@@ -149,7 +149,9 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
             else:
                 return "There's nothing here to take."
         elif direct_object == 'book':
-            return "I need something more specific. What book do you want me to take?"
+            return "I need something more specific. Which book do you want me to take?"
+        elif direct_object == 'waistcoat':
+            pass
         else:
             try:
                 return items.item_list[direct_object].take(player.location)
@@ -273,7 +275,7 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
     'teleport': teleport, 'x': examine, 'take': take, 'level': level_check,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
-    'talk': talk, 'fuck': swear, 'damn': swear, 'shit': swear, 'give': give,
+    'fuck': swear, 'damn': swear, 'shit': swear, 'give': give, 'talk': talk,
     'cut': break_thing, 'break': break_thing}
 
     try:

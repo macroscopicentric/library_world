@@ -25,26 +25,28 @@ class Spell(object):
 bright and good at your job.'''
 
             elif player.shape != self.name:
+                if player.spell_counter == 0:
+                    feedback = {'header': player.first_spell()}
                 player.shape = self.name
                 player.size = self.size
                 player.flying = self.flying
 
                 #For spells that start with a vowel:
                 if self.name == 'otter' or self.name == 'owl':
-                    feedback = "You're an %s!" % self.name
+                    feedback['text'] = "You're an %s!" % self.name
                 elif self.name == 'human':
-                    feedback = "You're human again."
+                    feedback['text'] = "You're human again."
                 else:
-                    feedback = "You're a %s!" % self.name
+                    feedback['text'] = "You're a %s!" % self.name
 
                 if player.size == 'small':
                     for room in small_spaces:
                         rooms.room.unlock()
-                    feedback += " You've shrunk substantially. Now you can climb through small spaces."
+                    feedback['text'] += " You've shrunk substantially. Now you can climb through small spaces."
                 elif player.size == 'large':
-                    feedback += " You're huge! Nothing's going to mess with you."
+                    feedback['text'] += " You're huge! Nothing's going to mess with you."
                 if player.flying == True:
-                    feedback += " You can fly!"
+                    feedback['text'] += " You can fly!"
 
                 return feedback
 
