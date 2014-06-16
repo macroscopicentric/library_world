@@ -6,6 +6,7 @@ import people
 home = rooms.reading_room
 # home = rooms.uu_library1
 # home = rooms.chiefs_office
+home.check_banana = True
 
 class Player(object):
     def __init__(self, inventory=[]):
@@ -26,19 +27,19 @@ class Player(object):
     def level_up(self):
         self.level += 1
 
+    #increases self.spell_counter so I can give a warning on how to change back:
     def first_spell(self):
-        #increases self.spell_counter so I can give a warning on how to change back.
         self.spell_counter += 1
         return ''''You've used your first spell! To change back to human, just type "cast human".'''
 
     def book_progress(self):
         return self.shelved_books
 
-    #for checking inventory from other modules
+    #for checking inventory from other modules:
     def invent_test(self, item):
         return item in self.inventory
 
-    #for testing location from other modules
+    #for testing location from other modules:
     def location_test(self, location):
         return location == self.location
 

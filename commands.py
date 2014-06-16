@@ -43,20 +43,21 @@ def input_format(user_input):
         else:
             user_input = [user_input[0]] + user_input[1].split(' ')
 
+    #removing articles/prepositions from user input:
     for word in arts_and_preps:
         if word in user_input:
             user_input.remove(word)
 
     return user_input
 
-def command(user_input, player, play):
-    # print user_input
-
+#def command(user_input, player, play) to allow restart/load
+def command(user_input, player):
     verb = user_input[0]
     if len(user_input) > 1: direct_object = user_input[1]
     if len(user_input) > 2: indirect_object = user_input[2]
 
     #Helper functions so I can add all methods to the verbs dictionary:
+    #save/load/restart not currently working
     def save():
         #Currently saves/loads player's location and sets correct item locations.
         #Doesn't save other player/room status info (alive/dead, opened doors, etc).
@@ -239,6 +240,9 @@ Spoiler: you're not super-human.'''
     def cast():
         return spells.spells[direct_object].use_spell()
 
+    #teleport sends the player back to "home" (defined in player, usually the
+    #reading room) or, if they're currently in the labyrinth, the first room of
+    #the labyrinth. Intended to save players from homicidal rage.
     def teleport():
         return player.teleport()
 
@@ -275,7 +279,7 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
     'teleport': teleport, 'x': examine, 'take': take, 'level': level_check,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
-    'fuck': swear, 'damn': swear, 'shit': swear, 'give': give, 'talk': talk,
+    'fuck': swear, 'damn': swear, 'shit': swear, 'give': give,
     'cut': break_thing, 'break': break_thing}
 
     try:
@@ -284,6 +288,8 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit':
             sys.exit()
+        if verb == 'talk':
+            return talk()
         #is there a way to put the part below in the dictionary as well? created
         #a tuple from the keys but then it's NESTED and the search (try above) only
         #goes one level deep.

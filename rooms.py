@@ -10,7 +10,7 @@ class Room(object):
     def __init__(self, name, description, inventory=[], npc=None, locked=False,
         locked_description='''That door's locked. And it'll stay locked no
 matter how many times you tug on the handle, so stop trying.''',
-        secondary_description=None):
+        secondary_description=None, check_banana=False):
         self.name = name
         self.description = description
         self.directions = {}
@@ -20,8 +20,12 @@ matter how many times you tug on the handle, so stop trying.''',
         self.counter = 0
         self.locked_description = locked_description
         self.secondary_description = secondary_description
+        #secondary_description = a full description of the room to replace it
+        #when an event has happened (ex: putting out the Alexandria fire).
+        self.check_banana = check_banana
         directory.append(self)
 
+    #because I can't add the directions while initializing rooms, since they all call each other:
     def add_directions(self, **kwargs):
         for direction in kwargs.keys():
             self.directions[str(direction)] = kwargs[direction]
@@ -32,7 +36,7 @@ matter how many times you tug on the handle, so stop trying.''',
             else:
                 self.directions[direction].directions[opposite_directions[direction]] = self
 
-    #for testing possible move directions from other modules
+    #for testing possible move directions from other modules:
     def directions_test(self, direction):
         return direction in self.directions
 
@@ -73,6 +77,16 @@ matter how many times you tug on the handle, so stop trying.''',
             return True
         else:
             return False
+
+    #unused:
+    def go_to_hospital(self):
+        if 'banana' in hall15.inventory:
+            output['event'] = '''You hear a massive CRASH from the direction of the Restricted
+Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
+her arm thrown dramatically over her eyes.'''
+            hall15.counter = 1
+            restricted.unlock()
+            return output
 
 
 class Labyrinth(Room):
@@ -187,7 +201,7 @@ hall13 = Room("East-West Hallway",
 There are archways to the east and west.''')
 hall14 = Room("East-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the east and south.''')
+There are archways to the east and south.''', check_banana=True)
 
 hall15 = Room("North-South Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
@@ -200,7 +214,7 @@ north and south, and a door to the west. Next to the door, there's a sign posted
 "RESTRICTED. Do not enter without Madame Pince's permission."''')
 hall16 = Room("North-East Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.
-There are archways to the north and east.''')
+There are archways to the north and east.''', check_banana=True)
 
 hall17 = Room("East-West Hallway",
     '''You're in a hallway with gently sloping floors. The walls here are red.

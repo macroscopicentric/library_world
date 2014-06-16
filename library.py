@@ -4,11 +4,12 @@ import commands
 def from_terminal_play():
     print terminal_formatting(player.location.describe())
     while True:
-        output = commands.command(commands.input_format(raw_input(">")), player, from_terminal_play)
+        output = commands.command(commands.input_format(raw_input(">")), player)
         print terminal_formatting(output)
 
 def terminal_formatting(output):
     #I'm really specific about the number of line breaks I want okay.
+    #Two possible outputs: a string or a dictionary.
     if type(output) == str:
         return output
 
@@ -38,7 +39,7 @@ def start_web():
     return player.location.describe(), player.location.name
 
 def play_web(flask_input):
-    return commands.command(commands.input_format(flask_input), player, play_web), player.location.name
+    return commands.command(commands.input_format(flask_input), player), player.location.name
 
 if __name__ == "__main__":
     from_terminal_play()

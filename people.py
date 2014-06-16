@@ -89,7 +89,7 @@ downstairs."'''
         goal = '''"You need to shelve these books to get to level %i:"''' % (player.level + 1)
 
         #for proper formatting of dialogue ("") and adding space between potential dialogue from level_up.
-        if level_dialogue['header']:
+        if 'header' in level_dialogue.keys():
             level_dialogue['header'] = level_dialogue['header'][0:-1] + ' ' + goal[1:]
         else:
             level_dialogue['header'] = goal
