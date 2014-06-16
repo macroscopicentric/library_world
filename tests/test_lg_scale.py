@@ -29,20 +29,32 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
             'text': ['french book']}
         eq_(output, vancelle_dialogue)
 
-    def vancelle_level_up(self):
+    def test_vancelle_level_up(self):
         player.take('key')
         player.shelved_books = set(('french book',))
         output = commands.command((['talk', 'vancelle']), player)
         vancelle_dialogue = {'header':
             '"Congratulations, you\'ve shelved your first book. Now go do the rest. You need to shelve these books to get to level 3:"',
-            'text': ['fairy tale book', 'floral book', 'princess book']}
+            'text': ['floral book', 'fairy tale book', 'princess book'],
+            'event': '''Level up! You're now level 2.'''}
         eq_(output, vancelle_dialogue)
 
-    def take_all(self):
+    def test_take_all(self):
         player.location = rooms.third_assistant_study
         output = commands.command((['take', 'all']), player)
         eq_(output, {'text': ['You take the mouse.', 'You take the key.',
             'You take the yellow waistcoat.', 'You take the dagger.']})
+
+class TestEvents(unittest.TestCase):
+    def test_banana_peel(self):
+        rooms.hall15.add_invent('banana')
+        player.location = rooms.hall15
+        output = commands.command((['n']), player)
+        hall14_dict = rooms.hall14.describe()
+        hall14_dict['event'] = '''You hear a massive CRASH from the direction of the Restricted
+Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
+her arm thrown dramatically over her eyes.'''
+        eq_(output, hall14_dict)
 
 class TestInitialStates(unittest.TestCase):
     def test_home(self):
@@ -63,3 +75,4 @@ class TestInitialStates(unittest.TestCase):
     def test_known_spells(self):
         output = commands.command((['spells']), player)
         eq_(output, "You don't know any spells.")
+

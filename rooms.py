@@ -80,13 +80,12 @@ matter how many times you tug on the handle, so stop trying.''',
 
     #unused:
     def go_to_hospital(self):
-        if 'banana' in hall15.inventory:
-            output['event'] = '''You hear a massive CRASH from the direction of the Restricted
+        output = '''You hear a massive CRASH from the direction of the Restricted
 Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
 her arm thrown dramatically over her eyes.'''
-            hall15.counter = 1
-            restricted.unlock()
-            return output
+        hall15.counter = 1
+        restricted.unlock()
+        return output
 
 
 class Labyrinth(Room):

@@ -294,7 +294,13 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
         #a tuple from the keys but then it's NESTED and the search (try above) only
         #goes one level deep.
         elif verb in moves.keys():
-            return move()
+            if 'banana' in rooms.hall15.inventory and player.location.check_banana:
+                output = move()
+                output['event'] = player.location.go_to_hospital()
+                print output
+                return output
+            else:
+                return move()
         else:
             return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
