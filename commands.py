@@ -179,7 +179,7 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
 
     def break_thing():
         if (direct_object == 'seal' or
-            direct_object == 'rope') and player.location_test(hall15):
+            direct_object == 'rope') and player.location_test(rooms.hall15):
             if player.invent_test('wire'):
                 rooms.restricted.unlock()
                 player.location.add_counter()
@@ -187,7 +187,7 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
 using the piece of wire. You set the rope and seals in the corner.'''
             elif player.invent_test('scissors'):
                 for item in player.inventory:
-                    if 'book' in item:
+                    if 'book' in item or 'diary' == item:
                         items.item_list[item].drop(rooms.restricted)
                 message = player.teleport()
                 message = {'event':
@@ -279,7 +279,7 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
     'teleport': teleport, 'x': examine, 'take': take, 'level': level_check,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
-    'fuck': swear, 'damn': swear, 'shit': swear, 'give': give,
+    'fuck': swear, 'damn': swear, 'shit': swear, 'give': give, 'talk': talk,
     'cut': break_thing, 'break': break_thing}
 
     try:
@@ -288,19 +288,16 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
         #sys.exit() doesn't work within a try.
         if verb == 'exit' or verb == 'quit':
             sys.exit()
-        if verb == 'talk':
-            return talk()
         #is there a way to put the part below in the dictionary as well? created
         #a tuple from the keys but then it's NESTED and the search (try above) only
         #goes one level deep.
         elif verb in moves.keys():
+            output = move()
             if 'banana' in rooms.hall15.inventory and player.location.check_banana:
-                output = move()
                 output['event'] = player.location.go_to_hospital()
-                print output
                 return output
             else:
-                return move()
+                return output
         else:
             return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
