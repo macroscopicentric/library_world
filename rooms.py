@@ -7,14 +7,17 @@ opposite_directions = {'e': 'w', 'w': 'e', 'n': 's', 's': 'n', 'u': 'd',
 'd': 'u', 'ne': 'sw', 'sw': 'ne', 'nw': 'se', 'se': 'nw'}
 
 class Room(object):
-    def __init__(self, name, description, inventory=[], npc=None, locked=False,
+    def __init__(self, name, description, inventory=None, npc=None, locked=False,
         locked_description='''That door's locked. And it'll stay locked no
 matter how many times you tug on the handle, so stop trying.''',
         secondary_description=None, check_banana=False):
         self.name = name
         self.description = description
         self.directions = {}
-        self.inventory = inventory
+        if inventory == None:
+            self.inventory = []
+        else:
+            self.inventory = inventory
         self.npc = npc
         self.locked = locked
         self.counter = 0

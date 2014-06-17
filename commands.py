@@ -186,16 +186,16 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
                 return '''You carefully peel Vancelle's seal off of the rope at both ends
 using the piece of wire. You set the rope and seals in the corner.'''
             elif player.invent_test('scissors'):
-                for item in player.inventory:
+                temp = player.inventory[:]
+                for item in temp:
                     if 'book' in item or 'diary' == item:
                         items.item_list[item].drop(rooms.restricted)
                 message = player.teleport()
-                message = {'event':
-                '''As you poise the scissors to cut through the rope, Madam Pince
+                message['event'] = '''As you poise the scissors to cut through the rope, Madam Pince
 appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
 YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
 promptly confiscates all your books, and to add insult to injury, she escorts
-you all the way back to the main reading room.'''}
+you all the way back to the main reading room.'''
                 return message
         else:
             if direct_object in items.item_list:

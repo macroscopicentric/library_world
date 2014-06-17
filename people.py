@@ -8,9 +8,12 @@ import items
 npc_list = {}
 
 class NPC(object):
-    def __init__(self, name, dialogue=[], want=''):
+    def __init__(self, name, dialogue=None, want=''):
         self.name = name
-        self.dialogue = dialogue
+        if dialogue == None:
+            self.dialogue = []
+        else:
+            self.dialogue = dialogue
         self.want = want
         self.wish_come_true = False
         npc_list[name] = self

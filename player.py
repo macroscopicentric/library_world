@@ -9,7 +9,7 @@ home = rooms.reading_room
 home.check_banana = True
 
 class Player(object):
-    def __init__(self, inventory=[]):
+    def __init__(self, inventory=None):
         self.alive = True
         self.location = home
         self.shape = 'human'
@@ -17,7 +17,10 @@ class Player(object):
         self.flying = False
         self.known_spells = ['human']
         self.spell_counter = 0
-        self.inventory = inventory
+        if inventory == None:
+            self.inventory = []
+        else:
+            self.inventory = inventory
         self.shelved_books = set()
         self.level = 1
 

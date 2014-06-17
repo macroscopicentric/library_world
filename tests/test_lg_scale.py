@@ -75,6 +75,7 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
         hall14_dict['event'] = '''You hear a massive CRASH from the direction of the Restricted
 Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
 her arm thrown dramatically over her eyes.'''
+        print hall14_dict
         eq_(output, hall14_dict)
         eq_(rooms.restricted.locked, False)
         eq_(rooms.hall15.describe()['text'], rooms.hall15.secondary_description)
@@ -96,7 +97,7 @@ YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
 promptly confiscates all your books, and to add insult to injury, she escorts
 you all the way back to the main reading room.'''
         eq_(output, reading_room_dict)
-        eq_(player.inventory, ['scissors', 'key', 'yellow waistcoat'])
+        eq_(player.inventory, ['yellow waistcoat', 'key', 'scissors'])
 
 class TestInitialStates(unittest.TestCase):
     def test_home(self):
