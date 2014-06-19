@@ -41,7 +41,7 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
 
     def test_vancelle_level_up(self):
         player.take('key')
-        player.shelved_books = set(('french book',))
+        player.shelved_books = ['french book']
         player.location = 'chiefs_office'
         output = commands.command((['talk', 'vancelle']), player)
         vancelle_dialogue = {'header':
@@ -49,6 +49,16 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
             'text': npc_list['vancelle'].levels['2'],
             'event': '''Level up! You're now level 2.'''}
         eq_(output, vancelle_dialogue)
+
+    def test_vancelle_level_more(self):
+        player.level = 2
+        player.take('key')
+        player.shelved_books = ["astronomy book", "potions book",
+            "fantasy book", "magic book", "dark history book"]
+        player.location = 'chiefs_office'
+        output = commands.command((['talk', 'vancelle']), player)
+        vancelle_dialogue = {'header': '"You need to shelve these books to get to level 4:"',
+            'text': npc_list['vancelle'].levels['3']}
 
     def test_take_all(self):
         player.location = 'third_assistant_study'

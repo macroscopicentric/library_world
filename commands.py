@@ -13,8 +13,6 @@ import spells
 #     player: the_player
 # }
 
-#I really like that the HP text adventure has a thesaurus. How do I make one?
-
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'e': 'e', 'east': 'e', 'w': 'w', 'west': 'w', 's': 's', 'south': 's',
 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw', 'sw': 'sw',
@@ -247,7 +245,8 @@ Spoiler: you're not super-human.'''
     def move():
         # try:
             #if direction in rooms.self.location.directions and...:
-            #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
+            #     print "That opening is too small for a full-sized person.
+            #Perhaps something smaller, like a cat or otter, could get through."
             #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
             #since a door goes both ways and a key is one-time in one direction.
         if moves[verb] == 'd' and (player.location_test('uu_library1') or
