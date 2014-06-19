@@ -2,9 +2,9 @@ import sys
 import pickle
 import random
 
-import items
-import people
-import rooms
+from rooms import directory
+from items import item_list
+from people import npc_list
 import spells
 
 #Not sure how to implement this:
@@ -134,28 +134,26 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
 
     #Actual commands
     def examine():
-        return items.item_list[direct_object].examine()
+        return item_list[direct_object].examine()
 
     def inventory():
         return player.inventory_check()
 
     def take():
         if direct_object == 'all':
-            if player.location.check_invent:
-                temp = player.location.inventory[:]
+            if directory[player.location].inventory:
+                temp = directory[player.location].inventory[:]
                 item_pickup = {'text': []}
                 for item in temp:
-                    item_pickup['text'] += [items.item_list[item].take(player.location)]
+                    item_pickup['text'] += [item_list[item].take(directory[player.location])]
                 return item_pickup
             else:
                 return "There's nothing here to take."
         elif direct_object == 'book':
             return "I need something more specific. Which book do you want me to take?"
-        elif direct_object == 'waistcoat':
-            pass
         else:
             try:
-                return items.item_list[direct_object].take(player.location)
+                return item_list[direct_object].take(directory[player.location])
             except:
                 return "I don't see that item."
 
@@ -165,7 +163,7 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
                 temp = player.inventory[:]
                 item_drop = {'text': []}
                 for item in temp:
-                    item_drop['text'] += [items.item_list[item].drop(player.location)]
+                    item_drop['text'] += [item_list[item].drop(directory[player.location])]
                 return item_drop
             else:
                 return player.inventory_check()
@@ -173,32 +171,31 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
             return "I need something more specific. What book do you want me to drop?"
         else:
             try:
-                return items.item_list[direct_object].drop(player.location)
+                return item_list[direct_object].drop(directory[player.location])
             except:
                 return "You're not carrying that item."
 
     def break_thing():
-        if (direct_object == 'seal' or
-            direct_object == 'rope') and player.location_test(rooms.hall15):
+        if direct_object in ['seal', 'rope'] and player.location_test('hall15'):
             if player.invent_test('wire'):
-                rooms.restricted.unlock()
-                player.location.add_counter()
+                directory['restricted'].unlock()
+                directory[player.location].add_counter()
                 return '''You carefully peel Vancelle's seal off of the rope at both ends
 using the piece of wire. You set the rope and seals in the corner.'''
-            elif player.invent_test('scissors'):
+            elif player.invent_test('scissors') or player.invent_test('dagger'):
                 temp = player.inventory[:]
                 for item in temp:
                     if 'book' in item or 'diary' == item:
-                        items.item_list[item].drop(rooms.restricted)
+                        item_list[item].drop(directory['restricted'])
                 message = player.teleport()
-                message['event'] = '''As you poise the scissors to cut through the rope, Madam Pince
+                message['event'] = '''As you poise to cut through the rope, Madam Pince
 appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
 YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
 promptly confiscates all your books, and to add insult to injury, she escorts
 you all the way back to the main reading room.'''
                 return message
         else:
-            if direct_object in items.item_list:
+            if direct_object in item_list:
                 return '''You try to break the %s, but it just bounces off the wall.
 Disgusted, you put it back.''' % (direct_object)
             else:
@@ -207,7 +204,8 @@ Spoiler: you're not super-human.'''
 
     def give():
         try:
-            return items.item_list[direct_object].give(people.npc_list[indirect_object])
+            return item_list[direct_object].give(npc_list[indirect_object],
+                item_list['key'])
         except:
             return '''I didn't quite get that. Did you use the format "give
 [object] to [person]"?'''
@@ -217,66 +215,57 @@ Spoiler: you're not super-human.'''
             return 'Which book?'
         else:
             try:
-                return items.item_list[direct_object].open()
+                return item_list[direct_object].open()
             except:
                 return "You can't read that. Try reading a book."
 
     def shelve():
         try:
-            return items.item_list[direct_object].shelve(player.location)
+            return item_list[direct_object].shelve()
         except:
             return "You can't shelve that."
 
+    def cast():
+        spells.spells[direct_object].use_spell()
+
     def level_check():
-        message = {'header': (("You are level %s. " % (player.level_check())) +
+        message = {'header': (("You are level %s. " % (player.level)) +
             "You have shelved these books:"), 'text': []}
-        for book in player.book_progress():
+        for book in player.shelved_books:
             message['text'] += [book]
         return message
 
-    def spells_check():
-        return player.spell_check()
-
-    def cast():
-        return spells.spells[direct_object].use_spell()
-
-    #teleport sends the player back to "home" (defined in player, usually the
-    #reading room) or, if they're currently in the labyrinth, the first room of
-    #the labyrinth. Intended to save players from homicidal rage.
-    def teleport():
-        return player.teleport()
-
     def talk():
-        if player.location.npc == direct_object:
-            return people.npc_list[direct_object].talk(player)
+        if directory[player.location].npc == direct_object:
+            return npc_list[direct_object].talk(player)
         else:
             return "I don't see that person here."
 
     def look():
-        return player.location.describe()
+        return directory[player.location].describe()
 
     def move():
-        try:
+        # try:
             #if direction in rooms.self.location.directions and...:
             #     print "That opening is too small for a full-sized person. Perhaps something smaller, like a cat or otter, could get through."
             #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
             #since a door goes both ways and a key is one-time in one direction.
-            if moves[verb] == 'd' and (player.location_test(rooms.uu_library1) or
-                player.location_test(rooms.uu_library2)):
-                action = player.move(moves[verb])
-                action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
+        if moves[verb] == 'd' and (player.location_test('uu_library1') or
+            player.location_test('uu_library2')):
+            action = player.move(moves[verb])
+            action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
 and down is up. But now it's gone, so you don't trouble yourself over it.'''
-                return action
-            else:
-                return player.move(moves[verb])
-        except:
-            return "You can't go that way, stupid."
+            return action
+        else:
+            return player.move(moves[verb])
+        # except:
+        #     return "You can't go that way, stupid."
 
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
     'look': look, 'z': look, 'l': look, 'inventory': inventory, 'xyzzy': xyzzy,
-    'zork': zork, 'i': inventory, 'spells': spells_check,
-    'teleport': teleport, 'x': examine, 'take': take, 'level': level_check,
+    'zork': zork, 'i': inventory, 'spells': player.spell_check,
+    'teleport': player.teleport, 'x': examine, 'take': take, 'level': level_check,
     'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
     'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
     'fuck': swear, 'damn': swear, 'shit': swear, 'give': give, 'talk': talk,
@@ -291,10 +280,13 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
         #is there a way to put the part below in the dictionary as well? created
         #a tuple from the keys but then it's NESTED and the search (try above) only
         #goes one level deep.
+        elif verb == 'talk':
+            return talk()
         elif verb in moves.keys():
             output = move()
-            if 'banana' in rooms.hall15.inventory and player.location.check_banana:
-                output['event'] = player.location.go_to_hospital()
+            if ('banana' in directory['hall15'].inventory and
+                    directory[player.location].check_banana):
+                output['event'] = directory[player.location].go_to_hospital()
                 return output
             else:
                 return output

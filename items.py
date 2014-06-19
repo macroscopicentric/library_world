@@ -1,24 +1,24 @@
-import player
+from player import player
 import rooms
 
 item_list = {}
 
 class Item(object):
-    def __init__(self, name, description):
+    def __init__(self, name=None, description=None):
         self.name = name
         self.description = description
         item_list[name] = self
 
     def examine(self):
-        if (self.name in player.player.inventory or
-            self.name in player.player.location.inventory):
+        if (player.invent_test(self.name) or
+            self.name in directions[player.location].inventory):
             return self.description
         else:
             return "I'm sorry, I don't see that item."
 
     def take(self, location):
         try:
-            player.player.take(self.name)
+            player.take(self.name)
             location.remove_invent(self.name)
             return "You take the %s." % (self.name)
         except:
@@ -26,16 +26,16 @@ class Item(object):
 
     def drop(self, location):
         try:
-            player.player.drop(self.name)
+            player.drop(self.name)
             location.add_invent(self.name)
             return "You drop the %s." % (self.name)
         except:
             return "You're not carrying that!"
 
     def give(self, person):
-        if person.name == player.player.location.npc:
+        if person.name == rooms.directory[player.location].npc:
             try:
-                person.wish_fulfillment(self.name, player.player)
+                person.wish_fulfillment(self.name, player)
             except:
                 return "You're not carrying that!"
         else:
@@ -47,9 +47,9 @@ class Key(Item):
         numbers = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
         6: 'six'}
 
-        level2_unlocks = [rooms.uu_library1, rooms.wtnv_library1,
-            rooms.labyrinth1, rooms.alexandria1]
-        level4_unlocks = [rooms.stilken_room1, rooms.second_assistant_study]
+        level2_unlocks = ['uu_library1', 'wtnv_library1', 'labyrinth1',
+            'alexandria1']
+        level4_unlocks = ['stilken_room1', 'second_assistant_study']
 
         if player_level == 1:
             num = numbers[player_level].capitalize() + ' is'
@@ -58,11 +58,11 @@ class Key(Item):
 
         if player_level == 2:
             for room in level2_unlocks:
-                room.unlock()
+                rooms.directory[room].unlock()
         if player_level == 4:
             for room in level4_unlocks:
-                room.unlock()
-                rooms.third_assistant_study.add_counter()
+                rooms.directory[room].unlock()
+                rooms.directory['third_assistant_study'].add_counter()
         self.description = '''It's a silver bracelet, set with seven emeralds. %s glowing.''' % (num)
 
         return self.description
@@ -83,9 +83,9 @@ class Book(Item):
         else:
             return "You have to pick it up first!"
 
-    def shelve(self, player_location):
-        if player_location in self.home:
-            player.player.shelve_book(self.name)
+    def shelve(self):
+        if player.location in self.home:
+            player.shelve_book(self.name)
             return "You shelve the %s." % (self.name)
         else:
             return "You can only shelve books where they belong!"
@@ -228,12 +228,24 @@ diary. The cover is blue and paneled. There is a clock stamped on the spine.''',
 have some sort of personal code because you can't read what they've
 written.''')
 
+archbishop = Book('western book', '''The book is called "Death Comes for the
+Archbishop," by Willa Cather. It has a plain brown dustjacket, with a
+silhouette of a horse and rider. There's a purple eye stamped on the spine.''',
+'''Flipping through it briefly, you see references to the Mexican-American
+War and catholicism.''', rooms.wtnv)
+
 #Level 5 Books
 labyrinth_book = Book('labyrinth book',
     '''This book is titled "The Name of the Rose." There's a cross stamped on
 the spine.''',
     '''The book seems to be a novel about two monks, set in a strange world
 without magic.''', rooms.labyrinths)
+
+absalom = Book('south african book',
+    '''The title is "Cry, the Beloved Country" by Alan Paton. There's a purple eye
+stamped on the spine. The dustjacket is patterned with flowers.''',
+    '''It appears to be about a South African priest looking for his son.''',
+    rooms.wtnv)
 
 #Level 6 Books
 poetics = Book('drama book', '''It seems to be a translated copy of Poetics II,

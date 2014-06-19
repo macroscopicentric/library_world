@@ -1,12 +1,10 @@
 import time
 
-import rooms
-import people
+from rooms import directory, labyrinths
 
-home = rooms.reading_room
-# home = rooms.uu_library1
-# home = rooms.chiefs_office
-home.check_banana = True
+home = 'reading_room'
+# home = 'chiefs_office'
+directory[home].check_banana = True
 
 class Player(object):
     def __init__(self, inventory=None):
@@ -17,15 +15,14 @@ class Player(object):
         self.flying = False
         self.known_spells = ['human']
         self.spell_counter = 0
+
         if inventory == None:
             self.inventory = []
         else:
             self.inventory = inventory
-        self.shelved_books = set()
-        self.level = 1
 
-    def level_check(self):
-        return self.level
+        self.shelved_books = []
+        self.level = 1
 
     def level_up(self):
         self.level += 1
@@ -34,9 +31,6 @@ class Player(object):
     def first_spell(self):
         self.spell_counter += 1
         return ''''You've used your first spell! To change back to human, just type "cast human".'''
-
-    def book_progress(self):
-        return self.shelved_books
 
     #for checking inventory from other modules:
     def invent_test(self, item):
@@ -64,7 +58,7 @@ class Player(object):
 
     def shelve_book(self, book):
         self.drop(book)
-        self.shelved_books.add(book,)
+        self.shelved_books.append(book)
 
     def spell_check(self):
         if self.known_spells == ['human']:
@@ -81,18 +75,20 @@ class Player(object):
         self.known_spells.append(spell)
 
     def move(self, direction):
-        if self.location.directions[direction].lock_test():
-            return self.location.directions[direction].lock_desc()
+        current_location_object = directory[self.location]
+        next_location_object = directory[current_location_object.directions[direction]]
+        if next_location_object.locked:
+            return next_location_object.locked_description
         else:
-            self.location = self.location.directions[direction]
-            return self.location.describe()
+            self.location = next_location_object.short_name
+            return directory[self.location].describe()
 
     def teleport(self):
-        if self.location in rooms.labyrinths:
-            self.location = rooms.labyrinth1
-            return self.location.describe()
+        if self.location in labyrinths:
+            self.location = 'labyrinth1'
+            return directory[self.location].describe()
         else:
             self.location = home
-            return self.location.describe()
+            return directory[self.location].describe()
 
 player = Player()

@@ -6,7 +6,7 @@ spells = {}
 #different forms for different things. things other than small spaces?
 
 class Spell(object):
-    def __init__(self, name, size='medium', flying=False):
+    def __init__(self, name=None, size='medium', flying=False):
         self.name = name
         self.size = size
         self.flying = flying

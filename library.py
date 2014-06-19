@@ -1,8 +1,9 @@
 from player import player
+from rooms import directory
 import commands
 
 def from_terminal_play():
-    print terminal_formatting(player.location.describe())
+    print terminal_formatting(directory[player.location].describe())
     while True:
         output = commands.command(commands.input_format(raw_input(">")), player)
         print terminal_formatting(output)
@@ -51,9 +52,6 @@ if __name__ == "__main__":
 #Add in more Clayr hallway landmarks as I add other libraries.
 #Add Dream's library?, DW, Ghostbusters?
 #Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).
-#Madame Pince: dropping banana and then leaving > Pince goes to hospital and door unlocks. WHERE to put code for testing the two conditions?
-#       Way to send books back to their default locations? it would also be nice to have one place to set default settings
-#       for items, rooms, players for testing etc.
 #Remove some of the circularity? Commands go everywhere and branch into multiple modules.
 #How to unlock finis Africae?
 #End game: promoted to level 7, Vancelle gives you the charter book that allows you to turn into an otter,
@@ -62,6 +60,9 @@ if __name__ == "__main__":
 #Alan suggested taking all inits out of their respective modules (since while in the modules they're only run once during import).
 #   Difficult for modules with more inits (ie, rooms). How to compartmentalize those?
 #Allow interactions with book/waistcoat just by "book"/"waistcoat" if there's only one.
+#Do anything with disreputable dog statue?
+#Move archbishop book to DW library.
+#Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
 
 #Bug: since the rooms all call each other, they give errors when other rooms haven't been initialized.
 #       Is there a way to initialize without a value, non-descructively?

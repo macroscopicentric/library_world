@@ -1,14 +1,13 @@
 import random
 
 import formatting
-
 import rooms
-import items
+from items import item_list
 
 npc_list = {}
 
 class NPC(object):
-    def __init__(self, name, dialogue=None, want=''):
+    def __init__(self, name=None, dialogue=None, want=''):
         self.name = name
         if dialogue == None:
             self.dialogue = []
@@ -59,29 +58,22 @@ class Librarian(NPC):
         super(Librarian, self).__init__(*args)
         self.levels = {}
 
-    def add_levels(self, *args):
-        counter = 1
-        for books in args:
-            self.levels[counter] = books
-            counter += 1
-
-    # def delete_level(self, level):
-    #     #Built so the for loop in level_up below won't repeat levels it's gone
-    #     #through previously.
-    #     del self.levels[level]
+    def add_levels(self, book_dict):
+        for level, books in book_dict.iteritems():
+            self.levels[level] = books
             
     def level_up(self, player):
         level_dialogue = {'text': []}
         for level in self.levels:
-            if (self.levels[level] <= player.book_progress()) and player.invent_test('key'):
+            if (set(self.levels[level]) <= set(player.shelved_books)) and player.invent_test('key'):
                 player.level_up()
-                items.key.level_up(player.level_check())
-                level_dialogue['event'] = '''Level up! You're now level %i.''' % (player.level_check())
+                item_list['key'].level_up(player.level)
+                level_dialogue['event'] = '''Level up! You're now level %i.''' % (player.level)
 
                 #How to print the following only the first time, when they level up?
-                if player.level_check() == 2:
+                if player.level == 2:
                     level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                if player.level_check() == 4:
+                if player.level == 4:
                     level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
@@ -97,7 +89,7 @@ downstairs."'''
         else:
             level_dialogue['header'] = goal
 
-        for book in self.levels[player.level_check()]:
+        for book in self.levels[player.level]:
             level_dialogue['text'] += [book]
 
         return level_dialogue
@@ -105,10 +97,11 @@ downstairs."'''
 
 
 vancelle = Librarian('vancelle')
-vancelle.add_levels(set(('french book',)), set(('fairy tale book',
-    'floral book', 'princess book')), set(('astronomy book', 'potions book',
-    'fantasy book','magic book', 'dark history book')), set(('odyssean book',
-    'epic book', 'diary')), set(('labyrinth book',)), set(('drama book',)))
+vancelle.add_levels({1: ['french book'], 2: ['fairy tale book',
+    'floral book', 'princess book'], 3: ['astronomy book', 'potions book',
+    'fantasy book','magic book', 'dark history book'], 4: ['odyssean book',
+    'epic book', 'diary', 'western book'], 5: ['labyrinth book',
+    'south african book'], 6: ['drama book']})
 
 uu_librarian = NPC('orangutan', ['"Ooook ook."', '"Eeek eek!"',
     '"Ook eek." >:('], want='chalk')
