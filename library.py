@@ -48,7 +48,6 @@ if __name__ == "__main__":
 #To do:
 #Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,
 #often in the middle of a word. Would also need to delete extra spaces if I can do automatic line breaks.)
-#Sloppy code, incl. initializations at the bottom.
 #Add in more Clayr hallway landmarks as I add other libraries.
 #Add Dream's library?, DW, Ghostbusters?
 #Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).

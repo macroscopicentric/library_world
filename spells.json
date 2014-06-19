@@ -1,0 +1,14 @@
+{
+  "water": {
+    "name": "water", 
+    "size": "medium"
+  }, 
+  "human": {
+    "name": "human", 
+    "size": "medium"
+  }, 
+  "otter": {
+    "name": "otter", 
+    "size": "small"
+  }
+}

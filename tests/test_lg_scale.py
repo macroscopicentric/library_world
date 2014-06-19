@@ -1,9 +1,9 @@
 import unittest
 from nose.tools import eq_
 
-from library_world.rooms import directory as directory
+from library_world.rooms import directory
 import library_world.commands as commands
-import library_world.people as people
+from library_world.people import npc_list
 from library_world.player import player, home
 
 class TestCommands(unittest.TestCase):
@@ -29,10 +29,11 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
     def test_talk_normal_NPC(self):
         player.location = 'middle_librarian_hallway'
         output = commands.command((['talk', 'imshi']), player)
-        self.assertIn(output, people.imshi.dialogue)
+        self.assertIn(output, npc_list['imshi'].dialogue)
 
     def test_talk_vancelle(self):
         player.location = 'chiefs_office'
+        print npc_list['vancelle'].levels
         output = commands.command((['talk', 'vancelle']), player)
         vancelle_dialogue = {'header': '"You need to shelve these books to get to level 2:"',
             'text': ['french book']}
@@ -45,7 +46,7 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
         output = commands.command((['talk', 'vancelle']), player)
         vancelle_dialogue = {'header':
             '"Congratulations, you\'ve shelved your first book. Now go do the rest. You need to shelve these books to get to level 3:"',
-            'text': people.vancelle.levels[2],
+            'text': npc_list['vancelle'].levels['2'],
             'event': '''Level up! You're now level 2.'''}
         eq_(output, vancelle_dialogue)
 

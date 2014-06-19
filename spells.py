@@ -1,16 +1,12 @@
+from import_from_json import import_from_json
 from player import player
 import rooms
-
-spells = {}
-#not used for anything yet. need to be able to respond to commands and use
-#different forms for different things. things other than small spaces?
 
 class Spell(object):
     def __init__(self, name=None, size='medium', flying=False):
         self.name = name
         self.size = size
         self.flying = flying
-        spells[name] = self
 
     def use_spell(self):
         small_spaces = []
@@ -55,6 +51,4 @@ bright and good at your job.'''
         else:
                 return "You don't know that spell, sorry."
 
-otter = Spell('otter', 'small')
-human = Spell('human')
-water = Spell('water')
+spells = import_from_json('spells', Spell)

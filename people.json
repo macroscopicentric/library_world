@@ -1,0 +1,85 @@
+{
+  "jorge": {
+    "dialogue": [
+      "\"Laughter kills fear, and without fear there can be no faith, because\nwithout fear of the Devil, there is no need of God.\"", 
+      "\"Christ never laughed and nor should you.\"", 
+      "\"Laughter is a devilish wind which deforms the lineaments of the face and\nmakes men look like monkeys.\"", 
+      "Jorge frowns at you severely."
+    ], 
+    "name": "jorge"
+  }, 
+  "cogsworth": {
+    "dialogue": [
+      "\"You shouldn't listen to that paraffin-headed peabrain!\"", 
+      "\"I hope you enjoy our library; there are more books than you'll be able\nto read in a lifetime!\"", 
+      "\"This is an example of the late neoclassic Baroque period. And, as I\nalways say, 'If it's not Baroque, don't fix it!'\""
+    ], 
+    "name": "cogsworth"
+  }, 
+  "imshi": {
+    "dialogue": [
+      "\"Talk to Vancelle to learn what books you need to shelve. Make sure you\nhave your key though!\"", 
+      "\"If you're looking for your key, have you checked your office?\""
+    ], 
+    "name": "imshi"
+  }, 
+  "lumiere": {
+    "dialogue": [
+      "\"You shouldn't believe anything that overgrown pocketwatch says.\"", 
+      "\"Ma chere mademoiselle, I hope you enjoy our mountains of books!\"", 
+      "\"It is with deepest pride and greatest pleasure that we welcome you...\nto the library!\""
+    ], 
+    "name": "lumiere"
+  }, 
+  "orangutan": {
+    "dialogue": [
+      "\"Ooook ook.\"", 
+      "\"Eeek eek!\"", 
+      "\"Ook eek.\" >:("
+    ], 
+    "name": "orangutan", 
+    "want": "chalk"
+  }, 
+  "vancelle": {
+    "levels": {
+      "1": [
+        "french book"
+      ], 
+      "2": [
+        "fairy tale book", 
+        "floral book", 
+        "princess book"
+      ], 
+      "3": [
+        "astronomy book", 
+        "potions book", 
+        "fantasy book", 
+        "magic book", 
+        "dark history book"
+      ], 
+      "4": [
+        "odyssean book", 
+        "epic book", 
+        "diary", 
+        "western book"
+      ], 
+      "5": [
+        "labyrinth book", 
+        "south african book"
+      ], 
+      "6": [
+        "drama book"
+      ]
+    }, 
+    "name": "vancelle"
+  }, 
+  "clippy": {
+    "dialogue": [
+      "\"It looks like you're trying to become a first-assistant librarian!...\nI'm sorry, I can't help with that.\"", 
+      "\"I'm sorry, I've been ordered to ignore all attempts to hide my super useful\nawesome tips.\"", 
+      "\"Why would you want to disable me? I'm so helpful.\" :( :( :(", 
+      "\"YES HELPFUL I AM HELPING SO HELPFUL.\""
+    ], 
+    "name": "clippy"
+  }
+}

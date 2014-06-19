@@ -1,6 +1,6 @@
 import time
 
-from rooms import directory, labyrinths
+from rooms import directory
 
 home = 'reading_room'
 # home = 'chiefs_office'
@@ -84,7 +84,7 @@ class Player(object):
             return directory[self.location].describe()
 
     def teleport(self):
-        if self.location in labyrinths:
+        if 'labyrinth' in self.location:
             self.location = 'labyrinth1'
             return directory[self.location].describe()
         else:

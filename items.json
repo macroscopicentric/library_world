@@ -1,0 +1,46 @@
+{
+  "dagger": {
+    "name": "dagger", 
+    "description": "A silver dagger in a leather scabbard, attached to a belt. The blade\nlooks quite sharp and there are Charter marks etched on the hilt."
+  }, 
+  "statue": {
+    "name": "statue", 
+    "description": "It's a small soapstone statue of a dog. The nose is rubbed smooth."
+  }, 
+  "scissors": {
+    "name": "scissors", 
+    "description": "A pair of scissors."
+  }, 
+  "mouse": {
+    "name": "mouse", 
+    "description": "It's a small clockwork mouse, about the size of your fist. There's a\nturnkey sticking out of the back. Interestingly, it also buzzes in your hand,\nlike it's connected to the Charter somehow."
+  }, 
+  "red waistcoat": {
+    "name": "red waistcoat", 
+    "description": "A red waistcoat. Looking down, you decide that red is a much better\ncolor on you than yellow. There's a whistle clipped to the lapel."
+  }, 
+  "banana": {
+    "name": "banana", 
+    "description": "It's a banana. Why are you examining it."
+  }, 
+  "phial": {
+    "name": "phial", 
+    "description": "A small crystal phial. It's sealed with powerful Charter magic."
+  }, 
+  "wire": {
+    "name": "wire", 
+    "description": "A piece of wire about a foot long."
+  }, 
+  "key": {
+    "name": "key", 
+    "description": "It's a silver bracelet, set with seven emeralds. One is glowing."
+  }, 
+  "yellow waistcoat": {
+    "name": "yellow waistcoat", 
+    "description": "A yellow waistcoat. It flatters you quite nicely. And so professional!\nThere's a whistle clipped to the lapel."
+  }, 
+  "chalk": {
+    "name": "chalk", 
+    "description": "A piece of chalk. Pretty boring, really."
+  }
+}
