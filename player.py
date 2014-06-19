@@ -78,7 +78,11 @@ class Player(object):
         current_location_object = directory[self.location]
         next_location_object = directory[current_location_object.directions[direction]]
         if next_location_object.locked:
-            return next_location_object.locked_description
+            if self.alive == False:
+                self.location = next_location_object.short_name
+                return directory[self.location].describe()
+            else:
+                return next_location_object.locked_description
         else:
             self.location = next_location_object.short_name
             return directory[self.location].describe()

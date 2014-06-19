@@ -330,19 +330,20 @@
   "wtnv_library2": {
     "directions": {
       "s": "wtnv_library4", 
-      "e": "wtnv_library1"
+      "w": "wtnv_library3",
     }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You thought you'd left the biography section, but one of the\nnearby shelves has yet more copies of the official biography of Helen Hunt.\nTragically, this section of the library seems to lack both librarian repellant\ndispensers and trees. I would get out of here as soon as possible if I were\nyou, as you probably don't want to meet the librarians in this particular\nlibrary. There are doors to the east and south.", 
-    "name": "Night Vale Public Library - Northwest Corner", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You thought you'd left the biography section, but one of the\nnearby shelves has yet more copies of the official biography of Helen Hunt.\nTragically, this section of the library seems to lack both librarian repellant\ndispensers and trees. I would get out of here as soon as possible if I were\nyou, as you probably don't want to meet the librarians in this particular\nlibrary. There are doors to the west and south.", 
+    "name": "Night Vale Public Library - Northeast Corner", 
     "short_name": "wtnv_library2", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
   }, 
   "wtnv_library3": {
     "directions": {
-      "s": "wtnv_library5", 
-      "w": "wtnv_library1"
+      "s": "wtnv_library6", 
+      "e": "wtnv_library2",
+      "w": "wtnv_library1",
     }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. There are two very old (vintage? decrepit? Pleistocene?\ncarbon-dated?) computers in the corner, with hand-lettered \"Out of Order\" signs\ntaped to their screens. Tragically, this section of the library seems to lack\nboth librarian repellant dispensers and trees. I would get out of here as soon\nas possible if I were you, as you probably don't want to meet the librarians in\nthis particular library. There are doors to the west and south.", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. There are two very old (vintage? decrepit? Pleistocene?\ncarbon-dated?) computers in the corner, with hand-lettered \"Out of Order\" signs\ntaped to their screens. Tragically, this section of the library seems to lack\nboth librarian repellant dispensers and trees. I would get out of here as soon\nas possible if I were you, as you probably don't want to meet the librarians in\nthis particular library. There are doors to the east, west, and south.", 
     "name": "Night Vale Public Library - Northeast Corner", 
     "short_name": "wtnv_library3", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
@@ -468,11 +469,11 @@
   }, 
   "wtnv_library4": {
     "directions": {
-      "e": "wtnv_library6", 
+      "w": "wtnv_library6", 
       "n": "wtnv_library2"
     }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. The shelves here are completely empty. Tragically, this section\nof the library seems to lack both librarian repellant dispensers and trees. I\nwould get out of here as soon as possible if I were you, as you probably don't\nwant to meet the librarians in this particular library. There are doors to the\nnorth and east.", 
-    "name": "Night Vale Public Library - Southwest Corner", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. The shelves here are completely empty. Tragically, this section\nof the library seems to lack both librarian repellant dispensers and trees. I\nwould get out of here as soon as possible if I were you, as you probably don't\nwant to meet the librarians in this particular library. There are doors to the\nnorth and west.", 
+    "name": "Night Vale Public Library - Southeast Corner", 
     "short_name": "wtnv_library4", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
   }, 
@@ -583,9 +584,10 @@
     "directions": {
       "u": "uu_library3", 
       "d": "uu_library1", 
-      "n": "uu_library2"
+      "s": "uu_library2",
+      "n": "hall8",
     }, 
-    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the north before ending in a\nmassive window that takes up the entire northen wall. There are also stairs\nleading up and down, and a door to the south."
+    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the south."
   }, 
   "uu_library3": {
     "directions": {
@@ -599,11 +601,11 @@
   }, 
   "uu_library2": {
     "directions": {
-      "s": "uu_library1", 
+      "n": "uu_library1", 
       "u": "uu_library4", 
       "d": "uu_library2"
     }, 
-    "description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the south. There are also stairs leading up and down.", 
+    "description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down.", 
     "name": "Unseen University Library", 
     "short_name": "uu_library2", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
@@ -624,7 +626,7 @@
       "e": "wtnv_library1", 
       "n": "hall20"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent.\"\nThere are archways to the north and south, and a door to the north with two\nemeralds over it.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent\"\nwith a purple eye stamped on it. There are archways to the north and south,\nand a door to the north with two emeralds over it.", 
     "name": "North-South Hallway", 
     "short_name": "hall19", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
@@ -635,7 +637,7 @@
       "w": "alexandria1", 
       "n": "hall11"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south. There is a door with two emeralds\nover it to the west, flanked by two stone columns topped with papyrus-patterned\ncapitals.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south. There is a door with two emeralds\nover it to the west, flanked by two stone columns topped with capitals that look\nlike scrolls of parchment.", 
     "name": "North-South Hallway", 
     "short_name": "hall10", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
@@ -682,10 +684,10 @@
     "name": "East-South Hallway"
   }, 
   "hall15": {
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and south, and a velvet rope sealed with\nVancelle's official seal blocking a door to the west. Next to the door, there's\na sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\"", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and south, and a velvet rope sealed with\nVancelle's official seal blocking a door to the west. Next to the door, there's\na sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
     "short_name": "hall15", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
-    "secondary_description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere's a velvet rope piled neatly in the corner. There are archways to the\nnorth and south, and a door to the west. Next to the door, there's a sign posted:\n\"RESTRICTED. Do not enter without Madame Pince's permission.\"", 
+    "secondary_description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere's a velvet rope piled neatly in the corner. There are archways to the\nnorth and south, and a door to the west. Next to the door, there's a sign posted:\n\"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
     "directions": {
       "s": "hall16", 
       "w": "restricted", 
@@ -823,16 +825,16 @@
   }, 
   "wtnv_library5": {
     "directions": {
-      "w": "wtnv_library6", 
-      "n": "wtnv_library3"
+      "e": "wtnv_library6", 
+      "n": "wtnv_library1"
     }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You think this might be the horror section, as all of the books\nyou can see seem to be about faceless spectres. Tragically, this section of the\nlibrary seems to lack both librarian repellant dispensers and trees. I would\nget out of here as soon as possible if I were you, as you probably don't want\nto meet the librarians in this particular library. There are doors to the north\nand west.", 
-    "name": "Night Vale Public Library - Southeast Corner", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You think this might be the horror section, as all of the books\nyou can see seem to be about faceless spectres. Tragically, this section of the\nlibrary seems to lack both librarian repellant dispensers and trees. I would\nget out of here as soon as possible if I were you, as you probably don't want\nto meet the librarians in this particular library. There are doors to the north\nand east.", 
+    "name": "Night Vale Public Library - Southwest Corner", 
     "short_name": "wtnv_library5", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying."
   }, 
   "wtnv_library6": {
-    "description": "This room is shaped like a pirate ship, with a mast that almost reaches\nthe ceiling. Dismembered bodies cover the floor. There are doors to the east\nand west.", 
+    "description": "This room is shaped like a pirate ship, with a mast that almost reaches\nthe ceiling. Dismembered bodies cover the floor. There are doors to the\nnorth, east, and west.", 
     "short_name": "wtnv_library6", 
     "locked_description": "That door's locked. And it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "inventory": [
@@ -840,8 +842,9 @@
     ], 
     "directions": {
       "u": "wtnv_library7", 
-      "e": "wtnv_library5", 
-      "w": "wtnv_library4"
+      "w": "wtnv_library5", 
+      "e": "wtnv_library4",
+      "n": "wtnv_library3"
     }, 
     "name": "Night Vale Public Library - Childrens' Sections"
   }, 
@@ -1194,9 +1197,10 @@
     ], 
     "directions": {
       "e": "wtnv_library3", 
-      "w": "wtnv_library2"
+      "w": "hall19",
+      "s": "wtnv_library5"
     }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You seem to be in the biography section, as on the nearest shelf\nyou can see three shelves full of copies of the official biography of Helen\nHunt. Tragically, this section of the library seems to lack both librarian\nrepellant dispensers and trees. I would get out of here as soon as possible if\nI were you, as you probably don't want to meet the librarians in this\nparticular library. There are doors to the north, east, and west."
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You seem to be in the biography section, as on the nearest shelf\nyou can see three shelves full of copies of the official biography of Helen\nHunt. Tragically, this section of the library seems to lack both librarian\nrepellant dispensers and trees. I would get out of here as soon as possible if\nI were you, as you probably don't want to meet the librarians in this\nparticular library. There are doors to the south, east, and west."
   }, 
   "beast_library1": {
     "directions": {
