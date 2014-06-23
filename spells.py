@@ -1,31 +1,25 @@
-from import_from_json import import_from_json
-from player import player
-import rooms
-
 class Spell(object):
-    def __init__(self, name=None, size='medium', flying=False):
-        self.name = name
-        self.size = size
-        self.flying = flying
+    def __init__(self):
+        self.name = ''
+        self.size = 'medium'
+        self.flying = False
 
-    def use_spell(self):
+    def use_spell(self, game, player, directory):
         small_spaces = []
 
-        if self.name in player.known_spells:
+        if self.name in player['known_spells']:
             if self.name == 'water':
-                if player.location == rooms.alexandria1:
-                    rooms.alexandria1.add_counter()
+                if player['location'] == directory['alexandria1']:
+                    directory['alexandria1'].add_counter()
                     return "You spray the fires, and they go out. The walls are now gently smoking."
                 else:
                     return '''You spray water everywhere. In a library. You're clearly very
 bright and good at your job.'''
 
-            elif player.shape != self.name:
-                if player.spell_counter == 0:
-                    feedback = {'header': player.first_spell()}
-                player.shape = self.name
-                player.size = self.size
-                player.flying = self.flying
+            elif player['shape'] != self.name:
+                if player['spell_counter'] == 0:
+                    feedback = {'header': game.first_spell()}
+                game.spell_change(self)
 
                 #For spells that start with a vowel:
                 if self.name == 'otter' or self.name == 'owl':
@@ -35,13 +29,13 @@ bright and good at your job.'''
                 else:
                     feedback['text'] = "You're a %s!" % self.name
 
-                if player.size == 'small':
+                if player['size'] == 'small':
                     for room in small_spaces:
-                        rooms.room.unlock()
+                        directory[room].unlock()
                     feedback['text'] += " You've shrunk substantially. Now you can climb through small spaces."
-                elif player.size == 'large':
+                elif player['size'] == 'large':
                     feedback['text'] += " You're huge! Nothing's going to mess with you."
-                if player.flying == True:
+                if player['flying'] == True:
                     feedback['text'] += " You can fly!"
 
                 return feedback
@@ -51,4 +45,3 @@ bright and good at your job.'''
         else:
                 return "You don't know that spell, sorry."
 
-spells = import_from_json('spells', Spell)

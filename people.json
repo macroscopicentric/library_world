@@ -54,14 +54,14 @@
         "astronomy book", 
         "potions book", 
         "fantasy book", 
-        "magic book", 
-        "dark history book"
+        "dark history book",
+        "diary"
       ], 
       "4": [
         "odyssean book", 
         "epic book", 
-        "diary", 
-        "western book"
+        "western book",
+        "magic book"
       ], 
       "5": [
         "labyrinth book", 

@@ -1,26 +1,20 @@
 import random
 
-from import_from_json import import_from_json
 import formatting
-import rooms
-from items import item_list
 
 class NPC(object):
-    def __init__(self, name=None, dialogue=None, want=''):
-        self.name = name
-        if dialogue == None:
-            self.dialogue = []
-        else:
-            self.dialogue = dialogue
-        self.want = want
+    def __init__(self):
+        self.name = ''
+        self.dialogue = []
+        self.want = ''
         self.wish_come_true = False
 
     def new_dialogue(self, new_dialogue):
         self.dialogue = new_dialogue
 
-    def talk(self, player):
+    def talk(self, game, player_state):
         if self.name == 'orangutan' and self.wish_come_true == False:
-            if player.invent_test('translation book'):
+            if game.invent_test('translation book'):
                 self.new_dialogue(['''"Oh woe is me," says the Librarian forlornly, "I have lost my
 chalk and cannot navigate the library, like Theseus in the
 Minotaur's Labyrinth."'''])
@@ -33,12 +27,12 @@ Minotaur's Labyrinth."'''])
         except:
             return "%s doesn't say anything." % (self.name.capitalize())
 
-    def wish_fulfillment(self, item, player):
+    def wish_fulfillment(self, game, item):
         if self.name == 'orangutan':
             if self.want == item:
                 reward = 'charter book'
-                player.drop(item)
-                player.take(reward)
+                game.drop(item)
+                game.take(reward)
                 self.wish_come_true = True
                 self.new_dialogue(['The orangutan smiles contentedly at you.']) 
                 return (formatting.print_npc(self.name,
@@ -52,35 +46,33 @@ Minotaur's Labyrinth."'''])
 
 
 class Librarian(NPC):
-    def __init__(self, *args):
-        super(Librarian, self).__init__(*args)
+    def __init__(self):
+        super(Librarian, self).__init__()
         self.levels = {}
-
-    def add_levels(self, book_dict):
-        for level, books in book_dict.iteritems():
-            self.levels[level] = books
             
-    def level_up(self, player):
+    def level_up(self, game, player):
         level_dialogue = {'text': []}
-        str_level = str(player.level)
         for level in self.levels:
-            if (set(self.levels[level]) <= set(player.shelved_books)) and player.invent_test('key'):
-                player.level_up()
-                item_list['key'].level_up(player.level)
-                level_dialogue['event'] = '''Level up! You're now level %s.''' % (player.level)
+            if (set(self.levels[level]) <= set(player['shelved_books']) and
+                game.invent_test('key')):
 
-                #How to print the following only the first time, when they level up?
-                if player.level == 2:
+                game.level_up()
+                int_level = player['level']
+                str_level = str(int_level)
+                game.item_list['key'].level_up(game, int_level)
+                level_dialogue['event'] = '''Level up! You're now level %s.''' % (int_level)
+
+                if int_level == 2:
                     level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                if player.level == 4:
+                if int_level == 4:
                     level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
         return level_dialogue
 
-    def talk(self, player):
-        level_dialogue = self.level_up(player)
-        goal = '''"You need to shelve these books to get to level %i:"''' % (player.level + 1)
+    def talk(self, game, player):
+        level_dialogue = self.level_up(game, player)
+        goal = '''"You need to shelve these books to get to level %s:"''' % (player['level'] + 1)
 
         #for proper formatting of dialogue ("") and adding space between potential dialogue from level_up.
         if 'header' in level_dialogue.keys():
@@ -88,9 +80,8 @@ downstairs."'''
         else:
             level_dialogue['header'] = goal
 
-        for book in self.levels[str(player.level)]:
+        for book in self.levels[str(player['level'])]:
             level_dialogue['text'] += [book]
 
         return level_dialogue
 
-npc_list = import_from_json('people', NPC, Librarian)

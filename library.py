@@ -1,17 +1,15 @@
-from player import player
-from rooms import directory
-import commands
+from game import game
+from commands import command
 
 def from_terminal_play():
-    print terminal_formatting(directory[player.location].describe())
+    print terminal_formatting(game.directory[game.player_state['location']].describe())
     while True:
-        output = commands.command(commands.input_format(raw_input(">")), player)
+        output = command(raw_input(">"), game)
         print terminal_formatting(output)
 
 def terminal_formatting(output):
-    #I'm really specific about the number of line breaks I want okay.
-    #Two possible outputs: a string or a dictionary.
-    if type(output) == str:
+    #Two possible outputs: unicode/string or a dictionary.
+    if isinstance(output, basestring):
         return output
 
     description = output['text'][0]
@@ -37,10 +35,12 @@ def terminal_formatting(output):
     return formatted_output
 
 def start_web():
-    return directory[player.location].describe(), directory[player.location].name
+    return (game.directory[game.player_state['location']].describe(),
+        game.directory[game.player_state['location']].name)
 
 def play_web(flask_input):
-    return commands.command(commands.input_format(flask_input), player), directory[player.location].name
+    return (command(flask_input, game),
+        game.directory[game.player_state['location']].name)
 
 if __name__ == "__main__":
     from_terminal_play()
