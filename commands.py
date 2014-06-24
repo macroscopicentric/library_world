@@ -1,5 +1,3 @@
-import sys
-import pickle
 import random
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
@@ -7,87 +5,19 @@ moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'northwest': 'nw', 'nw': 'nw', 'southwest': 'sw', 'sw': 'sw',
 'southeast': 'se', 'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
 
-arts_and_preps = ['to', 'the', 'a', 'an', 'with']
-
-def input_format(user_input):
-    user_input = user_input.lower().split(" ", 1)
-
-    if "." in user_input[-1]:
-        detail = user_input.pop().split(".").pop(0)
-        user_input.append(detail)
-
-    #allows splitting for compound sentences ("give __ to __") while still
-    #retaining book items as one word.
-    if len(user_input) > 1:
-        if 'book' in user_input[1]:
-            user_input = [user_input[0]] + user_input[1].split('book ', 1)
-            try:
-                user_input = user_input[0:2] + user_input[2].split(' ')
-            except:
-                pass
-        elif 'waistcoat' in user_input[1]:
-            pass
-        else:
-            user_input = [user_input[0]] + user_input[1].split(' ')
-
-    #removing articles/prepositions from user input:
-    for word in arts_and_preps:
-        if word in user_input:
-            user_input.remove(word)
-
-    return user_input
-
 #def command(user_input, player, play) to allow restart/load
-def command(unformatted_input, game):
+def command(user_input, game, play=None):
     player = game.player_state
     item_list = game.item_list
     directory = game.directory
     npc_list = game.npc_list
     spells = game.spells
 
-    user_input = input_format(unformatted_input)
     verb = user_input[0]
     if len(user_input) > 1: direct_object = user_input[1]
     if len(user_input) > 2: indirect_object = user_input[2]
 
     #Helper functions so I can add all methods to the verbs dictionary:
-    #save/load/restart not currently working
-    def save():
-        #Currently saves/loads player's location and sets correct item locations.
-        #Doesn't save other player/room status info (alive/dead, opened doors, etc).
-        print "Save file name:"
-        save_name = input_format()[0] + '.txt'
-        #can i ask about overwriting a previous save file?
-        with open(save_name, 'wb') as save_file:
-            pickle.dump(player, save_file)
-            pickle.dump(rooms.directory, save_file)
-        #recommended by Dive Into Python 3 (excellent explanation of
-        #serialization and how to use pickle).
-        #with open() ensures that the file is closed. Pickle only reads/writes
-        #binary, so 'wb' is needed.
-        return "File saved."
-
-    def load():
-        print "What's the file name?"
-        save_name = input_format()[0] + '.txt'
-        #how to search for file, so it doesn't try to open a non-existent file?
-        #Alan's suggestion, to pull from the game state dict at top:
-        #game_state.player = pickle.load(thePcileFile.txt)
-        with open(save_name, 'rb') as save_file:
-            player = pickle.load(save_file)
-            rooms.directory = pickle.load(save_file)
-        play()
-
-    def restart():
-        print "Are you sure you want to restart? Y/N"
-        user_input = verbs_list.input_format()
-        if user_input == "y" or user_input == "yes":
-            play()
-        elif user_input == "n" or user_input == "no":
-            pass
-        else:
-            return 'I\'m sorry, I don\'t understand that command.'
-
     def help_command():
         return {'header':'''My commands are like a traditional text adventure\'s.
 To move, use cardinal or ordinal directions or "up" and "down". Other commands
@@ -269,21 +199,18 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
     'look': look, 'z': look, 'l': look, 'inventory': inventory, 'xyzzy': xyzzy,
     'zork': zork, 'i': inventory, 'spells': game.spell_check,
     'teleport': game.teleport, 'x': examine, 'take': take, 'level': level_check,
-    'examine': examine, 'drop': drop, 'restart': restart, 'read': read,
-    'open': read, 'save': save, 'load': load, 'shelve': shelve, 'cast': cast,
+    'examine': examine, 'drop': drop, 'read': read,
+    'open': read, 'shelve': shelve, 'cast': cast,
     'fuck': swear, 'damn': swear, 'shit': swear, 'give': give, 'talk': talk,
     'cut': break_thing, 'break': break_thing}
 
     try:
         return verbs[verb]()
     except:
-        #sys.exit() doesn't work within a try.
-        if verb == 'exit' or verb == 'quit':
-            sys.exit()
         #is there a way to put the part below in the dictionary as well? created
         #a tuple from the keys but then it's NESTED and the search (try above) only
         #goes one level deep.
-        elif verb in moves.keys():
+        if verb in moves.keys():
             output = move()
             if ('banana' in directory['hall15'].inventory and
                     directory[player['location']].check_banana):
@@ -291,6 +218,6 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
                 return output
             else:
                 return output
-        # else:
-        #     return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
+        else:
+            return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 

@@ -1,11 +1,77 @@
-from game import game
+import json
+import sys
+
+from game import Game, simplify, reconstitute
 from commands import command
 
+def save(game, save_name):
+    try:
+        json_dict = simplify(game)
+        json.dump(json_dict, open((save_name + '.txt'), 'w'), separators=(',', ':'))
+        return "File saved."
+    except:
+        return '''I didn't understand that. Did you use the format "save [filename]?"'''
+
+def load(game, save_name):
+    try:
+        json_dict = json.load(open(save_name + '.txt'))
+        game = Game()
+        game = reconstitute(json_dict)
+        new_game_output = {'event': 'Loading...'}
+        new_game_output += game.directory[game.player_state['location']].describe()
+        return new_game_output
+    except: return '''I didn't understand that. Did you use the format "load [filename]?"'''
+
+def restart(game, save_name):
+    new_game_output = {'event': 'Restarting...'}
+    game = Game()
+    new_game_output += game.directory[game.player_state['location']].describe()
+    return new_game_output
+
+functional_commands = {'save': save, 'load': load, 'restart': restart}
+
+#Helper function that takes user input and returns parsed list.
+def input_format(user_input):
+    user_input = user_input.lower().split(" ", 1)
+
+    if "." in user_input[-1]:
+        detail = user_input.pop().split(".").pop(0)
+        user_input.append(detail)
+
+    #allows splitting for compound sentences ("give __ to __") while still
+    #retaining book items as one word.
+    if len(user_input) > 1:
+        if 'book' in user_input[1]:
+            user_input = [user_input[0]] + user_input[1].split('book ', 1)
+            try:
+                user_input = user_input[0:2] + user_input[2].split(' ')
+            except:
+                pass
+        elif 'waistcoat' in user_input[1]: #Can't give waistcoat like this.
+            pass
+        else:
+            user_input = [user_input[0]] + user_input[1].split(' ')
+
+    #removing articles/prepositions from user input:
+    arts_and_preps = ['to', 'the', 'a', 'an', 'with']
+    for word in arts_and_preps:
+        if word in user_input:
+            user_input.remove(word)
+
+    return user_input
+
 def from_terminal_play():
+    game = Game()
     print terminal_formatting(game.directory[game.player_state['location']].describe())
     while True:
-        output = command(raw_input(">"), game)
-        print terminal_formatting(output)
+        player_response = input_format(raw_input('>'))
+        if player_response[0] in functional_commands:
+            print functional_commands[player_response[0]](game, player_response[1])
+        elif player_response[0] in ['exit', 'quit']:
+            sys.exit()
+        else:
+            output = command(player_response, game)
+            print terminal_formatting(output)
 
 def terminal_formatting(output):
     #Two possible outputs: unicode/string or a dictionary.
@@ -35,14 +101,22 @@ def terminal_formatting(output):
     return formatted_output
 
 def start_web():
+    game = Game()
     return (game.directory[game.player_state['location']].describe(),
         game.directory[game.player_state['location']].name)
 
 def play_web(flask_input):
-    return (command(flask_input, game),
-        game.directory[game.player_state['location']].name)
+    player_response = input_format(flask_input)
+    if player_response[0] in functional_commands:
+        return functional_commands[player_response[0]](game)
+    elif player_response[0] in ['exit', 'quit']:
+        sys.exit()
+    else:
+        return (command(player_response, game),
+            game.directory[game.player_state['location']].name)
 
 if __name__ == "__main__":
+    game = Game()
     from_terminal_play()
 
 #To do:
@@ -60,6 +134,7 @@ if __name__ == "__main__":
 #Do anything with disreputable dog statue?
 #Move archbishop book to DW library.
 #Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
+#"Quit/exit" = sys.exit(), so v. abrupt from web app.
 
 #Bug: glitches (can be delayed) after saving/loading and then trying to exit. ("I'm sorry, I don't understand that command...")
 #Bug: save/load having a lot of issues.

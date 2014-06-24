@@ -1,21 +1,22 @@
 import unittest
 from nose.tools import eq_
 
-from library_world.game import game
+from library_world.game import game, home
 from library_world.commands import command
 
 player = game.player_state
 directory = game.directory
 spells = game.spells
 npc_list = game.npc_list
-home = 'reading_room'
 
 class TestCommands(unittest.TestCase):
     def tearDown(self):
-        player['inventory'] = []
-        player['location'] = home
-        player['level'] = 1
-        player['shelved_books'] = set()
+        player.update(dict(
+            inventory=[],
+            location=home,
+            level=1,
+            shelved_books=[]
+            ))
         directory['third_assistant_study'].inventory = ['mouse', 'key',
             'yellow waistcoat', 'dagger']
         directory['reading_room'].inventory = []
@@ -77,11 +78,14 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
         eq_(directory['reading_room'].inventory, ['diary', 'key', 'scissors'])
         eq_(directory['upper_librarian_hallway'].inventory, [])
 
-    def test_save(self):
-        player['level'] = 2
-        player['shelved_books'] = ['french book']
-        player['inventory'] = ['diary', 'floral book', 'yellow waistcoat', 'key']
-        pass
+    # def test_save(self):
+    #     player.update(dict(
+    #         inventory=['diary', 'floral book', 'yellow waistcoat', 'key'],
+    #         location='labyrinth1',
+    #         level=2,
+    #         shelved_books=['french book']
+    #         ))
+    #     pass
 
 class TestEvents(unittest.TestCase):
     def tearDown(self):

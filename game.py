@@ -128,4 +128,28 @@ class Game(object):
             self.player_state['location'] = home
             return self.directory[self.player_state['location']].describe()
 
-game = Game()
+
+
+#Save/load helpers for converting to json:
+def simplify(game_object):
+    if isinstance(game_object, (int, basestring, list, type(None), bool)):
+        return game_object
+    elif isinstance(game_object, dict):
+        return {k: simplify(v) for k, v in game_object.iteritems()}
+    else:
+        custom_type = type(game_object).__name__
+        d = simplify(game_object.__dict__)
+        d['custom_type'] = custom_type
+        return d
+ 
+def reconstitute(json_dict):
+    if isinstance(json_dict, (int, basestring, list, type(None), bool)):
+        return json_dict
+    elif isinstance(json_dict, dict):
+        if 'kind' in json_dict:
+            game_object = globals()[json_dict.pop('kind')]()
+            for name, value in json_dict.iteritems():
+                game_object.__dict__[name] = reconstitute(value)
+        return game_object
+    else:
+        return {k: reconstitute(v) for k, v in json_dict.iteritems()}
