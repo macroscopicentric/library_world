@@ -4,7 +4,7 @@ from library import start_web, play_web
 
 anything_butt_butts = Flask(__name__)
 
-description, room_name = start_web()
+description, room_name, game = start_web()
 
 @anything_butt_butts.route('/library_world', methods=['GET','POST'])
 def game_function():
@@ -15,7 +15,7 @@ def game_function():
     else:
         anything_butt_butts.response = request.form['response']
 
-        description, room_name = play_web(anything_butt_butts.response)
+        description, room_name = play_web(anything_butt_butts.response, game)
 
         return render_template('game.html', room=room_name,
             output=description)

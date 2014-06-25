@@ -1,7 +1,7 @@
 import json
 import sys
 
-from game import Game, simplify, reconstitute
+from game import Game, simplify, reconstitute, home
 from commands import command
 
 def save(game, save_name):
@@ -22,13 +22,12 @@ def load(game, save_name):
         return new_game_output
     except: return '''I didn't understand that. Did you use the format "load [filename]?"'''
 
-def restart(game, save_name):
+def restart(game):
     new_game_output = {'event': 'Restarting...'}
     game = Game()
     new_game_output += game.directory[game.player_state['location']].describe()
     return new_game_output
 
-functional_commands = {'save': save, 'load': load, 'restart': restart}
 
 #Helper function that takes user input and returns parsed list.
 def input_format(user_input):
@@ -60,18 +59,27 @@ def input_format(user_input):
 
     return user_input
 
+#Helper function for terminal/flask repeating code.
+def play_game(user_input):
+    player_response = input_format(user_input)
+    if player_response[0] == 'load':
+        return load(game, player_response[1])
+    elif player_response[0] == 'save':
+        return save(game, player_response[1])
+    elif player_response[0] == 'restart':
+        return restart(game)
+    elif player_response[0] in ['exit', 'quit']:
+        #Need softer exit here.
+        sys.exit()
+    else:
+        return command(player_response, game)
+
 def from_terminal_play():
     game = Game()
     print terminal_formatting(game.directory[game.player_state['location']].describe())
     while True:
-        player_response = input_format(raw_input('>'))
-        if player_response[0] in functional_commands:
-            print functional_commands[player_response[0]](game, player_response[1])
-        elif player_response[0] in ['exit', 'quit']:
-            sys.exit()
-        else:
-            output = command(player_response, game)
-            print terminal_formatting(output)
+        print terminal_formatting(play_game(raw_input('>')))
+
 
 def terminal_formatting(output):
     #Two possible outputs: unicode/string or a dictionary.
@@ -103,17 +111,11 @@ def terminal_formatting(output):
 def start_web():
     game = Game()
     return (game.directory[game.player_state['location']].describe(),
-        game.directory[game.player_state['location']].name)
+        game.directory[game.player_state['location']].name, game)
 
-def play_web(flask_input):
-    player_response = input_format(flask_input)
-    if player_response[0] in functional_commands:
-        return functional_commands[player_response[0]](game)
-    elif player_response[0] in ['exit', 'quit']:
-        sys.exit()
-    else:
-        return (command(player_response, game),
-            game.directory[game.player_state['location']].name)
+def play_web(flask_input, game):
+    return (play_game(flask_input),
+        game.directory[game.player_state['location']].name)
 
 if __name__ == "__main__":
     game = Game()
@@ -136,6 +138,7 @@ if __name__ == "__main__":
 #Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
 #"Quit/exit" = sys.exit(), so v. abrupt from web app.
 
+#Bug: fix restart (get rid of dictionary), tests not working.
 #Bug: glitches (can be delayed) after saving/loading and then trying to exit. ("I'm sorry, I don't understand that command...")
 #Bug: save/load having a lot of issues.
 #SOLVED: prints "none" when moving between rooms.

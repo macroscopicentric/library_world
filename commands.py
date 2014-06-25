@@ -6,7 +6,7 @@ moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
 'southeast': 'se', 'se': 'se', 'northeast': 'ne', 'ne': 'ne'}
 
 #def command(user_input, player, play) to allow restart/load
-def command(user_input, game, play=None):
+def command(user_input, game):
     player = game.player_state
     item_list = game.item_list
     directory = game.directory
@@ -114,7 +114,7 @@ using the piece of wire. You set the rope and seals in the corner.'''
             elif game.invent_test('scissors') or game.invent_test('dagger'):
                 temp = player['inventory'][:]
                 for item in temp:
-                    if 'book' in item or 'diary' == item:
+                    if ('book' in item and item != "translation book") or item == 'diary':
                         item_list[item].drop(game, directory['restricted'])
                 message = game.teleport()
                 message['event'] = '''As you poise to cut through the rope, Madam Pince
@@ -134,7 +134,7 @@ Spoiler: you're not super-human.'''
     def give():
         if indirect_object == directory[player['location']].npc:
             if direct_object in player['inventory']:
-                npc_list[indirect_object].wish_fulfillment(game, direct_object)
+                return npc_list[indirect_object].wish_fulfillment(game, direct_object)
             else:
                 return "You're not carrying that!"
         else:

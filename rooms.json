@@ -510,13 +510,13 @@
     "short_name": "labyrinth34"
   }, 
   "uu_library4": {
-    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the northern end where you're\nstanding, and into the southern end of the hall beyond. There are stairs\nleading down.", 
+    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the southern end where you're\nstanding, and into the northern end of the hall beyond. There are stairs\nleading down.", 
     "short_name": "uu_library4", 
     "inventory": [
       "princess book"
     ], 
     "directions": {
-      "s": "uu_library3", 
+      "n": "uu_library3", 
       "d": "uu_library2"
     }, 
     "name": "Unseen University Library - Walkway"
@@ -532,14 +532,14 @@
       "s": "uu_library2",
       "n": "hall8"
     }, 
-    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the south."
+    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the north."
   }, 
   "uu_library3": {
     "directions": {
       "d": "uu_library1", 
-      "n": "uu_library4"
+      "s": "uu_library4"
     }, 
-    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the southern end where you're\nstanding, and into the northern end of the hall beyond. There are stairs\nleading down.", 
+    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the northern end where you're\nstanding, and into the southern end of the hall beyond. There are stairs\nleading down.", 
     "name": "Unseen University Library - Walkway", 
     "short_name": "uu_library3"
   }, 
@@ -568,7 +568,7 @@
       "e": "wtnv_library1", 
       "n": "hall20"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent\"\nwith a purple eye stamped on it. There are archways to the north and south,\nand a door to the north with two emeralds over it.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent\"\nwith a purple eye stamped on it. There are archways to the north and south,\nand a door to the east with two emeralds over it.", 
     "name": "North-South Hallway", 
     "short_name": "hall19"
   }, 
@@ -873,7 +873,7 @@
       "w": "alexandria6", 
       "n": "alexandria2"
     }, 
-    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the other three walls. The only safe exit is to go back through the\ndoor east."
+    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the other three walls. The only safe exit is to go back through the\ndoor to the east."
   }, 
   "alexandria2": {
     "locked": true, 
@@ -914,6 +914,7 @@
       "d": "middle_librarian_hallway", 
       "n": "librarian_alcove"
     }, 
+    "npc": "imshi", 
     "description": "You're standing in a hallway, in the employees-only librarians' wing of\nthe library. Painted blue doors line the hallway, but they're all closed and\nlocked. There's a door at the south end of the hallway. There's an exit to the\nnorth, and steps leading down.", 
     "name": "Upper Hallway", 
     "short_name": "upper_librarian_hallway"
@@ -1018,7 +1019,6 @@
   "middle_librarian_hallway": {
     "description": "You're standing in a hallway. All of the doors are painted red. They're\nall closed and locked. There are stairs leading up and down.", 
     "short_name": "middle_librarian_hallway", 
-    "npc": "imshi", 
     "directions": {
       "e": "second_assistant_study", 
       "u": "upper_librarian_hallway", 

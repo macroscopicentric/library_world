@@ -67,7 +67,7 @@ class Book(Item):
             return "You have to pick it up first!"
 
     def shelve(self, game, location):
-        if location in self.home:
+        if location.short_name in self.home:
             game.shelve_book(self.name)
             return "You shelve the %s." % (self.name)
         else:
