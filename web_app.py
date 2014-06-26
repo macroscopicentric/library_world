@@ -6,19 +6,22 @@ anything_butt_butts = Flask(__name__)
 
 description, room_name, game = start_web()
 
-@anything_butt_butts.route('/library_world', methods=['GET','POST'])
-def game_function():
+@anything_butt_butts.route('/library_world')
+def start_game():
     global description, room_name
-    if request.method == 'GET':
-        return render_template('game.html', room=room_name,
-            output=description)
-    else:
-        anything_butt_butts.response = request.form['response']
+    return render_template('game.html', room=room_name,
+        output=description)
 
-        description, room_name = play_web(anything_butt_butts.response, game)
+@anything_butt_butts.route('/update')
+def play_game():
+    global description, room_name
+    anything_butt_butts.response = request.input['term']
 
-        return render_template('game.html', room=room_name,
-            output=description)
+    description, room_name = play_web(anything_butt_butts.response, game)
+    print description
+
+    return render_template('game.html', room=room_name,
+        output=description)
 
 if __name__ == '__main__':
     anything_butt_butts.run(debug=True)
