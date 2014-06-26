@@ -130,7 +130,7 @@ class Game(object):
 
 
 
-#Save/load helpers for converting to json:
+#Save/load helpers for converting to json (Tom's code):
 def simplify(game_object):
     if isinstance(game_object, (int, basestring, list, type(None), bool)):
         return game_object
@@ -146,10 +146,17 @@ def reconstitute(json_dict):
     if isinstance(json_dict, (int, basestring, list, type(None), bool)):
         return json_dict
     elif isinstance(json_dict, dict):
-        if 'kind' in json_dict:
-            game_object = globals()[json_dict.pop('kind')]()
+        if 'custom_type' in json_dict:
+            game_object = globals()[json_dict.pop('custom_type')]()
             for name, value in json_dict.iteritems():
                 game_object.__dict__[name] = reconstitute(value)
-        return game_object
+            return game_object
     else:
         return {k: reconstitute(v) for k, v in json_dict.iteritems()}
+
+
+
+
+
+
+

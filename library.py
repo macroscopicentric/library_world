@@ -12,15 +12,15 @@ def save(game, save_name):
     except:
         return '''I didn't understand that. Did you use the format "save [filename]?"'''
 
-def load(game, save_name):
-    try:
-        json_dict = json.load(open(save_name + '.txt'))
-        game = Game()
-        game = reconstitute(json_dict)
-        new_game_output = {'event': 'Loading...'}
-        new_game_output += game.directory[game.player_state['location']].describe()
-        return new_game_output
-    except: return '''I didn't understand that. Did you use the format "load [filename]?"'''
+def load(save_name):
+    # try:
+    json_dict = reconstitute(json.load(open(save_name + '.txt')))
+    game = Game()
+    # game.update(reconstitute(json_dict))
+    new_game_output = game.directory[game.player_state['location']].describe()
+    new_game_output['event'] = 'Loading...'
+    return new_game_output
+    # except: return '''I didn't understand that. Did you use the format "load [filename]?"'''
 
 def restart(game):
     new_game_output = {'event': 'Restarting...'}
@@ -63,7 +63,7 @@ def input_format(user_input):
 def play_game(user_input):
     player_response = input_format(user_input)
     if player_response[0] == 'load':
-        return load(game, player_response[1])
+        return load(player_response[1])
     elif player_response[0] == 'save':
         return save(game, player_response[1])
     elif player_response[0] == 'restart':
@@ -137,8 +137,7 @@ if __name__ == "__main__":
 #Move archbishop book to DW library.
 #Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
 #"Quit/exit" = sys.exit(), so v. abrupt from web app.
+#Fix open() statements so they use a context manager.
 
-#Bug: fix restart (get rid of dictionary), tests not working.
-#Bug: glitches (can be delayed) after saving/loading and then trying to exit. ("I'm sorry, I don't understand that command...")
-#Bug: save/load having a lot of issues.
-#SOLVED: prints "none" when moving between rooms.
+#Bug: reconstitute isn't working right; doesn't iterate through all of the levels, just creates the game w/ None values.
+
