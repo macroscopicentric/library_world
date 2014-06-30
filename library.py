@@ -13,14 +13,13 @@ def save(game, save_name):
         return '''I didn't understand that. Did you use the format "save [filename]?"'''
 
 def load(save_name):
-    # try:
-    json_dict = reconstitute(json.load(open(save_name + '.txt')))
-    game = Game()
-    # game.update(reconstitute(json_dict))
-    new_game_output = game.directory[game.player_state['location']].describe()
-    new_game_output['event'] = 'Loading...'
-    return new_game_output
-    # except: return '''I didn't understand that. Did you use the format "load [filename]?"'''
+    try:
+        game = reconstitute(json.load(open(save_name + '.txt')))
+        new_game_output = game.directory[game.player_state['location']].describe()
+        new_game_output['event'] = 'Loading...'
+        return new_game_output, game
+    except IOError:
+        return '''I didn't understand that. Did you use the format "load [filename]?"'''
 
 def restart(game):
     new_game_output = {'event': 'Restarting...'}

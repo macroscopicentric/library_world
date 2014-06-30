@@ -106,10 +106,9 @@ class TestMetaGameFunctions(unittest.TestCase):
         eq_(json.load(open('test_save.txt')), simplify(game))
 
     def testLoad(self):
-        game = library.load('test_save')
+        load_output, game = library.load('test_save')
         #Load function isn't working properly (reconstitute isn't iterating properly to re-initialize lower objects).
-        pass
-        # eq_(game, reconstitute(json.load(open('test_save.txt'))))
+        self.assertEquals(simplify(game), simplify(reconstitute(json.load(open('test_save.txt')))))
 
 
 class TestEvents(unittest.TestCase):
