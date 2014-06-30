@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, jsonify
 #Not sure if I need all of these, just copying from the tutorial for now.
 from library import start_web, play_web
 
@@ -17,8 +17,7 @@ def game_function():
 
         description, room_name = play_web(anything_butt_butts.response, game)
 
-        return render_template('game.html', room=room_name,
-            output=description)
+        return jsonify(room=room_name, output=description)
 
 if __name__ == '__main__':
     anything_butt_butts.run(debug=True)

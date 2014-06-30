@@ -69,5 +69,9 @@
         $(".textbox").focus();
     });
 </script>
+<!-- Copied from AJAX/Flask info: -->
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
 
 </html>
