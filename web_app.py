@@ -1,12 +1,17 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, session, jsonify
 import pdb
 
 from library import start_web, play_web
+from game import Game
 
 anything_butt_butts = Flask(__name__)
 
 @anything_butt_butts.route('/library_world')
 def start_game():
+    if 'saved_game' in session:
+        game = Game()
+        #To do:
+        web_load(game)
     #To restart game when browser refreshes:
     global description, room_name, game
     description, room_name, game = start_web()
@@ -23,6 +28,11 @@ def play_game():
 
     return jsonify(room=room_name, output=description)
 
+@anything_butt_butts.route('/')
+def testing():
+    return "Hello world! (Go to /library_world if you're looking for the text adventure.)"
+
+anything_butt_butts.secret_key = '00000'
 
 if __name__ == '__main__':
-    anything_butt_butts.run(debug=True)
+    anything_butt_butts.run(host='0.0.0.0')

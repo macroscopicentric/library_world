@@ -28,6 +28,14 @@ def restart(game):
     new_game_output += game.directory[game.player_state['location']].describe()
     return new_game_output
 
+#To Do:
+def web_save(game):
+    pass
+
+def web_load(game):
+    pass
+
+
 
 #Helper function that takes user input and returns parsed list.
 def input_format(user_input):

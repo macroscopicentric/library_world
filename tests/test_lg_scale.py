@@ -1,9 +1,10 @@
 import unittest
 from nose.tools import eq_
 
-from library_world.game import game, home
+from library_world.game import Game, home
 from library_world.commands import command
 
+game = Game()
 player = game.player_state
 directory = game.directory
 spells = game.spells

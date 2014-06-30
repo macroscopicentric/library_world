@@ -146,8 +146,8 @@ def reconstitute(json_dict):
     if isinstance(json_dict, (int, basestring, list, type(None), bool)):
         return json_dict
     elif isinstance(json_dict, dict):
-        if 'kind' in json_dict:
-            game_object = globals()[json_dict.pop('kind')]()
+        if 'custom_type' in json_dict:
+            game_object = globals()[json_dict.pop('custom_type')]()
             for name, value in json_dict.iteritems():
                 game_object.__dict__[name] = reconstitute(value)
         return game_object

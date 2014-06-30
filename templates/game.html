@@ -29,6 +29,7 @@
         width: 100%;
         height: 100%;
       }
+
       #panel {
         max-height: 500px;
         max-width: 800px;
@@ -72,6 +73,22 @@
         width: 10%;
         color: #826B41;
       }
+
+      .red {
+        color: #be3739;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .italics {
+        font-style: italic;
+      }
+
+      .no-spacing {
+        margin: 0;
+      }
     </style>
 </head>
 
@@ -83,43 +100,15 @@
 
             <div id="updates">
                 <p>
-                    {% if output is not mapping %}
-                        {{output}}
-                    
-                    {% else %}
-                        {% if 'event' in output.keys() %}
-                            {{output[event]}}
-                            <br>
-                            <br>
-                        {% endif %}
+                  <b>{{output['header']}}</b>
+                  <br>
+                  <br>
 
-                        {% if 'header' in output.keys() %}
-                            {{output['header']}}
-                            <br>
-                            <br>
-                        {% endif %}
-
-                        {{output['text'][0]}}
-                        {% for line in output['text'][1:] %}
-                            <br>
-                            {{line}}
-                        {% endfor %}
-
-                        {% if 'inventory' in output.keys() %}
-                            <br>
-                            <br>
-                            {{output['inventory']}}
-                        {% endif %}
-
-                        {% if 'npc' in output.keys() and 'inventory' in output.keys() %}
-                            <br>
-                            {{output['npc']}}
-                        {% elif 'npc' in output.keys() and 'inventory' not in output.keys() %}
-                            <br>
-                            <br>
-                            {{output['npc']}}
-                        {% endif %}
-                    {% endif %}
+                  {{output['text'][0]}}
+                  {% for line in output['text'][1:] %}
+                      <br>
+                      {{line}}
+                  {% endfor %}
                 </p>
             </div>
                 <br>
@@ -160,6 +149,7 @@
           var json = JSON.parse(this.responseText);
           var room = json.room;
           var gameStatus = json.output;
+          tinyUpdate("> " + command, 'red');
           updateRoom(room);
           updateGame(gameStatus);
         };
@@ -180,19 +170,19 @@
           tinyUpdate(gameUpdate);
         } else {
           if (gameUpdate.event) {
-              tinyUpdate(gameUpdate.event);
+              tinyUpdate(gameUpdate.event, 'italics');
               // <br>
               // <br>
           }
           else {
             if (gameUpdate.header) {
-              tinyUpdate(gameUpdate.header);
+              tinyUpdate(gameUpdate.header, 'bold');
               // <br>
               // <br>
             }
 
             gameUpdate.text.forEach(function (element, index, array) {
-              tinyUpdate(element);
+              tinyUpdate(element, "no-spacing");
             });
 
             if (gameUpdate.inventory) {
@@ -207,8 +197,9 @@
         updates.scrollTop = updates.scrollHeight;
       }
 
-      function tinyUpdate (stringOutput) {
+      function tinyUpdate (stringOutput, style) {
           var update = document.createElement('p');
+          update.className = style;
           update.innerHTML = stringOutput;
           updates.appendChild(update);
       }
