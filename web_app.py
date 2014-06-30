@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pdb
-import json
 
 from library import start_web, play_web
 
@@ -22,7 +21,7 @@ def play_game():
 
     description, room_name = play_web(anything_butt_butts.response, game)
 
-    return room_name + json.dumps(description)
+    return jsonify(room=room_name, output=description)
 
 
 if __name__ == '__main__':
