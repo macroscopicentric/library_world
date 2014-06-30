@@ -79,7 +79,7 @@
     <div id="body">
         <div id="panel">
             <h1 id="title">Library World</h1>
-            <p id="player_location">({{room}})</p>
+            <p id="player_location">{{room}}</p>
 
             <div id="updates">
                 <p>
@@ -156,20 +156,61 @@
         xhr.open('POST', '/update', true);
         xhr.setRequestHeader('Content-type', 'text/plain');
         xhr.onload = function (event) {
-          //goof.woohoo(); FIXME
-          updateGame(this.responseText);
+          console.log('The server sent "', this.responseText, '" game update.');
+          var json = JSON.parse(this.responseText);
+          var room = json.room;
+          var gameStatus = json.output;
+          updateRoom(room);
+          updateGame(gameStatus);
         };
         xhr.send(command);
       }
 
+      // Update room name at top of page.
+      function updateRoom (roomName) {
+        var roomP = document.getElementById('player_location');
+        roomP.innerHTML = roomName;
+      }
+
       // When the server replies, update the game.
       function updateGame (gameUpdate) {
-        console.log('The server sent "', gameUpdate, '" game update.');
         // do stuff, maybe
-        var update = document.createElement('p');
-        update.innerHTML = gameUpdate;
-        updates.appendChild(update);
+        if (typeof gameUpdate === 'string') {
+          console.log("gameUpdate is a string.");
+          tinyUpdate(gameUpdate);
+        } else {
+          if (gameUpdate.event) {
+              tinyUpdate(gameUpdate.event);
+              // <br>
+              // <br>
+          }
+          else {
+            if (gameUpdate.header) {
+              tinyUpdate(gameUpdate.header);
+              // <br>
+              // <br>
+            }
+
+            gameUpdate.text.forEach(function (element, index, array) {
+              tinyUpdate(element);
+            });
+
+            if (gameUpdate.inventory) {
+              tinyUpdate(gameUpdate.inventory);
+            }
+
+            if (gameUpdate.npc) {
+              tinyUpdate(gameUpdate.npc);
+            }
+          }
+        }
         updates.scrollTop = updates.scrollHeight;
+      }
+
+      function tinyUpdate (stringOutput) {
+          var update = document.createElement('p');
+          update.innerHTML = stringOutput;
+          updates.appendChild(update);
       }
 
     }, false);
