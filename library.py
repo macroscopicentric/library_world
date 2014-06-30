@@ -60,7 +60,7 @@ def input_format(user_input):
     return user_input
 
 #Helper function for terminal/flask repeating code.
-def play_game(user_input):
+def play_game(user_input, game):
     player_response = input_format(user_input)
     if player_response[0] == 'load':
         return load(game, player_response[1])
@@ -78,7 +78,7 @@ def from_terminal_play():
     game = Game()
     print terminal_formatting(game.directory[game.player_state['location']].describe())
     while True:
-        print terminal_formatting(play_game(raw_input('>')))
+        print terminal_formatting(play_game(raw_input('>'), game))
 
 
 def terminal_formatting(output):
@@ -114,7 +114,7 @@ def start_web():
         game.directory[game.player_state['location']].name, game)
 
 def play_web(flask_input, game):
-    return (play_game(flask_input),
+    return (play_game(flask_input, game),
         game.directory[game.player_state['location']].name)
 
 if __name__ == "__main__":
