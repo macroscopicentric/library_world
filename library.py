@@ -25,14 +25,13 @@ def restart(game):
     new_game_output = {'event': 'Restarting...'}
     game = Game()
     new_game_output += game.directory[game.player_state['location']].describe()
-    return new_game_output
+    return new_game_output, game
 
-#To Do:
-def web_save(game):
-    pass
-
-def web_load(game):
-    pass
+def web_load(game_dict):
+    game = reconstitute(game_dict)
+    new_game_output = game.directory[game.player_state['location']].describe()
+    new_game_output['event'] = 'Loading...'
+    return game, new_game_output
 
 
 
@@ -66,8 +65,8 @@ def input_format(user_input):
 
     return user_input
 
-#Helper function for terminal/flask repeating code.
-def play_game(user_input, game):
+#Helper function for terminal.
+def play_term_game(user_input, game):
     player_response = input_format(user_input)
     if player_response[0] == 'load':
         return load(player_response[1])
@@ -76,8 +75,23 @@ def play_game(user_input, game):
     elif player_response[0] == 'restart':
         return restart(game)
     elif player_response[0] in ['exit', 'quit']:
-        #Need softer exit here.
         sys.exit()
+    else:
+        return command(player_response, game)
+
+#Helper function for Flask. How to eliminate a lot of the 
+def play_web_game(user_input, game):
+    player_response = input_format(user_input)
+    if player_response[0] == 'load':
+        return web_load(game)
+    #No need for save, since the cookie saves automatically after every post.
+    # elif player_response[0] == 'save':
+    #     return web_save(game)
+    elif player_response[0] == 'restart':
+        return restart(game)
+    elif player_response[0] in ['exit', 'quit']:
+        #Need softer exit for flask version.
+        pass
     else:
         return command(player_response, game)
 
@@ -85,7 +99,7 @@ def from_terminal_play():
     game = Game()
     print terminal_formatting(game.directory[game.player_state['location']].describe())
     while True:
-        print terminal_formatting(play_game(raw_input('>'), game))
+        print terminal_formatting(play_term_game(raw_input('>'), game))
 
 
 def terminal_formatting(output):
@@ -115,13 +129,17 @@ def terminal_formatting(output):
 
     return formatted_output
 
-def start_web():
-    game = Game()
-    return (game.directory[game.player_state['location']].describe(),
-        game.directory[game.player_state['location']].name, game)
+def start_web(session_game=None):
+    if session_game:
+        description, game = web_load(session_game)
+    else:
+        game = Game()
+        description = game.directory[game.player_state['location']].describe()
+    return (description, game.directory[game.player_state['location']].name,
+        game)
 
 def play_web(flask_input, game):
-    return (play_game(flask_input, game),
+    return (play_web_game(flask_input, game),
         game.directory[game.player_state['location']].name)
 
 if __name__ == "__main__":
@@ -145,6 +163,7 @@ if __name__ == "__main__":
 #Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
 #"Quit/exit" = sys.exit(), so v. abrupt from web app.
 #Fix open() statements so they use a context manager.
+#Eliminate a lot of the repetitive code in this module.
 
 #Bug: reconstitute isn't working right; doesn't iterate through all of the levels, just creates the game w/ None values.
 
