@@ -10,27 +10,22 @@ app = Flask(__name__)
 def start_game():
     if request.method == 'GET':
         if 'saved_game' in session:
-            description, room_name, game = start_web(session['saved_game'])
+            description, room_name = start_web(session['saved_game'])
         else:
-            description, room_name, game = start_web()
-            session['saved_game'] = simplify(game)
+            description, room_name, game_hash = start_web()
+            session['saved_game'] = game_hash
         return render_template('game.html', room=room_name,
             output=description)
     else:
-        print session.keys()
-        game = reconstitute(session['saved_game'])
-        app.response = request.data
-        print app.response
+        app.response = request.form['response']
 
-        description, room_name = play_web(app.response, game)
-        #As is, this autosaves the game instead of allowing them to save at certain points. Is that a problem?
-        #Restarting won't work.
-        session['saved_game'] = simplify(game)
+        description, room_name = play_web(app.response, session['saved_game'])
         return render_template('game.html', room=room_name,
             output=description)
 
 @app.route('/')
 def testing():
+    print session.keys()
     return "Go to /library_world if you're looking for the text adventure."
 
 app.secret_key = '00000'

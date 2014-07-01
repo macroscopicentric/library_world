@@ -1,14 +1,25 @@
 import json
 import sys
+import random
+import string
 
 from game import Game, simplify, reconstitute, home
 from commands import command
 
+try:
+    web_games = reconstitute(json.load(open('web_games.json')))
+except IOError:
+    web_games = {}
+
 def save(game, save_name):
     try:
         json_dict = simplify(game)
-        json.dump(json_dict, open((save_name + '.txt'), 'w'), separators=(',', ':'))
-        return "File saved."
+        try:
+            save_file = open((save_name + '.txt'), 'w')
+            json.dump(json_dict, save_file, separators=(',', ':'))
+            return "File saved."
+        finally:
+            save_file.close()
     except:
         return '''I didn't understand that. Did you use the format "save [filename]?"'''
 
@@ -21,17 +32,17 @@ def load(save_name):
     except IOError:
         return '''I didn't understand that. Did you use the format "load [filename]?"'''
 
-def restart(game):
+def restart():
     new_game_output = {'event': 'Restarting...'}
     game = Game()
     new_game_output += game.directory[game.player_state['location']].describe()
     return new_game_output, game
 
-def web_load(game_dict):
-    game = reconstitute(game_dict)
+def web_load(game_code):
+    game = web_games[game_code]
     new_game_output = game.directory[game.player_state['location']].describe()
     new_game_output['event'] = 'Loading...'
-    return game, new_game_output
+    return new_game_output, game
 
 
 
@@ -65,7 +76,7 @@ def input_format(user_input):
 
     return user_input
 
-#Helper function for terminal.
+#Helper function for terminal. Stupidly redundant.
 def play_term_game(user_input, game):
     player_response = input_format(user_input)
     if player_response[0] == 'load':
@@ -73,25 +84,9 @@ def play_term_game(user_input, game):
     elif player_response[0] == 'save':
         return save(game, player_response[1])
     elif player_response[0] == 'restart':
-        return restart(game)
+        return restart()
     elif player_response[0] in ['exit', 'quit']:
         sys.exit()
-    else:
-        return command(player_response, game)
-
-#Helper function for Flask. How to eliminate a lot of the 
-def play_web_game(user_input, game):
-    player_response = input_format(user_input)
-    if player_response[0] == 'load':
-        return web_load(game)
-    #No need for save, since the cookie saves automatically after every post.
-    # elif player_response[0] == 'save':
-    #     return web_save(game)
-    elif player_response[0] == 'restart':
-        return restart(game)
-    elif player_response[0] in ['exit', 'quit']:
-        #Need softer exit for flask version.
-        pass
     else:
         return command(player_response, game)
 
@@ -130,16 +125,53 @@ def terminal_formatting(output):
     return formatted_output
 
 def start_web(session_game=None):
+    global web_games
+    def add_to_hash():
+        def generate_code():
+            character_pool = string.ascii_letters + string.digits
+            random_string = ''.join(random.choice(character_pool) for i in range(10))
+            return random_string
+
+        game_code = generate_code()
+        while True:
+            if game_code not in web_games:
+                game = Game()
+                web_games[game_code] = game
+                return game_code, game
+            else:
+                game_code = generate_code()
+
     if session_game:
         description, game = web_load(session_game)
+        return (description, game.directory[game.player_state['location']].name)
     else:
-        game = Game()
+        game_code, game = add_to_hash()
+        json.dump(simplify(web_games), open('web_games.json', 'w'))
         description = game.directory[game.player_state['location']].describe()
-    return (description, game.directory[game.player_state['location']].name,
-        game)
+        return (description, game.directory[game.player_state['location']].name,
+            game_code)
 
-def play_web(flask_input, game):
-    return (play_web_game(flask_input, game),
+def play_web(flask_input, session_game):
+    global web_games
+    game = web_games[session_game]
+
+    player_response = input_format(flask_input)
+
+    if player_response[0] == 'load':
+        description, game = web_load(game_code)
+    #No need for save, since the cookie saves automatically after every post.
+    #To do: Fix that.
+    # elif player_response[0] == 'save':
+    #     return web_save(game)
+    elif player_response[0] == 'restart':
+        description, web_games[session_game] = restart()
+    elif player_response[0] in ['exit', 'quit']:
+        #Need softer exit for flask version.
+        pass
+    else:
+        description = command(player_response, game)
+    json.dump(simplify(web_games), open('web_games.json', 'w'))
+    return (description,
         game.directory[game.player_state['location']].name)
 
 if __name__ == "__main__":
