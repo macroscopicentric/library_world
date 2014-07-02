@@ -64,16 +64,6 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
             'event': '''Level up! You're now level 2.'''}
         eq_(output, vancelle_dialogue)
 
-    def test_vancelle_level_more(self):
-        player['level'] = 2
-        game.take('key')
-        player['shelved_books'] = ["astronomy book", "potions book",
-            "fantasy book", "magic book", "dark history book"]
-        player['location'] = 'chiefs_office'
-        output = command(['talk', 'vancelle'], game)
-        vancelle_dialogue = {'header': '"You need to shelve these books to get to level 4:"',
-            'text': npc_list['vancelle'].levels['3']}
-
     def test_take_all(self):
         player['location'] = 'third_assistant_study'
         output = command(['take', 'all'], game)
@@ -107,8 +97,15 @@ class TestMetaGameFunctions(unittest.TestCase):
 
     def testLoad(self):
         load_output, game = library.load('test_save')
-        #Load function isn't working properly (reconstitute isn't iterating properly to re-initialize lower objects).
         self.assertEquals(simplify(game), simplify(reconstitute(json.load(open('test_save.txt')))))
+
+    def testRestart(self):
+        restart_output, game = library.restart()
+        new_game = Game()
+        new_game_desc = new_game.directory[game.player_state['location']].describe()
+        new_game_desc['event'] = 'Restarting...'
+        eq_(simplify(game), simplify(new_game))
+        eq_(restart_output, new_game_desc)
 
 
 class TestEvents(unittest.TestCase):

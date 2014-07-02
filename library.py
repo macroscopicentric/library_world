@@ -28,9 +28,9 @@ def load(save_name):
         return '''I didn't understand that. Did you use the format "load [filename]?"'''
 
 def restart():
-    new_game_output = {'event': 'Restarting...'}
     game = Game()
-    new_game_output += game.directory[game.player_state['location']].describe()
+    new_game_output = game.directory[game.player_state['location']].describe()
+    new_game_output['event'] = 'Restarting...'
     return new_game_output, game
 
 
@@ -181,12 +181,13 @@ def web_game_wrapper(function, *args):
         # elif player_response[0] == 'save':
         #     return web_save(game)
         elif player_response[0] == 'restart':
-            description, web_games[session_game] = restart()
+            description, game = restart()
         elif player_response[0] in ['exit', 'quit']:
             #Need softer exit for flask version.
             pass
         else:
             description = command(player_response, game)
+        web_games[session_game] = game
         json.dump(simplify(web_games), open('web_games.json', 'w'))
         return (description,
             game.directory[game.player_state['location']].name)
@@ -218,6 +219,8 @@ if __name__ == "__main__":
 #"Quit/exit" = sys.exit(), so v. abrupt from web app.
 #Fix open() statements so they use a context manager.
 #Eliminate a lot of the repetitive code in this module.
+#Fix restart in web app.
 
-#Bug: reconstitute isn't working right; doesn't iterate through all of the levels, just creates the game w/ None values.
+#Bug: leveling up allows you to level up multiple levels at once.
+#Bug: web app only displays event (if it exists), not the rest of the dialogue.
 

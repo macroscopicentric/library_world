@@ -52,8 +52,8 @@ class Game(object):
         for room, items in invent_dict.iteritems():
             self.directory[room].inventory = items
 
-    def level_up(self):
-        self.player_state['level'] += 1
+    def level_up(self, level):
+        self.player_state['level'] = level
 
     #increases spell_counter so I can give a warning on how to change back:
     def first_spell(self):

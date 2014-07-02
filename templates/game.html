@@ -166,7 +166,6 @@
       function updateGame (gameUpdate) {
         // do stuff, maybe
         if (typeof gameUpdate === 'string') {
-          console.log("gameUpdate is a string.");
           tinyUpdate(gameUpdate);
         } else {
           if (gameUpdate.event) {
@@ -174,23 +173,22 @@
               // <br>
               // <br>
           }
-          else {
-            if (gameUpdate.header) {
-              tinyUpdate(gameUpdate.header, 'bold');
-              // <br>
-              // <br>
-            }
+          if (gameUpdate.header) {
+            tinyUpdate(gameUpdate.header, 'bold');
+            // <br>
+            // <br>
+          }
 
-            gameUpdate.text.forEach(function (element, index, array) {
-              tinyUpdate(element, "no-spacing");
-            });
+          gameUpdate.text.forEach(function (element, index, array) {
+            tinyUpdate(element, "no-spacing");
+          });
 
-            if (gameUpdate.inventory) {
-              tinyUpdate(gameUpdate.inventory);
-            }
+          if (gameUpdate.inventory) {
+            tinyUpdate(gameUpdate.inventory);
+          }
 
-            if (gameUpdate.npc) {
-              tinyUpdate(gameUpdate.npc);
+          if (gameUpdate.npc) {
+            tinyUpdate(gameUpdate.npc);
             }
           }
         }

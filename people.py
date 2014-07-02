@@ -56,7 +56,7 @@ class Librarian(NPC):
             if (set(self.levels[level]) <= set(player['shelved_books']) and
                 game.invent_test('key')):
 
-                game.level_up()
+                game.level_up(int(level) + 1)
                 int_level = player['level']
                 str_level = str(int_level)
                 game.item_list['key'].level_up(game, int_level)

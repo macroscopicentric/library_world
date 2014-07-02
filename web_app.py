@@ -26,11 +26,11 @@ def play_game():
     return jsonify(room=room_name, output=description)
 
 @app.route('/')
-def testing():
-    return "Go to /library_world if you're looking for the text adventure."
+def redirect_from_main_page():
+    return redirect(url_for('start_game'))
 
 app.secret_key = '00000'
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0')
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
+    # app.run(debug=True)
