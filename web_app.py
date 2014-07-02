@@ -23,7 +23,6 @@ def play_game():
     description, room_name = web_game_wrapper('play_web', app.response, session['saved_game'])
     #As is, this autosaves the game instead of allowing them to save at certain points. Is that a problem?
     #Restarting won't work.
-    session['saved_game'] = simplify(game)
     return jsonify(room=room_name, output=description)
 
 @app.route('/')
