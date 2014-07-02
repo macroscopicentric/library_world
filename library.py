@@ -6,11 +6,6 @@ import string
 from game import Game, simplify, reconstitute, home
 from commands import command
 
-try:
-    web_games = reconstitute(json.load(open('web_games.json')))
-except IOError:
-    web_games = {}
-
 def save(game, save_name):
     try:
         json_dict = simplify(game)
@@ -36,12 +31,6 @@ def restart():
     new_game_output = {'event': 'Restarting...'}
     game = Game()
     new_game_output += game.directory[game.player_state['location']].describe()
-    return new_game_output, game
-
-def web_load(game_code):
-    game = web_games[game_code]
-    new_game_output = game.directory[game.player_state['location']].describe()
-    new_game_output['event'] = 'Loading...'
     return new_game_output, game
 
 
@@ -124,55 +113,72 @@ def terminal_formatting(output):
 
     return formatted_output
 
-def start_web(session_game=None):
-    global web_games
-    def add_to_hash():
-        def generate_code():
-            character_pool = string.ascii_letters + string.digits
-            random_string = ''.join(random.choice(character_pool) for i in range(10))
-            return random_string
+#To avoid having a global web_games hash while still being able to access it
+#from both start_web and play_web (can't pass it from route to route in flask).
+def web_game_wrapper(function, *args):
+    try:
+        web_games = reconstitute(json.load(open('web_games.json')))
+    except IOError:
+        web_games = {}
 
-        game_code = generate_code()
-        while True:
-            if game_code not in web_games:
-                game = Game()
-                web_games[game_code] = game
-                return game_code, game
-            else:
-                game_code = generate_code()
+    def web_load(game_code):
+        game = web_games[game_code]
+        new_game_output = game.directory[game.player_state['location']].describe()
+        new_game_output['event'] = 'Loading...'
+        return new_game_output, game
 
-    if session_game:
-        description, game = web_load(session_game)
-        return (description, game.directory[game.player_state['location']].name)
-    else:
-        game_code, game = add_to_hash()
+    def start_web(session_game=None):
+        def add_to_hash():
+            def generate_code():
+                character_pool = string.ascii_letters + string.digits
+                random_string = ''.join(random.choice(character_pool) for i in range(10))
+                return random_string
+
+            game_code = generate_code()
+            while True:
+                if game_code not in web_games:
+                    game = Game()
+                    web_games[game_code] = game
+                    return game_code, game
+                else:
+                    game_code = generate_code()
+
+        if session_game:
+            description, game = web_load(session_game)
+            return (description, game.directory[game.player_state['location']].name)
+        else:
+            game_code, game = add_to_hash()
+            json.dump(simplify(web_games), open('web_games.json', 'w'))
+            description = game.directory[game.player_state['location']].describe()
+            return (description, game.directory[game.player_state['location']].name,
+                game_code)
+
+    def play_web(flask_input, session_game):
+        game = web_games[session_game]
+
+        player_response = input_format(flask_input)
+
+        if player_response[0] == 'load':
+            description, game = web_load(game_code)
+        #No need for save, since the cookie saves automatically after every post.
+        #To do: Fix that.
+        # elif player_response[0] == 'save':
+        #     return web_save(game)
+        elif player_response[0] == 'restart':
+            description, web_games[session_game] = restart()
+        elif player_response[0] in ['exit', 'quit']:
+            #Need softer exit for flask version.
+            pass
+        else:
+            description = command(player_response, game)
         json.dump(simplify(web_games), open('web_games.json', 'w'))
-        description = game.directory[game.player_state['location']].describe()
-        return (description, game.directory[game.player_state['location']].name,
-            game_code)
+        return (description,
+            game.directory[game.player_state['location']].name)
 
-def play_web(flask_input, session_game):
-    global web_games
-    game = web_games[session_game]
-
-    player_response = input_format(flask_input)
-
-    if player_response[0] == 'load':
-        description, game = web_load(game_code)
-    #No need for save, since the cookie saves automatically after every post.
-    #To do: Fix that.
-    # elif player_response[0] == 'save':
-    #     return web_save(game)
-    elif player_response[0] == 'restart':
-        description, web_games[session_game] = restart()
-    elif player_response[0] in ['exit', 'quit']:
-        #Need softer exit for flask version.
-        pass
+    if function == 'start_web':
+        return start_web(*args)
     else:
-        description = command(player_response, game)
-    json.dump(simplify(web_games), open('web_games.json', 'w'))
-    return (description,
-        game.directory[game.player_state['location']].name)
+        return play_web(*args)
 
 if __name__ == "__main__":
     game = Game()

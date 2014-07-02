@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, jsonify
 import pdb
 
-from library import start_web, play_web
+from library import web_game_wrapper
 from game import Game, simplify, reconstitute
 
 app = Flask(__name__)
@@ -10,16 +10,16 @@ app = Flask(__name__)
 def start_game():
     if request.method == 'GET':
         if 'saved_game' in session:
-            description, room_name = start_web(session['saved_game'])
+            description, room_name = web_game_wrapper('start_web', session['saved_game'])
         else:
-            description, room_name, game_hash = start_web()
+            description, room_name, game_hash = web_game_wrapper('start_web')
             session['saved_game'] = game_hash
         return render_template('game.html', room=room_name,
             output=description)
     else:
         app.response = request.form['response']
 
-        description, room_name = play_web(app.response, session['saved_game'])
+        description, room_name = web_game_wrapper('play_web', app.response, session['saved_game'])
         return render_template('game.html', room=room_name,
             output=description)
 
