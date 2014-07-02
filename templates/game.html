@@ -105,13 +105,13 @@
                 
                 {% else %}
                     {% if 'event' in output.keys() %}
-                        {{output[event]}}
+                        <i>{{output[event]}}</i>
                         <br>
                         <br>
                     {% endif %}
 
                     {% if 'header' in output.keys() %}
-                        {{output['header']}}
+                        <b>{{output['header']}}</b>
                         <br>
                         <br>
                     {% endif %}
