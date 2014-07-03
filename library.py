@@ -2,6 +2,9 @@ import json
 import sys
 import random
 import string
+import os
+import psycopg2
+import urlparse
 
 from game import Game, simplify, reconstitute, home
 from commands import command
@@ -132,15 +135,18 @@ def terminal_formatting(output):
 #To avoid having a global web_games hash while still being able to access it
 #from both start_web and play_web (can't pass it from route to route in flask).
 def web_game_wrapper(function, *args):
-    try:
-        web_games = reconstitute(json.load(open('web_games.json')))
-    except IOError:
-        web_games = {}
+    urlparse.uses_netloc.append("postgres")
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
     def web_load(game_code):
-        game = web_games[game_code]
+        with psycopg2.connect(database=url.path[1:],
+            user=url.username, password=url.password, host=url.hostname,
+            port=url.port) as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT game_json FROM saved_games WHERE session_name = %s;", [game_code])
+                game = reconstitute(json.loads(cur.fetchone()[0]))
+
         new_game_output = game.directory[game.player_state['location']].describe()
-        new_game_output['event'] = 'Loading...'
         return new_game_output, game
 
     def start_web(session_game=None):
@@ -151,52 +157,56 @@ def web_game_wrapper(function, *args):
                 return random_string
 
             game_code = generate_code()
-            while True:
-                if game_code not in web_games:
-                    game = Game()
-                    web_games[game_code] = game
-                    return game_code, game
-                else:
-                    game_code = generate_code()
+            with psycopg2.connect(database=url.path[1:],
+                user=url.username, password=url.password, host=url.hostname,
+                port=url.port) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT session_name FROM saved_games;")
+                    existing_sessions = cur.fetchall()
+                    while True:
+                        #cur.fetchall() returns a list of tuples. hence matching with a tuple below.
+                        if tuple((game_code,)) not in existing_sessions:
+                            game = Game()
+                            cur.execute("INSERT INTO saved_games (session_name, game_json) VALUES (%s, %s);", (game_code, json.dumps(simplify(game))))
+                            conn.commit()
+
+                            return game_code, game
+                        else:
+                            game_code = generate_code()
 
         def new_game():
             game_code, game = add_to_hash()
-            json.dump(simplify(web_games), open('web_games.json', 'w'))
             description = game.directory[game.player_state['location']].describe()
             return (description, game.directory[game.player_state['location']].name,
-                game_code)
+                        game_code)
 
         if session_game:
             try:
                 description, game = web_load(session_game)
                 return (description, game.directory[game.player_state['location']].name,
-                    session_game)
-            #Except = for a restarted server w/o the json files, where people already have cookies.
+                    game_code)
+            #Except = for people who have cookies that matched to a previous json file.
             except:
                 return new_game()
         else:
             return new_game()
 
     def play_web(flask_input, session_game):
-        game = web_games[session_game]
+        old_game_output, game = web_load(session_game)
 
         player_response = input_format(flask_input)
 
-        if player_response[0] == 'load':
-            description, game = web_load(game_code)
-        #No need for save, since the cookie saves automatically after every post.
-        #To do: Fix that.
-        # elif player_response[0] == 'save':
-        #     return web_save(game)
-        elif player_response[0] == 'restart':
+        if player_response[0] == 'restart':
             description, game = restart()
-        elif player_response[0] in ['exit', 'quit']:
-            #Need softer exit for flask version.
-            pass
         else:
             description = command(player_response, game)
-        web_games[session_game] = game
-        json.dump(simplify(web_games), open('web_games.json', 'w'))
+
+        with psycopg2.connect(database=url.path[1:],
+            user=url.username, password=url.password, host=url.hostname,
+            port=url.port) as conn:
+            with conn.cursor() as cur:
+                cur.execute("UPDATE saved_games SET game_json=%s WHERE session_name=%s;", (json.dumps(simplify(game)), session_game))
+                conn.commit()
         return (description,
             game.directory[game.player_state['location']].name)
 
