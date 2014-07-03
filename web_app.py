@@ -9,7 +9,8 @@ app = Flask(__name__)
 @app.route('/library_world')
 def start_game():
     if 'saved_game' in session:
-        description, room_name = web_game_wrapper('start_web', session['saved_game'])
+        description, room_name, game_hash = web_game_wrapper('start_web', session['saved_game'])
+        session['saved_game'] = game_hash
     else:
         description, room_name, game_hash = web_game_wrapper('start_web')
         session['saved_game'] = game_hash
@@ -32,5 +33,5 @@ def redirect_from_main_page():
 app.secret_key = '00000'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-    # app.run(debug=True)
+    # app.run(host='0.0.0.0')
+    app.run(debug=True)

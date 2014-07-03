@@ -159,15 +159,23 @@ def web_game_wrapper(function, *args):
                 else:
                     game_code = generate_code()
 
-        if session_game:
-            description, game = web_load(session_game)
-            return (description, game.directory[game.player_state['location']].name)
-        else:
+        def new_game():
             game_code, game = add_to_hash()
             json.dump(simplify(web_games), open('web_games.json', 'w'))
             description = game.directory[game.player_state['location']].describe()
             return (description, game.directory[game.player_state['location']].name,
                 game_code)
+
+        if session_game:
+            try:
+                description, game = web_load(session_game)
+                return (description, game.directory[game.player_state['location']].name,
+                    session_game)
+            #Except = for a restarted server w/o the json files, where people already have cookies.
+            except:
+                return new_game()
+        else:
+            return new_game()
 
     def play_web(flask_input, session_game):
         game = web_games[session_game]
@@ -220,6 +228,7 @@ if __name__ == "__main__":
 #Fix open() statements so they use a context manager.
 #Eliminate a lot of the repetitive code in this module.
 #Fix restart in web app.
+#Max pointed out that it's vulnerable to cross-site scripting.
 
 #Bug: leveling up allows you to level up multiple levels at once.
 #Bug: web app only displays event (if it exists), not the rest of the dialogue.
