@@ -9,7 +9,7 @@ class Spell(object):
 
         if self.name in player['known_spells']:
             if self.name == 'water':
-                if player['location'] == directory['alexandria1']:
+                if player['location'] == 'alexandria1':
                     directory['alexandria1'].add_counter()
                     return "You spray the fires, and they go out. The walls are now gently smoking."
                 else:

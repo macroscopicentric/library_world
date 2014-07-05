@@ -158,7 +158,7 @@ Spoiler: you're not super-human.'''
             return "You can't shelve that."
 
     def cast():
-        spells[direct_object].use_spell(game, player, directory)
+        return spells[direct_object].use_spell(game, player, directory)
 
     def level_check():
         message = {'header': (("You are level %s. " % (player['level']))
