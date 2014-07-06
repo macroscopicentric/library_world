@@ -185,6 +185,7 @@ Spoiler: you're not super-human.'''
             #since a door goes both ways and a key is one-time in one direction.
             if moves[verb] == 'd' and (game.location_test('uu_library1') or
                 game.location_test('uu_library2')):
+                directory['uu_library1'].add_counter()
                 action = game.move(moves[verb])
                 action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
 and down is up. But now it's gone, so you don't trouble yourself over it.'''

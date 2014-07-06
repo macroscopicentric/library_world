@@ -240,6 +240,5 @@ if __name__ == "__main__":
 #Fix restart in web app.
 #Max pointed out that it's vulnerable to cross-site scripting.
 
-#Bug: leveling up allows you to level up multiple levels at once.
-#Bug: web app only displays event (if it exists), not the rest of the dialogue.
-
+#Bug: restarting/reloading the web page restarts the heroku game.
+#Bug: secondary descriptions not printing.

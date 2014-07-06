@@ -532,7 +532,8 @@
       "s": "uu_library2",
       "n": "hall8"
     }, 
-    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the north."
+    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the north.",
+    "secondary_description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down."
   }, 
   "uu_library3": {
     "directions": {
@@ -873,7 +874,7 @@
       "w": "alexandria6", 
       "n": "alexandria2"
     }, 
-    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the other three walls. The only safe exit is to go back through the\ndoor to the east."
+    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the north and west walls. The only safe\nexit is to go back through the door to the east."
   }, 
   "alexandria2": {
     "locked": true, 

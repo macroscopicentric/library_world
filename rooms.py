@@ -21,7 +21,7 @@ matter how many times you tug on the handle, so stop trying.'''
         room_description = {'header':self.name, 'text': [self.description]}
 
         if self.counter == 1 and self.secondary_description:
-            room_description['text'] = self.secondary_description
+            room_description['text'] = [self.secondary_description]
 
         if self.inventory:
             room_description['inventory'] = formatting.list_items(self.inventory)

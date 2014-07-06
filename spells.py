@@ -11,6 +11,8 @@ class Spell(object):
             if self.name == 'water':
                 if player['location'] == 'alexandria1':
                     directory['alexandria1'].add_counter()
+                    directory['alexandria6'].unlock()
+                    directory['alexandria2'].unlock()
                     return "You spray the fires, and they go out. The walls are now gently smoking."
                 else:
                     return '''You spray water everywhere. In a library. You're clearly very
