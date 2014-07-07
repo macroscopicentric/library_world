@@ -181,13 +181,8 @@ def web_game_wrapper(function, *args):
                         game_code)
 
         if session_game:
-            try:
-                description, game = web_load(session_game)
-                return (description, game.directory[game.player_state['location']].name,
-                    game_code)
-            #Except = for people who have cookies that matched to a previous json file.
-            except:
-                return new_game()
+            description, game = web_load(session_game)
+            return (description, game.directory[game.player_state['location']].name)
         else:
             return new_game()
 

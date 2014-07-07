@@ -9,8 +9,8 @@ app = Flask(__name__)
 @app.route('/library_world')
 def start_game():
     if 'saved_game' in session:
-        description, room_name, game_hash = web_game_wrapper('start_web', session['saved_game'])
-        session['saved_game'] = game_hash
+        print session['saved_game']
+        description, room_name = web_game_wrapper('start_web', session['saved_game'])
     else:
         description, room_name, game_hash = web_game_wrapper('start_web')
         session['saved_game'] = game_hash
@@ -22,8 +22,7 @@ def play_game():
     app.response = request.data
 
     description, room_name = web_game_wrapper('play_web', app.response, session['saved_game'])
-    #As is, this autosaves the game instead of allowing them to save at certain points. Is that a problem?
-    #Restarting won't work.
+    print session['saved_game']
     return jsonify(room=room_name, output=description)
 
 @app.route('/')
