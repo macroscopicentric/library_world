@@ -4,7 +4,7 @@ from people import NPC, Librarian
 from items import Item, Key, Book
 from spells import Spell
 
-home = 'chiefs_office'
+home = 'reading_room'
 
 class Game(object):
     def __init__(self):
@@ -16,8 +16,8 @@ class Game(object):
             'flying'        : False,
             'known_spells'  : ['human'],
             'spell_counter' : 0,
-            'inventory'     : ['floral book', 'princess book', 'fairy tale book', 'key'],
-            'shelved_books' : ['french book'],
+            'inventory'     : [],
+            'shelved_books' : [],
             'level'         : 1
             }
 

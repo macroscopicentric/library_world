@@ -46,9 +46,16 @@ def input_format(user_input):
         detail = user_input.pop().split(".").pop(0)
         user_input.append(detail)
 
+    arts_and_preps = ['to', 'the', 'a', 'an', 'with']
     #allows splitting for compound sentences ("give __ to __") while still
     #retaining book items as one word.
     if len(user_input) > 1:
+        for word in arts_and_preps:
+            if word in user_input[1]:
+                second_word = user_input.pop()
+                second_word = second_word.split(' ', 1)[1]
+                user_input.append(second_word)
+        
         if 'book' in user_input[1]:
             user_input = [user_input[0]] + user_input[1].split('book ', 1)
             try:
@@ -61,7 +68,6 @@ def input_format(user_input):
             user_input = [user_input[0]] + user_input[1].split(' ')
 
     #removing articles/prepositions from user input:
-    arts_and_preps = ['to', 'the', 'a', 'an', 'with']
     for word in arts_and_preps:
         if word in user_input:
             user_input.remove(word)
