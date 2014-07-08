@@ -82,22 +82,6 @@ def play_term_game(user_input, game):
     else:
         return command(player_response, game)
 
-#Helper function for Flask. How to eliminate a lot of the 
-def play_web_game(user_input, game):
-    player_response = input_format(user_input)
-    if player_response[0] == 'load':
-        return web_load(game)
-    #No need for save, since the cookie saves automatically after every post.
-    # elif player_response[0] == 'save':
-    #     return web_save(game)
-    elif player_response[0] == 'restart':
-        return restart(game)
-    elif player_response[0] in ['exit', 'quit']:
-        #Need softer exit for flask version.
-        pass
-    else:
-        return command(player_response, game)
-
 def from_terminal_play():
     game = Game()
     print terminal_formatting(game.directory[game.player_state['location']].describe())
@@ -229,11 +213,7 @@ if __name__ == "__main__":
 #Do anything with disreputable dog statue?
 #Move archbishop book to DW library.
 #Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
-#"Quit/exit" = sys.exit(), so v. abrupt from web app.
-#Fix open() statements so they use a context manager.
 #Eliminate a lot of the repetitive code in this module.
-#Fix restart in web app.
 #Max pointed out that it's vulnerable to cross-site scripting.
 
-#Bug: restarting/reloading the web page restarts the heroku game.
-#Bug: secondary descriptions not printing.
+#Bug: can't level up past level 2?

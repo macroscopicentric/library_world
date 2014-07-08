@@ -111,7 +111,7 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
                 directory['hall15'].add_counter()
                 return '''You carefully peel Vancelle's seal off of the rope at both ends
 using the piece of wire. You set the rope and seals in the corner.'''
-            elif game.invent_test('scissors') or game.invent_test('dagger'):
+            elif game.invent_test('dagger'):
                 temp = player['inventory'][:]
                 for item in temp:
                     if ('book' in item and item != "translation book") or item == 'diary':
@@ -219,6 +219,8 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
                 return output
             else:
                 return output
+        elif verb == 'talk':
+            talk()
         else:
             return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 

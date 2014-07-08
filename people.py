@@ -48,23 +48,31 @@ Minotaur's Labyrinth."'''])
 class Librarian(NPC):
     def __init__(self):
         super(Librarian, self).__init__()
-        self.levels = {}
+        #Storing levels here instead of in JSON with NPCs because keys need to be ints.
+        self.levels = [
+            ["french book"], 
+            ["fairy tale book", "floral book", "princess book"],
+            ["astronomy book", "potions book", "fantasy book",
+                "dark history book", "diary"],
+            ["odyssean book", "epic book", "western book", "magic book"],
+            ["labyrinth book", "south african book"],
+            ["drama book"]]
             
     def level_up(self, game, player):
         level_dialogue = {'text': []}
-        for level in self.levels:
-            if (set(self.levels[level]) <= set(player['shelved_books']) and
-                game.invent_test('key')):
+        if game.invent_test('key'):
+            for level, books in enumerate(self.levels):
+                for book in books:
+                    if book not in player['shelved_books']:
+                        return level_dialogue
+                game.level_up(level + 2)
+                print 'player level: %s' % (player['level'])
+                game.item_list['key'].level_up(game, player['level'])
+                level_dialogue['event'] = '''Level up! You're now level %s.''' % (player['level'])
 
-                game.level_up(int(level) + 1)
-                int_level = player['level']
-                str_level = str(int_level)
-                game.item_list['key'].level_up(game, int_level)
-                level_dialogue['event'] = '''Level up! You're now level %s.''' % (int_level)
-
-                if int_level == 2:
+                if player['level'] == 2:
                     level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                if int_level == 4:
+                if player['level'] == 4:
                     level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
@@ -80,8 +88,7 @@ downstairs."'''
         else:
             level_dialogue['header'] = goal
 
-        for book in self.levels[str(player['level'])]:
-            level_dialogue['text'] += [book]
+        level_dialogue['text'] = self.levels[player['level'] - 1]
 
         return level_dialogue
 

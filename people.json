@@ -41,36 +41,6 @@
     "want": "chalk"
   }, 
   "vancelle": {
-    "levels": {
-      "1": [
-        "french book"
-      ], 
-      "2": [
-        "fairy tale book", 
-        "floral book", 
-        "princess book"
-      ], 
-      "3": [
-        "astronomy book", 
-        "potions book", 
-        "fantasy book", 
-        "dark history book",
-        "diary"
-      ], 
-      "4": [
-        "odyssean book", 
-        "epic book", 
-        "western book",
-        "magic book"
-      ], 
-      "5": [
-        "labyrinth book", 
-        "south african book"
-      ], 
-      "6": [
-        "drama book"
-      ]
-    }, 
     "name": "vancelle"
   }, 
   "clippy": {

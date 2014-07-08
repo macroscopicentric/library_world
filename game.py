@@ -4,14 +4,22 @@ from people import NPC, Librarian
 from items import Item, Key, Book
 from spells import Spell
 
-home = 'reading_room'
+home = 'chiefs_office'
 
 class Game(object):
     def __init__(self):
-        self.player_state = {'alive': True, 'location': home,
-            'shape': 'human', 'size': 'medium', 'flying': False,
-            'known_spells': ['human'], 'spell_counter': 0, 'inventory': [],
-            'shelved_books': [], 'level': 1}
+        self.player_state = {
+            'alive': True,
+            'location'      : home,
+            'shape'         : 'human',
+            'size'          : 'medium',
+            'flying'        : False,
+            'known_spells'  : ['human'],
+            'spell_counter' : 0,
+            'inventory'     : ['floral book', 'princess book', 'fairy tale book', 'key'],
+            'shelved_books' : ['french book'],
+            'level'         : 1
+            }
 
         self.npc_list = import_from_json('people', NPC, Librarian)
 
@@ -28,7 +36,7 @@ class Game(object):
             'labyrinth46': ['epic book'],
             'binding_room': ['wire'],
             'finis_africae': ['drama book'],
-            'librarian_alcove': ['ledger', 'scissors'],
+            'librarian_alcove': ['ledger'],
             'hall24': ['floral book'],
             'third_assistant_study': ['mouse', 'key', 'yellow waistcoat', 'dagger'],
             'restricted': ['diary', 'western book'],
@@ -150,7 +158,9 @@ def reconstitute(json_dict):
         if 'custom_type' in json_dict:
             game_object = globals()[json_dict.pop('custom_type')]()
             for name, value in json_dict.iteritems():
-                game_object.__dict__[name] = reconstitute(value)
+                #below to convert Vancelle's dict to new list format.
+                if (game_object != 'vancelle' and name != 'levels'):
+                    game_object.__dict__[name] = reconstitute(value)
             return game_object
         else:
             return {k: reconstitute(v) for k, v in json_dict.iteritems()}

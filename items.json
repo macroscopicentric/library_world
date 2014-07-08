@@ -6,11 +6,7 @@
   "statue": {
     "name": "statue", 
     "description": "It's a small soapstone statue of a dog. The nose is rubbed smooth."
-  }, 
-  "scissors": {
-    "name": "scissors", 
-    "description": "A pair of scissors."
-  }, 
+  },  
   "mouse": {
     "name": "mouse", 
     "description": "It's a small clockwork mouse, about the size of your fist. There's a\nturnkey sticking out of the back. Interestingly, it also buzzes in your hand,\nlike it's connected to the Charter somehow."
