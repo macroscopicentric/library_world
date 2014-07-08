@@ -26,7 +26,7 @@ you can use:''', 'text': ['* "look", "l", or "z" (describes the room to you)',
 '* "inventory" or "i" (lists your inventory)',
 '* "take [object]" or "take all"',
 '* "drop [object]" or "drop all"',
-'* "give [object] (to) [person]"',
+'* "give [object]" (to) [person]"',
 '* "cast [Charter spell]"',
 '* "spells" (lists the spells you know)',
 '''* "teleport" (sends you back to the Reading Room, or the labyrinth stairs if
