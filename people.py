@@ -64,18 +64,16 @@ class Librarian(NPC):
             for level, books in enumerate(self.levels):
                 for book in books:
                     if book not in player['shelved_books']:
-                        return level_dialogue
-                game.level_up(level + 2)
-                print 'player level: %s' % (player['level'])
-                game.item_list['key'].level_up(game, player['level'])
-                level_dialogue['event'] = '''Level up! You're now level %s.''' % (player['level'])
-
-                if player['level'] == 2:
-                    level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
-                if player['level'] == 4:
-                    level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
+                        if player['level'] == 2:
+                            level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
+                        if player['level'] == 4:
+                            level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
 Librarian! You now have a new study off of the Second-Assistant Hallway
 downstairs."'''
+                        return level_dialogue
+                game.level_up(level + 2)
+                game.item_list['key'].level_up(game, player['level'])
+                level_dialogue['event'] = '''Level up! You're now level %s.''' % (player['level'])
         return level_dialogue
 
     def talk(self, game, player):

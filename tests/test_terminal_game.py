@@ -53,17 +53,6 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
             'text': ['french book']}
         eq_(output, vancelle_dialogue)
 
-    def test_vancelle_level_up(self):
-        game.take('key')
-        player['shelved_books'] = ['french book']
-        player['location'] = 'chiefs_office'
-        output = command(['talk', 'vancelle'], game)
-        vancelle_dialogue = {'header':
-            '"Congratulations, you\'ve shelved your first book. Now go do the rest. You need to shelve these books to get to level 3:"',
-            'text': npc_list['vancelle'].levels['2'],
-            'event': '''Level up! You're now level 2.'''}
-        eq_(output, vancelle_dialogue)
-
     def test_take_all(self):
         player['location'] = 'third_assistant_study'
         output = command(['take', 'all'], game)
@@ -71,11 +60,10 @@ only exit is to the east.'''], 'npc': 'Clippy is here.',
             'You take the yellow waistcoat.', 'You take the dagger.']})
 
     def test_drop_all(self):
-        player['inventory'] = ['diary', 'key', 'scissors']
+        player['inventory'] = ['diary', 'key']
         output = command(['drop', 'all'], game)
-        eq_(output, {'text': ['You drop the diary.', 'You drop the key.',
-            'You drop the scissors.']})
-        eq_(directory['reading_room'].inventory, ['diary', 'key', 'scissors'])
+        eq_(output, {'text': ['You drop the diary.', 'You drop the key.']})
+        eq_(directory['reading_room'].inventory, ['diary', 'key'])
         eq_(directory['upper_librarian_hallway'].inventory, [])
 
 class TestMetaGameFunctions(unittest.TestCase):
@@ -132,7 +120,7 @@ Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
 her arm thrown dramatically over her eyes.'''
         eq_(output, hall14_dict)
         eq_(directory['restricted'].locked, False)
-        eq_(directory['hall15'].describe()['text'],
+        eq_(directory['hall15'].describe()['text'][0],
             directory['hall15'].secondary_description)
 
     def test_banana_peel_false(self):
@@ -142,7 +130,7 @@ her arm thrown dramatically over her eyes.'''
 
     def test_break_seal(self):
         player['inventory'] = ['fairy tale book', 'french book', 'diary',
-            'yellow waistcoat', 'key', 'scissors', 'translation book']
+            'yellow waistcoat', 'key', 'dagger', 'translation book']
         player['location'] = 'hall15'
         output = command(['break', 'rope'], game)
         reading_room_dict = directory['reading_room'].describe()
@@ -152,8 +140,75 @@ YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
 promptly confiscates all your books, and to add insult to injury, she escorts
 you all the way back to the main reading room.'''
         eq_(output, reading_room_dict)
-        eq_(player['inventory'], ['yellow waistcoat', 'key', 'scissors',
+        eq_(player['inventory'], ['yellow waistcoat', 'key', 'dagger',
             'translation book'])
+
+
+class TestLevelUp(unittest.TestCase):
+    def tearDown(self):
+        player.update(dict(
+            inventory=[],
+            location=home,
+            level=1,
+            shelved_books=[]
+            ))
+        directory['third_assistant_study'].inventory = ['mouse', 'key',
+            'yellow waistcoat', 'dagger']
+        directory['reading_room'].inventory = []
+
+    def test_vancelle_level_up_two(self):
+        game.take('key')
+        player['shelved_books'] = ['french book']
+        player['location'] = 'chiefs_office'
+        player['level'] = 1
+        output = command(['talk', 'vancelle'], game)
+        print player['level']
+        vancelle_dialogue = {'header':
+            '"Congratulations, you\'ve shelved your first book. Now go do the rest. You need to shelve these books to get to level 3:"',
+            'text': npc_list['vancelle'].levels[1],
+            'event': '''Level up! You're now level 2.'''}
+        eq_(output, vancelle_dialogue)
+
+    def test_test_vancelle_level_up_three(self):
+        game.take('key')
+        player['shelved_books'] = ['french book', 'floral book',
+            'princess book', 'fairy tale book']
+        player['location'] = 'chiefs_office'
+        player['level'] = 2
+        output = command(['talk', 'vancelle'], game)
+        vancelle_dialogue = {'header':
+            '"You need to shelve these books to get to level 4:"',
+            'text': npc_list['vancelle'].levels[2],
+            'event': '''Level up! You're now level 3.'''}
+        eq_(output, vancelle_dialogue)
+
+    def test_two_levels_up(self):
+        game.take('key')
+        player['shelved_books'] = ['french book', 'floral book',
+            'princess book', 'fairy tale book']
+        player['location'] = 'chiefs_office'
+        player['level'] = 1
+        output = command(['talk', 'vancelle'], game)
+        vancelle_dialogue = {'header':
+            '"You need to shelve these books to get to level 4:"',
+            'text': npc_list['vancelle'].levels[2],
+            'event': '''Level up! You're now level 3.'''}
+        eq_(output, vancelle_dialogue)
+
+    def test_skip_level(self):
+        game.take('key')
+        player['shelved_books'] = ['french book', 'floral book',
+            'princess book', 'fairy tale book', "odyssean book", "epic book",
+            "western book", "magic book"]
+        player['location'] = 'chiefs_office'
+        player['level'] = 2
+        output = command(['talk', 'vancelle'], game)
+        vancelle_dialogue = {'header':
+            '"You need to shelve these books to get to level 4:"',
+            'text': npc_list['vancelle'].levels[2],
+            'event': '''Level up! You're now level 3.'''}
+        eq_(output, vancelle_dialogue)
+
 
 class TestInitialStates(unittest.TestCase):
     def test_home(self):
