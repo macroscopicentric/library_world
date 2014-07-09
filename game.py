@@ -34,7 +34,7 @@ class Game(object):
             'labyrinth1': ['chalk', 'potions book'],
             'second_assistant_study': ['statue', 'red waistcoat'],
             'labyrinth46': ['epic book'],
-            'binding_room': ['wire'],
+            # 'binding_room': ['wire'],
             'finis_africae': ['drama book'],
             'librarian_alcove': ['ledger'],
             'hall24': ['floral book'],
@@ -52,7 +52,8 @@ class Game(object):
             'wtnv_library1': ['dark history book'],
             'wtnv_library7': ['labyrinth book'],
             'beast_library2': ['banana'],
-            'robing_room': ['fairy tale book']
+            'robing_room': ['fairy tale book'],
+            'little_shop': ['wire']
             })
 
     #less than thrilled that this relies on side effects. solution?

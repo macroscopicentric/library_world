@@ -31,8 +31,7 @@ class TestCommands(unittest.TestCase):
         binding_room_dict = {'header': 'Binding Room',
         'text': ['''This is the room where the librarians repair damaged books. There are
 books covering every flat surface, and a giant press in the back corner. The
-only exit is to the east.'''], 'npc': 'Clippy is here.',
-    'inventory': 'There is a wire here.'}
+only exit is to the east.'''], 'npc': 'Clippy is here.'}
         eq_(output, binding_room_dict)
 
     def test_talk_normal_NPC(self):

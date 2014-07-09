@@ -179,11 +179,6 @@
     "locked": true, 
     "name": "Second Assistant Study", 
     "short_name": "second_assistant_study", 
-    "inventory": [
-      "statue", 
-      "red waistcoat",
-      "charter book"
-    ], 
     "directions": {
       "w": "middle_librarian_hallway"
     }, 
@@ -209,9 +204,6 @@
   "labyrinth46": {
     "description": "You're in a room in the northern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north, east, and southwest.", 
     "short_name": "labyrinth46", 
-    "inventory": [
-      "epic book"
-    ], 
     "directions": {
       "e": "labyrinth48", 
       "sw": "labyrinth43", 
@@ -286,9 +278,6 @@
     "name": "Binding Room", 
     "short_name": "binding_room", 
     "npc": "clippy", 
-    "inventory": [
-      "wire"
-    ], 
     "directions": {
       "e": "librarian_alcove"
     }, 
@@ -317,9 +306,6 @@
     "locked": true, 
     "name": "Hidden Room - Southern Tower", 
     "short_name": "finis_africae", 
-    "inventory": [
-      "drama book"
-    ], 
     "directions": {
       "nw": "labyrinth22"
     }, 
@@ -328,10 +314,6 @@
   "librarian_alcove": {
     "description": "This is the librarian alcove, the main hub of their behind-the-scenes\nlibrary management. There is a small roller-top desk in the corner. There are\nexits to the north, south, east, and west.", 
     "short_name": "librarian_alcove", 
-    "inventory": [
-      "ledger", 
-      "scissors"
-    ], 
     "directions": {
       "s": "upper_librarian_hallway", 
       "e": "robing_room", 
@@ -343,9 +325,6 @@
   "hall24": {
     "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There's an archway to the south. On the west wall, there's a hole, far\ntoo small for a human to pass through.", 
     "short_name": "hall24", 
-    "inventory": [
-      "floral book"
-    ], 
     "directions": {
       "s": "hall23"
     }, 
@@ -393,12 +372,6 @@
     "name": "Third Assistant Study", 
     "short_name": "third_assistant_study", 
     "secondary_description": "This is your old study. It's quite cramped. Hard to believe that you spent\nso much time in this tiny room! The only exit is to the northwest.", 
-    "inventory": [
-      "mouse", 
-      "key", 
-      "yellow waistcoat", 
-      "dagger"
-    ], 
     "directions": {
       "nw": "lower_librarian_hallway"
     }, 
@@ -445,10 +418,6 @@
     "name": "Restricted Section", 
     "short_name": "restricted", 
     "locked_description": "This is Madam Pince's territory and it's CLEARLY\noff-limits, so I'm going to pretend you didn't just try to do that. You're\nwelcome for saving you from that hell, although you obviously don't deserve\nit. *coughidiotcough*", 
-    "inventory": [
-      "diary", 
-      "western book"
-    ], 
     "directions": {
       "e": "hall15"
     }, 
@@ -457,9 +426,6 @@
   "labyrinth31": {
     "description": "You're in a room in the western tower of labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There is a door to the southwest.", 
     "short_name": "labyrinth31", 
-    "inventory": [
-      "fantasy book"
-    ], 
     "directions": {
       "sw": "labyrinth30"
     }, 
@@ -511,10 +477,7 @@
   }, 
   "uu_library4": {
     "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the southern end where you're\nstanding, and into the northern end of the hall beyond. There are stairs\nleading down.", 
-    "short_name": "uu_library4", 
-    "inventory": [
-      "princess book"
-    ], 
+    "short_name": "uu_library4",  
     "directions": {
       "n": "uu_library3", 
       "d": "uu_library2"
@@ -604,9 +567,10 @@
   "hall13": {
     "directions": {
       "e": "hall12", 
-      "w": "hall14"
+      "w": "hall14",
+      "n": "dw_library"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west. There is a door with two emeralds over\nit to the north. There is a grandfather clock standing in the corner, and next\nto the door, someone has taped a postcard-sized print of\nVan Gogh's \"Starry Night.\"", 
     "name": "East-West Hallway", 
     "short_name": "hall13"
   }, 
@@ -691,9 +655,6 @@
   "labyrinth22": {
     "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Super thronos\nviginti quatuor.\" There are doors to the north, east, west, and southwest, and\na mirror on the southeast wall with the same inscription written over it.", 
     "short_name": "labyrinth22", 
-    "inventory": [
-      "south african book"
-    ], 
     "directions": {
       "sw": "labyrinth21", 
       "e": "labyrinth16", 
@@ -759,9 +720,6 @@
   "wtnv_library6": {
     "description": "This room is shaped like a pirate ship, with a mast that almost reaches\nthe ceiling. Dismembered bodies cover the floor. There are doors to the\nnorth, east, and west.", 
     "short_name": "wtnv_library6", 
-    "inventory": [
-      "astronomy book"
-    ], 
     "directions": {
       "u": "wtnv_library7", 
       "w": "wtnv_library5", 
@@ -866,9 +824,6 @@
     "name": "Royal Library of Alexandria - Reading Room", 
     "short_name": "alexandria1", 
     "secondary_description": "This is a beautiful reading room with high ceilings and columns everywhere.\nBookshelves line the walls, and the room seems kind of smoky. There are doors\nto the north, east, and west.", 
-    "inventory": [
-      "translation book"
-    ], 
     "directions": {
       "e": "hall10", 
       "w": "alexandria6", 
@@ -881,9 +836,6 @@
     "name": "Royal Library of Alexandria - Peripatos Walk", 
     "short_name": "alexandria2", 
     "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
-    "inventory": [
-      "magic book"
-    ], 
     "directions": {
       "s": "alexandria1", 
       "n": "alexandria3"
@@ -998,9 +950,6 @@
   "hall3": {
     "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a table in the corner with a rose lying on it. There are archways to\nthe east and south, and a stained-glass door to the west.", 
     "short_name": "hall3", 
-    "inventory": [
-      "french book"
-    ], 
     "directions": {
       "s": "hall4", 
       "e": "hall2", 
@@ -1041,9 +990,6 @@
   "stilken_room2": {
     "description": "There is a glass floor in this room, and a low stone table in the\nmiddle. The only exit is a narrow gate to the west, too small for a human.", 
     "short_name": "stilken_room2", 
-    "inventory": [
-      "phial"
-    ], 
     "directions": {
       "w": "stilken_room1"
     }, 
@@ -1053,9 +999,6 @@
     "locked": true, 
     "name": "Oak Room", 
     "short_name": "stilken_room1", 
-    "inventory": [
-      "odyssean book"
-    ], 
     "directions": {
       "e": "stilken_room2", 
       "w": "hall23"
@@ -1084,9 +1027,6 @@
     "locked": true, 
     "name": "Night Vale Public Library - Entrance", 
     "short_name": "wtnv_library1", 
-    "inventory": [
-      "dark history book"
-    ], 
     "directions": {
       "e": "wtnv_library3", 
       "w": "hall19",
@@ -1107,9 +1047,6 @@
   "wtnv_library7": {
     "description": "Phew! You've cleverly avoided the librarians by climbing the pirate\nship's crow's nest. They'll *never* look for you up here, I'm sure. This is\nquite a comfy perch, really. You could theoretically see quite far over the\nstacks, if the lighting weren't so terrible. Unfortunately, you'll have to go\ndown at some point, as there is nowhere else to go.", 
     "short_name": "wtnv_library7", 
-    "inventory": [
-      "labyrinth book"
-    ], 
     "directions": {
       "d": "wtnv_library6"
     }, 
@@ -1127,9 +1064,6 @@
   "beast_library2": {
     "description": "You're in the southern end of a massive library. It extends to the\nnorth, and there's a staircase going up in the corner.", 
     "short_name": "beast_library2", 
-    "inventory": [
-      "banana"
-    ], 
     "directions": {
       "u": "beast_library3", 
       "n": "beast_library1"
@@ -1139,9 +1073,6 @@
   "robing_room": {
     "description": "You're in a room full of miscellaneous useful things. Boat hooks,\nclimbing ropes, and weapons line the walls. The only exit is to the west.", 
     "short_name": "robing_room", 
-    "inventory": [
-      "fairy tale book"
-    ], 
     "directions": {
       "w": "librarian_alcove"
     }, 
@@ -1155,5 +1086,23 @@
     "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the northwest and south.", 
     "name": "Labyrinth Room - Western Tower", 
     "short_name": "labyrinth32"
+  }, 
+  "dw_library": {
+    "locked": true, 
+    "name": "The Library Planet", 
+    "short_name": "dw_library", 
+    "directions": {
+      "nw": "little_shop", 
+      "s": "hall13"
+    }, 
+    "description": "This certainly is a big, round room. There's a little glass-walled shop taking up the northwest corner. Its door is open. There's also a door to the south."
+  }, 
+  "little_shop": {
+    "name": "The Library Planet - Little Shop", 
+    "short_name": "little_shop", 
+    "directions": {
+      "se": "dw_library"
+    }, 
+    "description": "It's the little shop! Just what every library planet requires. There are shelves\nof kitschy gifts, stationary, and display books lining the walls. The library\nroom you came from is visible through the glass walls. The only exit is to the\nsoutheast, where you came from."
   }
 }

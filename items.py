@@ -33,7 +33,7 @@ class Key(Item):
         6: 'six'}
 
         level2_unlocks = ['uu_library1', 'wtnv_library1', 'labyrinth1',
-            'alexandria1']
+            'alexandria1', 'dw_library']
         level4_unlocks = ['stilken_room1', 'second_assistant_study']
 
         if player_level == 1:
@@ -67,6 +67,8 @@ class Book(Item):
             return "You have to pick it up first!"
 
     def shelve(self, game, location):
+        if location.short_name == 'little_shop':
+            return 'Who ever heard of library books being shelved in the little shop? Come on now.'
         if location.short_name in self.home:
             game.shelve_book(self.name)
             return "You shelve the %s." % (self.name)

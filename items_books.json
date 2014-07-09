@@ -268,6 +268,9 @@
   "diary": {
     "inside": "It's someone's notes, in very small, neat handwriting. Whoever it is must\nhave some sort of personal code because you can't read what they've\nwritten.", 
     "name": "diary", 
+    "home": [
+      "dw_library"
+    ], 
     "description": "This looks like someone's personal notebook, maybe a\ndiary. The cover is blue and paneled. There is a clock stamped on the spine."
   }, 
   "dark history book": {
