@@ -1,8 +1,13 @@
+"""
+Used every time a new game is initialized.
+"""
+
 import json
 
 def import_from_json(filename, ObjName, SecondaryObj=None):
     object_dict = {}
-    json_dict = json.load(open(filename + '.json'))
+    with open(filename + '.json') as f:
+        json_dict = json.load(f)
     for name, individual_object in json_dict.iteritems():
         if filename == 'people' and name == 'vancelle':
             object_dict[name] = SecondaryObj()

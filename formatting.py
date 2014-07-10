@@ -1,3 +1,8 @@
+"""
+Because I'm an English major and have standards for natural English language
+printouts for items/NPCS.
+"""
+
 def list_items(items):
     singular = "There is "
     plural = 'There are '

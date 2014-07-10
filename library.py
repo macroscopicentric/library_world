@@ -38,8 +38,11 @@ def restart():
 
 
 
-#Helper function that takes user input and returns parsed list.
 def input_format(user_input):
+    """
+    Helper function that takes user input and returns a parsed list.
+    Removes all articles/prepositions and keeps books as one "word."
+    """
     user_input = user_input.lower().split(" ", 1)
 
     if "." in user_input[-1]:
@@ -67,15 +70,16 @@ def input_format(user_input):
         else:
             user_input = [user_input[0]] + user_input[1].split(' ')
 
-    #removing articles/prepositions from user input:
     for word in arts_and_preps:
         if word in user_input:
             user_input.remove(word)
 
     return user_input
 
-#Helper function for terminal. Stupidly redundant.
 def play_term_game(user_input, game):
+    """
+    Helper function for terminal. Stupidly redundant.
+    """
     player_response = input_format(user_input)
     if player_response[0] == 'load':
         return load(player_response[1])
@@ -96,7 +100,9 @@ def from_terminal_play():
 
 
 def terminal_formatting(output):
-    #Two possible outputs: unicode/string or a dictionary.
+    """
+    Output has two possible formats: (unicode) string and dictionary.
+    """
     if isinstance(output, basestring):
         return output
 
@@ -122,9 +128,11 @@ def terminal_formatting(output):
 
     return formatted_output
 
-#To avoid having a global web_games hash while still being able to access it
-#from both start_web and play_web (can't pass it from route to route in flask).
 def web_game_wrapper(function, *args):
+    """
+    This is a wrapper function to avoid having a global web_games hash. Can be
+    refactored now that I'm using postgres instead of a JSON hash save file.
+    """
     urlparse.uses_netloc.append("postgres")
     url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
@@ -222,4 +230,4 @@ if __name__ == "__main__":
 #Eliminate a lot of the repetitive code in this module.
 #Max pointed out that it's vulnerable to cross-site scripting.
 
-#Bug: can't level up past level 2?
+#Bug: multiplies keys (Katie's bug)>

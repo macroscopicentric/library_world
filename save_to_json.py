@@ -1,3 +1,7 @@
+"""
+Used once to convert all in-module initializations to JSON files.
+"""
+
 import json
 from rooms import directory
 from items import item_list

@@ -1,3 +1,8 @@
+"""
+Game is the main object, keeps track of the state of the entire game. (Includes
+player state and all rooms, npcs, items, and spells.)
+"""
+
 from import_from_json import import_from_json
 from rooms import Room
 from people import NPC, Librarian
@@ -138,7 +143,10 @@ class Game(object):
 
 
 
-#Save/load helpers for converting to json (Tom's code):
+"""
+Save/load helpers for converting to JSON (Tom's code). Used every time a game
+is saved to/loaded from the JSON save file.
+"""
 def simplify(game_object):
     if isinstance(game_object, (int, basestring, list, type(None), bool)):
         return game_object

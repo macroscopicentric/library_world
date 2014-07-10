@@ -1,3 +1,8 @@
+"""
+Does the actual work of player's input, after receiving the input as a parsed
+list from input_format in library.py.
+"""
+
 import random
 
 moves = {'u': 'u', 'up': 'u', 'd': 'd', 'down': 'd', 'n': 'n', 'north': 'n',
