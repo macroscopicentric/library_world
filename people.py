@@ -68,8 +68,7 @@ class Librarian(NPC):
                             level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
                         if player['level'] == 4:
                             level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
-Librarian! You now have a new study off of the Second-Assistant Hallway
-downstairs."'''
+Librarian! You now have a new study off of the Second-Assistant Hallway downstairs."'''
                         return level_dialogue
                 game.level_up(level + 2)
                 game.item_list['key'].level_up(game, player['level'])
@@ -82,7 +81,7 @@ downstairs."'''
 
         #for proper formatting of dialogue ("") and adding space between potential dialogue from level_up.
         if 'header' in level_dialogue.keys():
-            level_dialogue['header'] = level_dialogue['header'][0:-1] + ' ' + goal[1:]
+            level_dialogue['header'] = level_dialogue['header'][0:-1] + '\n' + goal[1:]
         else:
             level_dialogue['header'] = goal
 

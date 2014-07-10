@@ -51,7 +51,7 @@ def input_format(user_input):
     #retaining book items as one word.
     if len(user_input) > 1:
         for word in arts_and_preps:
-            if word in user_input[1]:
+            if word + ' ' in user_input[1]:
                 second_word = user_input.pop()
                 second_word = second_word.split(' ', 1)[1]
                 user_input.append(second_word)

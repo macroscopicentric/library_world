@@ -1095,7 +1095,7 @@
       "nw": "little_shop", 
       "s": "hall13"
     }, 
-    "description": "This certainly is a big, round room. There's a little glass-walled shop taking up the northwest corner. Its door is open. There's also a door to the south."
+    "description": "This certainly is a big, round room. There's a little glass-walled shop taking\nup the northwest corner. Its door is open. There's also a door to the south."
   }, 
   "little_shop": {
     "name": "The Library Planet - Little Shop", 

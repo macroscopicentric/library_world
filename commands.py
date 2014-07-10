@@ -163,6 +163,9 @@ Spoiler: you're not super-human.'''
     def level_check():
         message = {'header': (("You are level %s. " % (player['level']))
             + "You have shelved these books:"), 'text': []}
+        if not player['shelved_books']:
+            message['text'] += ["Fail. You haven't shelved any books!"]
+            return message
         for book in player['shelved_books']:
             message['text'] += [book]
         return message
@@ -219,8 +222,6 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
                 return output
             else:
                 return output
-        elif verb == 'talk':
-            talk()
         else:
             return 'I\'m sorry, I don\'t understand that command. Try typing "help" if you need some guidance.'
 
