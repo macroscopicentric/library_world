@@ -1,6 +1,6 @@
-from import_from_json import import_from_json
+import json
 from rooms import Room
-from people import NPC, Librarian
+from people import NPC, Librarian, Baddie
 from items import Item, Key, Book
 from spells import Spell
 
@@ -10,27 +10,29 @@ class Game(object):
     def __init__(self):
         self.player_state = {
             'alive': True,
-            'location'      : home,
+            'location'      : 'chiefs_office',
             'shape'         : 'human',
             'size'          : 'medium',
             'flying'        : False,
             'known_spells'  : ['human'],
             'spell_counter' : 0,
-            'inventory'     : [],
-            'shelved_books' : [],
+            'inventory'     : ['key'],
+            'shelved_books' : ['french book'],
             'level'         : 1
             }
+        with open('people.json') as f:
+            self.npc_list = reconstitute(json.load(f))
 
-        self.npc_list = import_from_json('people', NPC, Librarian)
+        with open('spells.json') as f:
+            self.spells = reconstitute(json.load(f))
 
-        self.spells = import_from_json('spells', Spell)
+        with open('items.json') as f:
+            self.item_list = reconstitute(json.load(f))
 
-        self.item_list = import_from_json('items', Item, Key)
-        self.item_list.update(import_from_json('items_books', Book))
-
-        self.directory = import_from_json('rooms', Room)
+        with open('rooms.json') as f:
+            self.directory = reconstitute(json.load(f))
         self.directory[home].check_banana = True
-        self.room_invent({
+        self.add_to_room({
             'labyrinth1': ['chalk', 'potions book'],
             'second_assistant_study': ['statue', 'red waistcoat'],
             'labyrinth46': ['epic book'],
@@ -53,13 +55,28 @@ class Game(object):
             'wtnv_library7': ['labyrinth book'],
             'beast_library2': ['banana'],
             'robing_room': ['fairy tale book'],
+            'dw_library': ['archbishop book'],
             'little_shop': ['wire']
             })
+        self.add_npcs({
+            'chiefs_office': 'vancelle',
+            'labyrinth1': 'jorge',
+            'binding_room': 'clippy',
+            'uu_library1': 'orangutan',
+            'upper_librarian_hallway': 'imshi',
+            'beast_library5': 'cogsworth',
+            'beast_library3': 'lumiere',
+            'dw_library': 'doctor'
+            })
 
-    #less than thrilled that this relies on side effects. solution?
-    def room_invent(self, invent_dict):
-        for room, items in invent_dict.iteritems():
+    #less than thrilled that this relies on side effects. solution? also repetitive w/ below.
+    def add_to_room(self, thing_dict):
+        for room, items in thing_dict.iteritems():
             self.directory[room].inventory = items
+
+    def add_npcs(self, npc_dict):
+        for room, character in npc_dict.iteritems():
+            self.directory[room].npc = character
 
     def level_up(self, level):
         self.player_state['level'] = level

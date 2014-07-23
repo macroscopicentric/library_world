@@ -1,1108 +1,2095 @@
 {
+  "alexandria1": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the north and west walls. The only safe\nexit is to go back through the door to the east.", 
+    "directions": {
+      "e": "hall10", 
+      "n": "alexandria2", 
+      "w": "alexandria6"
+    }, 
+    "inventory": [
+      "translation book"
+    ], 
+    "locked": true, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Royal Library of Alexandria - Reading Room", 
+    "npc": null, 
+    "secondary_description": "This is a beautiful reading room with high ceilings and columns everywhere.\nBookshelves line the walls, and the room seems kind of smoky. There are doors\nto the north, east, and west.", 
+    "short_name": "alexandria1"
+  }, 
+  "alexandria2": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a long, covered walkway between two \"buildings.\" There are\ngardens to either side of the walkway, but no doors to get there. You can see\nsky beyond the roof above you, which is strange since you know you're still\nunderground. But it's quite convincing; you can hear birds and everything.\nThere are doors to the north and south.", 
+    "directions": {
+      "n": "alexandria3", 
+      "s": "alexandria1"
+    }, 
+    "inventory": [
+      "magic book"
+    ], 
+    "locked": true, 
+    "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
+    "name": "Royal Library of Alexandria - Peripatos Walk", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "alexandria2"
+  }, 
+  "alexandria3": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is a small but welcoming meeting room. There's a large sturdy stone\ntable in the center, surrounded by wooden chairs. There are doors to the\nsoutheast, southwest, and south.", 
+    "directions": {
+      "s": "alexandria2", 
+      "se": "alexandria5", 
+      "sw": "alexandria4"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Royal Library of Alexandria - Meeting Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "alexandria3"
+  }, 
+  "alexandria4": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a small but full garden. You know it's a fake sky, but the sky\noverhead is quite convincing and beautifully blue. You can feel the sunlight\non your face, and there are birds in the carefully maintained shrubs. There are\npaths leading to the northeast and south.", 
+    "directions": {
+      "ne": "alexandria3", 
+      "s": "alexandria6"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Royal Library of Alexandria - Gardens", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "alexandria4"
+  }, 
   "alexandria5": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a small but full garden. You know it's a fake sky, but the sky\noverhead is quite convincing and beautifully blue. You can feel the sunlight\non your face, and there are birds in the carefully maintained shrubs. There is\na path leading to the northwest.", 
     "directions": {
       "nw": "alexandria3"
     }, 
-    "description": "You're in a small but full garden. You know it's a fake sky, but the sky\noverhead is quite convincing and beautifully blue. You can feel the sunlight\non your face, and there are birds in the carefully maintained shrubs. There is\na path leading to the northwest.", 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "name": "Royal Library of Alexandria - Gardens", 
+    "npc": null, 
+    "secondary_description": null, 
     "short_name": "alexandria5"
   }, 
-  "labyrinth51": {
+  "alexandria6": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is a large lecture hall. There are steps leading down to a lectern\nat the front of the room. There are doors to the north and east.", 
     "directions": {
-      "e": "labyrinth53"
+      "e": "alexandria1", 
+      "n": "alexandria4"
     }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There is a door to the east.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth51"
+    "inventory": [], 
+    "locked": true, 
+    "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
+    "name": "Royal Library of Alexandria - Lecture Hall", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "alexandria6"
   }, 
-  "labyrinth50": {
+  "beast_library1": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a huge room filled floor to 50-foot ceiling with books, with\ntall windows in the southwest and northwest corners. The room extends to the\nnorth and south, and there's a door to the east.", 
     "directions": {
-      "e": "labyrinth52", 
-      "w": "labyrinth43"
+      "e": "hall3", 
+      "n": "beast_library4", 
+      "s": "beast_library2"
     }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Requiescant a\nlaboribus suis.\" There are doors to the east and west.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth50"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Beast's Library", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "beast_library1"
   }, 
-  "labyrinth53": {
+  "beast_library2": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in the southern end of a massive library. It extends to the\nnorth, and there's a staircase going up in the corner.", 
     "directions": {
-      "ne": "labyrinth52", 
-      "w": "labyrinth51"
+      "n": "beast_library1", 
+      "u": "beast_library3"
     }, 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Cecidit de cielo stella magna.\" There are doors to the northeast and\nwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth53"
+    "inventory": [
+      "banana"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Beast's Library", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "beast_library2"
   }, 
-  "labyrinth52": {
+  "beast_library3": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're standing on a walkway about halfway up the southern wall of a\nmassive library. There are stairs leading down.", 
     "directions": {
-      "sw": "labyrinth53", 
-      "se": "labyrinth54", 
-      "w": "labyrinth50"
+      "d": "beast_library2"
     }, 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the west, southeast, and\nsouthwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth52"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Beast's Library - South Walkway", 
+    "npc": "lumiere", 
+    "secondary_description": null, 
+    "short_name": "beast_library3"
   }, 
-  "labyrinth55": {
+  "beast_library4": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in the northern end of a massive library. It extends to the\nsouth, and there's a staircase going up in the corner.", 
     "directions": {
-      "s": "labyrinth13", 
-      "ne": "labyrinth54"
+      "s": "beast_library1", 
+      "u": "beast_library5"
     }, 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the northeast and\nsouth.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth55"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Beast's Library", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "beast_library4"
   }, 
-  "labyrinth54": {
+  "beast_library5": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're standing on a walkway about halfway up the northern wall of a\nmassive library. There are stairs leading down.", 
     "directions": {
-      "sw": "labyrinth55", 
-      "nw": "labyrinth52"
+      "d": "beast_library4"
     }, 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"In diebu illis.\" There are doors to the northwest and southwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth54"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Beast's Library - North Walkway", 
+    "npc": "cogsworth", 
+    "secondary_description": null, 
+    "short_name": "beast_library5"
+  }, 
+  "binding_room": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is the room where the librarians repair damaged books. There are\nbooks covering every flat surface, and a giant press in the back corner. The\nonly exit is to the east.", 
+    "directions": {
+      "e": "librarian_alcove"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Binding Room", 
+    "npc": "clippy", 
+    "secondary_description": null, 
+    "short_name": "binding_room"
   }, 
   "chiefs_office": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
     "description": "This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled\noffice. Chief Librarian Vancelle is obviously not the tidiest person; papers\nand books are stacked willy-nilly on her desk. She's nice enough, but I\nwouldn't like to get caught in her office without her permission. The only exit\nis to the north.", 
-    "short_name": "chiefs_office", 
-    "npc": "vancelle", 
     "directions": {
       "n": "upper_librarian_hallway"
     }, 
-    "name": "Chief Librarian Vancelle's Office"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Chief Librarian Vancelle's Office", 
+    "npc": "vancelle", 
+    "secondary_description": null, 
+    "short_name": "chiefs_office"
   }, 
-  "lower_librarian_hallway": {
+  "dr_moon": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're standing outside a beautiful estate, on the walkway leading up to the\nmain entrance. There is a sign on the lawn that says, simply, \"Cal.\" You can\ngo north, east, west, or south.", 
     "directions": {
-      "u": "middle_librarian_hallway", 
-      "se": "third_assistant_study"
+      "e": "dr_moon", 
+      "n": "dr_moon", 
+      "s": "dr_moon", 
+      "w": "dr_moon"
     }, 
-    "description": "You're standing in a hallway. There are many doors adjacent to this\nhallway, more than the two upper floors. The doors are all painted yellow.\nThey're all closed, except for the one in the southeastern corner. There are\nalso stairs leading up.", 
-    "name": "Lower Hallway", 
-    "short_name": "lower_librarian_hallway"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Cal Estate", 
+    "npc": "doctor", 
+    "secondary_description": null, 
+    "short_name": "dr_moon"
   }, 
-  "outside_of_library": {
+  "dw_library": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This certainly is a big, round room. There's a little glass-walled shop taking\nup the northwest corner. Its door is open. There's also a door to the south.", 
     "directions": {
-      "w": "reading_room"
+      "nw": "little_shop", 
+      "s": "hall13"
     }, 
+    "inventory": [
+      "archbishop book"
+    ], 
     "locked": true, 
-    "name": "Outside the Library", 
-    "short_name": "outside_of_library", 
-    "locked_description": "No, I really don't think you want to go that way. Why\ndon't you stick to the library?"
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "The Library Planet", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "dw_library"
   }, 
-  "labyrinth9": {
+  "finis_africae": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nheptagonal. There's a door to the northwest.", 
     "directions": {
-      "nw": "labyrinth11", 
-      "sw": "labyrinth10", 
-      "n": "labyrinth6"
+      "nw": "labyrinth22"
     }, 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Gratia vobis et pax.\" There are doors to the north, northwest, and\nsouthwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth9"
+    "inventory": [
+      "drama book"
+    ], 
+    "locked": true, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Hidden Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "finis_africae"
   }, 
-  "labyrinth8": {
+  "hall1": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. Through the eastern\narchway, you can see the Main Reading Room. The walls here are blue. There are\narchways to the east and west.", 
     "directions": {
-      "w": "labyrinth7", 
-      "n": "labyrinth1"
+      "e": "reading_room", 
+      "w": "hall2"
     }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"V*.\"\nThere are doors to the north and west.", 
-    "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth8"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall1"
+  }, 
+  "hall10": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south. There is a door with two emeralds\nover it to the west, flanked by two stone columns topped with capitals that look\nlike scrolls of parchment.", 
+    "directions": {
+      "n": "hall11", 
+      "s": "hall9", 
+      "w": "alexandria1"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall10"
+  }, 
+  "hall11": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
+    "directions": {
+      "n": "hall12", 
+      "s": "hall10"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall11"
+  }, 
+  "hall12": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are\npurple. There are archways to the west and south.", 
+    "directions": {
+      "s": "hall11", 
+      "w": "hall13"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "West-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall12"
+  }, 
+  "hall13": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west. There is a door with two emeralds over\nit to the north. There is a grandfather clock standing in the corner, and next\nto the door, someone has taped a postcard-sized print of\nVan Gogh's \"Starry Night.\"", 
+    "directions": {
+      "e": "hall12", 
+      "n": "dw_library", 
+      "w": "hall14"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall13"
+  }, 
+  "hall14": {
+    "check_banana": true, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and south.", 
+    "directions": {
+      "e": "hall13", 
+      "s": "hall15"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall14"
+  }, 
+  "hall15": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and south, and a velvet rope sealed with\nVancelle's official seal blocking a door to the west. Next to the door, there's\na sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
+    "directions": {
+      "n": "hall14", 
+      "s": "hall16", 
+      "w": "restricted"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-South Hallway", 
+    "npc": null, 
+    "secondary_description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere's a velvet rope piled neatly in the corner. There are archways to the\nnorth and south, and a door to the west. Next to the door, there's a sign posted:\n\"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
+    "short_name": "hall15"
+  }, 
+  "hall16": {
+    "check_banana": true, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and east.", 
+    "directions": {
+      "e": "hall17", 
+      "n": "hall15"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-East Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall16"
+  }, 
+  "hall17": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west.", 
+    "directions": {
+      "e": "hall18", 
+      "w": "hall16"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall17"
+  }, 
+  "hall18": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and west.", 
+    "directions": {
+      "n": "hall19", 
+      "w": "hall17"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall18"
+  }, 
+  "hall19": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent\"\nwith a purple eye stamped on it. There are archways to the north and south,\nand a door to the east with two emeralds over it.", 
+    "directions": {
+      "e": "wtnv_library1", 
+      "n": "hall20", 
+      "s": "hall18"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall19"
+  }, 
+  "hall2": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the east and west.", 
+    "directions": {
+      "e": "hall1", 
+      "w": "hall3"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall2"
+  }, 
+  "hall20": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are\norange. There are archways to the west and south.", 
+    "directions": {
+      "s": "hall19", 
+      "w": "hall21"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "West-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall20"
+  }, 
+  "hall21": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. On the wall, there's a very old and very inaccurate world map. (Who\never heard of a place called Leones?!) There are archways to the east and south\nand stairs leading up. There are two emeralds set in the ceiling over the\nstairs.", 
+    "directions": {
+      "e": "hall20", 
+      "s": "hall22", 
+      "u": "labyrinth1"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall21"
+  }, 
+  "hall22": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There are archways to the north and east.", 
+    "directions": {
+      "e": "hall23", 
+      "n": "hall21"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-East Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall22"
+  }, 
+  "hall23": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There are archways to the north and west. There's a door with a\nsunburst painted on it to the east, and four emeralds set in the wall above\nit.", 
+    "directions": {
+      "e": "stilken_room1", 
+      "n": "hall24", 
+      "w": "hall22"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall23"
+  }, 
+  "hall24": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There's an archway to the south. On the west wall, there's a hole, far\ntoo small for a human to pass through.", 
+    "directions": {
+      "s": "hall23"
+    }, 
+    "inventory": [
+      "floral book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall24"
+  }, 
+  "hall3": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a table in the corner with a rose lying on it. There are archways to\nthe east and south, and a stained-glass door to the west.", 
+    "directions": {
+      "e": "hall2", 
+      "s": "hall4", 
+      "w": "beast_library1"
+    }, 
+    "inventory": [
+      "french book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall3"
+  }, 
+  "hall4": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
+    "directions": {
+      "n": "hall3", 
+      "s": "hall5"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall4"
+  }, 
+  "hall5": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
+    "directions": {
+      "n": "hall4", 
+      "s": "hall6"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-South Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall5"
+  }, 
+  "hall6": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a large statue of a turtle in the corner. There are archways to the\nnorth and east.", 
+    "directions": {
+      "e": "hall7", 
+      "n": "hall5"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-East Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall6"
+  }, 
+  "hall7": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the east and west.", 
+    "directions": {
+      "e": "hall8", 
+      "w": "hall6"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall7"
+  }, 
+  "hall8": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a strange painting on the wall of faceless people going up and down\nimpossible stairways. There are archways to the east and west, and a door\nwith two emeralds over it to the south.", 
+    "directions": {
+      "e": "hall9", 
+      "s": "uu_library1", 
+      "w": "hall7"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "East-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall8"
+  }, 
+  "hall9": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a large statue of an elephant in the corner. There are archways to the\nnorth and west.", 
+    "directions": {
+      "n": "hall10", 
+      "w": "hall8"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "North-West Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "hall9"
   }, 
   "labyrinth1": {
-    "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth1", 
-    "npc": "jorge", 
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the northwest, east, and south, and stairs\nleading down.", 
     "directions": {
-      "s": "labyrinth8", 
-      "e": "labyrinth2", 
       "d": "hall21", 
-      "nw": "labyrinth4"
+      "e": "labyrinth2", 
+      "nw": "labyrinth4", 
+      "s": "labyrinth8"
     }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the northwest, east, and south, and stairs\nleading down."
-  }, 
-  "labyrinth3": {
-    "directions": {
-      "w": "labyrinth4", 
-      "se": "labyrinth2"
-    }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Obscuratus est sol et aer.\" There are doors to the west and southeast.", 
+    "inventory": [
+      "chalk", 
+      "potions book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth3"
+    "npc": "jorge", 
+    "secondary_description": null, 
+    "short_name": "labyrinth1"
+  }, 
+  "labyrinth10": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Y*.\" There is a door to the northeast.", 
+    "directions": {
+      "ne": "labyrinth9"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth10"
+  }, 
+  "labyrinth11": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Equus albus.\" There are doors to the southeast and southwest.", 
+    "directions": {
+      "se": "labyrinth9", 
+      "sw": "labyrinth14"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth11"
+  }, 
+  "labyrinth12": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Apocalypsis Iesu Christi.\" There are doors to the north and east.", 
+    "directions": {
+      "e": "labyrinth6", 
+      "n": "labyrinth13"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth12"
+  }, 
+  "labyrinth13": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the north, east, and south.", 
+    "directions": {
+      "e": "labyrinth5", 
+      "n": "labyrinth55", 
+      "s": "labyrinth12"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth13"
+  }, 
+  "labyrinth14": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Primogenitus mortuorum.\" There are doors to the northeast and south.", 
+    "directions": {
+      "ne": "labyrinth11", 
+      "s": "labyrinth15"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth14"
+  }, 
+  "labyrinth15": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Tertia pars terrae combusta est.\" There are doors to the east and south.", 
+    "directions": {
+      "n": "labyrinth14", 
+      "s": "labyrinth16"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth15"
+  }, 
+  "labyrinth16": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"U*.\" There are\ndoors to the north, west, and southeast.", 
+    "directions": {
+      "n": "labyrinth15", 
+      "se": "labyrinth17", 
+      "w": "labyrinth22"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth16"
+  }, 
+  "labyrinth17": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"L*.\"\nThere are doors to the northwest and south.", 
+    "directions": {
+      "nw": "labyrinth16", 
+      "s": "labyrinth18"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth17"
+  }, 
+  "labyrinth18": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the north and southwest.", 
+    "directions": {
+      "n": "labyrinth17", 
+      "sw": "labyrinth19"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth18"
+  }, 
+  "labyrinth19": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Obscuratus est sol et aer.\" There are doors to the northeast and\nnorthwest.", 
+    "directions": {
+      "ne": "labyrinth18", 
+      "nw": "labyrinth20"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth19"
   }, 
   "labyrinth2": {
-    "directions": {
-      "w": "labyrinth1", 
-      "nw": "labyrinth3"
-    }, 
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
     "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular. There's an altar below the window. There are doors to the\nnorthwest and west.", 
+    "directions": {
+      "nw": "labyrinth3", 
+      "w": "labyrinth1"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
     "short_name": "labyrinth2"
   }, 
+  "labyrinth20": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Nomen illi mors.\" There are doors to the north and southeast.", 
+    "directions": {
+      "n": "labyrinth21", 
+      "se": "labyrinth19"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth20"
+  }, 
+  "labyrinth21": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the northeast and south.", 
+    "directions": {
+      "ne": "labyrinth22", 
+      "s": "labyrinth20"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth21"
+  }, 
+  "labyrinth22": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Super thronos\nviginti quatuor.\" There are doors to the north, east, west, and southwest, and\na mirror on the southeast wall with the same inscription written over it.", 
+    "directions": {
+      "e": "labyrinth16", 
+      "n": "labyrinth23", 
+      "se": "finis_africae", 
+      "sw": "labyrinth21", 
+      "w": "labyrinth24"
+    }, 
+    "inventory": [
+      "south african book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth22"
+  }, 
+  "labyrinth23": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Y*.\"\nThere is a door to the south.", 
+    "directions": {
+      "s": "labyrinth22"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Southern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth23"
+  }, 
+  "labyrinth24": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Primogenitus mortuorum.\" There are doors to the northeast and east.", 
+    "directions": {
+      "e": "labyrinth22", 
+      "ne": "labyrinth25"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth24"
+  }, 
+  "labyrinth25": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Requiescant a laboribus suis.\" There are doors to the northwest and\nsouthwest.", 
+    "directions": {
+      "nw": "labyrinth26", 
+      "sw": "labyrinth24"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth25"
+  }, 
+  "labyrinth26": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Obscuratus est sol et aer.\" There are doors to the southeast and\nsouthwest.", 
+    "directions": {
+      "se": "labyrinth25", 
+      "sw": "labyrinth27"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth26"
+  }, 
+  "labyrinth27": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the north and\nnortheast.", 
+    "directions": {
+      "n": "labyrinth28", 
+      "ne": "labyrinth26"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth27"
+  }, 
+  "labyrinth28": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Nomen illi\nmors.\" There are doors to the north, east, west, and southwest.", 
+    "directions": {
+      "e": "labyrinth36", 
+      "n": "labyrinth32", 
+      "s": "labyrinth27", 
+      "sw": "labyrinth29"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth28"
+  }, 
+  "labyrinth29": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Requiescant a\nlaboribus suis.\" There are doors to the northeast and west.", 
+    "directions": {
+      "ne": "labyrinth28", 
+      "w": "labyrinth30"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth29"
+  }, 
+  "labyrinth3": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Obscuratus est sol et aer.\" There are doors to the west and southeast.", 
+    "directions": {
+      "se": "labyrinth2", 
+      "w": "labyrinth4"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth3"
+  }, 
+  "labyrinth30": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Equus albus.\"\nThere are doors to the northeast and east.", 
+    "directions": {
+      "e": "labyrinth29", 
+      "ne": "labyrinth31"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth30"
+  }, 
+  "labyrinth31": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There is a door to the southwest.", 
+    "directions": {
+      "sw": "labyrinth30"
+    }, 
+    "inventory": [
+      "fantasy book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth31"
+  }, 
+  "labyrinth32": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the northwest and south.", 
+    "directions": {
+      "nw": "labyrinth33", 
+      "s": "labyrinth28"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth32"
+  }, 
+  "labyrinth33": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"H*.\" There\nare doors to the southeast and west.", 
+    "directions": {
+      "se": "labyrinth32", 
+      "w": "labyrinth34"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth33"
+  }, 
+  "labyrinth34": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the east and southwest.", 
+    "directions": {
+      "e": "labyrinth33", 
+      "sw": "labyrinth35"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth34"
+  }, 
+  "labyrinth35": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"B*.\" There is\na door to the northeast.", 
+    "directions": {
+      "ne": "labyrinth34"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth35"
+  }, 
+  "labyrinth36": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"M*.\" There\nare doors to the north and west.", 
+    "directions": {
+      "n": "labyrinth37", 
+      "w": "labyrinth28"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth36"
+  }, 
+  "labyrinth37": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north and south.", 
+    "directions": {
+      "n": "labyrinth38", 
+      "s": "labyrinth36"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Western Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth37"
+  }, 
+  "labyrinth38": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"In diebu illis.\" There are doors to the northeast, northwest, and\nsouth.", 
+    "directions": {
+      "ne": "labyrinth40", 
+      "nw": "labyrinth39", 
+      "s": "labyrinth37"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth38"
+  }, 
+  "labyrinth39": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"L*.\" There is a door to the southeast.", 
+    "directions": {
+      "se": "labyrinth38"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth39"
+  }, 
+  "labyrinth4": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Facta\nest grandi et ignis.\" There are doors to the east, southeast, and southwest.", 
+    "directions": {
+      "e": "labyrinth3", 
+      "se": "labyrinth1", 
+      "sw": "labyrinth5"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth4"
+  }, 
+  "labyrinth40": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the north, northwest, and\nsouthwest.", 
+    "directions": {
+      "n": "labyrinth42", 
+      "nw": "labyrinth41", 
+      "sw": "labyrinth38"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth40"
+  }, 
+  "labyrinth41": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"L*.\" There is a door to the southeast.", 
+    "directions": {
+      "se": "labyrinth40"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth41"
+  }, 
+  "labyrinth42": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Gratia vobis et pax.\" There are doors to the north and west.", 
+    "directions": {
+      "n": "labyrinth43", 
+      "s": "labyrinth40"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth42"
+  }, 
+  "labyrinth43": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"M*.\" There are\ndoors to the northeast, northwest, east, and south.", 
+    "directions": {
+      "e": "labyrinth50", 
+      "ne": "labyrinth46", 
+      "nw": "labyrinth44", 
+      "s": "labyrinth42"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth43"
+  }, 
+  "labyrinth44": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"In\ndiebu illis.\" There are doors to the north and southeast.", 
+    "directions": {
+      "n": "labyrinth45", 
+      "se": "labyrinth43"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth44"
+  }, 
+  "labyrinth45": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"L*.\"\nThere is a door to the south.", 
+    "directions": {
+      "s": "labyrinth44"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth45"
+  }, 
+  "labyrinth46": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north, east, and southwest.", 
+    "directions": {
+      "e": "labyrinth48", 
+      "n": "labyrinth47", 
+      "sw": "labyrinth43"
+    }, 
+    "inventory": [
+      "epic book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth46"
+  }, 
+  "labyrinth47": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Gratia vobis et pax.\" There is a door to the south.", 
+    "directions": {
+      "s": "labyrinth46"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth47"
+  }, 
+  "labyrinth48": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"In\ndiebu illis.\" There are doors to the north and west.", 
+    "directions": {
+      "n": "labyrinth49", 
+      "w": "labyrinth46"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth48"
+  }, 
+  "labyrinth49": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Nomen\nilli mors.\" There is a door to the south.", 
+    "directions": {
+      "s": "labyrinth48"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth49"
+  }, 
   "labyrinth5": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"U*.\" There are\ndoors to the northeast and west.", 
     "directions": {
       "ne": "labyrinth4", 
       "w": "labyrinth13"
     }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"U*.\" There are\ndoors to the northeast and west.", 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
     "short_name": "labyrinth5"
   }, 
-  "labyrinth4": {
+  "labyrinth50": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Requiescant a\nlaboribus suis.\" There are doors to the east and west.", 
     "directions": {
-      "sw": "labyrinth5", 
-      "e": "labyrinth3", 
-      "se": "labyrinth1"
+      "e": "labyrinth52", 
+      "w": "labyrinth43"
     }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Facta\nest grandi et ignis.\" There are doors to the east, southeast, and southwest.", 
-    "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth4"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth50"
   }, 
-  "labyrinth7": {
+  "labyrinth51": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There is a door to the east.", 
     "directions": {
-      "e": "labyrinth8", 
-      "nw": "labyrinth6"
+      "e": "labyrinth53"
     }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Super\nthronos viginti quatuor.\" There are doors to the east and northwest.", 
-    "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth7"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Northern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth51"
+  }, 
+  "labyrinth52": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the west, southeast, and\nsouthwest.", 
+    "directions": {
+      "se": "labyrinth54", 
+      "sw": "labyrinth53", 
+      "w": "labyrinth50"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth52"
+  }, 
+  "labyrinth53": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Cecidit de cielo stella magna.\" There are doors to the northeast and\nwest.", 
+    "directions": {
+      "ne": "labyrinth52", 
+      "w": "labyrinth51"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth53"
+  }, 
+  "labyrinth54": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"In diebu illis.\" There are doors to the northwest and southwest.", 
+    "directions": {
+      "nw": "labyrinth52", 
+      "sw": "labyrinth55"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth54"
+  }, 
+  "labyrinth55": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the northeast and\nsouth.", 
+    "directions": {
+      "ne": "labyrinth54", 
+      "s": "labyrinth13"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth55"
   }, 
   "labyrinth6": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"D*.\" There are\ndoors to the west, southeast, and south.", 
     "directions": {
       "s": "labyrinth9", 
       "se": "labyrinth7", 
       "w": "labyrinth12"
     }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"D*.\" There are\ndoors to the west, southeast, and south.", 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
     "short_name": "labyrinth6"
   }, 
-  "second_assistant_study": {
-    "locked": true, 
-    "name": "Second Assistant Study", 
-    "short_name": "second_assistant_study", 
+  "labyrinth7": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Super\nthronos viginti quatuor.\" There are doors to the east and northwest.", 
     "directions": {
-      "w": "middle_librarian_hallway"
+      "e": "labyrinth8", 
+      "nw": "labyrinth6"
     }, 
-    "description": "This is your new study, the room of a Second Assistant Librarian.\nThere's enough room for a desk and not one but two chairs (what luxury!), and\nthere's a door ajar that leads to a tiny bathroom, all your own. The only exit\nis to the west."
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth7"
   }, 
-  "labyrinth48": {
+  "labyrinth8": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"V*.\"\nThere are doors to the north and west.", 
     "directions": {
-      "w": "labyrinth46", 
-      "n": "labyrinth49"
+      "n": "labyrinth1", 
+      "w": "labyrinth7"
     }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"In\ndiebu illis.\" There are doors to the north and west.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth48"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Labyrinth Room - Eastern Tower", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth8"
   }, 
-  "labyrinth49": {
+  "labyrinth9": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Gratia vobis et pax.\" There are doors to the north, northwest, and\nsouthwest.", 
     "directions": {
-      "s": "labyrinth48"
+      "n": "labyrinth6", 
+      "nw": "labyrinth11", 
+      "sw": "labyrinth10"
     }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Nomen\nilli mors.\" There is a door to the south.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth49"
-  }, 
-  "labyrinth46": {
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north, east, and southwest.", 
-    "short_name": "labyrinth46", 
-    "directions": {
-      "e": "labyrinth48", 
-      "sw": "labyrinth43", 
-      "n": "labyrinth47"
-    }, 
-    "name": "Labyrinth Room - Northern Tower"
-  }, 
-  "labyrinth47": {
-    "directions": {
-      "s": "labyrinth46"
-    }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Gratia vobis et pax.\" There is a door to the south.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth47"
-  }, 
-  "labyrinth44": {
-    "directions": {
-      "se": "labyrinth43", 
-      "n": "labyrinth45"
-    }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"In\ndiebu illis.\" There are doors to the north and southeast.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth44"
-  }, 
-  "labyrinth45": {
-    "directions": {
-      "s": "labyrinth44"
-    }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"L*.\"\nThere is a door to the south.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth45"
-  }, 
-  "labyrinth42": {
-    "directions": {
-      "s": "labyrinth40", 
-      "n": "labyrinth43"
-    }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Gratia vobis et pax.\" There are doors to the north and west.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth42"
-  }, 
-  "labyrinth43": {
-    "directions": {
-      "s": "labyrinth42", 
-      "e": "labyrinth50", 
-      "ne": "labyrinth46", 
-      "nw": "labyrinth44"
-    }, 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"M*.\" There are\ndoors to the northeast, northwest, east, and south.", 
-    "name": "Labyrinth Room - Northern Tower", 
-    "short_name": "labyrinth43"
-  }, 
-  "labyrinth40": {
-    "directions": {
-      "nw": "labyrinth41", 
-      "sw": "labyrinth38", 
-      "n": "labyrinth42"
-    }, 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the north, northwest, and\nsouthwest.", 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
     "name": "Labyrinth Room", 
-    "short_name": "labyrinth40"
-  }, 
-  "labyrinth41": {
-    "directions": {
-      "se": "labyrinth40"
-    }, 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"L*.\" There is a door to the southeast.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth41"
-  }, 
-  "binding_room": {
-    "name": "Binding Room", 
-    "short_name": "binding_room", 
-    "npc": "clippy", 
-    "directions": {
-      "e": "librarian_alcove"
-    }, 
-    "description": "This is the room where the librarians repair damaged books. There are\nbooks covering every flat surface, and a giant press in the back corner. The\nonly exit is to the east."
-  }, 
-  "wtnv_library2": {
-    "directions": {
-      "s": "wtnv_library4", 
-      "w": "wtnv_library3"
-    }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You thought you'd left the biography section, but one of the\nnearby shelves has yet more copies of the official biography of Helen Hunt.\nTragically, this section of the library seems to lack both librarian repellant\ndispensers and trees. I would get out of here as soon as possible if I were\nyou, as you probably don't want to meet the librarians in this particular\nlibrary. There are doors to the west and south.", 
-    "name": "Night Vale Public Library - Northeast Corner", 
-    "short_name": "wtnv_library2"
-  }, 
-  "wtnv_library3": {
-    "directions": {
-      "s": "wtnv_library6", 
-      "e": "wtnv_library2",
-      "w": "wtnv_library1"
-    }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. There are two very old (vintage? decrepit? Pleistocene?\ncarbon-dated?) computers in the corner, with hand-lettered \"Out of Order\" signs\ntaped to their screens. Tragically, this section of the library seems to lack\nboth librarian repellant dispensers and trees. I would get out of here as soon\nas possible if I were you, as you probably don't want to meet the librarians in\nthis particular library. There are doors to the east, west, and south.", 
-    "name": "Night Vale Public Library - Northeast Corner", 
-    "short_name": "wtnv_library3"
-  }, 
-  "finis_africae": {
-    "locked": true, 
-    "name": "Hidden Room - Southern Tower", 
-    "short_name": "finis_africae", 
-    "directions": {
-      "nw": "labyrinth22"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nheptagonal. There's a door to the northwest."
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "labyrinth9"
   }, 
   "librarian_alcove": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
     "description": "This is the librarian alcove, the main hub of their behind-the-scenes\nlibrary management. There is a small roller-top desk in the corner. There are\nexits to the north, south, east, and west.", 
-    "short_name": "librarian_alcove", 
     "directions": {
-      "s": "upper_librarian_hallway", 
       "e": "robing_room", 
-      "w": "binding_room", 
-      "n": "reading_room"
+      "n": "reading_room", 
+      "s": "upper_librarian_hallway", 
+      "w": "binding_room"
     }, 
-    "name": "Librarian Alcove"
+    "inventory": [
+      "ledger"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Librarian Alcove", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "librarian_alcove"
   }, 
-  "hall24": {
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There's an archway to the south. On the west wall, there's a hole, far\ntoo small for a human to pass through.", 
-    "short_name": "hall24", 
+  "little_shop": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "It's the little shop! Just what every library planet requires. There are shelves\nof kitschy gifts, stationary, and display books lining the walls. The library\nroom you came from is visible through the glass walls. The only exit is to the\nsoutheast, where you came from.", 
     "directions": {
-      "s": "hall23"
+      "se": "dw_library"
     }, 
-    "name": "Hallway"
+    "inventory": [
+      "wire"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "The Library Planet - Little Shop", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "little_shop"
   }, 
-  "hall21": {
+  "lower_librarian_hallway": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're standing in a hallway. There are many doors adjacent to this\nhallway, more than the two upper floors. The doors are all painted yellow.\nThey're all closed, except for the one in the southeastern corner. There are\nalso stairs leading up.", 
     "directions": {
-      "u": "labyrinth1", 
-      "s": "hall22", 
-      "e": "hall20"
+      "se": "third_assistant_study", 
+      "u": "middle_librarian_hallway"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. On the wall, there's a very old and very inaccurate world map. (Who\never heard of a place called Leones?!) There are archways to the east and south\nand stairs leading up. There are two emeralds set in the ceiling over the\nstairs.", 
-    "name": "East-South Hallway", 
-    "short_name": "hall21"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Lower Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "lower_librarian_hallway"
   }, 
-  "hall20": {
+  "middle_librarian_hallway": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're standing in a hallway. All of the doors are painted red. They're\nall closed and locked. There are stairs leading up and down.", 
     "directions": {
-      "s": "hall19", 
-      "w": "hall21"
+      "d": "lower_librarian_hallway", 
+      "e": "second_assistant_study", 
+      "u": "upper_librarian_hallway"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\norange. There are archways to the west and south.", 
-    "name": "West-South Hallway", 
-    "short_name": "hall20"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Middle Hallway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "middle_librarian_hallway"
   }, 
-  "hall23": {
+  "outside_of_library": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "", 
     "directions": {
-      "e": "stilken_room1", 
-      "w": "hall22", 
-      "n": "hall24"
+      "w": "reading_room"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There are archways to the north and west. There's a door with a\nsunburst painted on it to the east, and four emeralds set in the wall above\nit.", 
-    "name": "North-West Hallway", 
-    "short_name": "hall23"
+    "inventory": [], 
+    "locked": true, 
+    "locked_description": "No, I really don't think you want to go that way. Why\ndon't you stick to the library?", 
+    "name": "Outside the Library", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "outside_of_library"
   }, 
-  "hall22": {
+  "reading_room": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in the Main Reading Room. Large wooden tables fill the room.\nThere are exits to the south and west. The main doors are open to the east.", 
     "directions": {
-      "e": "hall23", 
-      "n": "hall21"
+      "e": "outside_of_library", 
+      "s": "librarian_alcove", 
+      "w": "hall1"
     }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There are archways to the north and east.", 
-    "name": "North-East Hallway", 
-    "short_name": "hall22"
-  }, 
-  "third_assistant_study": {
-    "name": "Third Assistant Study", 
-    "short_name": "third_assistant_study", 
-    "secondary_description": "This is your old study. It's quite cramped. Hard to believe that you spent\nso much time in this tiny room! The only exit is to the northwest.", 
-    "directions": {
-      "nw": "lower_librarian_hallway"
-    }, 
-    "description": "This is your study. It's very cramped; there's barely room for the desk\nand single chair that are here. The only exit is to the northwest."
-  }, 
-  "labyrinth39": {
-    "directions": {
-      "se": "labyrinth38"
-    }, 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"L*.\" There is a door to the southeast.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth39"
-  }, 
-  "labyrinth38": {
-    "directions": {
-      "s": "labyrinth37", 
-      "ne": "labyrinth40", 
-      "nw": "labyrinth39"
-    }, 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"In diebu illis.\" There are doors to the northeast, northwest, and\nsouth.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth38"
-  }, 
-  "wtnv_library4": {
-    "directions": {
-      "w": "wtnv_library6", 
-      "n": "wtnv_library2"
-    }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. The shelves here are completely empty. Tragically, this section\nof the library seems to lack both librarian repellant dispensers and trees. I\nwould get out of here as soon as possible if I were you, as you probably don't\nwant to meet the librarians in this particular library. There are doors to the\nnorth and west.", 
-    "name": "Night Vale Public Library - Southeast Corner", 
-    "short_name": "wtnv_library4"
-  }, 
-  "labyrinth33": {
-    "directions": {
-      "w": "labyrinth34", 
-      "se": "labyrinth32"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"H*.\" There\nare doors to the southeast and west.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth33"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Reading Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "reading_room"
   }, 
   "restricted": {
-    "locked": true, 
-    "name": "Restricted Section", 
-    "short_name": "restricted", 
-    "locked_description": "This is Madam Pince's territory and it's CLEARLY\noff-limits, so I'm going to pretend you didn't just try to do that. You're\nwelcome for saving you from that hell, although you obviously don't deserve\nit. *coughidiotcough*", 
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in the restricted section of an obviously magical library. There\nare aisles of bookshelves with a shelf at hip-level to be used as desks, and\nstudy tables next to the floor-length windows. The only exit is to the east.", 
     "directions": {
       "e": "hall15"
     }, 
-    "description": "You're in the restricted section of an obviously magical library. There\nare aisles of bookshelves with a shelf at hip-level to be used as desks, and\nstudy tables next to the floor-length windows. The only exit is to the east."
-  }, 
-  "labyrinth31": {
-    "description": "You're in a room in the western tower of labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There is a door to the southwest.", 
-    "short_name": "labyrinth31", 
-    "directions": {
-      "sw": "labyrinth30"
-    }, 
-    "name": "Labyrinth Room - Western Tower"
-  }, 
-  "labyrinth30": {
-    "directions": {
-      "e": "labyrinth29", 
-      "ne": "labyrinth31"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Equus albus.\"\nThere are doors to the northeast and east.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth30"
-  }, 
-  "labyrinth37": {
-    "directions": {
-      "s": "labyrinth36", 
-      "n": "labyrinth38"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north and south.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth37"
-  }, 
-  "labyrinth36": {
-    "directions": {
-      "w": "labyrinth28", 
-      "n": "labyrinth37"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"M*.\" There\nare doors to the north and west.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth36"
-  }, 
-  "labyrinth35": {
-    "directions": {
-      "ne": "labyrinth34"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"B*.\" There is\na door to the northeast.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth35"
-  }, 
-  "labyrinth34": {
-    "directions": {
-      "sw": "labyrinth35", 
-      "e": "labyrinth33"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the east and southwest.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth34"
-  }, 
-  "uu_library4": {
-    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the southern end where you're\nstanding, and into the northern end of the hall beyond. There are stairs\nleading down.", 
-    "short_name": "uu_library4",  
-    "directions": {
-      "n": "uu_library3", 
-      "d": "uu_library2"
-    }, 
-    "name": "Unseen University Library - Walkway"
-  }, 
-  "uu_library1": {
+    "inventory": [
+      "diary", 
+      "western book"
+    ], 
     "locked": true, 
-    "name": "Unseen University Library", 
-    "short_name": "uu_library1", 
-    "npc": "orangutan", 
-    "directions": {
-      "u": "uu_library3", 
-      "d": "uu_library1", 
-      "s": "uu_library2",
-      "n": "hall8"
-    }, 
-    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the north.",
-    "secondary_description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down."
+    "locked_description": "This is Madam Pince's territory and it's CLEARLY\noff-limits, so I'm going to pretend you didn't just try to do that. You're\nwelcome for saving you from that hell, although you obviously don't deserve\nit. *coughidiotcough*", 
+    "name": "Restricted Section", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "restricted"
   }, 
-  "uu_library3": {
+  "robing_room": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a room full of miscellaneous useful things. Boat hooks,\nclimbing ropes, and weapons line the walls. The only exit is to the west.", 
     "directions": {
-      "d": "uu_library1", 
-      "s": "uu_library4"
+      "w": "librarian_alcove"
     }, 
-    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the northern end where you're\nstanding, and into the southern end of the hall beyond. There are stairs\nleading down.", 
-    "name": "Unseen University Library - Walkway", 
-    "short_name": "uu_library3"
+    "inventory": [
+      "fairy tale book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Robing Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "robing_room"
   }, 
-  "uu_library2": {
+  "second_assistant_study": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is your new study, the room of a Second Assistant Librarian.\nThere's enough room for a desk and not one but two chairs (what luxury!), and\nthere's a door ajar that leads to a tiny bathroom, all your own. The only exit\nis to the west.", 
     "directions": {
-      "n": "uu_library1", 
-      "u": "uu_library4", 
-      "d": "uu_library2"
+      "w": "middle_librarian_hallway"
     }, 
-    "description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down.", 
-    "name": "Unseen University Library", 
-    "short_name": "uu_library2"
-  }, 
-  "hall18": {
-    "directions": {
-      "w": "hall17", 
-      "n": "hall19"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and west.", 
-    "name": "North-West Hallway", 
-    "short_name": "hall18"
-  }, 
-  "hall19": {
-    "directions": {
-      "s": "hall18", 
-      "e": "wtnv_library1", 
-      "n": "hall20"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent\"\nwith a purple eye stamped on it. There are archways to the north and south,\nand a door to the east with two emeralds over it.", 
-    "name": "North-South Hallway", 
-    "short_name": "hall19"
-  }, 
-  "hall10": {
-    "directions": {
-      "s": "hall9", 
-      "w": "alexandria1", 
-      "n": "hall11"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south. There is a door with two emeralds\nover it to the west, flanked by two stone columns topped with capitals that look\nlike scrolls of parchment.", 
-    "name": "North-South Hallway", 
-    "short_name": "hall10"
-  }, 
-  "hall11": {
-    "directions": {
-      "s": "hall10", 
-      "n": "hall12"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
-    "name": "North-South Hallway", 
-    "short_name": "hall11"
-  }, 
-  "hall12": {
-    "directions": {
-      "s": "hall11", 
-      "w": "hall13"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\npurple. There are archways to the west and south.", 
-    "name": "West-South Hallway", 
-    "short_name": "hall12"
-  }, 
-  "hall13": {
-    "directions": {
-      "e": "hall12", 
-      "w": "hall14",
-      "n": "dw_library"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west. There is a door with two emeralds over\nit to the north. There is a grandfather clock standing in the corner, and next\nto the door, someone has taped a postcard-sized print of\nVan Gogh's \"Starry Night.\"", 
-    "name": "East-West Hallway", 
-    "short_name": "hall13"
-  }, 
-  "hall14": {
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and south.", 
-    "short_name": "hall14", 
-    "check_banana": true, 
-    "directions": {
-      "s": "hall15", 
-      "e": "hall13"
-    }, 
-    "name": "East-South Hallway"
-  }, 
-  "hall15": {
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and south, and a velvet rope sealed with\nVancelle's official seal blocking a door to the west. Next to the door, there's\na sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
-    "short_name": "hall15", 
-    "secondary_description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere's a velvet rope piled neatly in the corner. There are archways to the\nnorth and south, and a door to the west. Next to the door, there's a sign posted:\n\"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
-    "directions": {
-      "s": "hall16", 
-      "w": "restricted", 
-      "n": "hall14"
-    }, 
-    "name": "North-South Hallway"
-  }, 
-  "hall16": {
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and east.", 
-    "short_name": "hall16", 
-    "check_banana": true, 
-    "directions": {
-      "e": "hall17", 
-      "n": "hall15"
-    }, 
-    "name": "North-East Hallway"
-  }, 
-  "hall17": {
-    "directions": {
-      "e": "hall18", 
-      "w": "hall16"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west.", 
-    "name": "East-West Hallway", 
-    "short_name": "hall17"
-  }, 
-  "labyrinth28": {
-    "directions": {
-      "e": "labyrinth36", 
-      "s": "labyrinth27", 
-      "sw": "labyrinth29", 
-      "n": "labyrinth32"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Nomen illi\nmors.\" There are doors to the north, east, west, and southwest.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth28"
-  }, 
-  "labyrinth29": {
-    "directions": {
-      "ne": "labyrinth28", 
-      "w": "labyrinth30"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Requiescant a\nlaboribus suis.\" There are doors to the northeast and west.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth29"
-  }, 
-  "labyrinth20": {
-    "directions": {
-      "se": "labyrinth19", 
-      "n": "labyrinth21"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Nomen illi mors.\" There are doors to the north and southeast.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth20"
-  }, 
-  "labyrinth21": {
-    "directions": {
-      "s": "labyrinth20", 
-      "ne": "labyrinth22"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the northeast and south.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth21"
-  }, 
-  "labyrinth22": {
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Super thronos\nviginti quatuor.\" There are doors to the north, east, west, and southwest, and\na mirror on the southeast wall with the same inscription written over it.", 
-    "short_name": "labyrinth22", 
-    "directions": {
-      "sw": "labyrinth21", 
-      "e": "labyrinth16", 
-      "w": "labyrinth24", 
-      "se": "finis_africae", 
-      "n": "labyrinth23"
-    }, 
-    "name": "Labyrinth Room - Southern Tower"
-  }, 
-  "labyrinth23": {
-    "directions": {
-      "s": "labyrinth22"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Y*.\"\nThere is a door to the south.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth23"
-  }, 
-  "labyrinth24": {
-    "directions": {
-      "e": "labyrinth22", 
-      "ne": "labyrinth25"
-    }, 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Primogenitus mortuorum.\" There are doors to the northeast and east.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth24"
-  }, 
-  "labyrinth25": {
-    "directions": {
-      "sw": "labyrinth24", 
-      "nw": "labyrinth26"
-    }, 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Requiescant a laboribus suis.\" There are doors to the northwest and\nsouthwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth25"
-  }, 
-  "labyrinth26": {
-    "directions": {
-      "sw": "labyrinth27", 
-      "se": "labyrinth25"
-    }, 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Obscuratus est sol et aer.\" There are doors to the southeast and\nsouthwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth26"
-  }, 
-  "labyrinth27": {
-    "directions": {
-      "ne": "labyrinth26", 
-      "n": "labyrinth28"
-    }, 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the north and\nnortheast.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth27"
-  }, 
-  "wtnv_library5": {
-    "directions": {
-      "e": "wtnv_library6", 
-      "n": "wtnv_library1"
-    }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You think this might be the horror section, as all of the books\nyou can see seem to be about faceless spectres. Tragically, this section of the\nlibrary seems to lack both librarian repellant dispensers and trees. I would\nget out of here as soon as possible if I were you, as you probably don't want\nto meet the librarians in this particular library. There are doors to the north\nand east.", 
-    "name": "Night Vale Public Library - Southwest Corner", 
-    "short_name": "wtnv_library5"
-  }, 
-  "wtnv_library6": {
-    "description": "This room is shaped like a pirate ship, with a mast that almost reaches\nthe ceiling. Dismembered bodies cover the floor. There are doors to the\nnorth, east, and west.", 
-    "short_name": "wtnv_library6", 
-    "directions": {
-      "u": "wtnv_library7", 
-      "w": "wtnv_library5", 
-      "e": "wtnv_library4",
-      "n": "wtnv_library3"
-    }, 
-    "name": "Night Vale Public Library - Childrens' Sections"
-  }, 
-  "labyrinth19": {
-    "directions": {
-      "ne": "labyrinth18", 
-      "nw": "labyrinth20"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Obscuratus est sol et aer.\" There are doors to the northeast and\nnorthwest.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth19"
-  }, 
-  "labyrinth18": {
-    "directions": {
-      "sw": "labyrinth19", 
-      "n": "labyrinth17"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the north and southwest.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth18"
-  }, 
-  "labyrinth15": {
-    "directions": {
-      "s": "labyrinth16", 
-      "n": "labyrinth14"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Tertia pars terrae combusta est.\" There are doors to the east and south.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth15"
-  }, 
-  "labyrinth14": {
-    "directions": {
-      "s": "labyrinth15", 
-      "ne": "labyrinth11"
-    }, 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Primogenitus mortuorum.\" There are doors to the northeast and south.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth14"
-  }, 
-  "labyrinth17": {
-    "directions": {
-      "s": "labyrinth18", 
-      "nw": "labyrinth16"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"L*.\"\nThere are doors to the northwest and south.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth17"
-  }, 
-  "labyrinth16": {
-    "directions": {
-      "w": "labyrinth22", 
-      "se": "labyrinth17", 
-      "n": "labyrinth15"
-    }, 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"U*.\" There are\ndoors to the north, west, and southeast.", 
-    "name": "Labyrinth Room - Southern Tower", 
-    "short_name": "labyrinth16"
-  }, 
-  "labyrinth11": {
-    "directions": {
-      "sw": "labyrinth14", 
-      "se": "labyrinth9"
-    }, 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Equus albus.\" There are doors to the southeast and southwest.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth11"
-  }, 
-  "labyrinth10": {
-    "directions": {
-      "ne": "labyrinth9"
-    }, 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Y*.\" There is a door to the northeast.", 
-    "name": "Labyrinth Room", 
-    "short_name": "labyrinth10"
-  }, 
-  "labyrinth13": {
-    "directions": {
-      "s": "labyrinth12", 
-      "e": "labyrinth5", 
-      "n": "labyrinth55"
-    }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the north, east, and south.", 
-    "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth13"
-  }, 
-  "labyrinth12": {
-    "directions": {
-      "e": "labyrinth6", 
-      "n": "labyrinth13"
-    }, 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Apocalypsis Iesu Christi.\" There are doors to the north and east.", 
-    "name": "Labyrinth Room - Eastern Tower", 
-    "short_name": "labyrinth12"
-  }, 
-  "alexandria1": {
+    "inventory": [
+      "statue", 
+      "red waistcoat"
+    ], 
     "locked": true, 
-    "name": "Royal Library of Alexandria - Reading Room", 
-    "short_name": "alexandria1", 
-    "secondary_description": "This is a beautiful reading room with high ceilings and columns everywhere.\nBookshelves line the walls, and the room seems kind of smoky. There are doors\nto the north, east, and west.", 
-    "directions": {
-      "e": "hall10", 
-      "w": "alexandria6", 
-      "n": "alexandria2"
-    }, 
-    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the north and west walls. The only safe\nexit is to go back through the door to the east."
-  }, 
-  "alexandria2": {
-    "locked": true, 
-    "name": "Royal Library of Alexandria - Peripatos Walk", 
-    "short_name": "alexandria2", 
-    "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
-    "directions": {
-      "s": "alexandria1", 
-      "n": "alexandria3"
-    }, 
-    "description": "You're in a long, covered walkway between two \"buildings.\" There are\ngardens to either side of the walkway, but no doors to get there. You can see\nsky beyond the roof above you, which is strange since you know you're still\nunderground. But it's quite convincing; you can hear birds and everything.\nThere are doors to the north and south."
-  }, 
-  "alexandria3": {
-    "directions": {
-      "s": "alexandria2", 
-      "sw": "alexandria4", 
-      "se": "alexandria5"
-    }, 
-    "description": "This is a small but welcoming meeting room. There's a large sturdy stone\ntable in the center, surrounded by wooden chairs. There are doors to the\nsoutheast, southwest, and south.", 
-    "name": "Royal Library of Alexandria - Meeting Room", 
-    "short_name": "alexandria3"
-  }, 
-  "alexandria4": {
-    "directions": {
-      "s": "alexandria6", 
-      "ne": "alexandria3"
-    }, 
-    "description": "You're in a small but full garden. You know it's a fake sky, but the sky\noverhead is quite convincing and beautifully blue. You can feel the sunlight\non your face, and there are birds in the carefully maintained shrubs. There are\npaths leading to the northeast and south.", 
-    "name": "Royal Library of Alexandria - Gardens", 
-    "short_name": "alexandria4"
-  }, 
-  "upper_librarian_hallway": {
-    "directions": {
-      "s": "chiefs_office", 
-      "d": "middle_librarian_hallway", 
-      "n": "librarian_alcove"
-    }, 
-    "npc": "imshi", 
-    "description": "You're standing in a hallway, in the employees-only librarians' wing of\nthe library. Painted blue doors line the hallway, but they're all closed and\nlocked. There's a door at the south end of the hallway. There's an exit to the\nnorth, and steps leading down.", 
-    "name": "Upper Hallway", 
-    "short_name": "upper_librarian_hallway"
-  }, 
-  "alexandria6": {
-    "locked": true, 
-    "description": "This is a large lecture hall. There are steps leading down to a lectern\nat the front of the room. There are doors to the north and east.", 
-    "short_name": "alexandria6", 
-    "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
-    "directions": {
-      "e": "alexandria1", 
-      "n": "alexandria4"
-    }, 
-    "name": "Royal Library of Alexandria - Lecture Hall"
-  }, 
-  "hall8": {
-    "directions": {
-      "s": "uu_library1", 
-      "e": "hall9", 
-      "w": "hall7"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a strange painting on the wall of faceless people going up and down\nimpossible stairways. There are archways to the east and west, and a door\nwith two emeralds over it to the south.", 
-    "name": "East-West Hallway", 
-    "short_name": "hall8"
-  }, 
-  "hall9": {
-    "directions": {
-      "w": "hall8", 
-      "n": "hall10"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a large statue of an elephant in the corner. There are archways to the\nnorth and west.", 
-    "name": "North-West Hallway", 
-    "short_name": "hall9"
-  }, 
-  "hall6": {
-    "directions": {
-      "e": "hall7", 
-      "n": "hall5"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a large statue of a turtle in the corner. There are archways to the\nnorth and east.", 
-    "name": "North-East Hallway", 
-    "short_name": "hall6"
-  }, 
-  "hall7": {
-    "directions": {
-      "e": "hall8", 
-      "w": "hall6"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the east and west.", 
-    "name": "East-West Hallway", 
-    "short_name": "hall7"
-  }, 
-  "hall4": {
-    "directions": {
-      "s": "hall5", 
-      "n": "hall3"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
-    "name": "North-South Hallway", 
-    "short_name": "hall4"
-  }, 
-  "hall5": {
-    "directions": {
-      "s": "hall6", 
-      "n": "hall4"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
-    "name": "North-South Hallway", 
-    "short_name": "hall5"
-  }, 
-  "hall2": {
-    "directions": {
-      "e": "hall1", 
-      "w": "hall3"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the east and west.", 
-    "name": "East-West Hallway", 
-    "short_name": "hall2"
-  }, 
-  "hall3": {
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a table in the corner with a rose lying on it. There are archways to\nthe east and south, and a stained-glass door to the west.", 
-    "short_name": "hall3", 
-    "directions": {
-      "s": "hall4", 
-      "e": "hall2", 
-      "w": "beast_library1"
-    }, 
-    "name": "East-South Hallway"
-  }, 
-  "hall1": {
-    "directions": {
-      "e": "reading_room", 
-      "w": "hall2"
-    }, 
-    "description": "You're in a hallway with gently sloping floors. Through the eastern\narchway, you can see the Main Reading Room. The walls here are blue. There are\narchways to the east and west.", 
-    "name": "East-West Hallway", 
-    "short_name": "hall1"
-  }, 
-  "middle_librarian_hallway": {
-    "description": "You're standing in a hallway. All of the doors are painted red. They're\nall closed and locked. There are stairs leading up and down.", 
-    "short_name": "middle_librarian_hallway", 
-    "directions": {
-      "e": "second_assistant_study", 
-      "u": "upper_librarian_hallway", 
-      "d": "lower_librarian_hallway"
-    }, 
-    "name": "Middle Hallway"
-  }, 
-  "reading_room": {
-    "description": "You're in the Main Reading Room. Large wooden tables fill the room.\nThere are exits to the south and west. The main doors are open to the east.", 
-    "short_name": "reading_room", 
-    "check_banana": true, 
-    "directions": {
-      "s": "librarian_alcove", 
-      "e": "outside_of_library", 
-      "w": "hall1"
-    }, 
-    "name": "Reading Room"
-  }, 
-  "stilken_room2": {
-    "description": "There is a glass floor in this room, and a low stone table in the\nmiddle. The only exit is a narrow gate to the west, too small for a human.", 
-    "short_name": "stilken_room2", 
-    "directions": {
-      "w": "stilken_room1"
-    }, 
-    "name": "Glass Floor Room"
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Second Assistant Study", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "second_assistant_study"
   }, 
   "stilken_room1": {
-    "locked": true, 
-    "name": "Oak Room", 
-    "short_name": "stilken_room1", 
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is an immensely peaceful room, without a book in sight. The floor\nis tiled, except for the center, which is home to a pleasant (if small) meadow\nand a large oak tree, as well as a small silver pool. A narrow gate is open to\nthe east (too small for a human), and a door to the west.", 
     "directions": {
       "e": "stilken_room2", 
       "w": "hall23"
     }, 
-    "description": "This is an immensely peaceful room, without a book in sight. The floor\nis tiled, except for the center, which is home to a pleasant (if small) meadow\nand a large oak tree, as well as a small silver pool. A narrow gate is open to\nthe east (too small for a human), and a door to the west."
+    "inventory": [
+      "odyssean book"
+    ], 
+    "locked": true, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Oak Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "stilken_room1"
   }, 
-  "beast_library5": {
-    "description": "You're standing on a walkway about halfway up the northern wall of a\nmassive library. There are stairs leading down.", 
-    "short_name": "beast_library5", 
-    "npc": "cogsworth", 
+  "stilken_room2": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "There is a glass floor in this room, and a low stone table in the\nmiddle. The only exit is a narrow gate to the west, too small for a human.", 
     "directions": {
-      "d": "beast_library4"
+      "w": "stilken_room1"
     }, 
-    "name": "Beast's Library - North Walkway"
+    "inventory": [
+      "phial"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Glass Floor Room", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "stilken_room2"
   }, 
-  "beast_library4": {
+  "third_assistant_study": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This is your study. It's very cramped; there's barely room for the desk\nand single chair that are here. The only exit is to the northwest.", 
     "directions": {
-      "s": "beast_library1", 
-      "u": "beast_library5"
+      "nw": "lower_librarian_hallway"
     }, 
-    "description": "You're in the northern end of a massive library. It extends to the\nsouth, and there's a staircase going up in the corner.", 
-    "name": "Beast's Library", 
-    "short_name": "beast_library4"
+    "inventory": [
+      "mouse", 
+      "key", 
+      "yellow waistcoat", 
+      "dagger"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Third Assistant Study", 
+    "npc": null, 
+    "secondary_description": "This is your old study. It's quite cramped. Hard to believe that you spent\nso much time in this tiny room! The only exit is to the northwest.", 
+    "short_name": "third_assistant_study"
+  }, 
+  "upper_librarian_hallway": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're standing in a hallway, in the employees-only librarians' wing of\nthe library. Painted blue doors line the hallway, but they're all closed and\nlocked. There's a door at the south end of the hallway. There's an exit to the\nnorth, and steps leading down.", 
+    "directions": {
+      "d": "middle_librarian_hallway", 
+      "n": "librarian_alcove", 
+      "s": "chiefs_office"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Upper Hallway", 
+    "npc": "imshi", 
+    "secondary_description": null, 
+    "short_name": "upper_librarian_hallway"
+  }, 
+  "uu_library1": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the north.", 
+    "directions": {
+      "d": "uu_library1", 
+      "n": "hall8", 
+      "s": "uu_library2", 
+      "u": "uu_library3"
+    }, 
+    "inventory": [], 
+    "locked": true, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Unseen University Library", 
+    "npc": "orangutan", 
+    "secondary_description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down.", 
+    "short_name": "uu_library1"
+  }, 
+  "uu_library2": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down.", 
+    "directions": {
+      "d": "uu_library2", 
+      "n": "uu_library1", 
+      "u": "uu_library4"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Unseen University Library", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "uu_library2"
+  }, 
+  "uu_library3": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the northern end where you're\nstanding, and into the southern end of the hall beyond. There are stairs\nleading down.", 
+    "directions": {
+      "d": "uu_library1", 
+      "s": "uu_library4"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Unseen University Library - Walkway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "uu_library3"
+  }, 
+  "uu_library4": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the southern end where you're\nstanding, and into the northern end of the hall beyond. There are stairs\nleading down.", 
+    "directions": {
+      "d": "uu_library2", 
+      "n": "uu_library3"
+    }, 
+    "inventory": [
+      "princess book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Unseen University Library - Walkway", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "uu_library4"
   }, 
   "wtnv_library1": {
-    "locked": true, 
-    "name": "Night Vale Public Library - Entrance", 
-    "short_name": "wtnv_library1", 
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You seem to be in the biography section, as on the nearest shelf\nyou can see three shelves full of copies of the official biography of Helen\nHunt. Tragically, this section of the library seems to lack both librarian\nrepellant dispensers and trees. I would get out of here as soon as possible if\nI were you, as you probably don't want to meet the librarians in this\nparticular library. There are doors to the south, east, and west.", 
     "directions": {
       "e": "wtnv_library3", 
-      "w": "hall19",
-      "s": "wtnv_library5"
+      "s": "wtnv_library5", 
+      "w": "hall19"
     }, 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You seem to be in the biography section, as on the nearest shelf\nyou can see three shelves full of copies of the official biography of Helen\nHunt. Tragically, this section of the library seems to lack both librarian\nrepellant dispensers and trees. I would get out of here as soon as possible if\nI were you, as you probably don't want to meet the librarians in this\nparticular library. There are doors to the south, east, and west."
+    "inventory": [
+      "dark history book"
+    ], 
+    "locked": true, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Entrance", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library1"
   }, 
-  "beast_library1": {
+  "wtnv_library2": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You thought you'd left the biography section, but one of the\nnearby shelves has yet more copies of the official biography of Helen Hunt.\nTragically, this section of the library seems to lack both librarian repellant\ndispensers and trees. I would get out of here as soon as possible if I were\nyou, as you probably don't want to meet the librarians in this particular\nlibrary. There are doors to the west and south.", 
     "directions": {
-      "s": "beast_library2", 
-      "e": "hall3", 
-      "n": "beast_library4"
+      "s": "wtnv_library4", 
+      "w": "wtnv_library3"
     }, 
-    "description": "You're in a huge room filled floor to 50-foot ceiling with books, with\ntall windows in the southwest and northwest corners. The room extends to the\nnorth and south, and there's a door to the east.", 
-    "name": "Beast's Library", 
-    "short_name": "beast_library1"
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Northeast Corner", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library2"
+  }, 
+  "wtnv_library3": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. There are two very old (vintage? decrepit? Pleistocene?\ncarbon-dated?) computers in the corner, with hand-lettered \"Out of Order\" signs\ntaped to their screens. Tragically, this section of the library seems to lack\nboth librarian repellant dispensers and trees. I would get out of here as soon\nas possible if I were you, as you probably don't want to meet the librarians in\nthis particular library. There are doors to the east, west, and south.", 
+    "directions": {
+      "e": "wtnv_library2", 
+      "s": "wtnv_library6", 
+      "w": "wtnv_library1"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Northeast Corner", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library3"
+  }, 
+  "wtnv_library4": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. The shelves here are completely empty. Tragically, this section\nof the library seems to lack both librarian repellant dispensers and trees. I\nwould get out of here as soon as possible if I were you, as you probably don't\nwant to meet the librarians in this particular library. There are doors to the\nnorth and west.", 
+    "directions": {
+      "n": "wtnv_library2", 
+      "w": "wtnv_library6"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Southeast Corner", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library4"
+  }, 
+  "wtnv_library5": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You think this might be the horror section, as all of the books\nyou can see seem to be about faceless spectres. Tragically, this section of the\nlibrary seems to lack both librarian repellant dispensers and trees. I would\nget out of here as soon as possible if I were you, as you probably don't want\nto meet the librarians in this particular library. There are doors to the north\nand east.", 
+    "directions": {
+      "e": "wtnv_library6", 
+      "n": "wtnv_library1"
+    }, 
+    "inventory": [], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Southwest Corner", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library5"
+  }, 
+  "wtnv_library6": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
+    "description": "This room is shaped like a pirate ship, with a mast that almost reaches\nthe ceiling. Dismembered bodies cover the floor. There are doors to the\nnorth, east, and west.", 
+    "directions": {
+      "e": "wtnv_library4", 
+      "n": "wtnv_library3", 
+      "u": "wtnv_library7", 
+      "w": "wtnv_library5"
+    }, 
+    "inventory": [
+      "astronomy book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Childrens' Sections", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library6"
   }, 
   "wtnv_library7": {
+    "check_banana": false, 
+    "counter": 0, 
+    "custom_type": "Room", 
     "description": "Phew! You've cleverly avoided the librarians by climbing the pirate\nship's crow's nest. They'll *never* look for you up here, I'm sure. This is\nquite a comfy perch, really. You could theoretically see quite far over the\nstacks, if the lighting weren't so terrible. Unfortunately, you'll have to go\ndown at some point, as there is nowhere else to go.", 
-    "short_name": "wtnv_library7", 
     "directions": {
       "d": "wtnv_library6"
     }, 
-    "name": "Night Vale Public Library - Crow's Nest"
-  }, 
-  "beast_library3": {
-    "description": "You're standing on a walkway about halfway up the southern wall of a\nmassive library. There are stairs leading down.", 
-    "short_name": "beast_library3", 
-    "npc": "lumiere", 
-    "directions": {
-      "d": "beast_library2"
-    }, 
-    "name": "Beast's Library - South Walkway"
-  }, 
-  "beast_library2": {
-    "description": "You're in the southern end of a massive library. It extends to the\nnorth, and there's a staircase going up in the corner.", 
-    "short_name": "beast_library2", 
-    "directions": {
-      "u": "beast_library3", 
-      "n": "beast_library1"
-    }, 
-    "name": "Beast's Library"
-  }, 
-  "robing_room": {
-    "description": "You're in a room full of miscellaneous useful things. Boat hooks,\nclimbing ropes, and weapons line the walls. The only exit is to the west.", 
-    "short_name": "robing_room", 
-    "directions": {
-      "w": "librarian_alcove"
-    }, 
-    "name": "Robing Room"
-  }, 
-  "labyrinth32": {
-    "directions": {
-      "s": "labyrinth28", 
-      "nw": "labyrinth33"
-    }, 
-    "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the northwest and south.", 
-    "name": "Labyrinth Room - Western Tower", 
-    "short_name": "labyrinth32"
-  }, 
-  "dw_library": {
-    "locked": true, 
-    "name": "The Library Planet", 
-    "short_name": "dw_library", 
-    "directions": {
-      "nw": "little_shop", 
-      "s": "hall13"
-    }, 
-    "description": "This certainly is a big, round room. There's a little glass-walled shop taking\nup the northwest corner. Its door is open. There's also a door to the south."
-  }, 
-  "little_shop": {
-    "name": "The Library Planet - Little Shop", 
-    "short_name": "little_shop", 
-    "directions": {
-      "se": "dw_library"
-    }, 
-    "description": "It's the little shop! Just what every library planet requires. There are shelves\nof kitschy gifts, stationary, and display books lining the walls. The library\nroom you came from is visible through the glass walls. The only exit is to the\nsoutheast, where you came from."
+    "inventory": [
+      "labyrinth book"
+    ], 
+    "locked": false, 
+    "locked_description": "That door's locked. and it'll stay locked no\nmatter how many times you tug on the handle, so stop trying.", 
+    "name": "Night Vale Public Library - Crow's Nest", 
+    "npc": null, 
+    "secondary_description": null, 
+    "short_name": "wtnv_library7"
   }
 }

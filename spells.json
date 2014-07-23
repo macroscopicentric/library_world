@@ -1,14 +1,20 @@
 {
-  "water": {
-    "name": "water", 
-    "size": "medium"
-  }, 
   "human": {
+    "custom_type": "Spell", 
+    "flying": false, 
     "name": "human", 
     "size": "medium"
   }, 
   "otter": {
+    "custom_type": "Spell", 
+    "flying": false, 
     "name": "otter", 
     "size": "small"
+  }, 
+  "water": {
+    "custom_type": "Spell", 
+    "flying": false, 
+    "name": "water", 
+    "size": "medium"
   }
 }

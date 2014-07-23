@@ -44,6 +44,20 @@ Minotaur's Labyrinth."'''])
             return formatting.print_npc(self.name,
             'give') + " doesn't want that."
 
+class Baddie(NPC):
+    def __init__(self):
+        super(Baddie, self).__init__()
+        self.bad_thing = 1
+        self.kryptonite = ''
+
+    def do_bad_thing(self, game, player):
+        player['location'] = 'dr_moon'
+        output = game.directory[player['location']].describe()
+        output['event'] = '''You step into a room that you can't see because it's totally in shadow. For some
+reason you can't explain, the shadows feel filled with malice. Before you can
+think about it further, there's a huge flash of white light. A voice says, "You
+have left the library. You have been saved."'''
+        return output
 
 class Librarian(NPC):
     def __init__(self):

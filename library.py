@@ -5,6 +5,7 @@ import string
 import os
 import psycopg2
 import urlparse
+import re
 
 from game import Game, simplify, reconstitute, home
 from commands import command
@@ -23,7 +24,8 @@ def save(game, save_name):
 
 def load(save_name):
     try:
-        game = reconstitute(json.load(open(save_name + '.txt')))
+        with open(save_name + '.txt') as f:
+            game = reconstitute(json.load(f))
         new_game_output = game.directory[game.player_state['location']].describe()
         new_game_output['event'] = 'Loading...'
         return new_game_output, game
@@ -42,6 +44,7 @@ def restart():
 def input_format(user_input):
     user_input = user_input.lower().split(" ", 1)
 
+    # if len(re.search(r'(?P<verb>.*?)\s{1}(?:the|an|a)?\s?(?P<direct_object>.*\s(?:book|waistcoat)|\w+).*(?P<indirect_object>\b\w+)', user_input).groups()) == 3: ...
     if "." in user_input[-1]:
         detail = user_input.pop().split(".").pop(0)
         user_input.append(detail)
@@ -84,6 +87,19 @@ def play_term_game(user_input, game):
     elif player_response[0] == 'restart':
         return restart()
     elif player_response[0] in ['exit', 'quit']:
+        #Used once to convert game start data to be used with reconstitute:
+        # #npc_list
+        # with open('people.json', 'w') as f:
+        #     json.dump(simplify(game.npc_list), f, sort_keys=True, indent=2)
+        # #item_list
+        # with open('items.json', 'w') as f:
+        #     json.dump(simplify(game.item_list), f, sort_keys=True, indent=2)
+        # #spells
+        # with open('spells.json', 'w') as f:
+        #     json.dump(simplify(game.spells), f, sort_keys=True, indent=2)
+        # #directory
+        # with open('rooms.json', 'w') as f:
+        #     json.dump(simplify(game.directory), f, sort_keys=True, indent=2)
         sys.exit()
     else:
         return command(player_response, game)
@@ -92,7 +108,13 @@ def from_terminal_play():
     game = Game()
     print terminal_formatting(game.directory[game.player_state['location']].describe())
     while True:
-        print terminal_formatting(play_term_game(raw_input('>'), game))
+        #Possibly the stupidest hackiest thing I've ever done:
+        player_response = raw_input('>')
+        if 'load' in player_response:
+            output, game = play_term_game(player_response, game)
+            print terminal_formatting(output)
+        else:
+            print terminal_formatting(play_term_game(player_response, game))
 
 
 def terminal_formatting(output):
@@ -190,7 +212,8 @@ def web_game_wrapper(function, *args):
             user=url.username, password=url.password, host=url.hostname,
             port=url.port) as conn:
             with conn.cursor() as cur:
-                cur.execute("UPDATE saved_games SET game_json=%s WHERE session_name=%s;", (json.dumps(simplify(game)), session_game))
+                cur.execute("UPDATE saved_games SET game_json=%s WHERE session_name=%s;",
+                    (json.dumps(simplify(game)), session_game))
                 conn.commit()
         return (description,
             game.directory[game.player_state['location']].name)
@@ -205,21 +228,12 @@ if __name__ == "__main__":
     from_terminal_play()
 
 #To do:
-#Currently manually entering line breaks. (HP doesn't have line breaks, so breaks at the end of the window,
-#often in the middle of a word. Would also need to delete extra spaces if I can do automatic line breaks.)
 #Add in more Clayr hallway landmarks as I add other libraries.
-#Add Dream's library?, DW, Ghostbusters?
+#Add Dream's library?, Ghostbusters?
 #Levels 1-3, 4-5, 6 >> third, second, first. Second and first get new offices with new books (so access to new spells).
-#Remove some of the circularity? Commands go everywhere and branch into multiple modules.
-#How to unlock finis Africae?
-#End game: promoted to level 7, Vancelle gives you the charter book that allows you to turn into an otter,
-#   so you can slip through the crack and find the pipes, crown, and trowel.
-#Add NV Librarians, banana peel for Madame Pince, Vashta Nerada, Ghostbusters ghost, Stilken?
+#Add NV Librarians, Vashta Nerada, Ghostbusters ghost, Stilken?
 #Allow interactions with book/waistcoat just by "book"/"waistcoat" if there's only one.
-#Do anything with disreputable dog statue?
-#Move archbishop book to DW library.
-#Pay attention to HTML headers in web app template, need to be HTML/JSON for jQuery.
 #Eliminate a lot of the repetitive code in this module.
-#Max pointed out that it's vulnerable to cross-site scripting.
-
-#Bug: can't level up past level 2?
+#Max pointed out that it's vulnerable to cross-site scripting. (Couldn't figure out how to do text instead of innerHTML, see note in template).
+#Add tests for baddies and way to get out of dr_moon room. Change so baddie = vashta nerada (How to get out of room? And how to defeat the vashta nerada?)
+#Add dialogue to Vancelle if you don't have the key.

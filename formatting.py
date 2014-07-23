@@ -25,7 +25,10 @@ def article(word):
 
 def print_npc(npc, function):
     if function == 'room':
-        article = 'An'
+        if npc == 'orangutan':
+            article = 'An'
+        elif npc == 'doctor':
+            article = 'A'
     elif function == 'give':
         article = 'The'
 
