@@ -177,9 +177,7 @@ def reconstitute(json_dict):
         if 'custom_type' in json_dict:
             game_object = globals()[json_dict.pop('custom_type')]()
             for name, value in json_dict.iteritems():
-                #below to convert Vancelle's dict to new list format.
-                if (game_object != 'vancelle' and name != 'levels'):
-                    game_object.__dict__[name] = reconstitute(value)
+                game_object.__dict__[name] = reconstitute(value)
             return game_object
         else:
             return {k: reconstitute(v) for k, v in json_dict.iteritems()}
