@@ -10,14 +10,14 @@ class Game(object):
     def __init__(self):
         self.player_state = {
             'alive': True,
-            'location'      : 'chiefs_office',
+            'location'      : home,
             'shape'         : 'human',
             'size'          : 'medium',
             'flying'        : False,
             'known_spells'  : ['human'],
             'spell_counter' : 0,
-            'inventory'     : ['key'],
-            'shelved_books' : ['french book'],
+            'inventory'     : [],
+            'shelved_books' : [],
             'level'         : 1
             }
         with open('people.json') as f:
