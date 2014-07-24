@@ -32,6 +32,6 @@ def print_npc(npc, function):
     elif function == 'give':
         article = 'The'
 
-    if npc == 'orangutan':
+    if npc in ['orangutan', 'doctor']:
         return "%s %s" % (article, npc)
     else: return "%s" % (npc.capitalize())

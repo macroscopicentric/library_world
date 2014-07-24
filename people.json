@@ -23,13 +23,11 @@
     "wish_come_true": false
   }, 
   "doctor": {
-    "bad_thing": 1, 
-    "custom_type": "Baddie", 
+    "custom_type": "NPC", 
     "dialogue": [
-      "\"Well hello! And how are you doing today? Any more strange dreams about\nmagical libraries?\"", 
+      "\"Well, hello! And how are you doing today? Any more strange dreams about\nmagical libraries?\"", 
       "\"How did we get here? Why we walked out of the front door. We passed Ms.\nDickinson. Yes, see? You remember.\""
     ], 
-    "kryptonite": "", 
     "name": "doctor", 
     "want": "", 
     "wish_come_true": false
@@ -112,6 +110,15 @@
       ]
     ], 
     "name": "vancelle", 
+    "want": "", 
+    "wish_come_true": false
+  }, 
+  "vashta-nerada": {
+    "bad_thing": 1, 
+    "custom_type": "Baddie", 
+    "dialogue": [], 
+    "kryptonite": "", 
+    "name": "vashta-nerada", 
     "want": "", 
     "wish_come_true": false
   }

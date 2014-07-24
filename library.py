@@ -82,7 +82,7 @@ def play_term_game(user_input, game):
     player_response = input_format(user_input)
     if player_response[0] == 'load':
         return load(player_response[1])
-    elif player_response[0] == 'save':
+    if player_response[0] == 'save':
         return save(game, player_response[1])
     elif player_response[0] == 'restart':
         return restart()

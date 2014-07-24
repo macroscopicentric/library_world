@@ -66,7 +66,8 @@ class Game(object):
             'upper_librarian_hallway': 'imshi',
             'beast_library5': 'cogsworth',
             'beast_library3': 'lumiere',
-            'dw_library': 'doctor'
+            'dw_library': 'vashta-nerada',
+            'dr_moon': 'doctor'
             })
 
     #less than thrilled that this relies on side effects. solution? also repetitive w/ below.
