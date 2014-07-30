@@ -137,24 +137,24 @@ class Game(object):
         player_state['flying'] = spell.flying
 
     def check_move(self, direction):
-        current_location_object = self.directory[self.player_state['location']]
-        next_location_object = self.directory[current_location_object.directions[direction]]
-        def move(direction):
-            if next_location_object.locked:
-                if self.player_state['alive'] == False:
-                    self.player_state['location'] = next_location_object.short_name
-                    return next_location_object.describe()
-                else:
-                    return next_location_object.locked_description
-            else:
-                self.player_state['location'] = next_location_object.short_name
-                return next_location_object.describe()
         try:
+            current_location_object = self.directory[self.player_state['location']]
+            next_location_object = self.directory[current_location_object.directions[direction]]
+
+            def move(direction):
+                    if next_location_object.locked:
+                        if self.player_state['alive'] == False:
+                            self.player_state['location'] = next_location_object.short_name
+                            return next_location_object.describe()
+                        else:
+                            return next_location_object.locked_description
+                    else:
+                        self.player_state['location'] = next_location_object.short_name
+                        return next_location_object.describe()
+
             #if direction in rooms.self.location.directions and...:
             #     print "That opening is too small for a full-sized person.
             #Perhaps something smaller, like a cat or otter, could get through."
-            #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
-            #since a door goes both ways and a key is one-time in one direction.
             if direction == 'd' and (self.player_state['location'] in
                 ['uu_library1', 'uu_library2']):
                     self.directory['uu_library1'].add_counter()
@@ -162,7 +162,7 @@ class Game(object):
                     action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
         and down is up. But now it's gone, so you don't trouble yourself over it.'''
                     return action
-            
+
             if next_location_object.npc:
                 next_location_npc_object = self.npc_list[next_location_object.npc]
                 if type(next_location_npc_object) == type(self.npc_list['vashta-nerada']):
