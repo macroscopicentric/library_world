@@ -180,31 +180,7 @@ Spoiler: you're not super-human.'''
         return directory[player['location']].describe()
 
     def move():
-        try:
-            #if direction in rooms.self.location.directions and...:
-            #     print "That opening is too small for a full-sized person.
-            #Perhaps something smaller, like a cat or otter, could get through."
-            #need a way to ID a DOOR (as opposed to a room, which I did for the locked rooms above),
-            #since a door goes both ways and a key is one-time in one direction.
-            if moves[verb] == 'd' and (game.location_test('uu_library1') or
-                game.location_test('uu_library2')):
-                    directory['uu_library1'].add_counter()
-                    action = game.move(moves[verb])
-                    action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-        and down is up. But now it's gone, so you don't trouble yourself over it.'''
-                    return action
-            elif directory[directory[player['location']].directions[verb]].npc:
-                # import pdb
-                # pdb.set_trace()
-                if type(npc_list[directory[directory[player['location']].directions[verb]].npc]) == type(npc_list['vashta-nerada']):
-                    return npc_list[directory[directory[player['location']].directions[verb]].npc].do_bad_thing(game, player)
-                else:
-                    #Sloppy and repetitive, not sure how else to do it.
-                    return game.move(moves[verb])
-            else:
-                return game.move(moves[verb])
-        except:
-            return "You can't go that way, stupid."
+        return game.check_move(moves[verb])
 
 
     verbs = {'hello': say_hi, 'hi': say_hi, 'help': help_command,
