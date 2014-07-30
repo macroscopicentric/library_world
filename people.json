@@ -114,12 +114,12 @@
     "wish_come_true": false
   }, 
   "vashta-nerada": {
-    "bad_thing": 1, 
+    "bad_thing": 75, 
     "custom_type": "Baddie", 
     "dialogue": [], 
     "kryptonite": "", 
     "name": "vashta-nerada", 
-    "want": "", 
+    "want": "phial", 
     "wish_come_true": false
   }
 }

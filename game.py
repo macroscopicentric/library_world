@@ -1,4 +1,6 @@
 import json
+import random
+
 from rooms import Room
 from people import NPC, Librarian, Baddie
 from items import Item, Key, Book
@@ -160,14 +162,17 @@ class Game(object):
                     action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
         and down is up. But now it's gone, so you don't trouble yourself over it.'''
                     return action
-            elif next_location_object.npc:
-                if type(self.npc_list[next_location_object.npc]) == type(self.npc_list['vashta-nerada']):
-                    return npc_list[next_location_object.npc].do_bad_thing(self, player)
-                else:
-                    #Sloppy and repetitive, not sure how else to do it.
-                    return move(direction)
-            else:
-                return move(direction)
+            
+            if next_location_object.npc:
+                next_location_npc_object = self.npc_list[next_location_object.npc]
+                if type(next_location_npc_object) == type(self.npc_list['vashta-nerada']):
+                    #Need to make bad_thing number (int between 0 and 100) modifiable.
+                    #bad_thing range: 0 = guaranteed to avoid do_bad_thing, 100 = guaranteed to happen
+                    if (random.random() * 100) < next_location_npc_object.bad_thing:
+                        return next_location_npc_object.do_bad_thing(self, player)
+
+            return move(direction)
+
         except KeyError:
             return "You can't go that way, stupid."
 
