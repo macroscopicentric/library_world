@@ -239,3 +239,5 @@ if __name__ == "__main__":
 #Max pointed out that it's vulnerable to cross-site scripting. (Couldn't figure out how to do text instead of innerHTML, see note in template).
 #Add tests for baddies and way to get out of dr_moon room. Change so baddie = vashta nerada (How to get out of room? And how to defeat the vashta nerada?)
 #Add dialogue to Vancelle if you don't have the key.
+
+#Add secondary description? (way to get out) and Miss Evangelista.

@@ -22,16 +22,6 @@
     "want": "", 
     "wish_come_true": false
   }, 
-  "doctor": {
-    "custom_type": "NPC", 
-    "dialogue": [
-      "\"Well, hello! And how are you doing today? Any more strange dreams about\nmagical libraries?\"", 
-      "\"How did we get here? Why we walked out of the front door. We passed Ms.\nDickinson. Yes, see? You remember.\""
-    ], 
-    "name": "doctor", 
-    "want": "", 
-    "wish_come_true": false
-  }, 
   "imshi": {
     "custom_type": "NPC", 
     "dialogue": [

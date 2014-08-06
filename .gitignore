@@ -1,7 +1,6 @@
-
 *.pyc
 
-web_games.json
+.coverage
 
 test_save.txt
 
