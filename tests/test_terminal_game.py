@@ -5,7 +5,7 @@ import json
 
 import library_world.library as library
 from library_world.game import Game, home, simplify, reconstitute
-from library_world.commands import command
+from library_world.library import command
 
 game = Game()
 player = game.player_state
@@ -28,10 +28,7 @@ class TestCommands(unittest.TestCase):
     def test_look(self):
         player['location'] = 'binding_room'
         output = command(['look'], game)
-        binding_room_dict = {'header': 'Binding Room',
-        'text': ['''This is the room where the librarians repair damaged books. There are
-books covering every flat surface, and a giant press in the back corner. The
-only exit is to the east.'''], 'npc': 'Clippy is here.'}
+        binding_room_dict = directory['binding_room'].describe()
         eq_(output, binding_room_dict)
 
     def test_talk_normal_NPC(self):
@@ -105,8 +102,7 @@ class TestEvents(unittest.TestCase):
         player['location'] = 'uu_library2'
         output = command(['d'], game)
         uu_dict = directory['uu_library2'].describe()
-        uu_dict['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-and down is up. But now it's gone, so you don't trouble yourself over it.'''
+        uu_dict['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down and down is up. But now it's gone, so you don't trouble yourself over it.'''
         eq_(output, uu_dict)
 
     def test_banana_peel_true(self):
@@ -114,9 +110,7 @@ and down is up. But now it's gone, so you don't trouble yourself over it.'''
         player['location'] = 'hall15'
         output = command(['n'], game)
         hall14_dict = directory['hall14'].describe()
-        hall14_dict['event'] = '''You hear a massive CRASH from the direction of the Restricted
-Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
-her arm thrown dramatically over her eyes.'''
+        hall14_dict['event'] = '''You hear a massive CRASH from the direction of the Restricted Section. The next minute, a gurney rushes by you with Madame Pince lying on it, her arm thrown dramatically over her eyes.'''
         eq_(output, hall14_dict)
         eq_(directory['restricted'].locked, False)
         eq_(directory['hall15'].describe()['text'][0],
@@ -133,11 +127,7 @@ her arm thrown dramatically over her eyes.'''
         player['location'] = 'hall15'
         output = command(['break', 'rope'], game)
         reading_room_dict = directory['reading_room'].describe()
-        reading_room_dict['event'] = '''As you poise to cut through the rope, Madam Pince
-appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
-YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
-promptly confiscates all your books, and to add insult to injury, she escorts
-you all the way back to the main reading room.'''
+        reading_room_dict['event'] = '''As you poise to cut through the rope, Madam Pince appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She promptly confiscates all your books, and to add insult to injury, she escorts you all the way back to the main reading room.'''
         eq_(output, reading_room_dict)
         eq_(player['inventory'], ['yellow waistcoat', 'key', 'dagger',
             'translation book'])
@@ -161,7 +151,6 @@ class TestLevelUp(unittest.TestCase):
         player['location'] = 'chiefs_office'
         player['level'] = 1
         output = command(['talk', 'vancelle'], game)
-        print player['level']
         vancelle_dialogue = {'header':
             '"Congratulations, you\'ve shelved your first book. Now go do the rest. You need to shelve these books to get to level 3:"',
             'text': npc_list['vancelle'].levels[1],
@@ -221,7 +210,7 @@ class TestInitialStates(unittest.TestCase):
     def test_level_shelved_books(self):
         output = command(['level'], game)
         first_level_dict = {'header':
-            'You are level 1. You have shelved these books:', 'text': []}
+            'You are level 1. You have shelved these books:', 'text': ["Fail. You haven't shelved any books!"]}
         eq_(output, first_level_dict)
 
     def test_known_spells(self):
