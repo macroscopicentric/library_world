@@ -158,8 +158,7 @@ class Game(object):
                 ['uu_library1', 'uu_library2']):
                     self.directory['uu_library1'].add_counter()
                     action = move(direction)
-                    action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down
-        and down is up. But now it's gone, so you don't trouble yourself over it.'''
+                    action['event'] = '''You feel a swooping sensation in your tummy, like gravity just shifted and up is down and down is up. But now it's gone, so you don't trouble yourself over it.'''
                     return action
 
             if next_location_object.npc:

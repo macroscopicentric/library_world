@@ -1,7 +1,7 @@
 {
   "astronomy book": {
     "custom_type": "Book", 
-    "description": "The title of the book, and the rest of it, seem to be entirely in\nLatin. There's a cross stamped on the spine.", 
+    "description": "The title of the book, and the rest of it, seem to be entirely in Latin. There's a cross stamped on the spine.", 
     "home": [
       "labyrinth1", 
       "labyrinth2", 
@@ -60,7 +60,7 @@
       "labyrinth54", 
       "labyrinth55"
     ], 
-    "inside": "The book is in Latin, so you can't read it. But it looks as though it's\nabout astronomy, as there are pages full of astronomical tables.", 
+    "inside": "The book is in Latin, so you can't read it. But it looks as though it's about astronomy, as there are pages full of astronomical tables.", 
     "name": "astronomy book", 
     "spell": null
   }, 
@@ -78,36 +78,36 @@
     "custom_type": "Book", 
     "description": "It's a plain brown book, small enough to fit in the palm of your hand.", 
     "home": null, 
-    "inside": "It's full of spells! There's one that looks right at your level. You\nread it, and suddenly feel like you've been totally immersed in the\nCharter.", 
+    "inside": "It's full of spells! There's one that looks right at your level. You read it, and suddenly feel like you've been totally immersed in the Charter.", 
     "name": "charter book", 
     "spell": "water"
   }, 
   "dagger": {
     "custom_type": "Item", 
-    "description": "A silver dagger in a leather scabbard, attached to a belt. The blade\nlooks quite sharp and there are Charter marks etched on the hilt.", 
+    "description": "A silver dagger in a leather scabbard, attached to a belt. The blade looks quite sharp and there are Charter marks etched on the hilt.", 
     "name": "dagger"
   }, 
   "dark history book": {
     "custom_type": "Book", 
-    "description": "It's titled \"Fifteenth-Century Fiends,\"\nauthor unknown. There are three small stars stamped on the spine.", 
+    "description": "It's titled \"Fifteenth-Century Fiends,\" author unknown. There are three small stars stamped on the spine.", 
     "home": "restricted", 
-    "inside": "This is a history book. It's pretty depressing; there are lots of stories of\nbeheadings and Muggle torture.", 
+    "inside": "This is a history book. It's pretty depressing; there are lots of stories of beheadings and Muggle torture.", 
     "name": "dark history book", 
     "spell": null
   }, 
   "diary": {
     "custom_type": "Book", 
-    "description": "This looks like someone's personal notebook, maybe a\ndiary. The cover is blue and paneled. There is a clock stamped on the spine.", 
+    "description": "This looks like someone's personal notebook, maybe a diary. The cover is blue and paneled. There is a clock stamped on the spine.", 
     "home": [
       "dw_library"
     ], 
-    "inside": "It's someone's notes, in very small, neat handwriting. Whoever it is must\nhave some sort of personal code because you can't read what they've\nwritten.", 
+    "inside": "It's someone's notes, in very small, neat handwriting. Whoever it is must have some sort of personal code because you can't read what they've written.", 
     "name": "diary", 
     "spell": null
   }, 
   "drama book": {
     "custom_type": "Book", 
-    "description": "It seems to be a translated copy of Poetics II,\nthe lost Aristotelian essay on comedic drama. There is a cross stamped on the\nspine.", 
+    "description": "It seems to be a translated copy of Poetics II, the lost Aristotelian essay on comedic drama. There is a cross stamped on the spine.", 
     "home": [
       "labyrinth1", 
       "labyrinth2", 
@@ -166,13 +166,13 @@
       "labyrinth54", 
       "labyrinth55"
     ], 
-    "inside": "It's just Aristotle's theories on Greek comedic drama. Boring. Go read\nsomething with magic in it.", 
+    "inside": "It's just Aristotle's theories on Greek comedic drama. Boring. Go read something with magic in it.", 
     "name": "drama book", 
     "spell": null
   }, 
   "epic book": {
     "custom_type": "Book", 
-    "description": "A copy of Homer's \"Illiad.\" There is a scroll\nstamped on the spine.", 
+    "description": "A copy of Homer's \"Illiad.\" There is a scroll stamped on the spine.", 
     "home": [
       "alexandria1", 
       "alexandria2", 
@@ -181,13 +181,13 @@
       "alexandria5", 
       "alexandria6"
     ], 
-    "inside": "When you open it, you notice that the book is heavily marked in many\ndifferent handwritings.", 
+    "inside": "When you open it, you notice that the book is heavily marked in many different handwritings.", 
     "name": "epic book", 
     "spell": null
   }, 
   "fairy tale book": {
     "custom_type": "Book", 
-    "description": "It has a brown leather cover, embossed with the title: \"Grimm's Fairy\nTales.\" There is a red rose stamped on the spine.", 
+    "description": "It has a brown leather cover, embossed with the title: \"Grimm's Fairy Tales.\" There is a red rose stamped on the spine.", 
     "home": [
       "beast_library1", 
       "beast_library2", 
@@ -195,21 +195,21 @@
       "beast_library4", 
       "beast_library5"
     ], 
-    "inside": "These stories seem kind of gruesome, you note as you flip through the book.\nThere seem to be an awful lot of people getting eaten and/or stabbing each\nother.", 
+    "inside": "These stories seem kind of gruesome, you note as you flip through the book. There seem to be an awful lot of people getting eaten and/or stabbing each other.", 
     "name": "fairy tale book", 
     "spell": null
   }, 
   "fantasy book": {
     "custom_type": "Book", 
-    "description": "This book MAY be even heavier than the librarians' ledger. There's a\npicture of a boy with black hair and glasses on the cover, and three small\nstars stamped on the spine.", 
+    "description": "This book MAY be even heavier than the librarians' ledger. There's a picture of a boy with black hair and glasses on the cover, and three small stars stamped on the spine.", 
     "home": "restricted", 
-    "inside": "It seems like this is another novel. This one is a fantasy novel about a\nwizard and his two friends and the dark wizard they fight.", 
+    "inside": "It seems like this is another novel. This one is a fantasy novel about a wizard and his two friends and the dark wizard they fight.", 
     "name": "fantasy book", 
     "spell": null
   }, 
   "floral book": {
     "custom_type": "Book", 
-    "description": "There's a patterened motif of vines and flowers covering this book,\nwhich is a copy of \"Jack and the Beanstalk.\" There's also a red rose stamped on\nthe spine.", 
+    "description": "There's a patterened motif of vines and flowers covering this book, which is a copy of \"Jack and the Beanstalk.\" There's also a red rose stamped on the spine.", 
     "home": [
       "beast_library1", 
       "beast_library2", 
@@ -217,13 +217,13 @@
       "beast_library4", 
       "beast_library5"
     ], 
-    "inside": "It looks like someone's run rampant with the story here; this is a full\nnovelisation of Jack and the Beanstalk.", 
+    "inside": "It looks like someone's run rampant with the story here; this is a full novelisation of Jack and the Beanstalk.", 
     "name": "floral book", 
     "spell": null
   }, 
   "french book": {
     "custom_type": "Book", 
-    "description": "The book has a plain brown cloth cover that says, \"La Belle et la Bete.\"\nThe only other adornment is a red rose on the spine.", 
+    "description": "The book has a plain brown cloth cover that says, \"La Belle et la Bete.\" The only other adornment is a red rose on the spine.", 
     "home": [
       "beast_library1", 
       "beast_library2", 
@@ -231,7 +231,7 @@
       "beast_library4", 
       "beast_library5"
     ], 
-    "inside": "It's beautifully illustrated, with gold leaf covering the hand-drawn\npictures of Belle and the beast.", 
+    "inside": "It's beautifully illustrated, with gold leaf covering the hand-drawn pictures of Belle and the beast.", 
     "name": "french book", 
     "spell": null
   }, 
@@ -242,7 +242,7 @@
   }, 
   "labyrinth book": {
     "custom_type": "Book", 
-    "description": "This book is titled \"The Name of the Rose.\" There's a cross stamped on\nthe spine.", 
+    "description": "This book is titled \"The Name of the Rose.\" There's a cross stamped on the spine.", 
     "home": [
       "labyrinth1", 
       "labyrinth2", 
@@ -301,39 +301,39 @@
       "labyrinth54", 
       "labyrinth55"
     ], 
-    "inside": "The book seems to be a novel about two monks, set in a strange world\nwithout magic.", 
+    "inside": "The book seems to be a novel about two monks, set in a strange world without magic.", 
     "name": "labyrinth book", 
     "spell": null
   }, 
   "ledger": {
     "custom_type": "Book", 
-    "description": "It's a large leather ledger. It's incredibly heavy, and when you open it you\nfeel as though it contains every piece of equipment checked out by every\nlibrarian in the history of the Clayr. It's that big. You probably don't want\nto carry it around.", 
+    "description": "It's a large leather ledger. It's incredibly heavy, and when you open it you feel as though it contains every piece of equipment checked out by every librarian in the history of the Clayr. It's that big. You probably don't want to carry it around.", 
     "home": null, 
-    "inside": "As you expected, the book is full of lists of equipment checked out to past\nlibrarians. And there's your name, at the very bottom! There's a list of\nequipment for you, including a dagger, a clockwork mouse, a key, and a yellow\nwaistcoat. Now, I wonder where those things could be. (You didn't lose them\nalready, did you?)", 
+    "inside": "As you expected, the book is full of lists of equipment checked out to past librarians. And there's your name, at the very bottom! There's a list of equipment for you, including a dagger, a clockwork mouse, a key, and a yellow waistcoat. Now, I wonder where those things could be. (You didn't lose them already, did you?)", 
     "name": "ledger", 
     "spell": null
   }, 
   "magic book": {
     "custom_type": "Book", 
-    "description": "This book is called \"The Colour of Magic\"\nby Terry Pratchett. There's a turtle stamped on the spine.", 
+    "description": "This book is called \"The Colour of Magic\" by Terry Pratchett. There's a turtle stamped on the spine.", 
     "home": [
       "uu_library1", 
       "uu_library2", 
       "uu_library3", 
       "uu_library4"
     ], 
-    "inside": "It's another novel. This time it's about an incompetent wizard who falls off\nthe edge of the world.", 
+    "inside": "It's another novel. This time it's about an incompetent wizard who falls off the edge of the world.", 
     "name": "magic book", 
     "spell": null
   }, 
   "mouse": {
     "custom_type": "Item", 
-    "description": "It's a small clockwork mouse, about the size of your fist. There's a\nturnkey sticking out of the back. Interestingly, it also buzzes in your hand,\nlike it's connected to the Charter somehow.", 
+    "description": "It's a small clockwork mouse, about the size of your fist. There's a turnkey sticking out of the back. Interestingly, it also buzzes in your hand, like it's connected to the Charter somehow.", 
     "name": "mouse"
   }, 
   "odyssean book": {
     "custom_type": "Book", 
-    "description": "A copy of Homer's \"Odyssey.\" There is a\nscroll stamped on the spine.", 
+    "description": "A copy of Homer's \"Odyssey.\" There is a scroll stamped on the spine.", 
     "home": [
       "alexandria1", 
       "alexandria2", 
@@ -342,7 +342,7 @@
       "alexandria5", 
       "alexandria6"
     ], 
-    "inside": "When you open it, you notice that the book is heavily marked in many\ndifferent handwritings.", 
+    "inside": "When you open it, you notice that the book is heavily marked in many different handwritings.", 
     "name": "odyssean book", 
     "spell": null
   }, 
@@ -353,15 +353,15 @@
   }, 
   "potions book": {
     "custom_type": "Book", 
-    "description": "It's titled \"Most Potente Potions\" by Phineas Bourne. The cover is\nleather, but looks strangely oily and almost appears to be moving. There are\nthree small stars stamped on the spine.", 
+    "description": "It's titled \"Most Potente Potions\" by Phineas Bourne. The cover is leather, but looks strangely oily and almost appears to be moving. There are three small stars stamped on the spine.", 
     "home": "restricted", 
-    "inside": "There are directions in here for all sorts of strange potions; you managed\nto open it to the page about brewing a Laxative Potion.", 
+    "inside": "There are directions in here for all sorts of strange potions; you managed to open it to the page about brewing a Laxative Potion.", 
     "name": "potions book", 
     "spell": null
   }, 
   "princess book": {
     "custom_type": "Book", 
-    "description": "This book has a red cover. The title is \"The Princess Bride,\" and\nthere's a red rose on the spine.", 
+    "description": "This book has a red cover. The title is \"The Princess Bride,\" and there's a red rose on the spine.", 
     "home": [
       "beast_library1", 
       "beast_library2", 
@@ -369,18 +369,18 @@
       "beast_library4", 
       "beast_library5"
     ], 
-    "inside": "Far-off places, daring swordfights, magic spells, and a prince in\ndisguise!", 
+    "inside": "Far-off places, daring swordfights, magic spells, and a prince in disguise!", 
     "name": "princess book", 
     "spell": null
   }, 
   "red waistcoat": {
     "custom_type": "Item", 
-    "description": "A red waistcoat. Looking down, you decide that red is a much better\ncolor on you than yellow. There's a whistle clipped to the lapel.", 
+    "description": "A red waistcoat. Looking down, you decide that red is a much better color on you than yellow. There's a whistle clipped to the lapel.", 
     "name": "red waistcoat"
   }, 
   "south african book": {
     "custom_type": "Book", 
-    "description": "The title is \"Cry, the Beloved Country\" by Alan Paton. There's a purple eye\nstamped on the spine. The dustjacket is patterned with flowers.", 
+    "description": "The title is \"Cry, the Beloved Country\" by Alan Paton. There's a purple eye stamped on the spine. The dustjacket is patterned with flowers.", 
     "home": [
       "wtnv_library1", 
       "wtnv_library2", 
@@ -401,15 +401,15 @@
   }, 
   "translation book": {
     "custom_type": "Book", 
-    "description": "It's an orangutan-to-English translation book, printed by the Unseen\nUniversity Press.", 
+    "description": "It's an orangutan-to-English translation book, printed by the Unseen University Press.", 
     "home": null, 
-    "inside": "The first entry indicates that \"Ooook ook.\" means \"I am filled with\nexistential angst.\"", 
+    "inside": "The first entry indicates that \"Ooook ook.\" means \"I am filled with existential angst.\"", 
     "name": "translation book", 
     "spell": null
   }, 
   "western book": {
     "custom_type": "Book", 
-    "description": "The book is called \"Death Comes for the\nArchbishop,\" by Willa Cather. It has a plain brown dustjacket, with a\nsilhouette of a horse and rider. There's a purple eye stamped on the spine.", 
+    "description": "The book is called \"Death Comes for the Archbishop,\" by Willa Cather. It has a plain brown dustjacket, with a silhouette of a horse and rider. There's a purple eye stamped on the spine.", 
     "home": [
       "wtnv_library1", 
       "wtnv_library2", 
@@ -419,7 +419,7 @@
       "wtnv_library6", 
       "wtnv_library7"
     ], 
-    "inside": "Flipping through it briefly, you see references to the Mexican-American\nWar and catholicism.", 
+    "inside": "Flipping through it briefly, you see references to the Mexican-American War and catholicism.", 
     "name": "western book", 
     "spell": null
   }, 
@@ -430,7 +430,7 @@
   }, 
   "yellow waistcoat": {
     "custom_type": "Item", 
-    "description": "A yellow waistcoat. It flatters you quite nicely. And so professional!\nThere's a whistle clipped to the lapel.", 
+    "description": "A yellow waistcoat. It flatters you quite nicely. And so professional! There's a whistle clipped to the lapel.", 
     "name": "yellow waistcoat"
   }
 }

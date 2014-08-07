@@ -10,8 +10,7 @@ class Room(object):
         self.npc = None
         self.locked = False
         self.counter = 0
-        self.locked_description = '''That door's locked. and it'll stay locked no
-matter how many times you tug on the handle, so stop trying.'''
+        self.locked_description = '''That door's locked. and it'll stay locked no matter how many times you tug on the handle, so stop trying.'''
         #secondary_description = a full description of the room to replace it
         #when an event has happened (ex: putting out the Alexandria fire).
         self.secondary_description = None
@@ -44,9 +43,7 @@ matter how many times you tug on the handle, so stop trying.'''
         self.inventory.remove(item)
 
     def go_to_hospital(self, directory):
-        output = '''You hear a massive CRASH from the direction of the Restricted
-Section. The next minute, a gurney rushes by you with Madame Pince lying on it,
-her arm thrown dramatically over her eyes.'''
+        output = '''You hear a massive CRASH from the direction of the Restricted Section. The next minute, a gurney rushes by you with Madame Pince lying on it, her arm thrown dramatically over her eyes.'''
         directory['hall15'].counter = 1
         directory['restricted'].unlock()
         return output

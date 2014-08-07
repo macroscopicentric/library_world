@@ -19,27 +19,28 @@ def command(user_input, game):
 
     #Helper functions so I can add all methods to the verbs dictionary:
     def help_command():
-        return {'header':'''My commands are like a traditional text adventure\'s.
-To move, use cardinal or ordinal directions or "up" and "down". Other commands
-you can use:''', 'text': ['* "look", "l", or "z" (describes the room to you)',
-'* "examine [object]" or "x [object]"',
-'* "inventory" or "i" (lists your inventory)',
-'* "take [object]" or "take all"',
-'* "drop [object]" or "drop all"',
-'* "give [object]" (to) [person]"',
-'* "cast [Charter spell]"',
-'* "spells" (lists the spells you know)',
-'''* "teleport" (sends you back to the Reading Room, or the labyrinth stairs if
-    you're in the labyrinth)''',
-'* "talk (to) [character]"',
-'* "break [object]" or "cut [object]"',
-'* "read [book]" or "open [book]"',
-'* "shelve [book]"',
-'''* "level" (tells you what level you are and what books you've already shelved)''',
-'* "exit" or "quit" (exits the game)',
-'* "restart" (restarts the game)', '',
-'''Please keep in mind that commands and people names can only be one word, but
-direct objects can be more than one. You don't need articles (the, a, an, etc).''']}
+        return {'header':'''My commands are like a traditional text adventure\'s. To move, use cardinal or ordinal directions or "up" and "down". Other commands you can use:''',
+                'text': [
+                    '* "look", "l", or "z" (describes the room to you)',
+                    '* "examine [object]" or "x [object]"',
+                    '* "inventory" or "i" (lists your inventory)',
+                    '* "take [object]" or "take all"',
+                    '* "drop [object]" or "drop all"',
+                    '* "give [object]" (to) [person]"',
+                    '* "cast [Charter spell]"',
+                    '* "spells" (lists the spells you know)',
+                    '''* "teleport" (sends you back to the Reading Room, or the labyrinth stairs if
+                        you're in the labyrinth)''',
+                    '* "talk (to) [character]"',
+                    '* "break [object]" or "cut [object]"',
+                    '* "read [book]" or "open [book]"',
+                    '* "shelve [book]"',
+                    '''* "level" (tells you what level you are and what books you've already shelved)''',
+                    '* "exit" or "quit" (exits the game)',
+                    '* "restart" (restarts the game)',
+                    '',
+                    '''Please keep in mind that commands and people names can only be one word, but direct objects can be more than one. You don't need articles (the, a, an, etc).'''
+                ]}
 
     #Easter Eggs
     def say_hi():
@@ -109,27 +110,20 @@ direct objects can be more than one. You don't need articles (the, a, an, etc).'
             if game.invent_test('wire'):
                 directory['restricted'].unlock()
                 directory['hall15'].add_counter()
-                return '''You carefully peel Vancelle's seal off of the rope at both ends
-using the piece of wire. You set the rope and seals in the corner.'''
+                return '''You carefully peel Vancelle's seal off of the rope at both ends using the piece of wire. You set the rope and seals in the corner.'''
             elif game.invent_test('dagger'):
                 temp = player['inventory'][:]
                 for item in temp:
                     if ('book' in item and item != "translation book") or item == 'diary':
                         item_list[item].drop(game, directory['restricted'])
                 message = game.teleport()
-                message['event'] = '''As you poise to cut through the rope, Madam Pince
-appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO
-YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She
-promptly confiscates all your books, and to add insult to injury, she escorts
-you all the way back to the main reading room.'''
+                message['event'] = '''As you poise to cut through the rope, Madam Pince appears seemingly out of nowhere, screeching at the top of her lungs. "WHAT DO YOU THINK YOU'RE DOING?! Disrespecting library property! Out out out!" She promptly confiscates all your books, and to add insult to injury, she escorts you all the way back to the main reading room.'''
                 return message
         else:
             if direct_object in item_list:
-                return '''You try to break the %s, but it just bounces off the wall.
-Disgusted, you put it back.''' % (direct_object)
+                return '''You try to break the %s, but it just bounces off the wall. Disgusted, you put it back.''' % (direct_object)
             else:
-                return '''It would take super-human strength to break that.
-Spoiler: you're not super-human.'''
+                return '''It would take super-human strength to break that. Spoiler: you're not super-human.'''
 
     def give():
         if indirect_object == directory[player['location']].npc:

@@ -15,9 +15,7 @@ class NPC(object):
     def talk(self, game, player_state):
         if self.name == 'orangutan' and self.wish_come_true == False:
             if game.invent_test('translation book'):
-                self.new_dialogue(['''"Oh woe is me," says the Librarian forlornly, "I have lost my
-chalk and cannot navigate the library, like Theseus in the
-Minotaur's Labyrinth."'''])
+                self.new_dialogue(['''"Oh woe is me," says the Librarian forlornly, "I have lost my chalk and cannot navigate the library, like Theseus in the Minotaur's Labyrinth."'''])
             else:
                 self.new_dialogue(['"Ooook ook."', '"Eeek eek!"',
                     '"Ook eek." >:('])
@@ -53,10 +51,7 @@ class Baddie(NPC):
     def do_bad_thing(self, game, player):
         player['location'] = 'dr_moon'
         output = game.directory[player['location']].describe()
-        output['event'] = '''You step into a room that you can't see because it's totally in shadow. For some
-reason you can't explain, the shadows feel filled with malice. Before you can
-think about it further, there's a huge flash of white light. A voice says, "You
-have left the library. You have been saved."'''
+        output['event'] = '''You step into a room that you can't see because it's totally in shadow. For some reason you can't explain, the shadows feel filled with malice. Before you can think about it further, there's a huge flash of white light. A voice says, "You have left the library. You have been saved."'''
         return output
 
 class Librarian(NPC):
@@ -81,8 +76,7 @@ class Librarian(NPC):
                         if player['level'] == 2:
                             level_dialogue['header'] = '"Congratulations, you\'ve shelved your first book. Now go do the rest."'
                         if player['level'] == 4:
-                            level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant
-Librarian! You now have a new study off of the Second-Assistant Hallway downstairs."'''
+                            level_dialogue['header'] = '''"Congratulations, I\'ve decided to promote you to Second-Assistant Librarian! You now have a new study off of the Second-Assistant Hallway downstairs."'''
                         return level_dialogue
                 game.level_up(level + 2)
                 game.item_list['key'].level_up(game, player['level'])
@@ -95,7 +89,7 @@ Librarian! You now have a new study off of the Second-Assistant Hallway downstai
 
         #for proper formatting of dialogue ("") and adding space between potential dialogue from level_up.
         if 'header' in level_dialogue.keys():
-            level_dialogue['header'] = level_dialogue['header'][0:-1] + '\n' + goal[1:]
+            level_dialogue['header'] = level_dialogue['header'][0:-1] + ' ' + goal[1:]
         else:
             level_dialogue['header'] = goal
 

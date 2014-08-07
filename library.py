@@ -8,6 +8,7 @@ import os
 import psycopg2
 import urlparse
 import re
+import textwrap
 
 from game import Game, simplify, reconstitute, home
 from commands import command
@@ -89,19 +90,6 @@ def play_term_game(user_input, game):
     elif player_response[0] == 'restart':
         return restart()
     elif player_response[0] in ['exit', 'quit']:
-        #Used once to convert game start data to be used with reconstitute:
-        # #npc_list
-        # with open('people.json', 'w') as f:
-        #     json.dump(simplify(game.npc_list), f, sort_keys=True, indent=2)
-        # #item_list
-        # with open('items.json', 'w') as f:
-        #     json.dump(simplify(game.item_list), f, sort_keys=True, indent=2)
-        # #spells
-        # with open('spells.json', 'w') as f:
-        #     json.dump(simplify(game.spells), f, sort_keys=True, indent=2)
-        # #directory
-        # with open('rooms.json', 'w') as f:
-        #     json.dump(simplify(game.directory), f, sort_keys=True, indent=2)
         sys.exit()
     else:
         return command(player_response, game)
@@ -122,7 +110,7 @@ def from_terminal_play():
 def terminal_formatting(output):
     #Two possible outputs: unicode/string or a dictionary.
     if isinstance(output, basestring):
-        return output
+        return textwrap.fill(output)
 
     description = output['text'][0]
     if len(output['text']) > 1:
@@ -144,7 +132,7 @@ def terminal_formatting(output):
     elif 'npc' in output.keys() and 'inventory' not in output.keys():
         formatted_output += '\n\n' + output['npc']
 
-    return formatted_output
+    return textwrap.fill(formatted_output, replace_whitespace=False)
 
 #To avoid having a global web_games hash while still being able to access it
 #from both start_web and play_web (can't pass it from route to route in flask).
@@ -181,7 +169,8 @@ def web_game_wrapper(function, *args):
                         #cur.fetchall() returns a list of tuples. hence matching with a tuple below.
                         if tuple((game_code,)) not in existing_sessions:
                             game = Game()
-                            cur.execute("INSERT INTO saved_games (session_name, game_json) VALUES (%s, %s);", (game_code, json.dumps(simplify(game))))
+                            cur.execute("INSERT INTO saved_games (session_name, game_json) VALUES (%s, %s);",
+                                (game_code, json.dumps(simplify(game))))
                             conn.commit()
 
                             return game_code, game

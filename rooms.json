@@ -1,7 +1,7 @@
 {
   "alexandria1": {  
     "custom_type": "Room", 
-    "description": "This is a beautiful reading room with high ceilings and columns\neverywhere. Bookshelves line the walls. But there's a huge fire in the middle\nof the room! It's spread to the far side of the room, covering the doors you\ncan see in the north and west walls. The only safe\nexit is to go back through the door to the east.", 
+    "description": "This is a beautiful reading room with high ceilings and columns everywhere. Bookshelves line the walls. But there's a huge fire in the middle of the room! It's spread to the far side of the room, covering the doors you can see in the north and west walls. The only safe exit is to go back through the door to the east.", 
     "directions": {
       "e": "hall10", 
       "n": "alexandria2", 
@@ -9,24 +9,24 @@
     }, 
     "locked": true,  
     "name": "Royal Library of Alexandria - Reading Room",  
-    "secondary_description": "This is a beautiful reading room with high ceilings and columns everywhere.\nBookshelves line the walls, and the room seems kind of smoky. There are doors\nto the north, east, and west.", 
+    "secondary_description": "This is a beautiful reading room with high ceilings and columns everywhere. Bookshelves line the walls, and the room seems kind of smoky. There are doors to the north, east, and west.", 
     "short_name": "alexandria1"
   }, 
   "alexandria2": {  
     "custom_type": "Room", 
-    "description": "You're in a long, covered walkway between two \"buildings.\" There are\ngardens to either side of the walkway, but no doors to get there. You can see\nsky beyond the roof above you, which is strange since you know you're still\nunderground. But it's quite convincing; you can hear birds and everything.\nThere are doors to the north and south.", 
+    "description": "You're in a long, covered walkway between two \"buildings.\" There are gardens to either side of the walkway, but no doors to get there. You can see sky beyond the roof above you, which is strange since you know you're still underground. But it's quite convincing; you can hear birds and everything. There are doors to the north and south.", 
     "directions": {
       "n": "alexandria3", 
       "s": "alexandria1"
     }, 
     "locked": true, 
-    "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
+    "locked_description": "Since there's a giant fire in front of the door, I'm going to pretend you didn't just try to go in that direction.", 
     "name": "Royal Library of Alexandria - Peripatos Walk",   
     "short_name": "alexandria2"
   }, 
   "alexandria3": {  
     "custom_type": "Room", 
-    "description": "This is a small but welcoming meeting room. There's a large sturdy stone\ntable in the center, surrounded by wooden chairs. There are doors to the\nsoutheast, southwest, and south.", 
+    "description": "This is a small but welcoming meeting room. There's a large sturdy stone table in the center, surrounded by wooden chairs. There are doors to the southeast, southwest, and south.", 
     "directions": {
       "s": "alexandria2", 
       "se": "alexandria5", 
@@ -37,7 +37,7 @@
   }, 
   "alexandria4": {  
     "custom_type": "Room", 
-    "description": "You're in a small but full garden. You know it's a fake sky, but the sky\noverhead is quite convincing and beautifully blue. You can feel the sunlight\non your face, and there are birds in the carefully maintained shrubs. There are\npaths leading to the northeast and south.", 
+    "description": "You're in a small but full garden. You know it's a fake sky, but the sky overhead is quite convincing and beautifully blue. You can feel the sunlight on your face, and there are birds in the carefully maintained shrubs. There are paths leading to the northeast and south.", 
     "directions": {
       "ne": "alexandria3", 
       "s": "alexandria6"
@@ -47,7 +47,7 @@
   }, 
   "alexandria5": {  
     "custom_type": "Room", 
-    "description": "You're in a small but full garden. You know it's a fake sky, but the sky\noverhead is quite convincing and beautifully blue. You can feel the sunlight\non your face, and there are birds in the carefully maintained shrubs. There is\na path leading to the northwest.", 
+    "description": "You're in a small but full garden. You know it's a fake sky, but the sky overhead is quite convincing and beautifully blue. You can feel the sunlight on your face, and there are birds in the carefully maintained shrubs. There is a path leading to the northwest.", 
     "directions": {
       "nw": "alexandria3"
     },    
@@ -56,19 +56,19 @@
   }, 
   "alexandria6": {  
     "custom_type": "Room", 
-    "description": "This is a large lecture hall. There are steps leading down to a lectern\nat the front of the room. There are doors to the north and east.", 
+    "description": "This is a large lecture hall. There are steps leading down to a lectern at the front of the room. There are doors to the north and east.", 
     "directions": {
       "e": "alexandria1", 
       "n": "alexandria4"
     },  
     "locked": true, 
-    "locked_description": "Since there's a giant fire in front of the door, I'm\ngoing to pretend you didn't just try to go in that direction.", 
+    "locked_description": "Since there's a giant fire in front of the door, I'm going to pretend you didn't just try to go in that direction.", 
     "name": "Royal Library of Alexandria - Lecture Hall",   
     "short_name": "alexandria6"
   }, 
   "beast_library1": {  
     "custom_type": "Room", 
-    "description": "You're in a huge room filled floor to 50-foot ceiling with books, with\ntall windows in the southwest and northwest corners. The room extends to the\nnorth and south, and there's a door to the east.", 
+    "description": "You're in a huge room filled floor to 50-foot ceiling with books, with tall windows in the southwest and northwest corners. The room extends to the north and south, and there's a door to the east.", 
     "directions": {
       "e": "hall3", 
       "n": "beast_library4", 
@@ -79,7 +79,7 @@
   }, 
   "beast_library2": {  
     "custom_type": "Room", 
-    "description": "You're in the southern end of a massive library. It extends to the\nnorth, and there's a staircase going up in the corner.", 
+    "description": "You're in the southern end of a massive library. It extends to the north, and there's a staircase going up in the corner.", 
     "directions": {
       "n": "beast_library1", 
       "u": "beast_library3"
@@ -89,7 +89,7 @@
   }, 
   "beast_library3": {  
     "custom_type": "Room", 
-    "description": "You're standing on a walkway about halfway up the southern wall of a\nmassive library. There are stairs leading down.", 
+    "description": "You're standing on a walkway about halfway up the southern wall of a massive library. There are stairs leading down.", 
     "directions": {
       "d": "beast_library2"
     },    
@@ -99,7 +99,7 @@
   }, 
   "beast_library4": {  
     "custom_type": "Room", 
-    "description": "You're in the northern end of a massive library. It extends to the\nsouth, and there's a staircase going up in the corner.", 
+    "description": "You're in the northern end of a massive library. It extends to the south, and there's a staircase going up in the corner.", 
     "directions": {
       "s": "beast_library1", 
       "u": "beast_library5"
@@ -109,7 +109,7 @@
   }, 
   "beast_library5": {  
     "custom_type": "Room", 
-    "description": "You're standing on a walkway about halfway up the northern wall of a\nmassive library. There are stairs leading down.", 
+    "description": "You're standing on a walkway about halfway up the northern wall of a massive library. There are stairs leading down.", 
     "directions": {
       "d": "beast_library4"
     },    
@@ -119,7 +119,7 @@
   }, 
   "binding_room": {  
     "custom_type": "Room", 
-    "description": "This is the room where the librarians repair damaged books. There are\nbooks covering every flat surface, and a giant press in the back corner. The\nonly exit is to the east.", 
+    "description": "This is the room where the librarians repair damaged books. There are books covering every flat surface, and a giant press in the back corner. The only exit is to the east.", 
     "directions": {
       "e": "librarian_alcove"
     },    
@@ -129,7 +129,7 @@
   }, 
   "chiefs_office": {  
     "custom_type": "Room", 
-    "description": "This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled\noffice. Chief Librarian Vancelle is obviously not the tidiest person; papers\nand books are stacked willy-nilly on her desk. She's nice enough, but I\nwouldn't like to get caught in her office without her permission. The only exit\nis to the north.", 
+    "description": "This is Chief Librarian Vancelle's office. It's a roomy, wood-panelled office. Chief Librarian Vancelle is obviously not the tidiest person; papers and books are stacked willy-nilly on her desk. She's nice enough, but I wouldn't like to get caught in her office without her permission. The only exit is to the north.", 
     "directions": {
       "n": "upper_librarian_hallway"
     },    
@@ -139,7 +139,7 @@
   }, 
   "dr_moon": {  
     "custom_type": "Room", 
-    "description": "You're standing outside a beautiful estate, on the walkway leading up to the\nmain entrance. There is a sign on the lawn that says, simply, \"Cal.\" You can\ngo north, east, west, or south.", 
+    "description": "You're standing outside a beautiful estate, on the walkway leading up to the main entrance. There is a sign on the lawn that says, simply, \"Cal.\" You can go north, east, west, or south.", 
     "directions": {
       "e": "dr_moon", 
       "n": "dr_moon", 
@@ -152,7 +152,7 @@
   }, 
   "dw_library": {  
     "custom_type": "Room", 
-    "description": "This certainly is a big, round room. There's a little glass-walled shop taking\nup the northwest corner. Its door is open. There's also a door to the south.", 
+    "description": "This certainly is a big, round room. There's a little glass-walled shop taking up the northwest corner. Its door is open. There's also a door to the south.", 
     "directions": {
       "nw": "little_shop", 
       "s": "hall13"
@@ -163,7 +163,7 @@
   }, 
   "finis_africae": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nheptagonal. There's a door to the northwest.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is heptagonal. There's a door to the northwest.", 
     "directions": {
       "nw": "labyrinth22"
     }, 
@@ -173,7 +173,7 @@
   }, 
   "hall1": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. Through the eastern\narchway, you can see the Main Reading Room. The walls here are blue. There are\narchways to the east and west.", 
+    "description": "You're in a hallway with gently sloping floors. Through the eastern archway, you can see the Main Reading Room. The walls here are blue. There are archways to the east and west.", 
     "directions": {
       "e": "reading_room", 
       "w": "hall2"
@@ -183,7 +183,7 @@
   }, 
   "hall10": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south. There is a door with two emeralds\nover it to the west, flanked by two stone columns topped with capitals that look\nlike scrolls of parchment.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There are archways to the north and south. There is a door with two emeralds over it to the west, flanked by two stone columns topped with capitals that look like scrolls of parchment.", 
     "directions": {
       "n": "hall11", 
       "s": "hall9", 
@@ -194,7 +194,7 @@
   }, 
   "hall11": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There are archways to the north and south.", 
     "directions": {
       "n": "hall12", 
       "s": "hall10"
@@ -204,7 +204,7 @@
   }, 
   "hall12": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\npurple. There are archways to the west and south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are purple. There are archways to the west and south.", 
     "directions": {
       "s": "hall11", 
       "w": "hall13"
@@ -214,7 +214,7 @@
   }, 
   "hall13": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west. There is a door with two emeralds over\nit to the north. There is a grandfather clock standing in the corner, and next\nto the door, someone has taped a postcard-sized print of\nVan Gogh's \"Starry Night.\"", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There are archways to the east and west. There is a door with two emeralds over it to the north. There is a grandfather clock standing in the corner, and next to the door, someone has taped a postcard-sized print of Van Gogh's \"Starry Night.\"", 
     "directions": {
       "e": "hall12", 
       "n": "dw_library", 
@@ -226,7 +226,7 @@
   "hall14": {
     "check_banana": true,  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There are archways to the east and south.", 
     "directions": {
       "e": "hall13", 
       "s": "hall15"
@@ -236,20 +236,20 @@
   }, 
   "hall15": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and south, and a velvet rope sealed with\nVancelle's official seal blocking a door to the west. Next to the door, there's\na sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There are archways to the north and south, and a velvet rope sealed with Vancelle's official seal blocking a door to the west. Next to the door, there's a sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\" The sign has been stamped with a cluster of three small stars.", 
     "directions": {
       "n": "hall14", 
       "s": "hall16", 
       "w": "restricted"
     },    
     "name": "North-South Hallway",  
-    "secondary_description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere's a velvet rope piled neatly in the corner. There are archways to the\nnorth and south, and a door to the west. Next to the door, there's a sign posted:\n\"RESTRICTED. Do not enter without Madame Pince's permission.\"\nThe sign has been stamped with a cluster of three small stars.", 
+    "secondary_description": "You're in a hallway with gently sloping floors. The walls here are red. There's a velvet rope piled neatly in the corner. There are archways to the north and south, and a door to the west. Next to the door, there's a sign posted: \"RESTRICTED. Do not enter without Madame Pince's permission.\" The sign has been stamped with a cluster of three small stars.", 
     "short_name": "hall15"
   }, 
   "hall16": {
     "check_banana": true,  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and east.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There are archways to the north and east.", 
     "directions": {
       "e": "hall17", 
       "n": "hall15"
@@ -259,7 +259,7 @@
   }, 
   "hall17": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the east and west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There are archways to the east and west.", 
     "directions": {
       "e": "hall18", 
       "w": "hall16"
@@ -269,7 +269,7 @@
   }, 
   "hall18": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere are archways to the north and west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There are archways to the north and west.", 
     "directions": {
       "n": "hall19", 
       "w": "hall17"
@@ -279,7 +279,7 @@
   }, 
   "hall19": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are red.\nThere is an empty soap dispenser on the wall labeled \"Librarian Repellent\"\nwith a purple eye stamped on it. There are archways to the north and south,\nand a door to the east with two emeralds over it.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are red. There is an empty soap dispenser on the wall labeled \"Librarian Repellent\" with a purple eye stamped on it. There are archways to the north and south, and a door to the east with two emeralds over it.", 
     "directions": {
       "e": "wtnv_library1", 
       "n": "hall20", 
@@ -290,7 +290,7 @@
   }, 
   "hall2": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the east and west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There are archways to the east and west.", 
     "directions": {
       "e": "hall1", 
       "w": "hall3"
@@ -300,7 +300,7 @@
   }, 
   "hall20": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\norange. There are archways to the west and south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are orange. There are archways to the west and south.", 
     "directions": {
       "s": "hall19", 
       "w": "hall21"
@@ -310,7 +310,7 @@
   }, 
   "hall21": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. On the wall, there's a very old and very inaccurate world map. (Who\never heard of a place called Leones?!) There are archways to the east and south\nand stairs leading up. There are two emeralds set in the ceiling over the\nstairs.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are yellow. On the wall, there's a very old and very inaccurate world map. (Who ever heard of a place called Leones?!) There are archways to the east and south and stairs leading up. There are two emeralds set in the ceiling over the stairs.", 
     "directions": {
       "e": "hall20", 
       "s": "hall22", 
@@ -321,7 +321,7 @@
   }, 
   "hall22": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There are archways to the north and east.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are yellow. There are archways to the north and east.", 
     "directions": {
       "e": "hall23", 
       "n": "hall21"
@@ -331,7 +331,7 @@
   }, 
   "hall23": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There are archways to the north and west. There's a door with a\nsunburst painted on it to the east, and four emeralds set in the wall above\nit.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are yellow. There are archways to the north and west. There's a door with a sunburst painted on it to the east, and four emeralds set in the wall above it.", 
     "directions": {
       "e": "stilken_room1", 
       "n": "hall24", 
@@ -342,7 +342,7 @@
   }, 
   "hall24": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are\nyellow. There's an archway to the south. On the west wall, there's a hole, far\ntoo small for a human to pass through.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are yellow. There's an archway to the south. On the west wall, there's a hole, far too small for a human to pass through.", 
     "directions": {
       "s": "hall23"
     },   
@@ -351,7 +351,7 @@
   }, 
   "hall3": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a table in the corner with a rose lying on it. There are archways to\nthe east and south, and a stained-glass door to the west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There is a table in the corner with a rose lying on it. There are archways to the east and south, and a stained-glass door to the west.", 
     "directions": {
       "e": "hall2", 
       "s": "hall4", 
@@ -362,7 +362,7 @@
   }, 
   "hall4": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There are archways to the north and south.", 
     "directions": {
       "n": "hall3", 
       "s": "hall5"
@@ -372,7 +372,7 @@
   }, 
   "hall5": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the north and south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There are archways to the north and south.", 
     "directions": {
       "n": "hall4", 
       "s": "hall6"
@@ -382,7 +382,7 @@
   }, 
   "hall6": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a large statue of a turtle in the corner. There are archways to the\nnorth and east.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There is a large statue of a turtle in the corner. There are archways to the north and east.", 
     "directions": {
       "e": "hall7", 
       "n": "hall5"
@@ -392,7 +392,7 @@
   }, 
   "hall7": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere are archways to the east and west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There are archways to the east and west.", 
     "directions": {
       "e": "hall8", 
       "w": "hall6"
@@ -402,7 +402,7 @@
   }, 
   "hall8": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a strange painting on the wall of faceless people going up and down\nimpossible stairways. There are archways to the east and west, and a door\nwith two emeralds over it to the south.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There is a strange painting on the wall of faceless people going up and down impossible stairways. There are archways to the east and west, and a door with two emeralds over it to the south.", 
     "directions": {
       "e": "hall9", 
       "s": "uu_library1", 
@@ -413,7 +413,7 @@
   }, 
   "hall9": {  
     "custom_type": "Room", 
-    "description": "You're in a hallway with gently sloping floors. The walls here are blue.\nThere is a large statue of an elephant in the corner. There are archways to the\nnorth and west.", 
+    "description": "You're in a hallway with gently sloping floors. The walls here are blue. There is a large statue of an elephant in the corner. There are archways to the north and west.", 
     "directions": {
       "n": "hall10", 
       "w": "hall8"
@@ -423,7 +423,7 @@
   }, 
   "labyrinth1": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the northwest, east, and south, and stairs\nleading down.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is heptagonal, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the northwest, east, and south, and stairs leading down.", 
     "directions": {
       "d": "hall21", 
       "e": "labyrinth2", 
@@ -436,7 +436,7 @@
   }, 
   "labyrinth10": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Y*.\" There is a door to the northeast.", 
+    "description": "You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Y*.\" There is a door to the northeast.", 
     "directions": {
       "ne": "labyrinth9"
     },    
@@ -445,7 +445,7 @@
   }, 
   "labyrinth11": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Equus albus.\" There are doors to the southeast and southwest.", 
+    "description": "You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Equus albus.\" There are doors to the southeast and southwest.", 
     "directions": {
       "se": "labyrinth9", 
       "sw": "labyrinth14"
@@ -455,7 +455,7 @@
   }, 
   "labyrinth12": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Apocalypsis Iesu Christi.\" There are doors to the north and east.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the north and east.", 
     "directions": {
       "e": "labyrinth6", 
       "n": "labyrinth13"
@@ -465,7 +465,7 @@
   }, 
   "labyrinth13": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the north, east, and south.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Equus albus.\" There are doors to the north, east, and south.", 
     "directions": {
       "e": "labyrinth5", 
       "n": "labyrinth55", 
@@ -476,7 +476,7 @@
   }, 
   "labyrinth14": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Primogenitus mortuorum.\" There are doors to the northeast and south.", 
+    "description": "You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Primogenitus mortuorum.\" There are doors to the northeast and south.", 
     "directions": {
       "ne": "labyrinth11", 
       "s": "labyrinth15"
@@ -486,7 +486,7 @@
   }, 
   "labyrinth15": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Tertia pars terrae combusta est.\" There are doors to the east and south.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Tertia pars terrae combusta est.\" There are doors to the east and south.", 
     "directions": {
       "n": "labyrinth14", 
       "s": "labyrinth16"
@@ -496,7 +496,7 @@
   }, 
   "labyrinth16": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"U*.\" There are\ndoors to the north, west, and southeast.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"U*.\" There are doors to the north, west, and southeast.", 
     "directions": {
       "n": "labyrinth15", 
       "se": "labyrinth17", 
@@ -507,7 +507,7 @@
   }, 
   "labyrinth17": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"L*.\"\nThere are doors to the northwest and south.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"L*.\" There are doors to the northwest and south.", 
     "directions": {
       "nw": "labyrinth16", 
       "s": "labyrinth18"
@@ -517,7 +517,7 @@
   }, 
   "labyrinth18": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the north and southwest.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Equus albus.\" There are doors to the north and southwest.", 
     "directions": {
       "n": "labyrinth17", 
       "sw": "labyrinth19"
@@ -527,7 +527,7 @@
   }, 
   "labyrinth19": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Obscuratus est sol et aer.\" There are doors to the northeast and\nnorthwest.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Obscuratus est sol et aer.\" There are doors to the northeast and northwest.", 
     "directions": {
       "ne": "labyrinth18", 
       "nw": "labyrinth20"
@@ -537,7 +537,7 @@
   }, 
   "labyrinth2": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular. There's an altar below the window. There are doors to the\nnorthwest and west.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular. There's an altar below the window. There are doors to the northwest and west.", 
     "directions": {
       "nw": "labyrinth3", 
       "w": "labyrinth1"
@@ -547,7 +547,7 @@
   }, 
   "labyrinth20": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Nomen illi mors.\" There are doors to the north and southeast.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Nomen illi mors.\" There are doors to the north and southeast.", 
     "directions": {
       "n": "labyrinth21", 
       "se": "labyrinth19"
@@ -557,7 +557,7 @@
   }, 
   "labyrinth21": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There are doors to the northeast and south.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Equus albus.\" There are doors to the northeast and south.", 
     "directions": {
       "ne": "labyrinth22", 
       "s": "labyrinth20"
@@ -567,7 +567,7 @@
   }, 
   "labyrinth22": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Super thronos\nviginti quatuor.\" There are doors to the north, east, west, and southwest, and\na mirror on the southeast wall with the same inscription written over it.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"Super thronos viginti quatuor.\" There are doors to the north, east, west, and southwest, and a mirror on the southeast wall with the same inscription written over it.", 
     "directions": {
       "e": "labyrinth16", 
       "n": "labyrinth23", 
@@ -580,7 +580,7 @@
   }, 
   "labyrinth23": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the southern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Y*.\"\nThere is a door to the south.", 
+    "description": "You're in a room in the southern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Y*.\" There is a door to the south.", 
     "directions": {
       "s": "labyrinth22"
     },    
@@ -589,7 +589,7 @@
   }, 
   "labyrinth24": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Primogenitus mortuorum.\" There are doors to the northeast and east.", 
+    "description": "You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Primogenitus mortuorum.\" There are doors to the northeast and east.", 
     "directions": {
       "e": "labyrinth22", 
       "ne": "labyrinth25"
@@ -599,7 +599,7 @@
   }, 
   "labyrinth25": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Requiescant a laboribus suis.\" There are doors to the northwest and\nsouthwest.", 
+    "description": "You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Requiescant a laboribus suis.\" There are doors to the northwest and southwest.", 
     "directions": {
       "nw": "labyrinth26", 
       "sw": "labyrinth24"
@@ -609,7 +609,7 @@
   }, 
   "labyrinth26": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Obscuratus est sol et aer.\" There are doors to the southeast and\nsouthwest.", 
+    "description": "You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Obscuratus est sol et aer.\" There are doors to the southeast and southwest.", 
     "directions": {
       "se": "labyrinth25", 
       "sw": "labyrinth27"
@@ -619,7 +619,7 @@
   }, 
   "labyrinth27": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the south and west towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the north and\nnortheast.", 
+    "description": "You're in a room in the labyrinth between the south and west towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the north and northeast.", 
     "directions": {
       "n": "labyrinth28", 
       "ne": "labyrinth26"
@@ -629,7 +629,7 @@
   }, 
   "labyrinth28": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Nomen illi\nmors.\" There are doors to the north, east, west, and southwest.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"Nomen illi mors.\" There are doors to the north, east, west, and southwest.", 
     "directions": {
       "e": "labyrinth36", 
       "n": "labyrinth32", 
@@ -641,7 +641,7 @@
   }, 
   "labyrinth29": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Requiescant a\nlaboribus suis.\" There are doors to the northeast and west.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Requiescant a laboribus suis.\" There are doors to the northeast and west.", 
     "directions": {
       "ne": "labyrinth28", 
       "w": "labyrinth30"
@@ -651,7 +651,7 @@
   }, 
   "labyrinth3": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Obscuratus est sol et aer.\" There are doors to the west and southeast.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Obscuratus est sol et aer.\" There are doors to the west and southeast.", 
     "directions": {
       "se": "labyrinth2", 
       "w": "labyrinth4"
@@ -661,7 +661,7 @@
   }, 
   "labyrinth30": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Equus albus.\"\nThere are doors to the northeast and east.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Equus albus.\" There are doors to the northeast and east.", 
     "directions": {
       "e": "labyrinth29", 
       "ne": "labyrinth31"
@@ -671,7 +671,7 @@
   }, 
   "labyrinth31": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There is a door to the southwest.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is heptagonal, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There is a door to the southwest.", 
     "directions": {
       "sw": "labyrinth30"
     },   
@@ -680,7 +680,7 @@
   }, 
   "labyrinth32": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the northwest and south.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"In diebu illis.\" There are doors to the northwest and south.", 
     "directions": {
       "nw": "labyrinth33", 
       "s": "labyrinth28"
@@ -690,7 +690,7 @@
   }, 
   "labyrinth33": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"H*.\" There\nare doors to the southeast and west.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"H*.\" There are doors to the southeast and west.", 
     "directions": {
       "se": "labyrinth32", 
       "w": "labyrinth34"
@@ -700,7 +700,7 @@
   }, 
   "labyrinth34": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"In diebu\nillis.\" There are doors to the east and southwest.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"In diebu illis.\" There are doors to the east and southwest.", 
     "directions": {
       "e": "labyrinth33", 
       "sw": "labyrinth35"
@@ -710,7 +710,7 @@
   }, 
   "labyrinth35": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"B*.\" There is\na door to the northeast.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"B*.\" There is a door to the northeast.", 
     "directions": {
       "ne": "labyrinth34"
     },    
@@ -719,7 +719,7 @@
   }, 
   "labyrinth36": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"M*.\" There\nare doors to the north and west.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"M*.\" There are doors to the north and west.", 
     "directions": {
       "n": "labyrinth37", 
       "w": "labyrinth28"
@@ -729,7 +729,7 @@
   }, 
   "labyrinth37": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the western tower of labyrinth. This one is roughly\nrectangular, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north and south.", 
+    "description": "You're in a room in the western tower of labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the north and south.", 
     "directions": {
       "n": "labyrinth38", 
       "s": "labyrinth36"
@@ -739,7 +739,7 @@
   }, 
   "labyrinth38": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"In diebu illis.\" There are doors to the northeast, northwest, and\nsouth.", 
+    "description": "You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above one of the archways reads \"In diebu illis.\" There are doors to the northeast, northwest, and south.", 
     "directions": {
       "ne": "labyrinth40", 
       "nw": "labyrinth39", 
@@ -750,7 +750,7 @@
   }, 
   "labyrinth39": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"L*.\" There is a door to the southeast.", 
+    "description": "You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above one of the archways reads \"L*.\" There is a door to the southeast.", 
     "directions": {
       "se": "labyrinth38"
     },    
@@ -759,7 +759,7 @@
   }, 
   "labyrinth4": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Facta\nest grandi et ignis.\" There are doors to the east, southeast, and southwest.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Facta est grandi et ignis.\" There are doors to the east, southeast, and southwest.", 
     "directions": {
       "e": "labyrinth3", 
       "se": "labyrinth1", 
@@ -770,7 +770,7 @@
   }, 
   "labyrinth40": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the north, northwest, and\nsouthwest.", 
+    "description": "You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the north, northwest, and southwest.", 
     "directions": {
       "n": "labyrinth42", 
       "nw": "labyrinth41", 
@@ -781,7 +781,7 @@
   }, 
   "labyrinth41": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the west and north towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"L*.\" There is a door to the southeast.", 
+    "description": "You're in a room in the labyrinth between the west and north towers. This one is roughly rectangular, and the inscription above one of the archways reads \"L*.\" There is a door to the southeast.", 
     "directions": {
       "se": "labyrinth40"
     },    
@@ -790,7 +790,7 @@
   }, 
   "labyrinth42": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Gratia vobis et pax.\" There are doors to the north and west.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Gratia vobis et pax.\" There are doors to the north and west.", 
     "directions": {
       "n": "labyrinth43", 
       "s": "labyrinth40"
@@ -800,7 +800,7 @@
   }, 
   "labyrinth43": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"M*.\" There are\ndoors to the northeast, northwest, east, and south.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"M*.\" There are doors to the northeast, northwest, east, and south.", 
     "directions": {
       "e": "labyrinth50", 
       "ne": "labyrinth46", 
@@ -812,7 +812,7 @@
   }, 
   "labyrinth44": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"In\ndiebu illis.\" There are doors to the north and southeast.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"In diebu illis.\" There are doors to the north and southeast.", 
     "directions": {
       "n": "labyrinth45", 
       "se": "labyrinth43"
@@ -822,7 +822,7 @@
   }, 
   "labyrinth45": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"L*.\"\nThere is a door to the south.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"L*.\" There is a door to the south.", 
     "directions": {
       "s": "labyrinth44"
     },    
@@ -831,7 +831,7 @@
   }, 
   "labyrinth46": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nheptagonal, and the inscription above one of the archways reads \"Apocalypsis\nIesu Christi.\" There are doors to the north, east, and southwest.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is heptagonal, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the north, east, and southwest.", 
     "directions": {
       "e": "labyrinth48", 
       "n": "labyrinth47", 
@@ -842,7 +842,7 @@
   }, 
   "labyrinth47": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads\n\"Gratia vobis et pax.\" There is a door to the south.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Gratia vobis et pax.\" There is a door to the south.", 
     "directions": {
       "s": "labyrinth46"
     },    
@@ -851,7 +851,7 @@
   }, 
   "labyrinth48": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"In\ndiebu illis.\" There are doors to the north and west.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"In diebu illis.\" There are doors to the north and west.", 
     "directions": {
       "n": "labyrinth49", 
       "w": "labyrinth46"
@@ -861,7 +861,7 @@
   }, 
   "labyrinth49": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Nomen\nilli mors.\" There is a door to the south.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Nomen illi mors.\" There is a door to the south.", 
     "directions": {
       "s": "labyrinth48"
     },    
@@ -870,7 +870,7 @@
   }, 
   "labyrinth5": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"U*.\" There are\ndoors to the northeast and west.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"U*.\" There are doors to the northeast and west.", 
     "directions": {
       "ne": "labyrinth4", 
       "w": "labyrinth13"
@@ -880,7 +880,7 @@
   }, 
   "labyrinth50": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"Requiescant a\nlaboribus suis.\" There are doors to the east and west.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"Requiescant a laboribus suis.\" There are doors to the east and west.", 
     "directions": {
       "e": "labyrinth52", 
       "w": "labyrinth43"
@@ -890,7 +890,7 @@
   }, 
   "labyrinth51": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the northern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Equus\nalbus.\" There is a door to the east.", 
+    "description": "You're in a room in the northern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Equus albus.\" There is a door to the east.", 
     "directions": {
       "e": "labyrinth53"
     },    
@@ -899,7 +899,7 @@
   }, 
   "labyrinth52": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the west, southeast, and\nsouthwest.", 
+    "description": "You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the west, southeast, and southwest.", 
     "directions": {
       "se": "labyrinth54", 
       "sw": "labyrinth53", 
@@ -910,7 +910,7 @@
   }, 
   "labyrinth53": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Cecidit de cielo stella magna.\" There are doors to the northeast and\nwest.", 
+    "description": "You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Cecidit de cielo stella magna.\" There are doors to the northeast and west.", 
     "directions": {
       "ne": "labyrinth52", 
       "w": "labyrinth51"
@@ -920,7 +920,7 @@
   }, 
   "labyrinth54": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"In diebu illis.\" There are doors to the northwest and southwest.", 
+    "description": "You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above one of the archways reads \"In diebu illis.\" There are doors to the northwest and southwest.", 
     "directions": {
       "nw": "labyrinth52", 
       "sw": "labyrinth55"
@@ -930,7 +930,7 @@
   }, 
   "labyrinth55": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the north and east towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Apocalypsis Iesu Christi.\" There are doors to the northeast and\nsouth.", 
+    "description": "You're in a room in the labyrinth between the north and east towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Apocalypsis Iesu Christi.\" There are doors to the northeast and south.", 
     "directions": {
       "ne": "labyrinth54", 
       "s": "labyrinth13"
@@ -940,7 +940,7 @@
   }, 
   "labyrinth6": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\npentagonal, and the inscription above one of the archways reads \"D*.\" There are\ndoors to the west, southeast, and south.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is pentagonal, and the inscription above one of the archways reads \"D*.\" There are doors to the west, southeast, and south.", 
     "directions": {
       "s": "labyrinth9", 
       "se": "labyrinth7", 
@@ -951,7 +951,7 @@
   }, 
   "labyrinth7": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"Super\nthronos viginti quatuor.\" There are doors to the east and northwest.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"Super thronos viginti quatuor.\" There are doors to the east and northwest.", 
     "directions": {
       "e": "labyrinth8", 
       "nw": "labyrinth6"
@@ -961,7 +961,7 @@
   }, 
   "labyrinth8": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the eastern tower of the labyrinth. This one is\nroughly rectangular, and the inscription above one of the archways reads \"V*.\"\nThere are doors to the north and west.", 
+    "description": "You're in a room in the eastern tower of the labyrinth. This one is roughly rectangular, and the inscription above one of the archways reads \"V*.\" There are doors to the north and west.", 
     "directions": {
       "n": "labyrinth1", 
       "w": "labyrinth7"
@@ -971,7 +971,7 @@
   }, 
   "labyrinth9": {  
     "custom_type": "Room", 
-    "description": "You're in a room in the labyrinth between the east and south towers.\nThis one is roughly rectangular, and the inscription above one of the archways\nreads \"Gratia vobis et pax.\" There are doors to the north, northwest, and\nsouthwest.", 
+    "description": "You're in a room in the labyrinth between the east and south towers. This one is roughly rectangular, and the inscription above one of the archways reads \"Gratia vobis et pax.\" There are doors to the north, northwest, and southwest.", 
     "directions": {
       "n": "labyrinth6", 
       "nw": "labyrinth11", 
@@ -982,7 +982,7 @@
   }, 
   "librarian_alcove": {  
     "custom_type": "Room", 
-    "description": "This is the librarian alcove, the main hub of their behind-the-scenes\nlibrary management. There is a small roller-top desk in the corner. There are\nexits to the north, south, east, and west.", 
+    "description": "This is the librarian alcove, the main hub of their behind-the-scenes library management. There is a small roller-top desk in the corner. There are exits to the north, south, east, and west.", 
     "directions": {
       "e": "robing_room", 
       "n": "reading_room", 
@@ -994,7 +994,7 @@
   }, 
   "little_shop": {  
     "custom_type": "Room", 
-    "description": "It's the little shop! Just what every library planet requires. There are shelves\nof kitschy gifts, stationary, and display books lining the walls. The library\nroom you came from is visible through the glass walls. The only exit is to the\nsoutheast, where you came from.", 
+    "description": "It's the little shop! Just what every library planet requires. There are shelves of kitschy gifts, stationary, and display books lining the walls. The library room you came from is visible through the glass walls. The only exit is to the southeast, where you came from.", 
     "directions": {
       "se": "dw_library"
     },  
@@ -1003,7 +1003,7 @@
   }, 
   "lower_librarian_hallway": {  
     "custom_type": "Room", 
-    "description": "You're standing in a hallway. There are many doors adjacent to this\nhallway, more than the two upper floors. The doors are all painted yellow.\nThey're all closed, except for the one in the southeastern corner. There are\nalso stairs leading up.", 
+    "description": "You're standing in a hallway. There are many doors adjacent to this hallway, more than the two upper floors. The doors are all painted yellow. They're all closed, except for the one in the southeastern corner. There are also stairs leading up.", 
     "directions": {
       "se": "third_assistant_study", 
       "u": "middle_librarian_hallway"
@@ -1013,7 +1013,7 @@
   }, 
   "middle_librarian_hallway": {  
     "custom_type": "Room", 
-    "description": "You're standing in a hallway. All of the doors are painted red. They're\nall closed and locked. There are stairs leading up and down.", 
+    "description": "You're standing in a hallway. All of the doors are painted red. They're all closed and locked. There are stairs leading up and down.", 
     "directions": {
       "d": "lower_librarian_hallway", 
       "e": "second_assistant_study", 
@@ -1029,13 +1029,13 @@
       "w": "reading_room"
     },  
     "locked": true, 
-    "locked_description": "No, I really don't think you want to go that way. Why\ndon't you stick to the library?", 
+    "locked_description": "No, I really don't think you want to go that way. Why don't you stick to the library?", 
     "name": "Outside the Library",   
     "short_name": "outside_of_library"
   }, 
   "playground": {
     "custom_type": "Room",
-    "description": "You're standing in a small park, with a playground at its center. There are\ndozens of children playing on the playground. There is a path leading east.",
+    "description": "You're standing in a small park, with a playground at its center. There are dozens of children playing on the playground. There is a path leading east.",
     "directions": {
       "e": "dr_moon"
     },  
@@ -1045,7 +1045,7 @@
   }, 
   "reading_room": {  
     "custom_type": "Room", 
-    "description": "You're in the Main Reading Room. Large wooden tables fill the room.\nThere are exits to the south and west. The main doors are open to the east.", 
+    "description": "You're in the Main Reading Room. Large wooden tables fill the room. There are exits to the south and west. The main doors are open to the east.", 
     "directions": {
       "e": "outside_of_library", 
       "s": "librarian_alcove", 
@@ -1056,18 +1056,18 @@
   }, 
   "restricted": {  
     "custom_type": "Room", 
-    "description": "You're in the restricted section of an obviously magical library. There\nare aisles of bookshelves with a shelf at hip-level to be used as desks, and\nstudy tables next to the floor-length windows. The only exit is to the east.", 
+    "description": "You're in the restricted section of an obviously magical library. There are aisles of bookshelves with a shelf at hip-level to be used as desks, and study tables next to the floor-length windows. The only exit is to the east.", 
     "directions": {
       "e": "hall15"
     }, 
     "locked": true, 
-    "locked_description": "This is Madam Pince's territory and it's CLEARLY\noff-limits, so I'm going to pretend you didn't just try to do that. You're\nwelcome for saving you from that hell, although you obviously don't deserve\nit. *coughidiotcough*", 
+    "locked_description": "This is Madam Pince's territory and it's CLEARLY off-limits, so I'm going to pretend you didn't just try to do that. You're welcome for saving you from that hell, although you obviously don't deserve it. *coughidiotcough*", 
     "name": "Restricted Section",   
     "short_name": "restricted"
   }, 
   "robing_room": {  
     "custom_type": "Room", 
-    "description": "You're in a room full of miscellaneous useful things. Boat hooks,\nclimbing ropes, and weapons line the walls. The only exit is to the west.", 
+    "description": "You're in a room full of miscellaneous useful things. Boat hooks, climbing ropes, and weapons line the walls. The only exit is to the west.", 
     "directions": {
       "w": "librarian_alcove"
     },  
@@ -1076,7 +1076,7 @@
   }, 
   "second_assistant_study": {  
     "custom_type": "Room", 
-    "description": "This is your new study, the room of a Second Assistant Librarian.\nThere's enough room for a desk and not one but two chairs (what luxury!), and\nthere's a door ajar that leads to a tiny bathroom, all your own. The only exit\nis to the west.", 
+    "description": "This is your new study, the room of a Second Assistant Librarian. There's enough room for a desk and not one but two chairs (what luxury!), and there's a door ajar that leads to a tiny bathroom, all your own. The only exit is to the west.", 
     "directions": {
       "w": "middle_librarian_hallway"
     }, 
@@ -1086,7 +1086,7 @@
   }, 
   "stilken_room1": {  
     "custom_type": "Room", 
-    "description": "This is an immensely peaceful room, without a book in sight. The floor\nis tiled, except for the center, which is home to a pleasant (if small) meadow\nand a large oak tree, as well as a small silver pool. A narrow gate is open to\nthe east (too small for a human), and a door to the west.", 
+    "description": "This is an immensely peaceful room, without a book in sight. The floor is tiled, except for the center, which is home to a pleasant (if small) meadow and a large oak tree, as well as a small silver pool. A narrow gate is open to the east (too small for a human), and a door to the west.", 
     "directions": {
       "e": "stilken_room2", 
       "w": "hall23"
@@ -1097,7 +1097,7 @@
   }, 
   "stilken_room2": {  
     "custom_type": "Room", 
-    "description": "There is a glass floor in this room, and a low stone table in the\nmiddle. The only exit is a narrow gate to the west, too small for a human.", 
+    "description": "There is a glass floor in this room, and a low stone table in the middle. The only exit is a narrow gate to the west, too small for a human.", 
     "directions": {
       "w": "stilken_room1"
     },  
@@ -1106,17 +1106,17 @@
   }, 
   "third_assistant_study": {  
     "custom_type": "Room", 
-    "description": "This is your study. It's very cramped; there's barely room for the desk\nand single chair that are here. The only exit is to the northwest.", 
+    "description": "This is your study. It's very cramped; there's barely room for the desk and single chair that are here. The only exit is to the northwest.", 
     "directions": {
       "nw": "lower_librarian_hallway"
     },  
     "name": "Third Assistant Study",  
-    "secondary_description": "This is your old study. It's quite cramped. Hard to believe that you spent\nso much time in this tiny room! The only exit is to the northwest.", 
+    "secondary_description": "This is your old study. It's quite cramped. Hard to believe that you spent so much time in this tiny room! The only exit is to the northwest.", 
     "short_name": "third_assistant_study"
   }, 
   "upper_librarian_hallway": {  
     "custom_type": "Room", 
-    "description": "You're standing in a hallway, in the employees-only librarians' wing of\nthe library. Painted blue doors line the hallway, but they're all closed and\nlocked. There's a door at the south end of the hallway. There's an exit to the\nnorth, and steps leading down.", 
+    "description": "You're standing in a hallway, in the employees-only librarians' wing of the library. Painted blue doors line the hallway, but they're all closed and locked. There's a door at the south end of the hallway. There's an exit to the north, and steps leading down.", 
     "directions": {
       "d": "middle_librarian_hallway", 
       "n": "librarian_alcove", 
@@ -1128,7 +1128,7 @@
   }, 
   "uu_library1": {  
     "custom_type": "Room", 
-    "description": "You're in the prestigiously distinguished and esteemed Unseen University\nLibrary. It is just as officious-looking as you'd expect of such a\nprestigiously distinguished and esteemed library; the walls are covered with\ncherry panelling, in the rare instances that they aren't covered in books. The\nfloor is glass, or possibly glass. At any rate, you can see people below you\nwalking around, although, strangely, they seem to be walking upside down.\nYou're in the reading hall, which extends to the south before ending in a\nmassive window that takes up the entire southern wall. There are also stairs\nleading up and down, and a door to the north.", 
+    "description": "You're in the prestigiously distinguished and esteemed Unseen University Library. It is just as officious-looking as you'd expect of such a prestigiously distinguished and esteemed library; the walls are covered with cherry panelling, in the rare instances that they aren't covered in books. The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although, strangely, they seem to be walking upside down. You're in the reading hall, which extends to the south before ending in a massive window that takes up the entire southern wall. There are also stairs leading up and down, and a door to the north.", 
     "directions": {
       "d": "uu_library1", 
       "n": "hall8", 
@@ -1138,12 +1138,12 @@
     "locked": true,  
     "name": "Unseen University Library", 
     "npc": "orangutan", 
-    "secondary_description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down.", 
+    "secondary_description": "You're in the Unseen University Library. The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although, strangely, they seem to be walking upside down. You're in the reading hall, which extends to the north. There are also stairs leading up and down.", 
     "short_name": "uu_library1"
   }, 
   "uu_library2": {  
     "custom_type": "Room", 
-    "description": "You're in the Unseen University Library. The floor is glass, or possibly\nglass. At any rate, you can see people below you walking around, although,\nstrangely, they seem to be walking upside down. You're in the reading hall,\nwhich extends to the north. There are also stairs leading up and down.", 
+    "description": "You're in the Unseen University Library. The floor is glass, or possibly glass. At any rate, you can see people below you walking around, although, strangely, they seem to be walking upside down. You're in the reading hall, which extends to the north. There are also stairs leading up and down.", 
     "directions": {
       "d": "uu_library2", 
       "n": "uu_library1", 
@@ -1154,7 +1154,7 @@
   }, 
   "uu_library3": {  
     "custom_type": "Room", 
-    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the northern end where you're\nstanding, and into the southern end of the hall beyond. There are stairs\nleading down.", 
+    "description": "You're on the upper walkway of the Unseen University Library. The walkway extends all the way around the walls of the northern end where you're standing, and into the southern end of the hall beyond. There are stairs leading down.", 
     "directions": {
       "d": "uu_library1", 
       "s": "uu_library4"
@@ -1164,7 +1164,7 @@
   }, 
   "uu_library4": {  
     "custom_type": "Room", 
-    "description": "You're on the upper walkway of the Unseen University Library. The\nwalkway extends all the way around the walls of the southern end where you're\nstanding, and into the northern end of the hall beyond. There are stairs\nleading down.", 
+    "description": "You're on the upper walkway of the Unseen University Library. The walkway extends all the way around the walls of the southern end where you're standing, and into the northern end of the hall beyond. There are stairs leading down.", 
     "directions": {
       "d": "uu_library2", 
       "n": "uu_library3"
@@ -1174,7 +1174,7 @@
   }, 
   "wtnv_library1": {  
     "custom_type": "Room", 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You seem to be in the biography section, as on the nearest shelf\nyou can see three shelves full of copies of the official biography of Helen\nHunt. Tragically, this section of the library seems to lack both librarian\nrepellant dispensers and trees. I would get out of here as soon as possible if\nI were you, as you probably don't want to meet the librarians in this\nparticular library. There are doors to the south, east, and west.", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high bookshelves. You seem to be in the biography section, as on the nearest shelf you can see three shelves full of copies of the official biography of Helen Hunt. Tragically, this section of the library seems to lack both librarian repellant dispensers and trees. I would get out of here as soon as possible if I were you, as you probably don't want to meet the librarians in this particular library. There are doors to the south, east, and west.", 
     "directions": {
       "e": "wtnv_library3", 
       "s": "wtnv_library5", 
@@ -1186,7 +1186,7 @@
   }, 
   "wtnv_library2": {  
     "custom_type": "Room", 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You thought you'd left the biography section, but one of the\nnearby shelves has yet more copies of the official biography of Helen Hunt.\nTragically, this section of the library seems to lack both librarian repellant\ndispensers and trees. I would get out of here as soon as possible if I were\nyou, as you probably don't want to meet the librarians in this particular\nlibrary. There are doors to the west and south.", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high bookshelves. You thought you'd left the biography section, but one of the nearby shelves has yet more copies of the official biography of Helen Hunt. Tragically, this section of the library seems to lack both librarian repellant dispensers and trees. I would get out of here as soon as possible if I were you, as you probably don't want to meet the librarians in this particular library. There are doors to the west and south.", 
     "directions": {
       "s": "wtnv_library4", 
       "w": "wtnv_library3"
@@ -1196,7 +1196,7 @@
   }, 
   "wtnv_library3": {  
     "custom_type": "Room", 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. There are two very old (vintage? decrepit? Pleistocene?\ncarbon-dated?) computers in the corner, with hand-lettered \"Out of Order\" signs\ntaped to their screens. Tragically, this section of the library seems to lack\nboth librarian repellant dispensers and trees. I would get out of here as soon\nas possible if I were you, as you probably don't want to meet the librarians in\nthis particular library. There are doors to the east, west, and south.", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high bookshelves. There are two very old (vintage? decrepit? Pleistocene? carbon-dated?) computers in the corner, with hand-lettered \"Out of Order\" signs taped to their screens. Tragically, this section of the library seems to lack both librarian repellant dispensers and trees. I would get out of here as soon as possible if I were you, as you probably don't want to meet the librarians in this particular library. There are doors to the east, west, and south.", 
     "directions": {
       "e": "wtnv_library2", 
       "s": "wtnv_library6", 
@@ -1207,7 +1207,7 @@
   }, 
   "wtnv_library4": {  
     "custom_type": "Room", 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. The shelves here are completely empty. Tragically, this section\nof the library seems to lack both librarian repellant dispensers and trees. I\nwould get out of here as soon as possible if I were you, as you probably don't\nwant to meet the librarians in this particular library. There are doors to the\nnorth and west.", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high bookshelves. The shelves here are completely empty. Tragically, this section of the library seems to lack both librarian repellant dispensers and trees. I would get out of here as soon as possible if I were you, as you probably don't want to meet the librarians in this particular library. There are doors to the north and west.", 
     "directions": {
       "n": "wtnv_library2", 
       "w": "wtnv_library6"
@@ -1217,7 +1217,7 @@
   }, 
   "wtnv_library5": {  
     "custom_type": "Room", 
-    "description": "You're in a long, narrow, dimly-lit room with immensely high\nbookshelves. You think this might be the horror section, as all of the books\nyou can see seem to be about faceless spectres. Tragically, this section of the\nlibrary seems to lack both librarian repellant dispensers and trees. I would\nget out of here as soon as possible if I were you, as you probably don't want\nto meet the librarians in this particular library. There are doors to the north\nand east.", 
+    "description": "You're in a long, narrow, dimly-lit room with immensely high bookshelves. You think this might be the horror section, as all of the books you can see seem to be about faceless spectres. Tragically, this section of the library seems to lack both librarian repellant dispensers and trees. I would get out of here as soon as possible if I were you, as you probably don't want to meet the librarians in this particular library. There are doors to the north and east.", 
     "directions": {
       "e": "wtnv_library6", 
       "n": "wtnv_library1"
@@ -1227,7 +1227,7 @@
   }, 
   "wtnv_library6": {  
     "custom_type": "Room", 
-    "description": "This room is shaped like a pirate ship, with a mast that almost reaches\nthe ceiling. Dismembered bodies cover the floor. There are doors to the\nnorth, east, and west.", 
+    "description": "This room is shaped like a pirate ship, with a mast that almost reaches the ceiling. Dismembered bodies cover the floor. There are doors to the north, east, and west.", 
     "directions": {
       "e": "wtnv_library4", 
       "n": "wtnv_library3", 
@@ -1239,7 +1239,7 @@
   }, 
   "wtnv_library7": {  
     "custom_type": "Room", 
-    "description": "Phew! You've cleverly avoided the librarians by climbing the pirate\nship's crow's nest. They'll *never* look for you up here, I'm sure. This is\nquite a comfy perch, really. You could theoretically see quite far over the\nstacks, if the lighting weren't so terrible. Unfortunately, you'll have to go\ndown at some point, as there is nowhere else to go.", 
+    "description": "Phew! You've cleverly avoided the librarians by climbing the pirate ship's crow's nest. They'll *never* look for you up here, I'm sure. This is quite a comfy perch, really. You could theoretically see quite far over the stacks, if the lighting weren't so terrible. Unfortunately, you'll have to go down at some point, as there is nowhere else to go.", 
     "directions": {
       "d": "wtnv_library6"
     },  
