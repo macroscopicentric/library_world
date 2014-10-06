@@ -1,6 +1,6 @@
 ##Library World
 
-Text adventure based in fictional libraries. Play it online [here](http://obscure-lake-8329.herokuapp.com/library_world).
+Text adventure based in fictional libraries. Play it online [here](http://obscure-lake-8329.herokuapp.com/library_world). You can also play it in the terminal (library.py is the game engine).
 
 ###Setting Information
 The main library is the Clayr library from Garth Nix's Abhorsen trilogy. "The Charter" is just a fancy way of saying "magic."
