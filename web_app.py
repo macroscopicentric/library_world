@@ -6,7 +6,7 @@ from game import Game, simplify, reconstitute
 
 app = Flask(__name__)
 
-@app.route('/library_world')
+@app.route('/')
 def start_game():
     if 'saved_game' in session:
         description, room_name = web_game_wrapper('start_web', session['saved_game'])
@@ -22,10 +22,6 @@ def play_game():
 
     description, room_name = web_game_wrapper('play_web', app.response, session['saved_game'])
     return jsonify(room=room_name, output=description)
-
-@app.route('/')
-def redirect_from_main_page():
-    return redirect(url_for('start_game'))
 
 app.secret_key = '00000'
 
